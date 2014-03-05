@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./resources/template/template_1.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content">
+        <p:panel >
+            <f:facet name="header" >
+                <h:form>
+                    <h:outputLabel value="Submit Payment Cycle Data" ></h:outputLabel>
+                    <p:commandButton value="Submit" ajax="false" action="#{dbfController.submit}" style="float: right;" />
+                    <p:commandButton value="Cancel" ajax="false" action="#{dbfController.cancelSubmit}" style="float: right;" />
+                </h:form>
+            </f:facet>
+
+            <h:form >
+
+                <p:panelGrid columns="1" >
+                    <p:panelGrid columns="3" >
+                        <p:panelGrid columns="2" >
+                            <h:outputText value="Institution"/>
+                            <h:outputText value="#{dbfController.institution.name}"/>
+                            <h:outputText value="Year"/>
+                            <h:outputLabel value="#{dbfController.payYear}"/>
+                            <h:outputText value="Month"/>
+                            <h:selectOneMenu  readonly="true" id="cmbMonth" value="#{dbfController.payMonth}"  >
+                                <f:selectItem itemLabel="Select Month" />
+                                <f:selectItem itemValue="1" itemLabel="January" />
+                                <f:selectItem itemValue="2" itemLabel="February" />
+                                <f:selectItem itemValue="3" itemLabel="March" />
+                                <f:selectItem itemValue="4" itemLabel="April" />
+                                <f:selectItem itemValue="5" itemLabel="May" />
+                                <f:selectItem itemValue="6" itemLabel="June" />
+                                <f:selectItem itemValue="7" itemLabel="July" />
+                                <f:selectItem itemValue="8" itemLabel="August" />
+                                <f:selectItem itemValue="9" itemLabel="September" />
+                                <f:selectItem itemValue="10" itemLabel="October" />
+                                <f:selectItem itemValue="11" itemLabel="November" />
+                                <f:selectItem itemValue="12" itemLabel="December" />
+                            </h:selectOneMenu>
+                            <h:outputText value="Set"/>
+                            <h:outputLabel value="#{dbfController.insSet.name}" ></h:outputLabel>
+                        </p:panelGrid>
+
+
+                        <p:panel id="gridSummerySet"  >
+                            <f:facet name="header" >
+                                <h:outputLabel value="Uploaded Set Summery" />
+                            </f:facet>
+                            <p:panelGrid columns="2" >
+                                <h:outputLabel value="Records without NIC"/>
+                                <h:outputLabel   value="#{dbfController.withoutNicCount}" />
+
+                                <h:outputLabel value="Records without Designations"/>
+                                <h:outputLabel   value="#{dbfController.withoutDesignationCount}" />
+
+                                <h:outputLabel value="Records without Identifiable Designations"/>
+                                <h:outputLabel   value="#{dbfController.withoutMappedDesignationCount}" />
+
+                                <h:outputLabel value="Records without Institutions"/>
+                                <h:outputLabel   value="#{dbfController.withoutInstitutionCount}" />
+
+                                <h:outputLabel value="Records without Identifiable Institutions"/>
+                                <h:outputLabel   value="#{dbfController.withoutMappedInstitutionCount}" />
+
+                                <h:outputLabel value="Active Records"/>
+                                <h:outputLabel   value="#{dbfController.activeCount}" />
+
+                                <h:outputLabel value="Temporary Person Records"/>
+                                <h:outputLabel   value="#{dbfController.temporaryCount}" />
+
+                            </p:panelGrid>
+                        </p:panel>
+
+                       
+
+                    </p:panelGrid>
+
+                    <p:panel header="Details" >
+
+                        <h:outputStylesheet library="css" name="default.css" ></h:outputStylesheet>
+
+                        <p:dataTable  id="tblEx" value="#{dbfController.newPersonInstitutions}" 
+                                      rowIndexVar="rowIndex" var="exPi" 
+                                      editable="true" editMode="cell" 
+                                      rowStyleClass="#{exPi.conSal le 1 and exPi.activeState eq false ? 'redrow' : 'greenrow'}">
+
+                            <p:column >
+                                <f:facet name="header">Serial</f:facet>
+                                <h:outputLabel value="#{rowIndex + 1}"/>
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">Employee Id</f:facet>
+                                <h:outputLabel value="#{exPi.empNo}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">Name</f:facet>
+                                <h:outputLabel value="#{exPi.name}"/>
+                            </p:column> 
+                            <p:column>
+                                <f:facet name="header">NIC</f:facet>
+                                <h:outputLabel value="#{exPi.nic}"/>
+                            </p:column>   
+                            <p:column>
+                                <f:facet name="header">Designation Present</f:facet>
+                                <h:outputLabel value="#{exPi.strDesignation}"/>
+                            </p:column>  
+                            <p:column>
+                                <f:facet name="header">Designation Mapped</f:facet>
+                                <h:outputLabel value="#{exPi.designation.name}"/>
+                            </p:column> 
+                            <p:column>
+                                <f:facet name="header">Institution Present</f:facet>
+                                <h:outputLabel value="#{exPi.strInstitution}"/>
+                            </p:column> 
+                            <p:column>
+                                <f:facet name="header">Institution Mapped</f:facet>
+                                <h:outputLabel value="#{exPi.institution.name}"/>
+                            </p:column>
+                            <p:column > 
+                                <f:facet name="header">F1_CONSAL</f:facet>
+                                <h:outputLabel value="#{exPi.conSal}" ></h:outputLabel>
+                            </p:column>
+                            <p:column > 
+                                <f:facet name="header">F1_STAT</f:facet>
+                                <h:outputLabel value="#{exPi.activeState}" ></h:outputLabel>
+                            </p:column>
+                        </p:dataTable>
+
+                    </p:panel>
+
+                </p:panelGrid>
+            </h:form>
+        </p:panel>
+    </ui:define>
+</ui:composition>

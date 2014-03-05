@@ -53,7 +53,7 @@ public class NotificationForm implements Serializable {
     String diagnosis;
     String motherName;
     @Temporal(javax.persistence.TemporalType.DATE)
-    Date motherDOB;
+    Date motherDoB;
     int age;
     String nic;
     String ethnicity;
@@ -219,12 +219,12 @@ public class NotificationForm implements Serializable {
         this.motherName = motherName;
     }
 
-    public Date getMotherDOB() {
-        return motherDOB;
+    public Date getMotherDoB() {
+        return motherDoB;
     }
 
-    public void setMotherDOB(Date motherDOB) {
-        this.motherDOB = motherDOB;
+    public void setMotherDoB(Date motherDoB) {
+        this.motherDoB = motherDoB;
     }
 
     public int getAge() {

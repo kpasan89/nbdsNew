@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -41,6 +42,43 @@ public class AbstractionForm implements Serializable {
     Area mohArea;
     @ManyToOne
     Area gnArea;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date caseIdentifiedDate;
+    String bhtno;
+    Boolean aliveOrDead;
+    String diagnosis;
+    String motherName;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date motherDoB;
+    int age;
+    String nic;
+    String ethnicity;
+    String address;
+    String tp1;
+    String tp2;
+    int totPreg;
+    int liveBirth;
+    int sfDeath; // Spontaneous Fetal Deaths
+    int ufDeath; // Unspecified fetal deaths / pregnancy terminations
+    Boolean iddm; // Pre-pregnancy diabetes mellitus, IDDM
+    Boolean nidm; // Pre-pregnancy diabetes mellitus, NIDM
+    Boolean gdm; // GDM During this pregnancy
+    Boolean hyten; // Hypertension
+    Boolean epileps; // Epilepsy/seizures before or during this pregnancy
+    Boolean bmi; // Maternal obesity 
+    Boolean Cons; // Consanguinity
+    Boolean falicSupp; // Pre-pregnancy Folic Acid Supplementation
+    Boolean rub; // Rubella
+    Boolean cmv; // Cytomegalovirus (CMV)
+    Boolean othrFebIll; // Other febrile illness:
+    Boolean medDurPreg; // Medications during pregnancy
+    Boolean actSmk; // Active Smoking
+    Boolean pasSmk; // Passive Smoking
+    Boolean alBfrPreg; // Alcohol Before Pregnancy
+    Boolean alDurPreg; // Alcohol During Pregnancy
+    Boolean othrSubs; // Other substances
+    String relToChild; // Relationship to Child
+    String famBrthDef; // Family Member’s Birth Defect   
     
     public Long getId() {
         return id;
@@ -74,5 +112,350 @@ public class AbstractionForm implements Serializable {
     public String toString() {
         return "gov.health.entity.AbstractionForm[ id=" + id + " ]";
     }
+
+    public Person getInName() {
+        return inName;
+    }
+
+    public void setInName(Person inName) {
+        this.inName = inName;
+    }
+
+    public Person getInSex() {
+        return inSex;
+    }
+
+    public void setInSex(Person inSex) {
+        this.inSex = inSex;
+    }
+
+    public Institution getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Institution hospital) {
+        this.hospital = hospital;
+    }
+
+    public Unit getWard() {
+        return ward;
+    }
+
+    public void setWard(Unit ward) {
+        this.ward = ward;
+    }
+
+    public Area getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(Area district) {
+        this.district = district;
+    }
+
+    public Area getRdhsArea() {
+        return rdhsArea;
+    }
+
+    public void setRdhsArea(Area rdhsArea) {
+        this.rdhsArea = rdhsArea;
+    }
+
+    public Area getMohArea() {
+        return mohArea;
+    }
+
+    public void setMohArea(Area mohArea) {
+        this.mohArea = mohArea;
+    }
+
+    public Area getGnArea() {
+        return gnArea;
+    }
+
+    public void setGnArea(Area gnArea) {
+        this.gnArea = gnArea;
+    }
+
+    public Date getCaseIdentifiedDate() {
+        return caseIdentifiedDate;
+    }
+
+    public void setCaseIdentifiedDate(Date caseIdentifiedDate) {
+        this.caseIdentifiedDate = caseIdentifiedDate;
+    }
+
+    public String getBhtno() {
+        return bhtno;
+    }
+
+    public void setBhtno(String bhtno) {
+        this.bhtno = bhtno;
+    }
+
+    public Boolean isAliveOrDead() {
+        return aliveOrDead;
+    }
+
+    public void setAliveOrDead(Boolean aliveOrDead) {
+        this.aliveOrDead = aliveOrDead;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public String getMotherName() {
+        return motherName;
+    }
+
+    public void setMotherName(String motherName) {
+        this.motherName = motherName;
+    }
+
+    public Date getMotherDoB() {
+        return motherDoB;
+    }
+
+    public void setMotherDoB(Date motherDoB) {
+        this.motherDoB = motherDoB;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getNic() {
+        return nic;
+    }
+
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
+
+    public String getEthnicity() {
+        return ethnicity;
+    }
+
+    public void setEthnicity(String ethnicity) {
+        this.ethnicity = ethnicity;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getTp1() {
+        return tp1;
+    }
+
+    public void setTp1(String tp1) {
+        this.tp1 = tp1;
+    }
+
+    public String getTp2() {
+        return tp2;
+    }
+
+    public void setTp2(String tp2) {
+        this.tp2 = tp2;
+    }
+
+    public int getTotPreg() {
+        return totPreg;
+    }
+
+    public void setTotPreg(int totPreg) {
+        this.totPreg = totPreg;
+    }
+
+    public int getLiveBirth() {
+        return liveBirth;
+    }
+
+    public void setLiveBirth(int liveBirth) {
+        this.liveBirth = liveBirth;
+    }
+
+    public int getSfDeath() {
+        return sfDeath;
+    }
+
+    public void setSfDeath(int sfDeath) {
+        this.sfDeath = sfDeath;
+    }
+
+    public int getUfDeath() {
+        return ufDeath;
+    }
+
+    public void setUfDeath(int ufDeath) {
+        this.ufDeath = ufDeath;
+    }
+
+    public Boolean isIddm() {
+        return iddm;
+    }
+
+    public void setIddm(Boolean iddm) {
+        this.iddm = iddm;
+    }
+
+    public Boolean isNidm() {
+        return nidm;
+    }
+
+    public void setNidm(Boolean nidm) {
+        this.nidm = nidm;
+    }
+
+    public Boolean isGdm() {
+        return gdm;
+    }
+
+    public void setGdm(Boolean gdm) {
+        this.gdm = gdm;
+    }
+
+    public Boolean isHyten() {
+        return hyten;
+    }
+
+    public void setHyten(Boolean hyten) {
+        this.hyten = hyten;
+    }
+
+    public Boolean isEpileps() {
+        return epileps;
+    }
+
+    public void setEpileps(Boolean epileps) {
+        this.epileps = epileps;
+    }
+
+    public Boolean isBmi() {
+        return bmi;
+    }
+
+    public void setBmi(Boolean bmi) {
+        this.bmi = bmi;
+    }
+
+    public Boolean isCons() {
+        return Cons;
+    }
+
+    public void setCons(Boolean Cons) {
+        this.Cons = Cons;
+    }
+
+    public Boolean isFalicSupp() {
+        return falicSupp;
+    }
+
+    public void setFalicSupp(Boolean falicSupp) {
+        this.falicSupp = falicSupp;
+    }
+
+    public Boolean isRub() {
+        return rub;
+    }
+
+    public void setRub(Boolean rub) {
+        this.rub = rub;
+    }
+
+    public Boolean isCmv() {
+        return cmv;
+    }
+
+    public void setCmv(Boolean cmv) {
+        this.cmv = cmv;
+    }
+
+    public Boolean isOthrFebIll() {
+        return othrFebIll;
+    }
+
+    public void setOthrFebIll(Boolean othrFebIll) {
+        this.othrFebIll = othrFebIll;
+    }
+
+    public Boolean isMedDurPreg() {
+        return medDurPreg;
+    }
+
+    public void setMedDurPreg(Boolean medDurPreg) {
+        this.medDurPreg = medDurPreg;
+    }
+
+    public Boolean isActSmk() {
+        return actSmk;
+    }
+
+    public void setActSmk(Boolean actSmk) {
+        this.actSmk = actSmk;
+    }
+
+    public Boolean isPasSmk() {
+        return pasSmk;
+    }
+
+    public void setPasSmk(Boolean pasSmk) {
+        this.pasSmk = pasSmk;
+    }
+
+    public Boolean isAlBfrPreg() {
+        return alBfrPreg;
+    }
+
+    public void setAlBfrPreg(Boolean alBfrPreg) {
+        this.alBfrPreg = alBfrPreg;
+    }
+
+    public Boolean isAlDurPreg() {
+        return alDurPreg;
+    }
+
+    public void setAlDurPreg(Boolean alDurPreg) {
+        this.alDurPreg = alDurPreg;
+    }
+
+    public Boolean isOthrSubs() {
+        return othrSubs;
+    }
+
+    public void setOthrSubs(Boolean othrSubs) {
+        this.othrSubs = othrSubs;
+    }
+
+    public String getRelToChild() {
+        return relToChild;
+    }
+
+    public void setRelToChild(String relToChild) {
+        this.relToChild = relToChild;
+    }
+
+    public String getFamBrthDef() {
+        return famBrthDef;
+    }
+
+    public void setFamBrthDef(String famBrthDef) {
+        this.famBrthDef = famBrthDef;
+    }
+    
     
 }

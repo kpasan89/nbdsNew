@@ -6,6 +6,7 @@
 
 package gov.health.entity;
 
+import gov.health.data.Ethnicity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -49,6 +50,7 @@ public class NotificationForm implements Serializable {
     Area gnArea;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date caseIdentifiedDate;
+    int bhtNo;
     Boolean aliveOrDead;
     String diagnosis;
     String motherName;
@@ -56,7 +58,6 @@ public class NotificationForm implements Serializable {
     Date motherDoB;
     int age;
     String nic;
-    String ethnicity;
     String address;
     String tp1;
     String tp2;
@@ -65,22 +66,40 @@ public class NotificationForm implements Serializable {
     Long infantAodYrs; // infant age of death by year
     Long infantAodMnths; // infant age of death by year
     Long infantAodDys; // infant age of death by year
-    Boolean postMortem; // yes or no
+    String placeOfDead;
+    boolean postMortem; // yes or no
     @ManyToOne
     Person nameOfJmo;
     String underlyingCause; // Causes of death
     String immediateCause; // Causes of death
     String conDeath; // Conditions contributing to Death
     @ManyToOne
-    Person imName; // imformant name
+    Person informant; // imformant name
     @ManyToOne
-    Person imdesignation; // imformant designation
-    @ManyToOne
-    Person imTP; // imformant contact number
+    Designation imDesignation; // imformant designation
+    String inTp; // informant telephone
     @ManyToOne
     Person nameHOI; // Head of the institutions' name
     @Temporal(javax.persistence.TemporalType.DATE)
     Date approveDate; // by head of the institution
+
+    public boolean isPostMortem() {
+        return postMortem;
+    }
+
+    public void setPostMortem(boolean postMortem) {
+        this.postMortem = postMortem;
+    }
+
+    
+    
+    public String getInTp() {
+        return inTp;
+    }
+
+    public void setInTp(String inTp) {
+        this.inTp = inTp;
+    }
 
     public Long getId() {
         return id;
@@ -88,6 +107,14 @@ public class NotificationForm implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getPlaceOfDead() {
+        return placeOfDead;
+    }
+
+    public void setPlaceOfDead(String placeOfDead) {
+        this.placeOfDead = placeOfDead;
     }
 
     @Override
@@ -195,6 +222,14 @@ public class NotificationForm implements Serializable {
         this.caseIdentifiedDate = caseIdentifiedDate;
     }
 
+    public int getBhtNo() {
+        return bhtNo;
+    }
+
+    public void setBhtNo(int bhtNo) {
+        this.bhtNo = bhtNo;
+    }
+
     public Boolean isAliveOrDead() {
         return aliveOrDead;
     }
@@ -243,14 +278,6 @@ public class NotificationForm implements Serializable {
         this.nic = nic;
     }
 
-    public String getEthnicity() {
-        return ethnicity;
-    }
-
-    public void setEthnicity(String ethnicity) {
-        this.ethnicity = ethnicity;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -275,14 +302,7 @@ public class NotificationForm implements Serializable {
         this.tp2 = tp2;
     }
     
-    public Boolean isPostMortem() {
-        return postMortem;
-    }
-
-    public void setPostMortem(Boolean postMortem) {
-        this.postMortem = postMortem;
-    }
-
+    
     public Person getInfantDod() {
         return infantDod;
     }
@@ -347,28 +367,20 @@ public class NotificationForm implements Serializable {
         this.conDeath = conDeath;
     }
 
-    public Person getImName() {
-        return imName;
+    public Person getInformant() {
+        return informant;
     }
 
-    public void setImName(Person imName) {
-        this.imName = imName;
+    public void setInformant(Person informant) {
+        this.informant = informant;
     }
 
-    public Person getImdesignation() {
-        return imdesignation;
+    public Designation getImDesignation() {
+        return imDesignation;
     }
 
-    public void setImdesignation(Person imdesignation) {
-        this.imdesignation = imdesignation;
-    }
-
-    public Person getImTP() {
-        return imTP;
-    }
-
-    public void setImTP(Person imTP) {
-        this.imTP = imTP;
+    public void setImDesignation(Designation imDesignation) {
+        this.imDesignation = imDesignation;
     }
 
     public Person getNameHOI() {
@@ -385,6 +397,9 @@ public class NotificationForm implements Serializable {
 
     public void setApproveDate(Date approveDate) {
         this.approveDate = approveDate;
+    }
+
+    public NotificationForm() {
     }
     
     

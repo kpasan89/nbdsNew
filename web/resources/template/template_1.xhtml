@@ -73,7 +73,7 @@
                             <p:menuitem  ajax="false"  action="index" value="Home" ></p:menuitem>
                             <p:submenu label="Cases" >
                                 <p:menuitem ajax="false" action="institution_designation_summary" value="Field Birth Defect Notification" ></p:menuitem>
-                                <p:menuitem ajax="false" action="paycentre_designation_summary" value="Hospital Birth Defect Notification" ></p:menuitem>
+                                <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
                                 <p:menuitem ajax="false" action="records_without_nic"  value="Case Ascertainment"  ></p:menuitem>
                             </p:submenu>
                             <p:submenu label="Reports"  >

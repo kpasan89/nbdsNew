@@ -7,6 +7,7 @@
  */
 package gov.health.entity;
 
+import gov.health.data.Ethnicity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Locale;
@@ -63,7 +64,17 @@ public class Person implements Serializable {
     @ManyToOne
     Area area;
     @Temporal(javax.persistence.TemporalType.DATE)
-    Date dateOfDead; 
+    Date dateOfDead;
+    int age;
+    Ethnicity ethnicity;
+
+    public Ethnicity getEthnicity() {
+        return ethnicity;
+    }
+
+    public void setEthnicity(Ethnicity ethnicity) {
+        this.ethnicity = ethnicity;
+    }
 
     
     public Date getDateOfDead() {
@@ -72,6 +83,14 @@ public class Person implements Serializable {
 
     public void setDateOfDead(Date dateOfDead) {
         this.dateOfDead = dateOfDead;
+    }
+
+    public double getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
     
     public String getInitials() {

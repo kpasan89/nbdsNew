@@ -369,12 +369,13 @@ public class AreaController implements Serializable {
     @FacesConverter(forClass = Area.class)
     public static class AreaControllerConverter implements Converter {
 
+        @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
             AreaController controller = (AreaController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "designationController");
+                    getValue(facesContext.getELContext(), null, "areaController");
             return controller.getEjbFacade().find(getKey(value));
         }
 
@@ -385,11 +386,12 @@ public class AreaController implements Serializable {
         }
 
         String getStringKey(java.lang.Long value) {
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
         }
 
+        @Override
         public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
             if (object == null) {
                 return null;

@@ -22,7 +22,6 @@ import java.io.Serializable;
 import java.util.Enumeration;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -63,11 +62,7 @@ public class SessionController implements Serializable {
         if (loggedUser == null) {
             return false;
         }
-        if (loggedUser.getRole().getName().equalsIgnoreCase("sysAdmin")) {
-            return true;
-        } else {
-            return false;
-        }
+        return loggedUser.getRole().getName().equalsIgnoreCase("sysAdmin");
     }
 
     public void setSysAdmin(boolean sysAdmin) {
@@ -78,11 +73,7 @@ public class SessionController implements Serializable {
         if (loggedUser == null) {
             return false;
         }
-        if (loggedUser.getRole().getName().equalsIgnoreCase("superUser")) {
-            return true;
-        } else {
-            return false;
-        }
+        return loggedUser.getRole().getName().equalsIgnoreCase("superUser");
 
     }
 
@@ -94,11 +85,7 @@ public class SessionController implements Serializable {
         if (loggedUser == null) {
             return false;
         }
-        if (loggedUser.getRole().getName().equalsIgnoreCase("insUser")) {
-            return true;
-        } else {
-            return false;
-        }
+        return loggedUser.getRole().getName().equalsIgnoreCase("insUser");
 
     }
 
@@ -110,11 +97,7 @@ public class SessionController implements Serializable {
         if (getLoggedUser() == null) {
             return false;
         }
-        if (loggedUser.getRole().getName().equalsIgnoreCase("insAdmin")) {
-            return true;
-        } else {
-            return false;
-        }
+        return loggedUser.getRole().getName().equalsIgnoreCase("insAdmin");
 
     }
 
@@ -265,6 +248,7 @@ public class SessionController implements Serializable {
 
     /**
      * Creates a new instance of sessionController
+     * @return 
      */
     public String getEmail() {
         return email;
@@ -351,27 +335,27 @@ public class SessionController implements Serializable {
         person.setName(userName);
         pFacade.create(person);
 
-        WebUserRole role = new WebUserRole();
-        role.setName("superUser");
-        rFacade.create(role);
+        WebUserRole wuRole = new WebUserRole();
+        wuRole.setName("superUser");
+        rFacade.create(wuRole);
 
-        role = new WebUserRole();
-        role.setName("insUser");
-        rFacade.create(role);
+        wuRole = new WebUserRole();
+        wuRole.setName("insUser");
+        rFacade.create(wuRole);
 
-        role = new WebUserRole();
-        role.setName("insAdmin");
-        rFacade.create(role);
+        wuRole = new WebUserRole();
+        wuRole.setName("insAdmin");
+        rFacade.create(wuRole);
 
-        role = new WebUserRole();
-        role.setName("sysAdmin");
-        rFacade.create(role);
+        wuRole = new WebUserRole();
+        wuRole.setName("sysAdmin");
+        rFacade.create(wuRole);
 
         user.setName(HOSecurity.encrypt(userName));
         user.setWebUserPassword(HOSecurity.hash(passord));
         user.setWebUserPerson(person);
         user.setActivated(true);
-        user.setRole(role);
+        user.setRole(wuRole);
         uFacade.create(user);
 
 //        JsfUtil.addSuccessMessage("New User Added");
@@ -393,12 +377,10 @@ public class SessionController implements Serializable {
                 temp = Integer.parseInt(telNo);
                 //check if this is a number
                 //System.out.println("Integer OK !");
-
-                for (int j = 0; j < telCodes.length; j++) {
+                for (String telCode : telCodes) {
                     // check if the number starts with a valid value
                     //System.out.println("looping OK ! " + telNo.substring(0, 3) + " " + telCodes[j]);
-
-                    if (telNo.substring(0, 3).equalsIgnoreCase(telCodes[j])) {
+                    if (telNo.substring(0, 3).equalsIgnoreCase(telCode)) {
                         return true;
                     }
                 }
@@ -508,13 +490,7 @@ public class SessionController implements Serializable {
     }
 
     private boolean isFirstVisit() {
-        if (getFacede().count() <= 0) {
-//            JsfUtil.addSuccessMessage("First Visit");
-            return true;
-        } else {
-//            JsfUtil.addSuccessMessage("Not, Not First Visit");
-            return false;
-        }
+        return getFacede().count() <= 0;
 
     }
 

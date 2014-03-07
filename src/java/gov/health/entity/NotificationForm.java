@@ -39,7 +39,7 @@ public class NotificationForm implements Serializable {
     @ManyToOne
     Institution hospital;
     @ManyToOne
-    Unit ward;
+    Department ward;
     @ManyToOne
     Area district;
     @ManyToOne
@@ -174,11 +174,11 @@ public class NotificationForm implements Serializable {
         this.hospital = hospital;
     }
 
-    public Unit getWard() {
+    public Department getWard() {
         return ward;
     }
 
-    public void setWard(Unit ward) {
+    public void setWard(Department ward) {
         this.ward = ward;
     }
 

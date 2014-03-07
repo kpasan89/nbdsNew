@@ -17,7 +17,7 @@ import javax.persistence.*;
  * Informatics)
  */
 @Entity
-public class Unit implements Serializable {
+public class Department implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -139,10 +139,10 @@ public class Unit implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Unit)) {
+        if (!(object instanceof Department)) {
             return false;
         }
-        Unit other = (Unit) object;
+        Department other = (Department) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

@@ -1,3 +1,5 @@
+package gov.health.bean;
+
 /*
  * MSc(Biomedical Informatics) Project
  * 
@@ -77,6 +79,10 @@ public class NotificationFormController implements Serializable {
     public NotificationForm getCurrent() {
         if (current == null) {
             current = new NotificationForm();
+            Person mother = new Person();
+            Person infant = new Person();
+            current.setMother(mother);
+            current.setInfant(infant);
         }
         return current;
     }
@@ -93,7 +99,17 @@ public class NotificationFormController implements Serializable {
     }
 
     public void saveSelected() {
-
+        if(current==null){
+            JsfUtil.addErrorMessage("Error");
+            return;
+        }
+        if(current.getId()==null || current.getId()==0){
+            getFacade().create(current);
+        }else{
+            getFacade().edit(current);
+        }
+        JsfUtil.addSuccessMessage("Saved");
+        
     }
 
     public String getSelectText() {

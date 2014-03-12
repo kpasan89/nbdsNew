@@ -67,6 +67,16 @@ public class Person implements Serializable {
     Date dateOfDead;
     int age;
     Ethnicity ethnicity;
+    String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
 
     public Ethnicity getEthnicity() {
         return ethnicity;

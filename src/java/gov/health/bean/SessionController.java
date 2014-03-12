@@ -62,6 +62,9 @@ public class SessionController implements Serializable {
         if (loggedUser == null) {
             return false;
         }
+        if(loggedUser.getRole()==null){
+            return true;
+        }
         return loggedUser.getRole().getName().equalsIgnoreCase("sysAdmin");
     }
 
@@ -96,6 +99,9 @@ public class SessionController implements Serializable {
     public boolean isInsAdmin() {
         if (getLoggedUser() == null) {
             return false;
+        }
+        if (loggedUser.getRole() == null){
+            return  true;
         }
         return loggedUser.getRole().getName().equalsIgnoreCase("insAdmin");
 

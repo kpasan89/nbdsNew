@@ -6,6 +6,7 @@
 
 package gov.health.entity;
 
+import gov.health.data.Ethnicity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -27,9 +28,9 @@ public class AbstractionForm implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
-    Person inName;
-    @ManyToOne
-    Person inSex;
+    Person infant;
+    //@ManyToOne
+    //Person inSex;
     @ManyToOne
     Institution hospital;
     @ManyToOne
@@ -47,13 +48,17 @@ public class AbstractionForm implements Serializable {
     String bhtno;
     Boolean aliveOrDead;
     String diagnosis;
-    String motherName;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    Date motherDoB;
+    @ManyToOne
+    Person mother;
+    //String motherName;
+    //@Temporal(javax.persistence.TemporalType.DATE)
+    //Date motherDoB;
     int age;
-    String nic;
-    String ethnicity;
-    String address;
+    //@ManyToOne
+    //Person mnic;
+    Ethnicity methnicity;
+    //@ManyToOne
+    //Person address;
     String tp1;
     String tp2;
     int totPreg;
@@ -111,22 +116,6 @@ public class AbstractionForm implements Serializable {
     @Override
     public String toString() {
         return "gov.health.entity.AbstractionForm[ id=" + id + " ]";
-    }
-
-    public Person getInName() {
-        return inName;
-    }
-
-    public void setInName(Person inName) {
-        this.inName = inName;
-    }
-
-    public Person getInSex() {
-        return inSex;
-    }
-
-    public void setInSex(Person inSex) {
-        this.inSex = inSex;
     }
 
     public Institution getHospital() {
@@ -208,23 +197,7 @@ public class AbstractionForm implements Serializable {
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
     }
-
-    public String getMotherName() {
-        return motherName;
-    }
-
-    public void setMotherName(String motherName) {
-        this.motherName = motherName;
-    }
-
-    public Date getMotherDoB() {
-        return motherDoB;
-    }
-
-    public void setMotherDoB(Date motherDoB) {
-        this.motherDoB = motherDoB;
-    }
-
+    
     public int getAge() {
         return age;
     }
@@ -233,36 +206,36 @@ public class AbstractionForm implements Serializable {
         this.age = age;
     }
 
-    public String getNic() {
-        return nic;
-    }
-
-    public void setNic(String nic) {
-        this.nic = nic;
-    }
-
-    public String getEthnicity() {
-        return ethnicity;
-    }
-
-    public void setEthnicity(String ethnicity) {
-        this.ethnicity = ethnicity;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getTp1() {
         return tp1;
     }
 
     public void setTp1(String tp1) {
         this.tp1 = tp1;
+    }
+
+    public Ethnicity getMethnicity() {
+        return methnicity;
+    }
+
+    public void setMethnicity(Ethnicity methnicity) {
+        this.methnicity = methnicity;
+    }
+
+    public Person getInfant() {
+        return infant;
+    }
+
+    public void setInfant(Person infant) {
+        this.infant = infant;
+    }
+
+    public Person getMother() {
+        return mother;
+    }
+
+    public void setMother(Person mother) {
+        this.mother = mother;
     }
 
     public String getTp2() {
@@ -456,6 +429,8 @@ public class AbstractionForm implements Serializable {
     public void setFamBrthDef(String famBrthDef) {
         this.famBrthDef = famBrthDef;
     }
+
+   
     
     
 }

@@ -1,14 +1,182 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
 
         <ui:composition template="./resources/template/template_1.xhtml">
 
             <ui:define name="content">
-                content
+                <h:form>
+                    <p:panel header="Birth Diffect Abstraction Form">
+                        <f:facet name="header">
+                            <h:outputLabel value="Birth diffect abstraction form"></h:outputLabel>
+                            <p:spacer width="10"></p:spacer>
+                            <p:commandButton ajax="false" value="Save"></p:commandButton>
+                        </f:facet>
+                        <table width="50%" style="padding: 2.5%" align="center" bgcolor="white">
+                            <tr>
+                                <td><p:outputLabel>1. Infant's name</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.infant.name}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>2. Sex of infant</p:outputLabel></td>
+                                <td><p:selectOneRadio value="#{abstractionFormController.current.infant.personSex}" id="Sex">
+                                        <f:selectItem itemValue="male" itemLabel="Male"></f:selectItem>
+                                        <f:selectItem itemValue="female" itemLabel="Female"></f:selectItem>
+                                        <f:selectItem itemValue="ambiguous" itemLabel="Ambiguous"></f:selectItem>
+                                    </p:selectOneRadio></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel><font color="blue">3. Location where case identified :</font></p:outputLabel></td>
+                                <td><p:outputLabel><font color="blue">Residence :</font></p:outputLabel></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <ul><p:outputLabel>Hospital</p:outputLabel>
+                                        <p:autoComplete
+                                            forceSelection="true"                                 
+                                            value="#{abstractionFormController.current.hospital}" 
+                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                            converter="institutionConverter">
+                                        </p:autoComplete>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul><p:outputLabel>RDHS Division</p:outputLabel>  
+                                        <p:autoComplete
+                                            forceSelection="true"                                 
+                                            value="#{abstractionFormController.current.rdhsArea}" 
+                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                            converter="areaConverter">
+                                        </p:autoComplete>
+                                    </ul>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul><p:outputLabel>Ward/Unit</p:outputLabel>  
+                                        <p:autoComplete
+                                            forceSelection="true"                                 
+                                            value="#{abstractionFormController.current.ward}" 
+                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                            converter="departmentConverter">
+                                        </p:autoComplete>
+                                </ul>
+                            </td>                           
+                            <td>
+                                <ul><p:outputLabel>MOH Division</p:outputLabel>   
+                                        <p:autoComplete
+                                            forceSelection="true"                                 
+                                            value="#{abstractionFormController.current.mohArea}" 
+                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                            converter="areaConverter">
+                                        </p:autoComplete>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul><p:outputLabel>District</p:outputLabel>   
+                                        <p:autoComplete
+                                            forceSelection="true"                                 
+                                            value="#{abstractionFormController.current.district}" 
+                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                            converter="areaConverter">
+                                        </p:autoComplete>
+                                </ul>
+                            </td>                            
+                            <td>
+                                <ul><p:outputLabel>GN Division</p:outputLabel>    
+                                        <p:autoComplete
+                                            forceSelection="true"                                 
+                                            value="#{abstractionFormController.current.gnArea}" 
+                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                            converter="areaConverter">
+                                        </p:autoComplete>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p:outputLabel>4. Date of Case Identified</p:outputLabel></td>
+                            <td><p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40"></p:calendar></td>
+                        </tr>
+                        <tr>
+                            <td><p:outputLabel>5. BHT No</p:outputLabel></td>
+                            <td><p:inputText value="#{abstractionFormController.current.bhtno}" size="40"></p:inputText></td>
+                        </tr>
+                            <tr>
+                                <td><p:outputLabel>6. Whether the baby alive or dead ?</p:outputLabel></td>
+                                <td><p:selectOneRadio id="liveOrDead">
+                                    <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
+                                    <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
+                                    </p:selectOneRadio></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>7. Diagnosis / Birth Defect Coding</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.diagnosis}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>8. Name of the mother</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.mother.name}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>9. Mother’s Date of Birth</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.mother.dob}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>10. Age</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.mother.age}" size="35"></p:inputText><p:outputLabel>Years</p:outputLabel></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>11. National Identity Card No</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.mother.nic}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>12. Ethnicity</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.infant.ethnicity}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>13. Residence Address</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.mother.address}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>14. Phone1</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.tp1}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>15. Phone2</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.tp2}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>16. Total Pregnancies</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.totPreg}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>17. Live Births</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.liveBirth}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>18. Spontaneous Fetal Deaths </p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.sfDeath}" size="40"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel>19. Unspecified Fetal Deaths / Pregnancy terminations</p:outputLabel></td>
+                                <td><p:inputText value="#{abstractionFormController.current.ufDeath}" size="40"></p:inputText></td>
+                            </tr>
+                        </table>
+                    </p:panel>
+                </h:form>
             </ui:define>
 
         </ui:composition>

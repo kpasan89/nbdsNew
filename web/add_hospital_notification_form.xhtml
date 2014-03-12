@@ -23,7 +23,7 @@
                             <p:commandButton ajax="false" value="Save" ></p:commandButton>
                         </f:facet>
 
-                        <table align="center" width="50%" style="background-color: white">
+                        <table width="50%" style="padding: 2.5%" align="center" bgcolor="white">
                             <tr><td>1. Infant's name</td><td><p:inputText value="#{notificationFormController.current.infant.name}" size="40"></p:inputText></td></tr>
                             <tr><td>2. Sex of infant</td><td><p:selectOneRadio value="#{notificationFormController.current.infant.personSex}" id="sex">
                                         <f:selectItem itemValue="male" itemLabel=" Male "></f:selectItem>
@@ -92,7 +92,7 @@
                         <tr><td>7. Diagnosis / Birth Defect Coding</td><td><p:inputText value="#{notificationFormController.current.diagnosis}" size="40"></p:inputText></td></tr>
                         <tr><td>8. Name of the mother</td><td><p:inputText value="#{notificationFormController.current.mother.name}" size="40"></p:inputText></td></tr>
                         <tr><td>9. Mother’s Date of Birth</td><td><p:inputText value="#{notificationFormController.current.mother.dob}" size="40"></p:inputText></td></tr>
-                        <tr><td>10. Age</td><td><p:inputText value="#{notificationFormController.current.mother.age}" size="40"></p:inputText>Years</td></tr>
+                        <tr><td>10. Age</td><td><p:inputText value="#{notificationFormController.current.mother.age}" size="35"></p:inputText>Years</td></tr>
                         <tr><td>11. National Identity Card No</td><td><p:inputText value="#{notificationFormController.current.mother.nic}" size="40"></p:inputText></td></tr>
                         <tr><td>12. Ethnicity</td><td><p:inputText value="#{notificationFormController.current.mother.ethnicity}" size="40"></p:inputText></td></tr>
                         <tr><td>13. Residence Address</td><td><p:inputText value="#{notificationFormController.current.address}" size="40"></p:inputText></td></tr>

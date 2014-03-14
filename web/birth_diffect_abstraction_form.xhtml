@@ -174,6 +174,91 @@
                                 <td><p:outputLabel>19. Unspecified Fetal Deaths / Pregnancy terminations</p:outputLabel></td>
                                 <td><p:inputText value="#{abstractionFormController.current.ufDeath}" size="40"></p:inputText></td>
                             </tr>
+                            <tr><td></td><td></td></tr>
+                            <tr>
+                                <td colspan="2" align="center"><p:outputLabel><i><font size="2.5" color="red">Please select all maternal illnesses, conditions, and complications that apply</font></i></p:outputLabel></td>
+                            </tr>
+                            <tr>
+                                <td></td><td></td>
+                            </tr>
+                            <tr>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.iddm}" itemLabel="Pre-pregnancy diabetes mellitus, IDDM" ></p:selectBooleanCheckbox></td>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.nidm}" itemLabel="Pre-pregnancy diabetes mellitus, NIDM"></p:selectBooleanCheckbox></td>
+                            </tr>
+                            <tr>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.gdm}" itemLabel="GDM During this pregnancy" ></p:selectBooleanCheckbox></td>
+                                <td><p:selectBooleanCheckbox validator="#{abstractionFormController.current.hyten}" itemLabel="Hypertension"></p:selectBooleanCheckbox></td>
+                            </tr>
+                            <tr>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.epileps}" itemLabel="Epilepsy/seizures before or during this pregnancy" ></p:selectBooleanCheckbox></td>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.bmi}" itemLabel="Maternal obesity"></p:selectBooleanCheckbox></td>
+                            </tr>
+                            <tr>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.cons}" itemLabel="Consanguinity" ></p:selectBooleanCheckbox></td>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.falicSupp}" itemLabel="Pre-pregnancy Folic Acid Supplementation"></p:selectBooleanCheckbox></td>
+                            </tr>
+                            <tr>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.rub}" itemLabel="Rubella" ></p:selectBooleanCheckbox></td>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.cmv}" itemLabel="Cytomegalovirus (CMV)"></p:selectBooleanCheckbox></td>
+                            </tr>
+                            <tr>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.othrFebIll}" itemLabel="Other febrile illness" ></p:selectBooleanCheckbox></td>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.medDurPreg}" itemLabel="Medications during pregnancy"></p:selectBooleanCheckbox></td>
+                            </tr>
+                            <tr>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.actSmk}" itemLabel="Active Smoking" ></p:selectBooleanCheckbox></td>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.pasSmk}" itemLabel="Passive Smoking"></p:selectBooleanCheckbox></td>
+                            </tr>
+                            <tr>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.alBfrPreg}" itemLabel="Alcohol Before Pregnancy" ></p:selectBooleanCheckbox></td>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.alDurPreg}" itemLabel="Alcohol During Pregnancy"></p:selectBooleanCheckbox></td>
+                            </tr>
+                            <tr>
+                                <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.othrSubs}" itemLabel="Other substances" ></p:selectBooleanCheckbox></td>
+                                <td></td>
+                            </tr>
+                            <table align="center" width="50%" bgcolor="white" cellpadding="2.5" border="1">
+                                <tr>
+                                    <th><p:outputLabel>Relationship to Child</p:outputLabel></th>
+                                    <th><p:outputLabel>Family Member’s Birth Defect</p:outputLabel></th>
+                                </tr> 
+                                <tr>
+                                    <td><p:selectOneMenu value="#{abstractionFormController.current.relationship1}" style="width: 225px">
+                                            <f:selectItem itemLabel="Please Select" />
+                                            <f:selectItem itemLabel="Father" itemValue="father" />
+                                            <f:selectItem itemLabel="Mother" itemValue="mother" />
+                                            <f:selectItem itemLabel="Siblings" itemValue="siblings" />
+                                            </p:selectOneMenu></td>
+                                    <td><p:inputText value="#{abstractionFormController.current.perRelationship1}" style="width: 430px"></p:inputText></td>
+                                </tr>
+                                <tr>
+                                    <td><p:selectOneMenu value="#{abstractionFormController.current.relationship2}" style="width: 225px">
+                                            <f:selectItem itemLabel="Please Select" />
+                                            <f:selectItem itemLabel="Father" itemValue="father" />
+                                            <f:selectItem itemLabel="Mother" itemValue="mother" />
+                                            <f:selectItem itemLabel="Siblings" itemValue="siblings" />
+                                            </p:selectOneMenu></td>
+                                    <td><p:inputText value="#{abstractionFormController.current.perRelationship2}" style="width: 430px"></p:inputText></td>
+                                </tr>
+                                <tr>
+                                    <td><p:selectOneMenu value="#{abstractionFormController.current.relationship3}" style="width: 225px">
+                                            <f:selectItem itemLabel="Please Select" />
+                                            <f:selectItem itemLabel="Father" itemValue="father" />
+                                            <f:selectItem itemLabel="Mother" itemValue="mother" />
+                                            <f:selectItem itemLabel="Siblings" itemValue="siblings" />
+                                            </p:selectOneMenu></td>
+                                    <td><p:inputText value="#{abstractionFormController.current.perRelationship3}" style="width: 430px"></p:inputText></td>
+                                </tr>
+                                <tr>
+                                    <td><p:selectOneMenu value="#{abstractionFormController.current.relationship4}" style="width: 225px">
+                                            <f:selectItem itemLabel="Please Select" />
+                                            <f:selectItem itemLabel="Father" itemValue="father" />
+                                            <f:selectItem itemLabel="Mother" itemValue="mother" />
+                                            <f:selectItem itemLabel="Siblings" itemValue="siblings" />
+                                            </p:selectOneMenu></td>
+                                    <td><p:inputText value="#{abstractionFormController.current.perRelationship4}" style="width: 430px"></p:inputText></td>
+                                </tr>
+                            </table>
                         </table>
                     </p:panel>
                 </h:form>

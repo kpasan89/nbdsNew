@@ -174,6 +174,14 @@ public class DepartmentController implements Serializable {
         return items;
     }
 
+    public void setFacade(DepartmentFacade facade) {
+        this.facade = facade;
+    }
+
+    public void setItems(List<Department> items) {
+        this.items = items;
+    }
+
     public static int intValue(long value) {
         int valueInt = (int) value;
         if (valueInt != value) {

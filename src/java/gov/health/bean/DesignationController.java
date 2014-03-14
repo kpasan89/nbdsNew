@@ -262,6 +262,10 @@ public List<Designation> completeDesignation(String qry){
     public DesignationController() {
     }
 
+    public void setItems(DataModel<Designation> items) {
+        this.items = items;
+    }
+
     public List<Designation> getLstItems() {
         return getFacade().findBySQL("Select d From Designation d");
     }

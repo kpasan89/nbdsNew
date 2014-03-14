@@ -7,6 +7,7 @@
 package gov.health.entity;
 
 import gov.health.data.Ethnicity;
+import gov.health.data.Relationship;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -46,7 +47,7 @@ public class AbstractionForm implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     Date caseIdentifiedDate;
     String bhtno;
-    Boolean aliveOrDead;
+    boolean aliveOrDead;
     String diagnosis;
     @ManyToOne
     Person mother;
@@ -65,25 +66,101 @@ public class AbstractionForm implements Serializable {
     int liveBirth;
     int sfDeath; // Spontaneous Fetal Deaths
     int ufDeath; // Unspecified fetal deaths / pregnancy terminations
-    Boolean iddm; // Pre-pregnancy diabetes mellitus, IDDM
-    Boolean nidm; // Pre-pregnancy diabetes mellitus, NIDM
-    Boolean gdm; // GDM During this pregnancy
-    Boolean hyten; // Hypertension
-    Boolean epileps; // Epilepsy/seizures before or during this pregnancy
-    Boolean bmi; // Maternal obesity 
-    Boolean Cons; // Consanguinity
-    Boolean falicSupp; // Pre-pregnancy Folic Acid Supplementation
-    Boolean rub; // Rubella
-    Boolean cmv; // Cytomegalovirus (CMV)
-    Boolean othrFebIll; // Other febrile illness:
-    Boolean medDurPreg; // Medications during pregnancy
-    Boolean actSmk; // Active Smoking
-    Boolean pasSmk; // Passive Smoking
-    Boolean alBfrPreg; // Alcohol Before Pregnancy
-    Boolean alDurPreg; // Alcohol During Pregnancy
-    Boolean othrSubs; // Other substances
+    boolean iddm; // Pre-pregnancy diabetes mellitus, IDDM
+    boolean nidm; // Pre-pregnancy diabetes mellitus, NIDM
+    boolean gdm; // GDM During this pregnancy
+    boolean hyten; // Hypertension
+    boolean epileps; // Epilepsy/seizures before or during this pregnancy
+    boolean bmi; // Maternal obesity 
+    boolean Cons; // Consanguinity
+    boolean falicSupp; // Pre-pregnancy Folic Acid Supplementation
+    boolean rub; // Rubella
+    boolean cmv; // Cytomegalovirus (CMV)
+    boolean othrFebIll; // Other febrile illness:
+    boolean medDurPreg; // Medications during pregnancy
+    boolean actSmk; // Active Smoking
+    boolean pasSmk; // Passive Smoking
+    boolean alBfrPreg; // Alcohol Before Pregnancy
+    boolean alDurPreg; // Alcohol During Pregnancy
+    boolean othrSubs; // Other substances
     String relToChild; // Relationship to Child
-    String famBrthDef; // Family Member’s Birth Defect   
+    String famBrthDef; // Family Member’s Birth Defect
+    Relationship relationship1;
+    Relationship relationship2;
+    Relationship relationship3;
+    Relationship relationship4;
+    @ManyToOne
+    Person perRelationship1;
+    @ManyToOne
+    Person perRelationship2;
+    @ManyToOne
+    Person perRelationship3;
+    @ManyToOne
+    Person perRelationship4;
+
+    public Relationship getRelationship1() {
+        return relationship1;
+    }
+
+    public void setRelationship1(Relationship relationship1) {
+        this.relationship1 = relationship1;
+    }
+
+    public Relationship getRelationship2() {
+        return relationship2;
+    }
+
+    public void setRelationship2(Relationship relationship2) {
+        this.relationship2 = relationship2;
+    }
+
+    public Relationship getRelationship3() {
+        return relationship3;
+    }
+
+    public void setRelationship3(Relationship relationship3) {
+        this.relationship3 = relationship3;
+    }
+
+    public Relationship getRelationship4() {
+        return relationship4;
+    }
+
+    public void setRelationship4(Relationship relationship4) {
+        this.relationship4 = relationship4;
+    }
+
+    public Person getPerRelationship1() {
+        return perRelationship1;
+    }
+
+    public void setPerRelationship1(Person perRelationship1) {
+        this.perRelationship1 = perRelationship1;
+    }
+
+    public Person getPerRelationship2() {
+        return perRelationship2;
+    }
+
+    public void setPerRelationship2(Person perRelationship2) {
+        this.perRelationship2 = perRelationship2;
+    }
+
+    public Person getPerRelationship3() {
+        return perRelationship3;
+    }
+
+    public void setPerRelationship3(Person perRelationship3) {
+        this.perRelationship3 = perRelationship3;
+    }
+
+    public Person getPerRelationship4() {
+        return perRelationship4;
+    }
+
+    public void setPerRelationship4(Person perRelationship4) {
+        this.perRelationship4 = perRelationship4;
+    }
     
     public Long getId() {
         return id;
@@ -182,11 +259,11 @@ public class AbstractionForm implements Serializable {
         this.bhtno = bhtno;
     }
 
-    public Boolean isAliveOrDead() {
+    public boolean isAliveOrDead() {
         return aliveOrDead;
     }
 
-    public void setAliveOrDead(Boolean aliveOrDead) {
+    public void setAliveOrDead(boolean aliveOrDead) {
         this.aliveOrDead = aliveOrDead;
     }
 
@@ -278,139 +355,141 @@ public class AbstractionForm implements Serializable {
         this.ufDeath = ufDeath;
     }
 
-    public Boolean isIddm() {
+    public boolean getIddm() {
         return iddm;
     }
 
-    public void setIddm(Boolean iddm) {
+    public void setIddm(boolean iddm) {
         this.iddm = iddm;
     }
 
-    public Boolean isNidm() {
+
+
+    public boolean getNidm() {
         return nidm;
     }
 
-    public void setNidm(Boolean nidm) {
+    public void setNidm(boolean nidm) {
         this.nidm = nidm;
     }
 
-    public Boolean isGdm() {
+    public boolean getGdm() {
         return gdm;
     }
 
-    public void setGdm(Boolean gdm) {
+    public void setGdm(boolean gdm) {
         this.gdm = gdm;
     }
 
-    public Boolean isHyten() {
+    public boolean getHyten() {
         return hyten;
     }
 
-    public void setHyten(Boolean hyten) {
+    public void setHyten(boolean hyten) {
         this.hyten = hyten;
     }
 
-    public Boolean isEpileps() {
+    public boolean getEpileps() {
         return epileps;
     }
 
-    public void setEpileps(Boolean epileps) {
+    public void setEpileps(boolean epileps) {
         this.epileps = epileps;
     }
 
-    public Boolean isBmi() {
+    public boolean getBmi() {
         return bmi;
     }
 
-    public void setBmi(Boolean bmi) {
+    public void setBmi(boolean bmi) {
         this.bmi = bmi;
     }
 
-    public Boolean isCons() {
+    public boolean getCons() {
         return Cons;
     }
 
-    public void setCons(Boolean Cons) {
+    public void setCons(boolean Cons) {
         this.Cons = Cons;
     }
 
-    public Boolean isFalicSupp() {
+    public boolean getFalicSupp() {
         return falicSupp;
     }
 
-    public void setFalicSupp(Boolean falicSupp) {
+    public void setFalicSupp(boolean falicSupp) {
         this.falicSupp = falicSupp;
     }
 
-    public Boolean isRub() {
+    public boolean getRub() {
         return rub;
     }
 
-    public void setRub(Boolean rub) {
+    public void setRub(boolean rub) {
         this.rub = rub;
     }
 
-    public Boolean isCmv() {
+    public boolean getCmv() {
         return cmv;
     }
 
-    public void setCmv(Boolean cmv) {
+    public void setCmv(boolean cmv) {
         this.cmv = cmv;
     }
 
-    public Boolean isOthrFebIll() {
+    public boolean getOthrFebIll() {
         return othrFebIll;
     }
 
-    public void setOthrFebIll(Boolean othrFebIll) {
+    public void setOthrFebIll(boolean othrFebIll) {
         this.othrFebIll = othrFebIll;
     }
 
-    public Boolean isMedDurPreg() {
+    public boolean getMedDurPreg() {
         return medDurPreg;
     }
 
-    public void setMedDurPreg(Boolean medDurPreg) {
+    public void setMedDurPreg(boolean medDurPreg) {
         this.medDurPreg = medDurPreg;
     }
 
-    public Boolean isActSmk() {
+    public boolean getActSmk() {
         return actSmk;
     }
 
-    public void setActSmk(Boolean actSmk) {
+    public void setActSmk(boolean actSmk) {
         this.actSmk = actSmk;
     }
 
-    public Boolean isPasSmk() {
+    public boolean getPasSmk() {
         return pasSmk;
     }
 
-    public void setPasSmk(Boolean pasSmk) {
+    public void setPasSmk(boolean pasSmk) {
         this.pasSmk = pasSmk;
     }
 
-    public Boolean isAlBfrPreg() {
+    public boolean getAlBfrPreg() {
         return alBfrPreg;
     }
 
-    public void setAlBfrPreg(Boolean alBfrPreg) {
+    public void setAlBfrPreg(boolean alBfrPreg) {
         this.alBfrPreg = alBfrPreg;
     }
 
-    public Boolean isAlDurPreg() {
+    public boolean getAlDurPreg() {
         return alDurPreg;
     }
 
-    public void setAlDurPreg(Boolean alDurPreg) {
+    public void setAlDurPreg(boolean alDurPreg) {
         this.alDurPreg = alDurPreg;
     }
 
-    public Boolean isOthrSubs() {
+    public boolean getOthrSubs() {
         return othrSubs;
     }
 
-    public void setOthrSubs(Boolean othrSubs) {
+    public void setOthrSubs(boolean othrSubs) {
         this.othrSubs = othrSubs;
     }
 

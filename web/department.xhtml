@@ -54,7 +54,7 @@
                                 <p:inputText id="txtName" value="#{departmentController.current.name}"  ></p:inputText>
                                 <h:outputText id="lblCatName" value="#{labels.institution}" ></h:outputText>
                                 <p:selectOneMenu id="lstCatSelect"   value="#{departmentController.institution}" style="min-width: 223px">
-                                    <f:selectItem itemLabel="Please select service" />
+                                    <f:selectItem itemLabel="Please select Institution" />
                                     <f:selectItems value="#{departmentController.items}" var="myCatItem" itemValue="#{myCatItem}" itemLabel="#{myCatItem.name}" ></f:selectItems>
                                 </p:selectOneMenu>
                             </h:panelGrid>

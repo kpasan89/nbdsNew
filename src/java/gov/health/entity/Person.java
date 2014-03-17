@@ -8,10 +8,13 @@
 package gov.health.entity;
 
 import gov.health.data.Ethnicity;
+import gov.health.data.Sex;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Locale;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,7 +40,8 @@ public class Person implements Serializable {
     
     String familyName;
     String otherName;
-    @ManyToOne
+    
+    @Enumerated(EnumType.STRING)
     Sex personSex;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date dob;

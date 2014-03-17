@@ -49,7 +49,9 @@ public class NotificationFormController implements Serializable {
     Institution institution;
     Area area;
     
-    
+    public void listAll(){
+        items = getFacade().findAll();
+    }
     
     
     
@@ -94,7 +96,7 @@ public class NotificationFormController implements Serializable {
     
 
     public List<NotificationForm> getItems() {
-        items = getFacade().findAll("name", true);
+        
         return items;
     }
 

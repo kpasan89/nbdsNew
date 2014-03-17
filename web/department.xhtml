@@ -53,10 +53,10 @@
                                 <h:outputText id="lblName" value="#{labels.department}" ></h:outputText>
                                 <p:inputText id="txtName" value="#{departmentController.current.name}"  ></p:inputText>
                                 <h:outputText id="lblCatName" value="#{labels.institution}" ></h:outputText>
-                                <p:selectOneMenu id="lstCatSelect"   value="#{departmentController.institution}" style="min-width: 223px">
-                                    <f:selectItem itemLabel="Please select Institution" />
-                                    <f:selectItems value="#{departmentController.items}" var="myCatItem" itemValue="#{myCatItem}" itemLabel="#{myCatItem.name}" ></f:selectItems>
-                                </p:selectOneMenu>
+                                <p:autoComplete value="#{departmentController.institution}" 
+                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                            var="ins" converter="departmentConverter"
+                                            itemLabel="#{ins.name}" itemValue="#{ins}"></p:autoComplete>                                
                             </h:panelGrid>
                             <h:panelGrid id="gpDetailButtons" columns="2">
                                 <p:commandButton id="btnSave" value="#{labels.save}"  action="#{departmentController.saveSelected()}" styleClass="buttons">

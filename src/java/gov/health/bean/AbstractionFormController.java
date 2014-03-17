@@ -88,6 +88,9 @@ public class AbstractionFormController implements Serializable {
         }
         return current;
     }
+    public void listAll(){
+        items = getFacade().findAll();
+    }
 
     public void setCurrent(AbstractionForm current) {
         this.current = current;
@@ -96,7 +99,7 @@ public class AbstractionFormController implements Serializable {
     
 
     public List<AbstractionForm> getItems() {
-        items = getFacade().findAll("name", true);
+        
         return items;
     }
 

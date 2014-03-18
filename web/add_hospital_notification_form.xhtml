@@ -20,7 +20,7 @@
                         <f:facet name="header" >
                             <h:outputLabel value="Add New Hospital Notification Form" ></h:outputLabel>
                             <p:spacer width="10" ></p:spacer>
-                            <p:commandButton ajax="false" value="Save" ></p:commandButton>
+                            <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}"></p:commandButton>
                         </f:facet>
 
                         <table width="50%" style="padding: 2.5%" align="center" bgcolor="white">
@@ -31,9 +31,9 @@
                             <tr>
                                 <td>2. Sex of infant</td>
                                 <td><p:selectOneRadio value="#{notificationFormController.current.infant.personSex}" id="sex">
-                                        <f:selectItem itemValue="male" itemLabel=" Male "></f:selectItem>
-                                        <f:selectItem itemValue="female" itemLabel=" Female "></f:selectItem>
-                                        <f:selectItem itemValue="ambiguous" itemLabel=" Ambiguous "></f:selectItem>
+                                        <f:selectItem itemValue="MALE" itemLabel=" Male "></f:selectItem>
+                                        <f:selectItem itemValue="FEMALE" itemLabel=" Female "></f:selectItem>
+                                        <f:selectItem itemValue="AMBIGUOUS" itemLabel=" Ambiguous "></f:selectItem>
                                     </p:selectOneRadio>
                                 </td>
                             </tr>

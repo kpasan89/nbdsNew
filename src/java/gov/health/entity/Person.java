@@ -70,6 +70,7 @@ public class Person implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     Date dateOfDead;
     int age;
+    @Enumerated(EnumType.STRING)
     Ethnicity ethnicity;
     String address;
 
@@ -80,7 +81,6 @@ public class Person implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
-    
 
     public Ethnicity getEthnicity() {
         return ethnicity;
@@ -89,8 +89,7 @@ public class Person implements Serializable {
     public void setEthnicity(Ethnicity ethnicity) {
         this.ethnicity = ethnicity;
     }
-
-    
+   
     public Date getDateOfDead() {
         return dateOfDead;
     }
@@ -198,6 +197,7 @@ public class Person implements Serializable {
     public void setPersonSex(Sex personSex) {
         this.personSex = personSex;
     }
+
 
     public Long getId() {
         return id;

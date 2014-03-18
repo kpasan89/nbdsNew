@@ -10,11 +10,16 @@ import gov.health.data.Ethnicity;
 import gov.health.data.Relationship;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -24,11 +29,13 @@ import javax.persistence.Temporal;
 
 @Entity
 public class AbstractionForm implements Serializable {
+    @OneToOne(mappedBy = "abstractionForm",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private DysmorphologyExamination dysmorphologyExamination;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person infant;
     //@ManyToOne
     //Person inSex;
@@ -49,7 +56,7 @@ public class AbstractionForm implements Serializable {
     String bhtno;
     boolean aliveOrDead;
     String diagnosis;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person mother;
     //String motherName;
     //@Temporal(javax.persistence.TemporalType.DATE)
@@ -57,6 +64,7 @@ public class AbstractionForm implements Serializable {
     int age;
     //@ManyToOne
     //Person mnic;
+    @Enumerated(EnumType.STRING)
     Ethnicity methnicity;
     //@ManyToOne
     //Person address;
@@ -97,6 +105,14 @@ public class AbstractionForm implements Serializable {
     Person perRelationship3;
     @ManyToOne
     Person perRelationship4;
+
+    public DysmorphologyExamination getDysmorphologyExamination() {
+        return dysmorphologyExamination;
+    }
+
+    public void setDysmorphologyExamination(DysmorphologyExamination dysmorphologyExamination) {
+        this.dysmorphologyExamination = dysmorphologyExamination;
+    }
 
     public Relationship getRelationship1() {
         return relationship1;

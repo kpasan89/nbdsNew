@@ -8,10 +8,10 @@ package gov.health.bean;
  * and
  * a Set of Related Tools
  */
+
 import gov.health.bean.*;
 import gov.health.entity.Area;
-import gov.health.facade.AbstractionFormFacade;
-import gov.health.entity.AbstractionForm;
+import gov.health.facade.DysmorphologyExaminationFacade;
 import gov.health.entity.DysmorphologyExamination;
 import gov.health.entity.Institution;
 import gov.health.entity.Person;
@@ -34,36 +34,28 @@ import javax.inject.Inject;
  */
 @Named
 @SessionScoped
-public class AbstractionFormController implements Serializable {
+public class DysmorphologyExaminationController implements Serializable {
 
     @EJB
-    private AbstractionFormFacade facade;
+    private DysmorphologyExaminationFacade facade;
 
     @Inject
     SessionController sessionController;
 
-    private AbstractionForm current;
-    private List<AbstractionForm> items = null;
+    private DysmorphologyExamination current;
+    private List<DysmorphologyExamination> items = null;
     String selectText = "";
 
     Institution institution;
     Area area;
     
     
+    
+    
+    
+    
 
-    public String addNewAbstractionForm() {
-        current = new AbstractionForm();
-        Person infant = new Person();
-        Person mother = new Person();
-        current.setMother(mother);
-        current.setInfant(infant);
-        DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
-        current.setDysmorphologyExamination(dysmorphologyExamination);
-        //current.setInfant(infant);
-        //current.setMother(mother);
-
-        return "birth_diffect_abstraction_form";
-    }
+    
 
     public Institution getInstitution() {
         return institution;
@@ -73,49 +65,42 @@ public class AbstractionFormController implements Serializable {
         this.institution = institution;
     }
 
-    public AbstractionFormController() {
+    public DysmorphologyExaminationController() {
     }
 
-    public AbstractionForm getCurrent() {
+    public DysmorphologyExamination getCurrent() {
         if (current == null) {
-            current = new AbstractionForm();
-            Person mother = new Person();
-            Person infant = new Person();
-            current.setMother(mother);
-            current.setInfant(infant);
-            DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
-            current.setDysmorphologyExamination(dysmorphologyExamination);
+            current = new DysmorphologyExamination();
         }
         return current;
     }
-
-    public void listAll() {
-        System.out.println("lisintg all abs/ forms");
+    public void listAll(){
         items = getFacade().findAll();
-        System.out.println("items = " + items);
     }
 
-    public void setCurrent(AbstractionForm current) {
+    public void setCurrent(DysmorphologyExamination current) {
         this.current = current;
     }
 
-    public List<AbstractionForm> getItems() {
+    
 
+    public List<DysmorphologyExamination> getItems() {
+        
         return items;
     }
 
     public void saveSelected() {
-        if (current == null) {
+        if(current==null){
             JsfUtil.addErrorMessage("Error");
             return;
         }
-        if (current.getId() == null || current.getId() == 0) {
+        if(current.getId()==null || current.getId()==0){
             getFacade().create(current);
-        } else {
+        }else{
             getFacade().edit(current);
         }
         JsfUtil.addSuccessMessage("Saved");
-
+        
     }
 
     public String getSelectText() {
@@ -127,6 +112,8 @@ public class AbstractionFormController implements Serializable {
 
     }
 
+    
+
     public SessionController getSessionController() {
         return sessionController;
     }
@@ -135,11 +122,11 @@ public class AbstractionFormController implements Serializable {
         this.sessionController = sessionController;
     }
 
-    public AbstractionFormFacade getFacade() {
+    public DysmorphologyExaminationFacade getFacade() {
         return facade;
     }
 
-    public void setFacade(AbstractionFormFacade facade) {
+    public void setFacade(DysmorphologyExaminationFacade facade) {
         this.facade = facade;
     }
 
@@ -150,18 +137,20 @@ public class AbstractionFormController implements Serializable {
     public void setArea(Area area) {
         this.area = area;
     }
+    
+    
 
-    @FacesConverter(forClass = AbstractionForm.class)
-    public static class AbstractionFormControllerConverter implements Converter {
+    @FacesConverter(forClass = DysmorphologyExamination.class)
+    public static class DysmorphologyExaminationControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            AbstractionFormController controller;
-            controller = (AbstractionFormController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "abstractionFormController");
+            DysmorphologyExaminationController controller;
+            controller = (DysmorphologyExaminationController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "dysmorphologyExaminationController");
             return controller.getFacade().find(getKey(value));
         }
 
@@ -182,12 +171,12 @@ public class AbstractionFormController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof AbstractionForm) {
-                AbstractionForm o = (AbstractionForm) object;
+            if (object instanceof DysmorphologyExamination) {
+                DysmorphologyExamination o = (DysmorphologyExamination) object;
                 return getStringKey(o.getId());
             } else {
                 throw new IllegalArgumentException("object " + object + " is of type "
-                        + object.getClass().getName() + "; expected type: " + AbstractionFormController.class.getName());
+                        + object.getClass().getName() + "; expected type: " + DysmorphologyExaminationController.class.getName());
             }
         }
     }

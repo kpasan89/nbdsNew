@@ -9,6 +9,7 @@ package gov.health.entity;
 import gov.health.data.Ethnicity;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -29,9 +30,9 @@ public class NotificationForm implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person infant;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person mother;
     @ManyToOne
     Person inSex;

@@ -66,7 +66,10 @@ public class DepartmentController implements Serializable {
         JsfUtil.addSuccessMessage("Saved");
         
     }
-            
+       public void prepareAdd(){
+           current = new Department();
+           
+       }
             
     public void saveDepartment(Department ins) {
         if (ins == null) {

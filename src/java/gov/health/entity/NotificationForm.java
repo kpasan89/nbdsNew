@@ -34,7 +34,7 @@ public class NotificationForm implements Serializable {
     Person infant;
     @ManyToOne(cascade = CascadeType.ALL)
     Person mother;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person inSex;
     //@Enumerated(EnumType.STRING)
     @ManyToOne
@@ -62,24 +62,24 @@ public class NotificationForm implements Serializable {
     String address;
     String tp1;
     String tp2;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person infantDod; // infant date of death
     Long infantAodYrs; // infant age of death by year
     Long infantAodMnths; // infant age of death by year
     Long infantAodDys; // infant age of death by year
     String placeOfDead;
     boolean postMortem; // yes or no
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person nameOfJmo;
     String underlyingCause; // Causes of death
     String immediateCause; // Causes of death
     String conDeath; // Conditions contributing to Death
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person informant; // imformant name
     @ManyToOne
     Designation imDesignation; // imformant designation
     String inTp; // informant telephone
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person nameHOI; // Head of the institutions' name
     @Temporal(javax.persistence.TemporalType.DATE)
     Date approveDate; // by head of the institution

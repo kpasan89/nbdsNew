@@ -66,9 +66,9 @@
                             <td><ul>Ward/Unit  
                                         <p:autoComplete
                                             forceSelection="true"                                 
-                                            value="#{notificationFormController.current.hospital}" 
-                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
-                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
+                                            value="#{notificationFormController.current.ward}" 
+                                            completeMethod="#{departmentController.completeOfficialDepartments}"
+                                            var="of" itemLabel="#{of.name}" itemValue="#{of}" converter="departmentConverter" >
                                         </p:autoComplete></ul>
                             </td>
                             

@@ -14,7 +14,7 @@
                     <p:commandButton ajax="false" value="List All" action="#{notificationFormController.listAll()}"></p:commandButton>
                     <p:dataTable value="#{notificationFormController.items}" var="nf">
                         <p:column headerText="Hospital/RDHS Area">
-                            <h:outputLabel value="#{nf.hospital.name}"></h:outputLabel>
+                            <h:outputLabel value="#{nf}"></h:outputLabel>
                             <h:outputLabel value="#{nf.rdhsArea.name}"></h:outputLabel>
                         </p:column>
                     </p:dataTable>

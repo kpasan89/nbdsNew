@@ -14,7 +14,9 @@ import gov.health.entity.Department;
 import gov.health.entity.Institution;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.EJB;
 import javax.inject.Named;
 
@@ -35,13 +37,13 @@ import javax.inject.Inject;
 public class DepartmentController implements Serializable {
 
     @EJB
-    private DepartmentFacade facade;
+    DepartmentFacade facade;
     
 
     @Inject
     SessionController sessionController;
    
-   
+   Department removing;
     private Department current;
     private List<Department> items = null;
     String selectText = "";
@@ -49,6 +51,16 @@ public class DepartmentController implements Serializable {
     Institution institution;
     String depaertmentName;
     
+    
+    List<Department> insDepts;
+    
+    public void fillInsDepts(){
+        String sql;
+        Map m = new HashMap();
+        sql = "select d from Department d where d.retired=false and d.institution=:ins order by d.name";
+        m.put("ins", institution);
+        insDepts = getFacade().findBySQL(sql, m);
+    }
     
     public void addDepartmentForInstitution(){
         if(institution == null){
@@ -63,6 +75,8 @@ public class DepartmentController implements Serializable {
         departmentAdd.setInstitution(institution);
         departmentAdd.setName(depaertmentName);
         getFacade().create(departmentAdd);
+        depaertmentName= "";
+        fillInsDepts();
         JsfUtil.addSuccessMessage("Saved");
         
     }
@@ -70,6 +84,37 @@ public class DepartmentController implements Serializable {
            current = new Department();
            
        }
+       
+       public void removeDepartment(){
+           if (removing == null) {
+            JsfUtil.addErrorMessage("Nothing to Delete");
+            return;
+        }
+           removing.setRetired(true);
+           getFacade().edit(removing);
+           JsfUtil.addErrorMessage("Removed");
+           fillInsDepts();
+           removing =  null;
+       }
+
+    public Department getRemoving() {
+        return removing;
+    }
+
+    public void setRemoving(Department removing) {
+        this.removing = removing;
+    }
+       
+       
+       
+
+    public List<Department> getInsDepts() {
+        return insDepts;
+    }
+
+    public void setInsDepts(List<Department> insDepts) {
+        this.insDepts = insDepts;
+    }
             
     public void saveDepartment(Department ins) {
         if (ins == null) {
@@ -143,7 +188,6 @@ public class DepartmentController implements Serializable {
     public Department getCurrent() {
         if (current == null) {
             current = new Department();
-            
         }
         return current;
     }
@@ -160,20 +204,20 @@ public class DepartmentController implements Serializable {
 
     public List<Department> getItems() {
         String temSql;
-        if (items != null) {
-            return items;
-        }
-        if (getSelectText().equals("")) {
+        //if (items != null) {
+        //    return items;
+       // }
+       // if (getSelectText().equals("")) {
            
                 temSql = "SELECT i FROM Department i where i.retired=false order by i.name";
            
-        } else {
+        //} else {
             
-                temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + getSelectText().toLowerCase() + "%' order by i.name";
+        //        temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + getSelectText().toLowerCase() + "%' order by i.name";
             
-        }
+       // }
         items = getFacade().findBySQL(temSql);
-        //System.out.println(temSql);
+        System.out.println(temSql);
         return items;
     }
 
@@ -249,18 +293,18 @@ public class DepartmentController implements Serializable {
 
     public List<Department> completeOfficialDepartments(String qry) {
         String temSql;
-        List<Department> ins;
+        List<Department> dep;
         temSql = "SELECT i FROM Department i where i.retired=false and i.official = true and LOWER(i.name) like '%" + qry.toLowerCase() + "%' order by i.name";
-        ins = getFacade().findBySQL(temSql);
-        return ins;
+        dep = getFacade().findBySQL(temSql);
+        return dep;
     }
 
     public List<Department> completePayCentres(String qry) {
         String temSql;
-        List<Department> ins;
+        List<Department> dep;
         temSql = "SELECT i FROM Department i where i.retired=false and i.payCentre = true and LOWER(i.name) like '%" + qry.toLowerCase() + "%' order by i.name";
-        ins = getFacade().findBySQL(temSql);
-        return ins;
+        dep = getFacade().findBySQL(temSql);
+        return dep;
     }
 
    
@@ -312,6 +356,16 @@ public class DepartmentController implements Serializable {
             }
             DepartmentController controller = (DepartmentController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "departmentController");
+
+            
+            System.out.println("controller = " + controller);
+            
+            System.out.println("controller.getFacade() = " + controller.getFacade());
+            
+            System.out.println("getKey(value) = " + getKey(value));
+            if(controller.getFacade()== null){
+                return null;
+            }
             return controller.getFacade().find(getKey(value));
         }
 

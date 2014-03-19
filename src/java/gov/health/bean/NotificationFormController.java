@@ -11,6 +11,7 @@ package gov.health.bean;
 
 import gov.health.bean.*;
 import gov.health.entity.Area;
+import gov.health.entity.Department;
 import gov.health.facade.NotificationFormFacade;
 import gov.health.entity.NotificationForm;
 import gov.health.entity.Institution;
@@ -48,9 +49,19 @@ public class NotificationFormController implements Serializable {
 
     Institution institution;
     Area area;
+    Department department;
+    
     
     public void listAll(){
         items = getFacade().findAll();
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
     
     

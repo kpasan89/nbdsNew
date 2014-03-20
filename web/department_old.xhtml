@@ -32,7 +32,7 @@
 
                                         <p:selectOneListbox  id="lstSelect"  value="#{departmentController.current}" style="min-width: 223px">
                                             <f:selectItems value="#{departmentController.items}" var="myItem" itemValue="#{myItem}" itemLabel="#{myItem.name}" ></f:selectItems>
-                                            <f:ajax event="change" render="gpDetail" execute="lstSelect">                                
+                                            <f:ajax event="change" render="gpDetail" execute="lstSelect" >                                
                                             </f:ajax>
                                         </p:selectOneListbox>
 

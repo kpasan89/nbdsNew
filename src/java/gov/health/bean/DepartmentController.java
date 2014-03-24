@@ -8,7 +8,6 @@
  */
 package gov.health.bean;
 
-
 import gov.health.facade.DepartmentFacade;
 import gov.health.entity.Department;
 import gov.health.entity.Institution;
@@ -38,75 +37,76 @@ public class DepartmentController implements Serializable {
 
     @EJB
     DepartmentFacade facade;
-    
 
     @Inject
     SessionController sessionController;
-   
-   Department removing;
+
+    Department removing;
     private Department current;
     private List<Department> items = null;
     String selectText = "";
-    
+
     Institution institution;
     String depaertmentName;
-    
-    
+
     List<Department> insDepts;
-    
-    public void fillInsDepts(){
+
+    public void fillInsDepts() {
         String sql;
         Map m = new HashMap();
         sql = "select d from Department d where d.retired=false and d.institution=:ins order by d.name";
         m.put("ins", institution);
         insDepts = getFacade().findBySQL(sql, m);
     }
-    
-    public void addDepartmentForInstitution(){
-        if(institution == null){
+
+    public void addDepartmentForInstitution() {
+        if (institution == null) {
             JsfUtil.addErrorMessage("Please select the Institution");
-               return;
+            return;
         }
-        if(depaertmentName.trim().equals("")){
-          JsfUtil.addErrorMessage("Please enter the name of the Department");
-          return;
+        if (depaertmentName.trim().equals("")) {
+            JsfUtil.addErrorMessage("Please enter the name of the Department");
+            return;
         }
         Department departmentAdd = new Department();
         departmentAdd.setInstitution(institution);
         departmentAdd.setName(depaertmentName);
         getFacade().create(departmentAdd);
-        depaertmentName= "";
+        depaertmentName = "";
         fillInsDepts();
         JsfUtil.addSuccessMessage("Saved");
-        
+
     }
-       public void prepareAdd(){
-           current = new Department();
-           
-       }
-       
-       public void removeDepartment(){
-           if (removing == null) {
+
+    public void prepareAdd() {
+        current = new Department();
+
+    }
+
+    public void removeDepartment() {
+        if (removing == null) {
             JsfUtil.addErrorMessage("Nothing to Delete");
             return;
         }
-           removing.setRetired(true);
-           getFacade().edit(removing);
-           JsfUtil.addErrorMessage("Removed");
-           fillInsDepts();
-           removing =  null;
-       }
+        removing.setRetired(true);
+        getFacade().edit(removing);
+        JsfUtil.addErrorMessage("Removed");
+        fillInsDepts();
+        removing = null;
+    }
 
     public Department getRemoving() {
         return removing;
     }
 
     public void setRemoving(Department removing) {
+        System.err.println("dep " + removing);
         this.removing = removing;
     }
-       
-       
-       
+
+    public void departmenListen(Department dep) {
+        setRemoving(dep);
+    }
 
     public List<Department> getInsDepts() {
         return insDepts;
@@ -115,7 +115,7 @@ public class DepartmentController implements Serializable {
     public void setInsDepts(List<Department> insDepts) {
         this.insDepts = insDepts;
     }
-            
+
     public void saveDepartment(Department ins) {
         if (ins == null) {
             JsfUtil.addErrorMessage("Nothing to update");
@@ -129,10 +129,6 @@ public class DepartmentController implements Serializable {
             JsfUtil.addSuccessMessage("Updated");
         }
     }
-
- 
-
-
 
     public Department findDepartment(String insName, boolean createNew) {
         insName = insName.trim();
@@ -150,11 +146,9 @@ public class DepartmentController implements Serializable {
         return ins;
     }
 
-   
     public DepartmentController() {
 
     }
-
 
     public SessionController getSessionController() {
         return sessionController;
@@ -180,11 +174,6 @@ public class DepartmentController implements Serializable {
         this.depaertmentName = depaertmentName;
     }
 
-   
-
-   
-
-
     public Department getCurrent() {
         if (current == null) {
             current = new Department();
@@ -206,16 +195,14 @@ public class DepartmentController implements Serializable {
         String temSql;
         //if (items != null) {
         //    return items;
-       // }
-       // if (getSelectText().equals("")) {
-           
-                temSql = "SELECT i FROM Department i where i.retired=false order by i.name";
-           
+        // }
+        // if (getSelectText().equals("")) {
+
+        temSql = "SELECT i FROM Department i where i.retired=false order by i.name";
+
         //} else {
-            
         //        temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + getSelectText().toLowerCase() + "%' order by i.name";
-            
-       // }
+        // }
         items = getFacade().findBySQL(temSql);
         System.out.println(temSql);
         return items;
@@ -238,14 +225,12 @@ public class DepartmentController implements Serializable {
         return valueInt;
     }
 
-
-
     public void saveSelected() {
         if (current == null) {
             JsfUtil.addErrorMessage("Nothing to save");
             return;
         }
-        
+
         if (current.getId() != null && current.getId() != 0) {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
@@ -256,13 +241,10 @@ public class DepartmentController implements Serializable {
 
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
         }
-        
+
         getItems();
         selectText = "";
     }
-
-    
-   
 
     public void delete() {
 
@@ -275,11 +257,11 @@ public class DepartmentController implements Serializable {
         } else {
             JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
         }
-       
+
         getItems();
         selectText = "";
         current = null;
-        
+
     }
 
     public String getSelectText() {
@@ -306,8 +288,6 @@ public class DepartmentController implements Serializable {
         dep = getFacade().findBySQL(temSql);
         return dep;
     }
-
-   
 
     @FacesConverter(forClass = Department.class)
     public static class DepartmentControllerConverter implements Converter {
@@ -357,13 +337,12 @@ public class DepartmentController implements Serializable {
             DepartmentController controller = (DepartmentController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "departmentController");
 
-            
             System.out.println("controller = " + controller);
-            
+
             System.out.println("controller.getFacade() = " + controller.getFacade());
-            
+
             System.out.println("getKey(value) = " + getKey(value));
-            if(controller.getFacade()== null){
+            if (controller.getFacade() == null) {
                 return null;
             }
             return controller.getFacade().find(getKey(value));

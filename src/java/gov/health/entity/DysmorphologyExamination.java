@@ -206,6 +206,7 @@ public class DysmorphologyExamination implements Serializable {
     String otherChestNote;
     boolean hypoplastic;
     boolean widelySpace;
+    boolean otherNipples;
     String otherNipplesNote;
     boolean cleftStenrnum;
     boolean shortSternum;
@@ -222,6 +223,16 @@ public class DysmorphologyExamination implements Serializable {
     boolean clickHeart;
     boolean rhythm;
     boolean pulses;
+
+    public boolean isOtherNipples() {
+        return otherNipples;
+    }
+
+    public void setOtherNipples(boolean otherNipples) {
+        this.otherNipples = otherNipples;
+    }
+    
+    
 
     public boolean isNormalEars() {
         return normalEars;

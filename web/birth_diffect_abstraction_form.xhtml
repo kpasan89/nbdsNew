@@ -20,9 +20,9 @@
                         </f:facet>
 
 
-                        <p:tabView>
+                        <p:wizard>
 
-                            <p:tab title="Birth Diffect Abstraction Form">
+                            <p:tab>
 
                                 <p:panel header="Birth Diffect Abstraction Form">
                                     <f:facet name="header">
@@ -136,6 +136,12 @@
                                             <td><p:outputLabel>7. Diagnosis / Birth Defect Coding</p:outputLabel></td>
                                             <td><p:inputText value="#{abstractionFormController.current.diagnosis}" size="40"></p:inputText></td>
                                         </tr>
+                                    </table>
+                                </p:panel>
+                            </p:tab>
+                            <p:tab>
+                                <p:panel>
+                                    <table width="680px" style="padding: 2.5%" align="center" bgcolor="white">
                                         <tr>
                                             <td><p:outputLabel>8. Name of the mother</p:outputLabel></td>
                                             <td><p:inputText value="#{abstractionFormController.current.mother.name}" size="40"></p:inputText></td>
@@ -281,7 +287,9 @@
 
                             </p:tab>
 
-                            <p:tab title="Dysmorphology Examination">
+
+
+                            <p:tab >
                                 <p:panel header="Dysmorphology Examination">
 
                                     <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
@@ -373,57 +381,57 @@
                                                     <table>
                                                         <tr>
                                                             <td><p:outputLabel value="Eyebrows"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Arched"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Medial flare"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Arched" value="#{abstractionFormController.current.dysmorphologyExamination.archedEyebrow}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Medial flare" value="#{abstractionFormController.current.dysmorphologyExamination.archedMedialFlare}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Eyelids"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Ptosis"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="10"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Ptosis" value="#{abstractionFormController.current.dysmorphologyExamination.eyelids}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherEyelids}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="10" value="#{abstractionFormController.current.dysmorphologyExamination.eyelids}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Fissures"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Narrow"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Wide"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Narrow" value="#{abstractionFormController.current.dysmorphologyExamination.narrowFissures}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Wide" value="#{abstractionFormController.current.dysmorphologyExamination.wideFissures}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Eye slant"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="↑"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="↓"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="↑" value="#{abstractionFormController.current.dysmorphologyExamination.upEyeSlant}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="↓" value="#{abstractionFormController.current.dysmorphologyExamination.downEyeSlant}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Sclerae"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Blue"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="10"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Blue" value="#{abstractionFormController.current.dysmorphologyExamination.blueSclerae}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherSclerae}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="10" value="#{abstractionFormController.current.dysmorphologyExamination.sclerae}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Iris"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Pupils"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Iris" value="#{abstractionFormController.current.dysmorphologyExamination.iris}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Pupils" value="#{abstractionFormController.current.dysmorphologyExamination.pupils}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Inter-canthal distance"></p:selectBooleanCheckbox></td>
-                                                            <td><p:outputLabel>cm(<p:inputText size="2"></p:inputText>)%</p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Large"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Small"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Inter-canthal distance" value="#{abstractionFormController.current.dysmorphologyExamination.interCanthalDis}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:outputLabel>cm(<p:inputText size="2" value="#{abstractionFormController.current.dysmorphologyExamination.canSize}"></p:inputText>)%</p:outputLabel></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.canLarge}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.canSmall}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Inter-pupillary distance"></p:selectBooleanCheckbox></td>
-                                                            <td><p:outputLabel>cm(<p:inputText size="2"></p:inputText>)%</p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Large"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Small"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Inter-pupillary distance" value="#{abstractionFormController.current.dysmorphologyExamination.interPupillaryDis}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:outputLabel>cm(<p:inputText size="2" value="#{abstractionFormController.current.dysmorphologyExamination.pupSize}"></p:inputText>)%</p:outputLabel></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.pupLarge}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.pupmall}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                     </table>                                                    
 
                                                 </td>
-                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 2"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 3"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 4"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 5"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 6"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 7"></p:selectBooleanCheckbox><br></br>
+                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.eyeSel1}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.eyeSel2}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 3" value="#{abstractionFormController.current.dysmorphologyExamination.eyeSel3}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 4" value="#{abstractionFormController.current.dysmorphologyExamination.eyeSel4}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 5" value="#{abstractionFormController.current.dysmorphologyExamination.eyeSel5}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 6" value="#{abstractionFormController.current.dysmorphologyExamination.eyeSel6}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 7" value="#{abstractionFormController.current.dysmorphologyExamination.eyeSel7}"></p:selectBooleanCheckbox><br></br>
                                                 </td>
                                                 <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture5.png" width="250px" height="75px"></h:graphicImage><h:graphicImage  class="pic1" library="image" name="Picture7.png" width="250px" height="75px"></h:graphicImage></td>
                                             </tr>
@@ -432,57 +440,57 @@
                                             <tr>
                                                 <p:spacer width="10px"></p:spacer>
                                                 <td width="80px"><p:outputLabel>Ears</p:outputLabel></td>
-                                                <td><p:selectBooleanCheckbox itemLabel="Normal"></p:selectBooleanCheckbox><br></br>
+                                                <td><p:selectBooleanCheckbox itemLabel="Normal" value="#{abstractionFormController.current.dysmorphologyExamination.normalEars}"></p:selectBooleanCheckbox><br></br>
                                                     <table>
                                                         <tr>
                                                             <td><p:outputLabel value="Simplified"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Right"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Left"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Right" value="#{abstractionFormController.current.dysmorphologyExamination.rightSimp}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Left" value="#{abstractionFormController.current.dysmorphologyExamination.leftSimp}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Pits / Grooves"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Right"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Left"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Right" value="#{abstractionFormController.current.dysmorphologyExamination.rightPit}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Left" value="#{abstractionFormController.current.dysmorphologyExamination.leftPit}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Tags"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Right"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Left"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Right" value="#{abstractionFormController.current.dysmorphologyExamination.rightTag}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Left" value="#{abstractionFormController.current.dysmorphologyExamination.leftTag}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Pinnae"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Right"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Left"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Right" value="#{abstractionFormController.current.dysmorphologyExamination.rightPin}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Left" value="#{abstractionFormController.current.dysmorphologyExamination.leftPin}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Lobes"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Right"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Left"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Right" value="#{abstractionFormController.current.dysmorphologyExamination.rightLob}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Left" value="#{abstractionFormController.current.dysmorphologyExamination.leftLob}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Right Ear"></p:selectBooleanCheckbox></td>
-                                                            <td><p:outputLabel>cm(<p:inputText size="2"></p:inputText>)%</p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Large"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Small"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Right Ear" value="#{abstractionFormController.current.dysmorphologyExamination.rightSimp}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:outputLabel>cm(<p:inputText size="2" value="#{abstractionFormController.current.dysmorphologyExamination.rightEarSize}"></p:inputText>)%</p:outputLabel></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.rightEarLarge}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.rightEarSmall}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Left Ear"></p:selectBooleanCheckbox></td>
-                                                            <td><p:outputLabel>cm(<p:inputText size="2"></p:inputText>)%</p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Large"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Small"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Left Ear" value="#{abstractionFormController.current.dysmorphologyExamination.leftSimp}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:outputLabel>cm(<p:inputText size="2" value="#{abstractionFormController.current.dysmorphologyExamination.leftEarSize}"></p:inputText>)%</p:outputLabel></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.leftEarLarge}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.leftEarSmall}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Right"></p:selectBooleanCheckbox></td>
-                                                            <td colspan="2"><p:inputText></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Right" value="#{abstractionFormController.current.dysmorphologyExamination.rightEar}"></p:selectBooleanCheckbox></td>
+                                                            <td colspan="2"><p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.rightEarNote}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Left"></p:selectBooleanCheckbox></td>
-                                                            <td colspan="2"><p:inputText></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Left" value="#{abstractionFormController.current.dysmorphologyExamination.leftEar}"></p:selectBooleanCheckbox></td>
+                                                            <td colspan="2"><p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.leftEArNote}"></p:inputText></td>
                                                         </tr>
                                                     </table>
                                                 </td>
-                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 2"></p:selectBooleanCheckbox><br></br>
+                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.earSel1}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.earSel2}"></p:selectBooleanCheckbox><br></br>
                                                 </td>
                                                 <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture8.png" width="150px" height="75px"></h:graphicImage></td>
                                             </tr>
@@ -494,35 +502,35 @@
                                                 <td>
                                                     <table>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Normal"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Absent / cleft"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Proboscis"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox>
-                                                                <p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Normal" value="#{abstractionFormController.current.dysmorphologyExamination.normalNose}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Absent / cleft" value="#{abstractionFormController.current.dysmorphologyExamination.absentNose}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Proboscis" value="#{abstractionFormController.current.dysmorphologyExamination.proboscisNose}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherNose1}"></p:selectBooleanCheckbox>
+                                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherNoseNote1}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Long"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Short"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Shallow bridge"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="High bridge"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Long" value="#{abstractionFormController.current.dysmorphologyExamination.longNose}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Short" value="#{abstractionFormController.current.dysmorphologyExamination.shortNose}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Shallow bridge" value="#{abstractionFormController.current.dysmorphologyExamination.shallowNose}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="High bridge" value="#{abstractionFormController.current.dysmorphologyExamination.highNose}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Short columella"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Alae above tip"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Deep nasal creases"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Short columella" value="#{abstractionFormController.current.dysmorphologyExamination.shortColNose}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Alae above tip" value="#{abstractionFormController.current.dysmorphologyExamination.alaeNose}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Deep nasal creases" value="#{abstractionFormController.current.dysmorphologyExamination.deepNasal}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Nasal tip"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Nares"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox>
-                                                                <p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Nasal tip" value="#{abstractionFormController.current.dysmorphologyExamination.nasalTip}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Nares" value="#{abstractionFormController.current.dysmorphologyExamination.nares}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherNose2}"></p:selectBooleanCheckbox>
+                                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherNoseNote2}"></p:inputText></td>
                                                         </tr>
                                                     </table>
                                                 </td>
-                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 2"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 3"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 4"></p:selectBooleanCheckbox><br></br>
+                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.noseSel1}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.noseSel2}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 3" value="#{abstractionFormController.current.dysmorphologyExamination.noseSel3}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 4" value="#{abstractionFormController.current.dysmorphologyExamination.noseSel4}"></p:selectBooleanCheckbox><br></br>
                                                 </td>
                                                 <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture22.png" width="250px" height="75px"></h:graphicImage></td>
                                             </tr>
@@ -534,56 +542,56 @@
                                                 <td>
                                                     <table>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Normal"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Cupid’s bow"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="↓"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Normal" value="#{abstractionFormController.current.dysmorphologyExamination.normalMouth}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Cupid’s bow" value="#{abstractionFormController.current.dysmorphologyExamination.cupid}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="↓" value="#{abstractionFormController.current.dysmorphologyExamination.downMouth}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Corners"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Open"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Locked"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Smile"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Open" value="#{abstractionFormController.current.dysmorphologyExamination.openCorners}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Locked" value="#{abstractionFormController.current.dysmorphologyExamination.lockedCorners}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Smile" value="#{abstractionFormController.current.dysmorphologyExamination.smileCorners}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="8"></p:inputText></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherShapeCorner1}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherShapeCornerNote1}"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherShapeCorner2}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherShapeCornerNote2}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Tongue"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Large"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Small"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.largeTong}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.smallTong}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherTong}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherTongNote}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Teath"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Too few"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Small"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Conical / peg"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Spacing"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Too few" value="#{abstractionFormController.current.dysmorphologyExamination.fewTeath}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.smallTeath}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Conical / peg" value="#{abstractionFormController.current.dysmorphologyExamination.conicalTeath}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Spacing" value="#{abstractionFormController.current.dysmorphologyExamination.spacingTeath}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.spacingTeathNote}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Lips"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Thin"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Thick"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Thin" value="#{abstractionFormController.current.dysmorphologyExamination.thinLip}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Thick" value="#{abstractionFormController.current.dysmorphologyExamination.thickLips}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherLips}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherLipNote}"></p:inputText></td>
                                                         </tr>
                                                     </table>
                                                 </td>
-                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Mouth"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 1"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 2"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 3"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 4"></p:selectBooleanCheckbox><br></br>
+                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Mouth" value="#{abstractionFormController.current.dysmorphologyExamination.mouth}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.mouSel1}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.mouSel2}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 3" value="#{abstractionFormController.current.dysmorphologyExamination.mouSel3}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 4" value="#{abstractionFormController.current.dysmorphologyExamination.mouSel4}"></p:selectBooleanCheckbox><br></br>
                                                     <p:spacer height="40px"></p:spacer>
-                                                    <p:selectBooleanCheckbox itemLabel="Palate"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 1"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 2"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 3"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Palate" value="#{abstractionFormController.current.dysmorphologyExamination.plate}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.palSel1}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.palSel2}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 3" value="#{abstractionFormController.current.dysmorphologyExamination.palSel3}"></p:selectBooleanCheckbox><br></br>
                                                 </td>
                                                 <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture9.png" width="250px" height="75px"></h:graphicImage>
                                                     <h:graphicImage  class="pic1" library="image" name="Picture10.png" width="250px" height="75px"></h:graphicImage></td>
@@ -594,29 +602,29 @@
                                                 <p:spacer height="10px"></p:spacer>
                                                 <td width="80px"><p:outputLabel>Neck / Jaw</p:outputLabel></td>
 
-                                                <td><p:selectBooleanCheckbox itemLabel="Normal neck"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Redundant skin"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Torticollis"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Pits / sinuses"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Masses"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox>
-                                                    <p:inputText size="8"></p:inputText>
+                                                <td><p:selectBooleanCheckbox itemLabel="Normal neck" value="#{abstractionFormController.current.dysmorphologyExamination.normalNeck}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Redundant skin" value="#{abstractionFormController.current.dysmorphologyExamination.redundentSkin}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Torticollis" value="#{abstractionFormController.current.dysmorphologyExamination.torticollis}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Pits / sinuses" value="#{abstractionFormController.current.dysmorphologyExamination.sinuses}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Masses" value="#{abstractionFormController.current.dysmorphologyExamination.masses}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherNeck}"></p:selectBooleanCheckbox>
+                                                    <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherNeckNote}"></p:inputText>
                                                 </td>
-                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 2"></p:selectBooleanCheckbox><br></br>
+                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.neckSel1}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.neckSel2}"></p:selectBooleanCheckbox><br></br>
                                                 </td>
                                                 <td width="100px"><h:graphicImage  class="pic1" library="image" name="Picture11.png" width="150px" height="75px"></h:graphicImage></td>
 
 
-                                                <td><p:selectBooleanCheckbox itemLabel="Normal jaw"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Retrognathia"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Pointed chin"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Cleft chin"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox>
-                                                    <p:inputText size="8"></p:inputText>
+                                                <td><p:selectBooleanCheckbox itemLabel="Normal jaw" value="#{abstractionFormController.current.dysmorphologyExamination.normalJaw}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Retrognathia" value="#{abstractionFormController.current.dysmorphologyExamination.retrog}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Pointed chin" value="#{abstractionFormController.current.dysmorphologyExamination.pointedChin}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Cleft chin" value="#{abstractionFormController.current.dysmorphologyExamination.cleftChin}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherJaw}"></p:selectBooleanCheckbox>
+                                                    <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherJawNote}"></p:inputText>
                                                 </td>
-                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Select 2"></p:selectBooleanCheckbox><br></br>
+                                                <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.jawSel1}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.jawSel2}"></p:selectBooleanCheckbox><br></br>
                                                 </td>
                                                 <td width="100px"><h:graphicImage  class="pic1" library="image" name="Picture12.png" width="150px" height="75px"></h:graphicImage></td>
                                             </tr>
@@ -631,32 +639,32 @@
                                             <tr>
                                                 <p:spacer width="10px"></p:spacer>
                                                 <td width="80px"><p:outputLabel>Chest / Heart</p:outputLabel></td>
-                                                <td><p:selectBooleanCheckbox itemLabel="Normal chest"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Small"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Broad"></p:selectBooleanCheckbox><br></br>
-                                                    <p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox>
-                                                    <p:inputText size="8"></p:inputText>
+                                                <td><p:selectBooleanCheckbox itemLabel="Normal chest" value="#{abstractionFormController.current.dysmorphologyExamination.normalChest}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.smallChest}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Broad" value="#{abstractionFormController.current.dysmorphologyExamination.broad}"></p:selectBooleanCheckbox><br></br>
+                                                    <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherChest}"></p:selectBooleanCheckbox>
+                                                    <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherChestNote}"></p:inputText>
                                                     <table>
                                                         <tr>
                                                             <td><p:outputLabel value="Nipples"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Hypoplastic"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Widely spaced"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Hypoplastic" value="#{abstractionFormController.current.dysmorphologyExamination.hypoplastic}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Widely spaced" value="#{abstractionFormController.current.dysmorphologyExamination.widelySpace}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherNipples}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherNipplesNote}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Sternum"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Cleft / absent xiphoid"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Short sternum"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Cleft / absent xiphoid" value="#{abstractionFormController.current.dysmorphologyExamination.cleftStenrnum}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Short sternum" value="#{abstractionFormController.current.dysmorphologyExamination.shortSternum}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherSternum}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherSternumNotes}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
                                                             <td><p:outputLabel value="Pectus"></p:outputLabel></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Carinatum"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Excavatum"></p:selectBooleanCheckbox></td>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Carinatum" value="#{abstractionFormController.current.dysmorphologyExamination.carinatum}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Excavatum" value="#{abstractionFormController.current.dysmorphologyExamination.excavatum}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherPectus}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherPectusNote}"></p:inputText></td>
                                                         </tr>
                                                     </table>                                                    
 
@@ -664,23 +672,23 @@
                                                 <td width="200px">
                                                     <table>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Normal heart"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Normal heart" value="#{abstractionFormController.current.dysmorphologyExamination.normalHeart}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Other"></p:selectBooleanCheckbox></td>
-                                                            <td><p:inputText size="8"></p:inputText></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherHeart}"></p:selectBooleanCheckbox></td>
+                                                            <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherHeartNote}"></p:inputText></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Murmur"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Murmur" value="#{abstractionFormController.current.dysmorphologyExamination.murmur}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Click"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Click" value="#{abstractionFormController.current.dysmorphologyExamination.clickHeart}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Rhythm"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Rhythm" value="#{abstractionFormController.current.dysmorphologyExamination.rhythm}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><p:selectBooleanCheckbox itemLabel="Pulses"></p:selectBooleanCheckbox></td>
+                                                            <td><p:selectBooleanCheckbox itemLabel="Pulses" value="#{abstractionFormController.current.dysmorphologyExamination.pulses}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                     </table>
                                                 </td>
@@ -690,7 +698,11 @@
                                 </p:panel>
                             </p:tab>
 
-                        </p:tabView>
+                            <p:tab >
+                                
+                            </p:tab>
+
+                        </p:wizard>
                     </p:panel>
 
                 </h:form>

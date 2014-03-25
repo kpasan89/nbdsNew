@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
 
@@ -11,16 +12,41 @@
 
             <ui:define name="content">
                 <h:form>
-                    <p:commandButton ajax="false" value="List All" action="#{notificationFormController.listAll()}"></p:commandButton>
-                    <p:dataTable value="#{notificationFormController.items}" var="nf">
-                        <p:column headerText="Hospital/RDHS Area">
-                            <h:outputLabel value="#{nf}"></h:outputLabel>
-                            <h:outputLabel value="#{nf.rdhsArea.name}"></h:outputLabel>
+                    <p:commandButton ajax="false" value="List All" action="#{notificationFormController.listAll()}" ></p:commandButton>
+                    <p:dataTable value="#{notificationFormController.items}" var="nf" rowIndexVar="se">
+                        <p:column headerText="No">
+                            <h:outputLabel value="#{se + 1}"></h:outputLabel>
                         </p:column>
+                        <p:column headerText="Infants Name">
+                            <h:outputLabel value="#{nf.infant.name}"></h:outputLabel>
+                        </p:column>
+                        <p:column headerText="Infants Sex">
+                            <h:outputLabel value="#{nf.infant.personSex }"></h:outputLabel>
+                        </p:column>
+                        <p:column headerText="Diagnosis">
+                            <h:outputLabel value="#{nf.diagnosis}"></h:outputLabel>
+                        </p:column>
+                        <p:column headerText="Institution">
+                            <h:outputLabel value="#{nf.institution.name}"></h:outputLabel>
+                        </p:column>
+                        <p:column headerText="Ward">
+                            <h:outputLabel value="#{nf.ward.name}"></h:outputLabel>
+                        </p:column>
+                        <p:column headerText="View">
+                            <p:commandButton value="View" action="add_hospital_notification_form" ajax="false" >
+                                <f:setPropertyActionListener value="#{nf}" target="#{notificationFormController.current}" ></f:setPropertyActionListener>
+                            </p:commandButton>
+                        </p:column>
+                        <p:column headerText="Case Ascertainment Form">
+                            <p:commandButton value="Enter" action="#{abstractionFormController.addNewAbstractionFormFromNotificationForm()}" >
+                                <f:setPropertyActionListener value="#{nf}" target="#{abstractionFormController.notificationForm}" ></f:setPropertyActionListener>
+                            </p:commandButton>
+                        </p:column>
+                        
                     </p:dataTable>
                 </h:form>
             </ui:define>
-            
+
 
         </ui:composition>
 

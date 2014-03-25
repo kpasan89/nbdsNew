@@ -20,12 +20,12 @@
                         <f:facet name="header" >
                             <h:outputLabel value="Hospital Notification Form" ></h:outputLabel>
                             <p:spacer width="10" ></p:spacer>
-                            <p:autoComplete value="#{notificationFormController.current.institution}"
-                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
-                                            var="i"
-                                            itemLabel="#{i.name}"
-                                            itemValue="#{i}"
-                                            converter="institutionConverter" >
+                            <p:autoComplete value="#{notificationFormController.current.area}"
+                                            completeMethod="#{areaController.completeArea}"
+                                            var="a"
+                                            itemLabel="#{a.name}"
+                                            itemValue="#{a}"
+                                            converter="areaConverter" >
                             </p:autoComplete>
                             <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}"></p:commandButton>
                         </f:facet>
@@ -50,12 +50,13 @@
                             </tr>
                             <tr>
                                 <td><ul>Hospital
-                                        <p:autoComplete id="acHos"
+
+
+                                        <p:autoComplete
                                             forceSelection="true"                                 
                                             value="#{notificationFormController.current.hospital}" 
                                             completeMethod="#{institutionController.completeOffcialInstitutions}"
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
-                                            <f:ajax event="itemSelect" execute="acHos" render="acWard" ></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
 
@@ -67,113 +68,106 @@
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
                                         </p:autoComplete></ul>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td><ul>Ward/Unit  
+                        </tr>
+                        <tr>
+                            <td><ul>Ward/Unit  
                                         <p:autoComplete
-                                            id="acWard"
                                             forceSelection="true"                                 
                                             value="#{notificationFormController.current.ward}" 
-                                            completeMethod="#{notificationFormController.completeOfficialDepartments}"
+                                            completeMethod="#{departmentController.completeOfficialDepartments}"
                                             var="of" itemLabel="#{of.name}" itemValue="#{of}" converter="departmentConverter" >
                                         </p:autoComplete></ul>
-                                </td>
-
-                                <td><ul>MOH Division   
+                            </td>
+                            
+                            <td><ul>MOH Division   
                                         <p:autoComplete
                                             forceSelection="true"                                 
                                             value="#{notificationFormController.current.hospital}" 
                                             completeMethod="#{institutionController.completeOffcialInstitutions}"
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
                                         </p:autoComplete></ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><ul>District   
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><ul>District   
                                         <p:autoComplete
                                             forceSelection="true"                                 
                                             value="#{notificationFormController.current.hospital}" 
                                             completeMethod="#{institutionController.completeOffcialInstitutions}"
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
                                         </p:autoComplete></ul>
-                                </td>
-
-                                <td><ul>GN Division    
+                            </td>
+                            
+                            <td><ul>GN Division    
                                         <p:autoComplete
                                             forceSelection="true"                                 
                                             value="#{notificationFormController.current.hospital}" 
                                             completeMethod="#{institutionController.completeOffcialInstitutions}"
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
                                         </p:autoComplete></ul>
-                                </td>
-                            </tr> 
-                            <tr>
-                                <td>4. Date of Case Identified</td>
-                                <td><p:calendar value="#{notificationFormController.current.caseIdentifiedDate}" size="40"></p:calendar></td>
-                            </tr>
-                            <tr>
-                                <td>5. BHT No</td>
-                                <td><p:inputText value="#{notificationFormController.current.bhtNo}" size="40"></p:inputText></td>
-                            </tr>
-                            <tr>
-                                <td>6. Whether the baby alive or dead ?</td><td><p:selectOneRadio id="liveOrDead">
-                                        <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
-                                        <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
-                                    </p:selectOneRadio>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7. Diagnosis / Birth Defect Coding</td>
-                                <td><p:inputText value="#{notificationFormController.current.diagnosis}" size="40"></p:inputText></td>
-                            </tr>
-                            <tr>
-                                <td>8. Name of the mother</td>
-                                <td><p:inputText value="#{notificationFormController.current.mother.name}" size="40"></p:inputText></td>
-                            </tr>
-                            <tr>
-                                <td>9. Mother’s Date of Birth</td>
-                                <td><p:inputText value="#{notificationFormController.current.mother.dob}" size="40"></p:inputText></td>
-                            </tr>
-                            <tr>
-                                <td>10. Age</td>
-                                <td><p:inputText value="#{notificationFormController.current.mother.age}" size="35"></p:inputText>Years</td>
-                            </tr>
-                            <tr>
-                                <td>11. National Identity Card No</td>
-                                <td><p:inputText value="#{notificationFormController.current.mother.nic}" size="40"></p:inputText></td>
-                            </tr>
-                            <tr>
-                                <td>12. Ethnicity</td>
-                                <td>
-                                    <p:selectOneMenu value="#{notificationFormController.current.mother.ethnicity}" >
-                                        <f:selectItems value="#{enumController.ethnicities}" ></f:selectItems>
-                                    </p:selectOneMenu>
-
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>13. Residence Address</td>
-                                <td><p:inputText value="#{notificationFormController.current.address}" size="40"></p:inputText></td>
-                            </tr>
-                            <tr>
-                                <td>14. Phone1</td>
-                                <td><p:inputText value="#{notificationFormController.current.tp1}" size="40"></p:inputText></td>
-                            </tr>
-                            <tr>
-                                <td>15. Phone2</td>
-                                <td><p:inputText value="#{notificationFormController.current.tp2}" size="40"></p:inputText></td>
-                            </tr>
-                            <tr>
-                                <td><font color="red">If dead</font></td>
-                            </tr>
-                            <tr>
-                                <td>Date of Death</td>
-                                <td><p:inputText value="#{notificationFormController.current.infant.dateOfDead}" size="40"></p:inputText></td>
-                            </tr>
-                            <tr>
-                                <td>Age at Death</td>
-                                <td><pre>Years   <p:inputText value="#{notificationFormController.current.infantAodYrs}" size="33"></p:inputText></pre><pre>Months  <p:inputText value="#{notificationFormController.current.infantAodMnths}" size="33"></p:inputText></pre><pre>Days    <p:inputText value="#{notificationFormController.current.infantAodDys}" size="33"></p:inputText></pre></td>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>4. Date of Case Identified</td>
+                            <td><p:calendar value="#{notificationFormController.current.caseIdentifiedDate}" size="40"></p:calendar></td>
+                        </tr>
+                        <tr>
+                            <td>5. BHT No</td>
+                            <td><p:inputText value="#{notificationFormController.current.bhtNo}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>6. Whether the baby alive or dead ?</td><td><p:selectOneRadio id="liveOrDead">
+                                    <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
+                                    <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
+                            </p:selectOneRadio>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>7. Diagnosis / Birth Defect Coding</td>
+                            <td><p:inputText value="#{notificationFormController.current.diagnosis}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>8. Name of the mother</td>
+                            <td><p:inputText value="#{notificationFormController.current.mother.name}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>9. Mother’s Date of Birth</td>
+                            <td><p:inputText value="#{notificationFormController.current.mother.dob}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>10. Age</td>
+                            <td><p:inputText value="#{notificationFormController.current.mother.age}" size="35"></p:inputText>Years</td>
+                        </tr>
+                        <tr>
+                            <td>11. National Identity Card No</td>
+                            <td><p:inputText value="#{notificationFormController.current.mother.nic}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>12. Ethnicity</td>
+                            <td><p:inputText value="#{notificationFormController.current.mother.ethnicity}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>13. Residence Address</td>
+                            <td><p:inputText value="#{notificationFormController.current.address}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>14. Phone1</td>
+                            <td><p:inputText value="#{notificationFormController.current.tp1}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>15. Phone2</td>
+                            <td><p:inputText value="#{notificationFormController.current.tp2}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td><font color="red">If dead</font></td>
+                        </tr>
+                        <tr>
+                            <td>Date of Death</td>
+                            <td><p:inputText value="#{notificationFormController.current.infant.dateOfDead}" size="40"></p:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>Age at Death</td>
+                            <td><pre>Years   <p:inputText value="#{notificationFormController.current.infantAodYrs}" size="33"></p:inputText></pre><pre>Months  <p:inputText value="#{notificationFormController.current.infantAodMnths}" size="33"></p:inputText></pre><pre>Days    <p:inputText value="#{notificationFormController.current.infantAodDys}" size="33"></p:inputText></pre></td>
                         </tr>
                         <tr>
                             <td>Place of Death</td>

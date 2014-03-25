@@ -366,6 +366,9 @@ public class AreaController implements Serializable {
         this.sessionController = sessionController;
     }
 
+    public AreaType[] getAreaTypes(){
+        return AreaType.values();
+    }
     
     
     

@@ -8,7 +8,6 @@ package gov.health.bean;
  * and
  * a Set of Related Tools
  */
-
 import gov.health.bean.*;
 import gov.health.entity.Area;
 import gov.health.entity.Department;
@@ -17,6 +16,7 @@ import gov.health.entity.NotificationForm;
 import gov.health.entity.Institution;
 import gov.health.entity.Person;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -50,9 +50,28 @@ public class NotificationFormController implements Serializable {
     Institution institution;
     Area area;
     Department department;
-    
-    
-    public void listAll(){
+    @Inject
+    DepartmentController departmentController;
+
+    public List<Department> completeOfficialDepartments(String qry) {
+        if (current == null || current.getInstitution() == null) {
+            return new ArrayList<Department>();
+        } else {
+            getDepartmentController().setInstitution(current.getInstitution());
+            return getDepartmentController().completeInstitutionDepartments(qry);
+        }
+
+    }
+
+    public DepartmentController getDepartmentController() {
+        return departmentController;
+    }
+
+    public void setDepartmentController(DepartmentController departmentController) {
+        this.departmentController = departmentController;
+    }
+
+    public void listAll() {
         items = getFacade().findAll();
     }
 
@@ -63,20 +82,24 @@ public class NotificationFormController implements Serializable {
     public void setDepartment(Department department) {
         this.department = department;
     }
-    
-    
-    
-    
-    public String addNewHospitalNotificationForm(){
+
+    public String addNewHospitalNotificationForm() {
         current = new NotificationForm();
         Person infant = new Person();
         Person mother = new Person();
         current.setInfant(infant);
         current.setMother(mother);
-        
         return "add_hospital_notification_form";
     }
-    
+
+    public String addNewAreaNotificationForm() {
+        current = new NotificationForm();
+        Person infant = new Person();
+        Person mother = new Person();
+        current.setInfant(infant);
+        current.setMother(mother);
+        return "add_area_notification_form";
+    }
 
     public Institution getInstitution() {
         return institution;
@@ -104,25 +127,23 @@ public class NotificationFormController implements Serializable {
         this.current = current;
     }
 
-    
-
     public List<NotificationForm> getItems() {
-        
+
         return items;
     }
 
     public void saveSelected() {
-        if(current==null){
+        if (current == null) {
             JsfUtil.addErrorMessage("Error");
             return;
         }
-        if(current.getId()==null || current.getId()==0){
+        if (current.getId() == null || current.getId() == 0) {
             getFacade().create(current);
-        }else{
+        } else {
             getFacade().edit(current);
         }
         JsfUtil.addSuccessMessage("Saved");
-        
+
     }
 
     public String getSelectText() {
@@ -133,8 +154,6 @@ public class NotificationFormController implements Serializable {
         this.selectText = selectText;
 
     }
-
-    
 
     public SessionController getSessionController() {
         return sessionController;
@@ -159,8 +178,6 @@ public class NotificationFormController implements Serializable {
     public void setArea(Area area) {
         this.area = area;
     }
-    
-    
 
     @FacesConverter(forClass = NotificationForm.class)
     public static class NotificationFormControllerConverter implements Converter {

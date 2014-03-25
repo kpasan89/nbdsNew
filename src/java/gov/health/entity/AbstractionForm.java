@@ -29,8 +29,10 @@ import javax.persistence.Temporal;
 
 @Entity
 public class AbstractionForm implements Serializable {
+    
     @OneToOne(mappedBy = "abstractionForm",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private DysmorphologyExamination dysmorphologyExamination;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -83,7 +83,30 @@ public class NotificationForm implements Serializable {
     Person nameHOI; // Head of the institutions' name
     @Temporal(javax.persistence.TemporalType.DATE)
     Date approveDate; // by head of the institution
+    @ManyToOne
+    Institution institution;
+    @ManyToOne
+    Area area;
 
+    public Institution getInstitution() {
+        return institution;
+    }
+
+    public void setInstitution(Institution institution) {
+        this.institution = institution;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+    
+
+    
+    
     public boolean isPostMortem() {
         return postMortem;
     }

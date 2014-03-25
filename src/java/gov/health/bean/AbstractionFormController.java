@@ -14,6 +14,7 @@ import gov.health.facade.AbstractionFormFacade;
 import gov.health.entity.AbstractionForm;
 import gov.health.entity.DysmorphologyExamination;
 import gov.health.entity.Institution;
+import gov.health.entity.NotificationForm;
 import gov.health.entity.Person;
 import java.io.Serializable;
 import java.util.List;
@@ -48,8 +49,7 @@ public class AbstractionFormController implements Serializable {
 
     Institution institution;
     Area area;
-    
-    
+    NotificationForm notificationForm;
 
     public String addNewAbstractionForm() {
         current = new AbstractionForm();
@@ -62,6 +62,18 @@ public class AbstractionFormController implements Serializable {
         //current.setInfant(infant);
         //current.setMother(mother);
 
+        return "birth_diffect_abstraction_form";
+    }
+
+    public String addNewAbstractionFormFromNotificationForm() {
+        if (notificationForm == null || notificationForm.getId()==null) {
+            return "";
+        }
+        current = new AbstractionForm();
+        current.setMother(notificationForm.getMother());
+        current.setInfant(notificationForm.getInfant());
+        DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
+        current.setDysmorphologyExamination(dysmorphologyExamination);
         return "birth_diffect_abstraction_form";
     }
 
@@ -151,6 +163,17 @@ public class AbstractionFormController implements Serializable {
         this.area = area;
     }
 
+    public NotificationForm getNotificationForm() {
+        return notificationForm;
+    }
+
+    public void setNotificationForm(NotificationForm notificationForm) {
+        this.notificationForm = notificationForm;
+    }
+
+    
+    
+    
     @FacesConverter(forClass = AbstractionForm.class)
     public static class AbstractionFormControllerConverter implements Converter {
 

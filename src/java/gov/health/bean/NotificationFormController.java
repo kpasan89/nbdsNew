@@ -52,13 +52,29 @@ public class NotificationFormController implements Serializable {
     Department department;
     @Inject
     DepartmentController departmentController;
+    @Inject
+    AreaController areaController;
 
     public List<Department> completeOfficialDepartments(String qry) {
-        if (current == null || current.getInstitution() == null) {
+        System.out.println("Complete");
+        System.out.println("current = " + current);
+        if (current == null || current.getHospital() == null) {
+            System.out.println("Null");
             return new ArrayList<Department>();
         } else {
-            getDepartmentController().setInstitution(current.getInstitution());
+            System.out.println("Hospital name" + current.getHospital().getName());
+            getDepartmentController().setInstitution(current.getHospital());
             return getDepartmentController().completeInstitutionDepartments(qry);
+        }
+
+    }
+    
+     public List<Area> completeMohAreas(String qry) {
+        if (current == null || current.getRdhsArea()== null) {
+            return new ArrayList<Area>();
+        } else {
+            getAreaController().setSuperArea(current.getRdhsArea());
+            return getAreaController().completeAreasUnderSuperArea(qry);
         }
 
     }
@@ -179,6 +195,15 @@ public class NotificationFormController implements Serializable {
         this.area = area;
     }
 
+    public AreaController getAreaController() {
+        return areaController;
+    }
+
+    public void setAreaController(AreaController areaController) {
+        this.areaController = areaController;
+    }
+
+    
     @FacesConverter(forClass = NotificationForm.class)
     public static class NotificationFormControllerConverter implements Converter {
 

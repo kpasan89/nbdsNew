@@ -276,7 +276,7 @@ public class DepartmentController implements Serializable {
     public List<Department> completeOfficialDepartments(String qry) {
         String temSql;
         List<Department> dep;
-        temSql = "SELECT i FROM Department i where i.retired=false and i.official = true and LOWER(i.name) like '%" + qry.toLowerCase() + "%' order by i.name";
+        temSql = "SELECT i FROM Department i where i.retired=false  and LOWER(i.name) like '%" + qry.toLowerCase() + "%' order by i.name";
         dep = getFacade().findBySQL(temSql);
         return dep;
     }
@@ -287,8 +287,10 @@ public class DepartmentController implements Serializable {
         List<Department> dep;
         Map m = new HashMap();
         m.put("ins", institution);
-        temSql = "SELECT i FROM Department i where i.retired=false and i.official = true and LOWER(i.name) like '%" + qry.toLowerCase() + "%' and i.institution=:ins order by i.name";
-        dep = getFacade().findBySQL(temSql);
+        temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + qry.toLowerCase() + "%' and i.institution=:ins order by i.name";
+        dep = getFacade().findBySQL(temSql,m);
+        System.out.println("m = " + m);
+        System.out.println("temSql = " + temSql);
         return dep;
     }
 

@@ -38,6 +38,7 @@ public class Area implements Serializable {
     //
     @ManyToOne
     Area superArea;
+    @Enumerated(EnumType.STRING)
     AreaType areaType;
 
     public AreaType getAreaType() {

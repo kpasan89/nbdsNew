@@ -70,10 +70,20 @@ public class Person implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     Date dateOfDead;
     int age;
+    int ageInWeek;
     @Enumerated(EnumType.STRING)
     Ethnicity ethnicity;
     String address;
 
+    public int getAgeInWeek() {
+        return ageInWeek;
+    }
+
+    public void setAgeInWeek(int ageInWeek) {
+        this.ageInWeek = ageInWeek;
+    }
+
+    
     public String getAddress() {
         return address;
     }

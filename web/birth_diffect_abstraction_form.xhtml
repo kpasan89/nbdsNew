@@ -7,7 +7,6 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
-
         <ui:composition template="./resources/template/template_1.xhtml">
 
             <ui:define name="content">
@@ -18,10 +17,8 @@
                             <p:spacer width="10"></p:spacer>
                             <p:commandButton ajax="false" value="Save" action="#{abstractionFormController.saveSelected()}"></p:commandButton>
                         </f:facet>
-
-
-                        <p:wizard>
-
+                        <p:tabView>
+                            <!--<p:wizard>-->
                             <p:tab>
 
                                 <p:panel header="Birth Diffect Abstraction Form">
@@ -137,10 +134,6 @@
                                             <td><p:inputText value="#{abstractionFormController.current.diagnosis}" size="40"></p:inputText></td>
                                         </tr>
                                     </table>
-                                </p:panel>
-                            </p:tab>
-                            <p:tab>
-                                <p:panel>
                                     <table width="680px" style="padding: 2.5%" align="center" bgcolor="white">
                                         <tr>
                                             <td><p:outputLabel>8. Name of the mother</p:outputLabel></td>
@@ -284,11 +277,7 @@
                                         </table>
                                     </table>
                                 </p:panel>
-
                             </p:tab>
-
-
-
                             <p:tab >
                                 <p:panel header="Dysmorphology Examination">
 
@@ -423,7 +412,6 @@
                                                             <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.pupmall}"></p:selectBooleanCheckbox></td>
                                                         </tr>
                                                     </table>                                                    
-
                                                 </td>
                                                 <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.eyeSel1}"></p:selectBooleanCheckbox><br></br>
                                                     <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.eyeSel2}"></p:selectBooleanCheckbox><br></br>
@@ -614,8 +602,6 @@
                                                     <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.neckSel2}"></p:selectBooleanCheckbox><br></br>
                                                 </td>
                                                 <td width="100px"><h:graphicImage  class="pic1" library="image" name="Picture11.png" width="150px" height="75px"></h:graphicImage></td>
-
-
                                                 <td><p:selectBooleanCheckbox itemLabel="Normal jaw" value="#{abstractionFormController.current.dysmorphologyExamination.normalJaw}"></p:selectBooleanCheckbox><br></br>
                                                     <p:selectBooleanCheckbox itemLabel="Retrognathia" value="#{abstractionFormController.current.dysmorphologyExamination.retrog}"></p:selectBooleanCheckbox><br></br>
                                                     <p:selectBooleanCheckbox itemLabel="Pointed chin" value="#{abstractionFormController.current.dysmorphologyExamination.pointedChin}"></p:selectBooleanCheckbox><br></br>
@@ -667,7 +653,6 @@
                                                             <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherPectusNote}"></p:inputText></td>
                                                         </tr>
                                                     </table>                                                    
-
                                                 </td>
                                                 <td width="200px">
                                                     <table>
@@ -697,18 +682,170 @@
                                     </table>
                                 </p:panel>
                             </p:tab>
+                            <p:tab>
+                                <p:panel header="Lab Notification Form">
+                                    <f:facet name="header">
+                                        <h:outputLabel value="Lab Notification Form"></h:outputLabel>
+                                    </f:facet>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <td width="200px"><p:outputLabel value="Major anomalies / medical problems"></p:outputLabel></td>
+                                            <td><p:inputText value="#{abstractionFormController.current.labTest.majorAnamaly}"></p:inputText></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="200px"><p:outputLabel value="Minor anomalies"></p:outputLabel></td>
+                                            <td><p:inputText value="#{abstractionFormController.current.labTest.minorAnamaly}"></p:inputText></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="200px"><p:outputLabel value="Labs / referrals"></p:outputLabel></td>
+                                            <td><p:inputText value="#{abstractionFormController.current.labTest.referals}"></p:inputText></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="200px"><p:outputLabel value="Comments"></p:outputLabel></td>
+                                            <td><p:inputText value="#{abstractionFormController.current.labTest.comments}"></p:inputText></td>
+                                        </tr>
+                                    </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <p:spacer height="10px"></p:spacer>
+                                            <td rowspan="2" width="50px"><p:outputLabel value="1"></p:outputLabel></td>
+                                            <td width="100px"><p:outputLabel value="Procedure"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.proced}"></p:inputText></td>
+                                            <td width="100px"><p:outputLabel value="US Scan / Fetal"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.fetalAnomalyScan}"></p:calendar></td>
+                                            <td width="100px"><p:outputLabel value="Facility"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.facility}"></p:inputText></td>
+                                            <td><p:outputLabel value="Done by"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.doneBy}" style="width: 400px"></p:inputText></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4"><p:outputLabel value="Results and Interpretation"></p:outputLabel><br></br>
+                                                <p:inputTextarea value="#{abstractionFormController.current.labTest.results}" style="width: 885px"></p:inputTextarea></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="3"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Lab Tests / Procedure"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.labTest3}"></p:inputText></td>
+                                            <td><p:outputLabel value="Date Performed"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.datePreformed3}"></p:calendar></td>
+                                            <td><p:outputLabel value="Facility"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.facility3}"></p:inputText></td>
+                                            <td><p:outputLabel value="Results and Interpretation"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.results3}" style="width: 400px"></p:inputText></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="4"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Lab Tests / Procedure"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.labTest4}"></p:inputText></td>
+                                            <td><p:outputLabel value="Date Performed"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.datePreformed4}"></p:calendar></td>
+                                            <td><p:outputLabel value="Facility"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.facility4}"></p:inputText></td>
+                                            <td><p:outputLabel value="Results and Interpretation"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.results4}" style="width: 400px"></p:inputText></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="5"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Lab Tests / Procedure"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.labTest5}"></p:inputText></td>
+                                            <td><p:outputLabel value="Date Performed"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.datePreformed5}"></p:calendar></td>
+                                            <td><p:outputLabel value="Facility"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.facility5}"></p:inputText></td>
+                                            <td><p:outputLabel value="Results and Interpretation"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.results5}" style="width: 400px"></p:inputText></td>
+                                        </tr>
+                                    </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <p:spacer height="10px"></p:spacer>
 
-                            <p:tab >
-                                
+                                        <tr>
+
+                                            <td><font color="blue"><p:outputLabel value="Source of Information"></p:outputLabel></font><br></br>
+                                                <p:outputLabel value="LMP"></p:outputLabel></td>
+                                            <td><p:outputLabel value="LMP Date"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.lmpDate}"></p:calendar></td>
+                                            <td><p:outputLabel value="Estimated Date of Delivery"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.lmpDelDate}"></p:calendar></td>
+                                            <td><p:outputLabel value="Gestational Age at Delivery"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.lmpAge}"></p:inputText><p:outputLabel value="Weeks"></p:outputLabel></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td><p:outputLabel value="Ultrasound"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Ultrasound Date"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.ultrasoundDate}"></p:calendar></td>
+                                            <td><p:outputLabel value="Gestational Age at Ultrasound"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.gestationalAgeatUltrasound}"></p:inputText><p:outputLabel value="Weeks"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Estimated Date of Delivery"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.ultrasoundDelDate}"></p:inputText></td>
+                                            <td><p:outputLabel value="Gestational Age at Delivery"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.ultrasoundAge}"></p:inputText><p:outputLabel value="Weeks"></p:outputLabel></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Pregnancy Outcome"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.ultrasoundDate}"></p:inputText></td>
+                                            <td><p:outputLabel value="APGAR at 1 minute"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.oneMin}"></p:inputText><br></br>
+                                                <p:outputLabel value="APGAR at 5 minute"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.fiveMin}"></p:inputText><br></br>
+                                                <p:outputLabel value="APGAR at 10 minute"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.tenMin}"></p:inputText></td>
+                                            <td><p:outputLabel value="Birth weight"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.ultrasoundDate}"></p:inputText><p:outputLabel value="Grams"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Length"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.ultrasoundDate}"></p:inputText><p:outputLabel value="cm"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Head circumference"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.ultrasoundDate}"></p:inputText><p:outputLabel value="cm"></p:outputLabel></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Neonatal Complications"></p:outputLabel></td>
+                                            <td colspan="4"><p:inputTextarea value="#{abstractionFormController.current.labTest.neonatalComplications}" style="width: 725px"></p:inputTextarea></td>
+                                        </tr>
+                                    </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <p:spacer height="10px"></p:spacer>
+                                        <tr>
+                                            <td><p:outputLabel value="1"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Lab Tests / Procedure"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.labTest6}"></p:inputText></td>
+                                            <td><p:outputLabel value="Date Performed"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.datePreformed6}"></p:calendar></td>
+                                            <td><p:outputLabel value="Facility"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.facility6}"></p:inputText></td>
+                                            <td><p:outputLabel value="Results and Interpretation"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.results6}" style="width: 400px"></p:inputText></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="2"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Lab Tests / Procedure"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.labTest7}"></p:inputText></td>
+                                            <td><p:outputLabel value="Date Performed"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.datePreformed4}"></p:calendar></td>
+                                            <td><p:outputLabel value="Facility"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.facility4}"></p:inputText></td>
+                                            <td><p:outputLabel value="Results and Interpretation"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.results4}" style="width: 400px"></p:inputText></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="5"></p:outputLabel></td>
+                                            <td><p:outputLabel value="Lab Tests / Procedure"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.labTest5}"></p:inputText></td>
+                                            <td><p:outputLabel value="Date Performed"></p:outputLabel><br></br>
+                                                <p:calendar value="#{abstractionFormController.current.labTest.datePreformed5}"></p:calendar></td>
+                                            <td><p:outputLabel value="Facility"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.facility5}"></p:inputText></td>
+                                            <td><p:outputLabel value="Results and Interpretation"></p:outputLabel><br></br>
+                                                <p:inputText value="#{abstractionFormController.current.labTest.results5}" style="width: 400px"></p:inputText></td>
+                                        </tr>
+                                    </table>
+                                </p:panel>
                             </p:tab>
-
-                        </p:wizard>
+                            <!--</p:wizard>-->
+                        </p:tabView>
                     </p:panel>
-
                 </h:form>
             </ui:define>
-
         </ui:composition>
-
     </body>
 </html>

@@ -14,6 +14,7 @@ import gov.health.facade.AbstractionFormFacade;
 import gov.health.entity.AbstractionForm;
 import gov.health.entity.DysmorphologyExamination;
 import gov.health.entity.Institution;
+import gov.health.entity.LabTest;
 import gov.health.entity.NotificationForm;
 import gov.health.entity.Person;
 import java.io.Serializable;
@@ -59,6 +60,8 @@ public class AbstractionFormController implements Serializable {
         current.setInfant(infant);
         DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
         current.setDysmorphologyExamination(dysmorphologyExamination);
+        LabTest labTest = new LabTest();
+        current.setLabTest(labTest);
         //current.setInfant(infant);
         //current.setMother(mother);
 
@@ -74,6 +77,8 @@ public class AbstractionFormController implements Serializable {
         current.setInfant(notificationForm.getInfant());
         DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
         current.setDysmorphologyExamination(dysmorphologyExamination);
+        LabTest labTest = new LabTest();
+        current.setLabTest(labTest);
         return "birth_diffect_abstraction_form";
     }
 
@@ -97,6 +102,8 @@ public class AbstractionFormController implements Serializable {
             current.setInfant(infant);
             DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
             current.setDysmorphologyExamination(dysmorphologyExamination);
+            LabTest labTest = new LabTest();
+            current.setLabTest(labTest);
         }
         return current;
     }

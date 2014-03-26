@@ -33,6 +33,9 @@ public class AbstractionForm implements Serializable {
     @OneToOne(mappedBy = "abstractionForm",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private DysmorphologyExamination dysmorphologyExamination;
     
+    @OneToOne(mappedBy = "abstractionForm",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private LabTest labTest;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -108,6 +111,18 @@ public class AbstractionForm implements Serializable {
     @ManyToOne
     Person perRelationship4;
 
+    
+    
+    public LabTest getLabTest() {
+        return labTest;
+    }
+
+    public void setLabTest(LabTest labTest) {
+        this.labTest = labTest;
+    }
+
+    
+    
     public DysmorphologyExamination getDysmorphologyExamination() {
         return dysmorphologyExamination;
     }

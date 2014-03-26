@@ -43,13 +43,40 @@ public class AreaController implements Serializable {
     List<Area> lstItems;
     private Area current;
     private List<Area> items = null;
-    private int selectedItemIndex;
     boolean selectControlDisable = false;
     boolean modifyControlDisable = true;
     String selectText = "";
+    Area superArea;
+    
 
     Institution institution;
 
+    public Area getSuperArea() {
+        return superArea;
+    }
+
+    public void setSuperArea(Area superArea) {
+        this.superArea = superArea;
+    }
+
+    public List<Area> getMappedAreas() {
+        return mappedAreas;
+    }
+
+    public void setMappedAreas(List<Area> mappedAreas) {
+        this.mappedAreas = mappedAreas;
+    }
+
+    public Area getCurrentMappingArea() {
+        return currentMappingArea;
+    }
+
+    public void setCurrentMappingArea(Area currentMappingArea) {
+        this.currentMappingArea = currentMappingArea;
+    }
+
+    
+    
     public Institution getInstitution() {
         return institution;
     }
@@ -82,12 +109,21 @@ public class AreaController implements Serializable {
         List<Area> des = getFacade().findBySQL("select d from Area d where d.retired = false and lower(d.name) like :n", m);
         return des;
     }
+    
+    public List<Area> completeAreasUnderSuperArea(String qry) {
+        Map m = new HashMap();
+        m.put("n", "%" + qry.toLowerCase() + "%");
+        m.put("sa", superArea);
+        List<Area> des = getFacade().findBySQL("select d from Area d where d.retired = false and lower(d.name) like :n and d.superArea=:sa", m);
+        return des;
+    }
 
     public List<Area> completeProvinces(String qry) {
         return completeAreaByType(qry, AreaType.Province);
     }
 
     public List<Area> completeDistricts(String qry) {
+        
         return completeAreaByType(qry, AreaType.District);
     }
 
@@ -107,7 +143,7 @@ public class AreaController implements Serializable {
         return completeAreaByType(qry, AreaType.Gn);
     }
 
-    public List<Area> completeAreaByType(String qry, AreaType areaType) {
+     public List<Area> completeAreaByType(String qry, AreaType areaType) {
         Map m = new HashMap();
         m.put("n", "%" + qry.toLowerCase() + "%");
         m.put("at", areaType);
@@ -134,13 +170,7 @@ public class AreaController implements Serializable {
         this.lstItems = lstItems;
     }
 
-    public int getSelectedItemIndex() {
-        return selectedItemIndex;
-    }
 
-    public void setSelectedItemIndex(int selectedItemIndex) {
-        this.selectedItemIndex = selectedItemIndex;
-    }
 
     public Area getCurrent() {
         if (current == null) {
@@ -182,10 +212,10 @@ public class AreaController implements Serializable {
                 if (items.size() > 0) {
                     current = (Area) items.get(0);
                     Long temLong = current.getId();
-                    selectedItemIndex = intValue(temLong);
+                    
                 } else {
                     current = null;
-                    selectedItemIndex = -1;
+                   
                 }
             }
         }
@@ -214,7 +244,7 @@ public class AreaController implements Serializable {
 
     public void prepareEdit() {
         if (current != null) {
-            selectedItemIndex = intValue(current.getId());
+           
             this.prepareSelectControlDisable();
         } else {
             JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToEdit"));
@@ -222,7 +252,7 @@ public class AreaController implements Serializable {
     }
 
     public void prepareAdd() {
-        selectedItemIndex = -1;
+       
         current = new Area();
         this.prepareSelectControlDisable();
     }
@@ -252,7 +282,6 @@ public class AreaController implements Serializable {
     }
     
     public void prepareAdd(AreaType areaType) {
-        selectedItemIndex = -1;
         current = new Area();
         current.setAreaType(areaType);
         this.prepareSelectControlDisable();
@@ -260,7 +289,7 @@ public class AreaController implements Serializable {
 
     public void saveSelected() {
 
-        if (selectedItemIndex > 0) {
+        if (current.getId()!=null && current.getId()!= 0) {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
         } else {
@@ -273,7 +302,7 @@ public class AreaController implements Serializable {
         recreateModel();
         getItems();
         selectText = "";
-        selectedItemIndex = intValue(current.getId());
+      
     }
 
     public void addDirectly() {
@@ -310,7 +339,6 @@ public class AreaController implements Serializable {
         recreateModel();
         getItems();
         selectText = "";
-        selectedItemIndex = -1;
         current = null;
         this.prepareSelect();
     }

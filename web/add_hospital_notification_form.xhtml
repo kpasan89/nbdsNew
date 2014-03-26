@@ -62,9 +62,10 @@
                                 <td><ul>RDHS Division  
                                         <p:autoComplete
                                             forceSelection="true"                                 
-                                            value="#{notificationFormController.current.hospital}" 
-                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
-                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
+                                            value="#{notificationFormController.current.district}" 
+                                            completeMethod="#{areaController.completeDistricts}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" id="acdiv">
+                                            <f:ajax event="itemSelect" execute="acdiv" render="acmoh"></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
                             </tr>
@@ -82,9 +83,9 @@
                                 <td><ul>MOH Division   
                                         <p:autoComplete
                                             forceSelection="true"                                 
-                                            value="#{notificationFormController.current.hospital}" 
-                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
-                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
+                                            value="#{notificationFormController.current.mohArea}" 
+                                            completeMethod="#{notificationFormController.completeMohAreas}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}"  id="acmoh">
                                         </p:autoComplete></ul>
                                 </td>
                             </tr>

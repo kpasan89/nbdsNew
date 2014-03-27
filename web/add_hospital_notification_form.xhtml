@@ -85,7 +85,7 @@
                                             forceSelection="true"                                 
                                             value="#{notificationFormController.current.mohArea}" 
                                             completeMethod="#{notificationFormController.completeMohAreas}"
-                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}"  id="acmoh">
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}"  id="acmoh"> 
                                         </p:autoComplete></ul>
                                 </td>
                             </tr>
@@ -93,9 +93,10 @@
                                 <td><ul>District   
                                         <p:autoComplete
                                             forceSelection="true"                                 
-                                            value="#{notificationFormController.current.hospital}" 
-                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
-                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
+                                            value="#{notificationFormController.current.district}" 
+                                            completeMethod="#{areaController.completeDistricts}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" id="acDis" >
+                                            <f:ajax event="itemSelect" execute="acDis" render="acdiv"></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
 

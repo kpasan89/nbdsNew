@@ -78,6 +78,18 @@ public class NotificationFormController implements Serializable {
         }
 
     }
+     
+     public List<Area> completeRdhsAreas(String qry) {
+        if (current == null || current.getDistrict()== null) {
+            return new ArrayList<Area>();
+        } else {
+            getAreaController().setSuperArea(current.getDistrict());
+            return getAreaController().completeAreasUnderSuperArea(qry);
+        }
+
+    }
+     
+     
 
     public DepartmentController getDepartmentController() {
         return departmentController;

@@ -86,6 +86,7 @@
                                             value="#{notificationFormController.current.mohArea}" 
                                             completeMethod="#{notificationFormController.completeMohAreas}"
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}"  id="acmoh"> 
+                                            <f:ajax event="itemSelect" execute="acmoh" render="acGn"></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
                             </tr>
@@ -103,9 +104,9 @@
                                 <td><ul>GN Division    
                                         <p:autoComplete
                                             forceSelection="true"                                 
-                                            value="#{notificationFormController.current.hospital}" 
-                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
-                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
+                                            value="#{notificationFormController.current.gnArea}" 
+                                            completeMethod="#{notificationFormController.completeGnAreas}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" id="acGn" >
                                         </p:autoComplete></ul>
                                 </td>
                             </tr> 

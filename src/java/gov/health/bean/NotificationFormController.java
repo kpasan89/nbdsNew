@@ -70,14 +70,25 @@ public class NotificationFormController implements Serializable {
     }
     
      public List<Area> completeMohAreas(String qry) {
-        if (current == null || current.getRdhsArea()== null) {
+        if (current == null || current.getDistrict()== null) {
             return new ArrayList<Area>();
         } else {
-            getAreaController().setSuperArea(current.getRdhsArea());
+            getAreaController().setSuperArea(current.getDistrict());
             return getAreaController().completeAreasUnderSuperArea(qry);
         }
 
     }
+     
+          
+     public List<Area> completeGnAreas(String qry) {
+        if (current == null || current.getMohArea()== null) {
+            return new ArrayList<Area>();
+        } else {
+            getAreaController().setSuperArea(current.getMohArea());
+            return getAreaController().completeSkipedAreasUnderSuperArea(qry);
+        }
+     }
+     
      
      public List<Area> completeRdhsAreas(String qry) {
         if (current == null || current.getDistrict()== null) {
@@ -89,7 +100,7 @@ public class NotificationFormController implements Serializable {
 
     }
      
-     
+
 
     public DepartmentController getDepartmentController() {
         return departmentController;

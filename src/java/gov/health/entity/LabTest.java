@@ -127,7 +127,11 @@ public class LabTest implements Serializable {
     Date datePreformed13;
     String facility13;
     String Results13;
-    
+    String labTest14;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date datePreformed14;
+    String facility14;
+    String Results14;
 
     public AbstractionForm getAbstractionForm() {
         return abstractionForm;
@@ -761,6 +765,38 @@ public class LabTest implements Serializable {
 
     public void setResults13(String Results13) {
         this.Results13 = Results13;
+    }
+
+    public String getLabTest14() {
+        return labTest14;
+    }
+
+    public void setLabTest14(String labTest14) {
+        this.labTest14 = labTest14;
+    }
+
+    public Date getDatePreformed14() {
+        return datePreformed14;
+    }
+
+    public void setDatePreformed14(Date datePreformed14) {
+        this.datePreformed14 = datePreformed14;
+    }
+
+    public String getFacility14() {
+        return facility14;
+    }
+
+    public void setFacility14(String facility14) {
+        this.facility14 = facility14;
+    }
+
+    public String getResults14() {
+        return Results14;
+    }
+
+    public void setResults14(String Results14) {
+        this.Results14 = Results14;
     }
     
     

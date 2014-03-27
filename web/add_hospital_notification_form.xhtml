@@ -18,19 +18,18 @@
                     <p:panel  >
 
                         <f:facet name="header" >
-                            <h:outputLabel value="Hospital Notification Form" ></h:outputLabel>
+                            <h:outputLabel value="Hospital Notification Form" style="alignment-adjust: middle"></h:outputLabel>
                             <p:spacer width="10" ></p:spacer>
-                            <p:autoComplete value="#{notificationFormController.current.institution}"
-                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
-                                            var="i"
-                                            itemLabel="#{i.name}"
-                                            itemValue="#{i}"
-                                            converter="institutionConverter" >
-                            </p:autoComplete>
                             <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}"></p:commandButton>
                         </f:facet>
 
-                        <table width="50%" style="padding: 2.5%" align="center" bgcolor="white">
+                        <table width="50%" style="padding: 2.5%" align="center" bgcolor="white" >
+                            <tr>
+                                <td colspan="2" align="center"><p:outputLabel><b><font size="4">Hospital Notification Form</font></b></p:outputLabel></td>
+                            </tr>
+                        </table>
+                        <table width="50%" style="padding: 2.5%" align="center" bgcolor="white" >
+                            <p:spacer width="10"></p:spacer>
                             <tr>
                                 <td>1. Infant's name</td>
                                 <td><p:inputText value="#{notificationFormController.current.infant.name}" size="40"></p:inputText></td>
@@ -51,10 +50,10 @@
                             <tr>
                                 <td><ul>Hospital
                                         <p:autoComplete id="acHos"
-                                            forceSelection="true"                                 
-                                            value="#{notificationFormController.current.hospital}" 
-                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
-                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
+                                                        forceSelection="true"                                 
+                                                        value="#{notificationFormController.current.hospital}" 
+                                                        completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                                        var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
                                             <f:ajax event="itemSelect" execute="acHos" render="acWard" ></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
@@ -68,6 +67,7 @@
                                             <f:ajax event="itemSelect" execute="acdiv" render="acmoh"></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
+
                             </tr>
                             <tr>
                                 <td><ul>Ward/Unit  
@@ -131,7 +131,7 @@
                             </tr>
                             <tr>
                                 <td>8. Name of the mother</td>
-                                <td><p:inputText value="#{notificationFormController.current.mother.name}" size="40"></p:inputText></td>
+                                <td><p:calendar value="#{notificationFormController.current.mother.name}" size="40"></p:calendar></td>
                             </tr>
                             <tr>
                                 <td>9. Mother’s Date of Birth</td>
@@ -205,6 +205,7 @@
                             <td>Conditions contributing to Death</td>
                             <td><p:inputText value="#{notificationFormController.current.conDeath}" size="40"></p:inputText></td>
                         </tr>
+     
                         <tr>
                             <td>Name of the Informant</td>
                             <td><p:inputText  size="40"></p:inputText></td>
@@ -217,8 +218,14 @@
                             <td>Contact Phone</td>
                             <td><p:inputText value="#{notificationFormController.current.inTp}" size="40"></p:inputText></td>
                         </tr>
+                            
                         
                     </table>
+                        <f:facet name="footer">
+                            <p align="center"><h:outputLabel value="Hospital Notification Form"></h:outputLabel>
+                            <p:spacer width="10" ></p:spacer>
+                            <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}"></p:commandButton></p>
+                        </f:facet>
                     
                     
                 </p:panel>

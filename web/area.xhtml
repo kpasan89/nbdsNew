@@ -30,10 +30,10 @@
 
                             </h:panelGrid>
                             <h:panelGrid id="gpSelectButtons" columns="3"  >
-                                <h:commandButton id="btnAdd" value="#{labels.add}" action="#{areaController.prepareAdd()}" styleClass="buttons" >
+                                <p:commandButton ajax="false" id="btnAdd" value="#{labels.add}" action="#{areaController.prepareAdd()}" styleClass="buttons" >
 <!--                                    <f:ajax render="btnAdd  btnDelete btnSave   lstSelect txtName detailFocus " execute="" >                                
                                     </f:ajax>-->
-                                </h:commandButton>
+                                </p:commandButton>
                                 <p:commandButton ajax="false" id="btnDelete" onclick="if (!confirm('Are you sure you want to delete this record?'))
                                             return false"  value="#{labels.delete}" action="#{areaController.delete()}" styleClass="buttons">
                                 </p:commandButton>

@@ -175,21 +175,25 @@
                             </tr>
                             <tr>
                                 <td>14. Residence Address</td>
-                                <td><p:inputText value="#{notificationFormController.current.address}" size="40"></p:inputText></td>
+                                <td><p:inputText value="#{notificationFormController.current.address}" size="40" id="txtAddress"></p:inputText></td>
+                                <p:tooltip for="txtAddress" value="Type permanent address" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
                                 <td><p:outputLabel>15. Phone1</p:outputLabel></td>
                                 <td><p:inputText value="#{notificationFormController.current.tp1}" size="40" required="true" id="txtP1">
                                         <f:validateLength minimum="10" maximum="10"/>  
                                         <p:ajax update="msgPhone1" event="keyup" /> </p:inputText>
+                                    <p:tooltip for="txtP1" value="Type Telephone number" showEffect="fade" hideEffect="fade" />
                                 </td>
                                 <td width="1px"><p:message for="txtP1" id="msgPhone1" display="icon"></p:message></td>
+
                             </tr>
                             <tr>
                                 <td>16. Phone2</td>
                                 <td><p:inputText value="#{notificationFormController.current.tp2}" required="true" size="40" id="txtP2">
-                                    <f:validateLength minimum="10" maximum="10"/>  
-                                    <p:ajax update="msgPhone2" event="keyup" /></p:inputText>
+                                        <f:validateLength minimum="10" maximum="10"/>  
+                                        <p:ajax update="msgPhone2" event="keyup" /></p:inputText>
+                                    <p:tooltip for="txtP2" value="Type Mobile phone number" showEffect="fade" hideEffect="fade" />
                                 </td>
                                 <td width="1px"><p:message for="txtP2" id="msgPhone2" display="icon"></p:message></td>
                             </tr>
@@ -198,59 +202,74 @@
                             </tr>
                             <tr>
                                 <td>Date of Death</td>
-                                <td><p:calendar value="#{notificationFormController.current.infant.dateOfDead}" size="40"></p:calendar></td>
+                                <td><p:calendar value="#{notificationFormController.current.infant.dateOfDead}" size="40" id="calDOD"></p:calendar></td>
+                                <p:tooltip for="calDOD" value="Type Infant's date of death" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
                                 <td>Age at Death</td>
-                                <td><pre>Years   <p:inputText value="#{notificationFormController.current.infantAodYrs}" size="33"></p:inputText></pre><pre>Months  <p:inputText value="#{notificationFormController.current.infantAodMnths}" size="33"></p:inputText></pre><pre>Days    <p:inputText value="#{notificationFormController.current.infantAodDys}" size="33"></p:inputText></pre></td>
+                                <td><pre>Years   <p:inputText value="#{notificationFormController.current.infantAodYrs}" size="33" id="txtAgeYear"></p:inputText></pre><pre>Months  <p:inputText value="#{notificationFormController.current.infantAodMnths}" size="33" id="txtAgeMonth"></p:inputText></pre><pre>Days    <p:inputText value="#{notificationFormController.current.infantAodDys}" size="33" id="txtAgeDay"></p:inputText></pre></td>
+<p:tooltip for="txtAgeYear" value="Type Infant's date of death in years" showEffect="fade" hideEffect="fade" />
+<p:tooltip for="txtAgeMonth" value="Type Infant's date of death in months" showEffect="fade" hideEffect="fade" />
+<p:tooltip for="txtAgeDay" value="Type Infant's date of death in days" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td>Place of Death</td>
-                            <td><p:inputText value="#{notificationFormController.current.placeOfDead}" size="40"></p:inputText></td>
+                            <td><p:inputText value="#{notificationFormController.current.placeOfDead}" size="40" id="plsDeath"></p:inputText></td>
+                            <p:tooltip for="plsDeath" value="Type Place of death" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td>Post-Mortem / Pathological Examination conducted</td>
-                            <td><p:selectBooleanCheckbox value="#{notificationFormController.current.postMortem}" itemLabel="Post-mortem" ></p:selectBooleanCheckbox></td>
+                            <td><p:selectBooleanCheckbox value="#{notificationFormController.current.postMortem}" itemLabel="Post-mortem"  id="rdoPM"></p:selectBooleanCheckbox></td>
+                            <p:tooltip for="rdoPM" value="Select one option" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td>Name of the JMO / Pathologist</td>
-                            <td><p:inputText  size="40"></p:inputText></td>
+                            <td><p:inputText  size="40" id="txtJMO"></p:inputText></td>
+                            <p:tooltip for="txtJMO" value="Type name of pathogist" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td><font color="blue">Cause/s of Death:</font></td>
                         </tr>
                         <tr>
                             <td>Underlying Cause</td>
-                            <td><p:inputText value="#{notificationFormController.current.underlyingCause}" size="40"></p:inputText></td>
+                            <td><p:inputText value="#{notificationFormController.current.underlyingCause}" size="40" id="txtun"></p:inputText></td>
+                            <p:tooltip for="txtun" value="Type Underlyig cause" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td>Immediate Cause</td>
-                            <td><p:inputText value="#{notificationFormController.current.immediateCause}" size="40"></p:inputText></td>
+                            <td><p:inputText value="#{notificationFormController.current.immediateCause}" size="40" id="txtim"></p:inputText></td>
+                            <p:tooltip for="txtim" value="Type Immediate cause" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td>Conditions contributing to Death</td>
-                            <td><p:inputText value="#{notificationFormController.current.conDeath}" size="40"></p:inputText></td>
+                            <td><p:inputText value="#{notificationFormController.current.conDeath}" size="40" id="txtcontodeath"></p:inputText></td>
+                            <p:tooltip for="txtcontodeath" value="Type Conditions contributing to Death" showEffect="fade" hideEffect="fade" />
                         </tr>
      
                         <tr>
                             <td>Name of the Informant</td>
-                            <td><p:inputText  size="40"></p:inputText></td>
+                            <td><p:inputText  size="40" id="txtimf"></p:inputText></td>
+                            <p:tooltip for="txtimf" value="Type Name of the Informant" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td>Designation of the Informant</td>
-                            <td><p:inputText  size="40"></p:inputText></td>
+                            <td><p:inputText  size="40" id="txtdes"></p:inputText></td>
+                            <p:tooltip for="txtdes" value="Type Designation of the Informant" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td>Contact Phone</td>
-                            <td><p:inputText value="#{notificationFormController.current.inTp}" size="40"></p:inputText></td>
-                        </tr>
-                            
-                        
+                            <td><p:inputText value="#{notificationFormController.current.inTp}" size="40" id="txtcoIm" required="true" >
+                            <f:validateLength minimum="10" maximum="10"/>  
+                                    <p:ajax update="msgPhone3" event="keyup"/></p:inputText></td>
+                            <td width="1px"><p:message for="txtcoIm" id="msgPhone3" display="icon"></p:message></td>
+                            <p:tooltip for="txtcoIm" value="Type Contact Phone" showEffect="fade" hideEffect="fade" />
+                        </tr>          
                     </table>
                         <f:facet name="footer">
                             <p align="center"><h:outputLabel value="Hospital Notification Form"></h:outputLabel>
                             <p:spacer width="10" ></p:spacer>
-                            <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}"></p:commandButton></p>
+                            <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}" id="cmdSv2"></p:commandButton></p>
+                            <p:tooltip for="cmdSv2" value="Save Hospital Notification Form" showEffect="fade" hideEffect="fade" />
                         </f:facet>
                     
                     

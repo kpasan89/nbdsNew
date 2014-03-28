@@ -52,6 +52,7 @@ public class AbstractionFormController implements Serializable {
     Area area;
     NotificationForm notificationForm;
 
+
     public String addNewAbstractionForm() {
         current = new AbstractionForm();
         Person infant = new Person();
@@ -75,6 +76,12 @@ public class AbstractionFormController implements Serializable {
         current = new AbstractionForm();
         current.setMother(notificationForm.getMother());
         current.setInfant(notificationForm.getInfant());
+        current.setHospital(notificationForm.getHospital());
+        current.setDistrict(notificationForm.getDistrict());
+        current.setWard(notificationForm.getWard());
+        current.setRdhsArea(notificationForm.getRdhsArea());
+        current.setMohArea(notificationForm.getMohArea());
+        current.setGnArea(notificationForm.getGnArea());
         DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
         current.setDysmorphologyExamination(dysmorphologyExamination);
         LabTest labTest = new LabTest();
@@ -140,6 +147,8 @@ public class AbstractionFormController implements Serializable {
     public String getSelectText() {
         return selectText;
     }
+
+
 
     public void setSelectText(String selectText) {
         this.selectText = selectText;

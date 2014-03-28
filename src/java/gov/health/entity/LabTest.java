@@ -132,6 +132,108 @@ public class LabTest implements Serializable {
     Date datePreformed14;
     String facility14;
     String Results14;
+    @ManyToOne(cascade = CascadeType.ALL)
+    Person infantDod; // infant date of death
+    Long infantAodYrs; // infant age of death by year
+    Long infantAodMnths; // infant age of death by year
+    Long infantAodDys; // infant age of death by year
+    String placeOfDead;
+    boolean postMortem; // yes or no
+    @ManyToOne(cascade = CascadeType.ALL)
+    Person nameOfJmo;
+    String underlyingCause; // Causes of death
+    String immediateCause; // Causes of death
+    String conDeath; 
+    String pathExFind;//Pathological Examination Findings
+
+    public String getPathExFind() {
+        return pathExFind;
+    }
+
+    public void setPathExFind(String pathExFind) {
+        this.pathExFind = pathExFind;
+    }
+
+    public Person getInfantDod() {
+        return infantDod;
+    }
+
+    public void setInfantDod(Person infantDod) {
+        this.infantDod = infantDod;
+    }
+
+    public Long getInfantAodYrs() {
+        return infantAodYrs;
+    }
+
+    public void setInfantAodYrs(Long infantAodYrs) {
+        this.infantAodYrs = infantAodYrs;
+    }
+
+    public Long getInfantAodMnths() {
+        return infantAodMnths;
+    }
+
+    public void setInfantAodMnths(Long infantAodMnths) {
+        this.infantAodMnths = infantAodMnths;
+    }
+
+    public Long getInfantAodDys() {
+        return infantAodDys;
+    }
+
+    public void setInfantAodDys(Long infantAodDys) {
+        this.infantAodDys = infantAodDys;
+    }
+
+    public String getPlaceOfDead() {
+        return placeOfDead;
+    }
+
+    public void setPlaceOfDead(String placeOfDead) {
+        this.placeOfDead = placeOfDead;
+    }
+
+    public boolean isPostMortem() {
+        return postMortem;
+    }
+
+    public void setPostMortem(boolean postMortem) {
+        this.postMortem = postMortem;
+    }
+
+    public Person getNameOfJmo() {
+        return nameOfJmo;
+    }
+
+    public void setNameOfJmo(Person nameOfJmo) {
+        this.nameOfJmo = nameOfJmo;
+    }
+
+    public String getUnderlyingCause() {
+        return underlyingCause;
+    }
+
+    public void setUnderlyingCause(String underlyingCause) {
+        this.underlyingCause = underlyingCause;
+    }
+
+    public String getImmediateCause() {
+        return immediateCause;
+    }
+
+    public void setImmediateCause(String immediateCause) {
+        this.immediateCause = immediateCause;
+    }
+
+    public String getConDeath() {
+        return conDeath;
+    }
+
+    public void setConDeath(String conDeath) {
+        this.conDeath = conDeath;
+    }
+    
 
     public AbstractionForm getAbstractionForm() {
         return abstractionForm;

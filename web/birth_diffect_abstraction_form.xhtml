@@ -15,7 +15,8 @@
                         <f:facet name="header">
                             <h:outputLabel value="Case Ascertainment"></h:outputLabel>
                             <p:spacer width="10"></p:spacer>
-                            <p:commandButton ajax="false" value="Save" action="#{abstractionFormController.saveSelected()}"></p:commandButton>
+                            <p:commandButton ajax="false" value="Save" action="#{abstractionFormController.saveSelected()}" id="cmdSv"></p:commandButton>
+                            <p:tooltip for="cmdSv" value="Save Birth Diffect Abstraction Form" showEffect="fade" hideEffect="fade" />
                         </f:facet>
                         <p:tabView>
                             <!--<p:wizard>-->
@@ -57,7 +58,8 @@
                                                     value="#{abstractionFormController.current.hospital}" 
                                                     completeMethod="#{institutionController.completeOffcialInstitutions}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    converter="institutionConverter">
+                                                    converter="institutionConverter" id="acHos">
+                                                    <f:ajax event="itemSelect" execute="acHos" render="acWard" ></f:ajax>
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
@@ -66,9 +68,10 @@
                                                 <p:autoComplete
                                                     forceSelection="true"                                 
                                                     value="#{abstractionFormController.current.rdhsArea}" 
-                                                    completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                                    completeMethod="#{areaController.completeDistricts}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    converter="areaConverter">
+                                                    converter="areaConverter" id="acdiv">
+                                                    <f:ajax event="itemSelect" execute="acdiv" render="acmoh"></f:ajax>
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
@@ -79,9 +82,9 @@
                                                 <p:autoComplete
                                                     forceSelection="true"                                 
                                                     value="#{abstractionFormController.current.ward}" 
-                                                    completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                                    completeMethod="#{abstractionFormController.completeOfficialDepartments}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    converter="departmentConverter">
+                                                    converter="departmentConverter" id="acWard">
                                                 </p:autoComplete>
                                             </ul>
                                         </td>                           
@@ -90,9 +93,10 @@
                                                 <p:autoComplete
                                                     forceSelection="true"                                 
                                                     value="#{abstractionFormController.current.mohArea}" 
-                                                    completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                                    completeMethod="#{abstractionFormController.completeMohAreas}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    converter="areaConverter">
+                                                    converter="areaConverter" id="acmoh">
+                                                    <f:ajax event="itemSelect" execute="acmoh" render="acGn"></f:ajax>
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
@@ -103,9 +107,10 @@
                                                 <p:autoComplete
                                                     forceSelection="true"                                 
                                                     value="#{abstractionFormController.current.district}" 
-                                                    completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                                    completeMethod="#{areaController.completeDistricts}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    converter="areaConverter">
+                                                    converter="areaConverter" id="acDis">
+                                                    <f:ajax event="itemSelect" execute="acDis" render="acdiv"></f:ajax>
                                                 </p:autoComplete>
                                             </ul>
                                         </td>                            
@@ -114,9 +119,9 @@
                                                 <p:autoComplete
                                                     forceSelection="true"                                 
                                                     value="#{abstractionFormController.current.gnArea}" 
-                                                    completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                                    completeMethod="#{abstractionFormController.completeGnAreas}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    converter="areaConverter">
+                                                    converter="areaConverter" id="acGn">
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
@@ -1030,7 +1035,8 @@
                         <f:facet name="footer">
                             <p align="center"><h:outputLabel value="Birth Diffect Abstraction Form"></h:outputLabel>
                             <p:spacer width="10" ></p:spacer>
-                            <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}"></p:commandButton></p>
+                            <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}" id="cmdSv2"></p:commandButton></p>
+                            <p:tooltip for="cmdSv2" value="Save Birth Diffect Abstraction Form" showEffect="fade" hideEffect="fade" />
                         </f:facet>
                     </p:panel>
                 </h:form>

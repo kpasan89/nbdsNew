@@ -20,19 +20,21 @@
                         <f:facet name="header" >
                             <h:outputLabel value="Hospital Notification Form" style="alignment-adjust: middle"></h:outputLabel>
                             <p:spacer width="10" ></p:spacer>
-                            <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}"></p:commandButton>
+                            <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}" id="cmdSv"></p:commandButton>
+                            <p:tooltip for="cmdSv" value="Save Hospital Notification Form" showEffect="fade" hideEffect="fade" />  
                         </f:facet>
 
-                        <table width="50%" style="padding: 2.5%" align="center" bgcolor="white" >
+                        <table width="800px" style="padding: 2.5%" align="center" bgcolor="white" >
                             <tr>
                                 <td colspan="2" align="center"><p:outputLabel><b><font size="4">Hospital Notification Form</font></b></p:outputLabel></td>
                             </tr>
                         </table>
-                        <table width="50%" style="padding: 2.5%" align="center" bgcolor="white" >
+                        <table width="800px" style="padding: 2.5%" align="center" bgcolor="white" >
                             <p:spacer width="10"></p:spacer>
                             <tr>
                                 <td>1. Infant's name</td>
-                                <td><p:inputText value="#{notificationFormController.current.infant.name}" size="40"></p:inputText></td>
+                                <td><p:inputText value="#{notificationFormController.current.infant.name}" size="40" id="txtInfantName"></p:inputText></td>
+                                <p:tooltip for="txtInfantName" value="Type Infant's Name" showEffect="fade" hideEffect="fade" />  
                             </tr>
                             <tr>
                                 <td>2. Sex of infant</td>
@@ -42,6 +44,7 @@
                                         <f:selectItem itemValue="AMBIGUOUS" itemLabel=" Ambiguous "></f:selectItem>
                                     </p:selectOneRadio>
                                 </td>
+                                <p:tooltip for="sex" value="Select Sex" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
                                 <td><font color="blue">3. Location where case identified :</font></td>
@@ -57,7 +60,7 @@
                                             <f:ajax event="itemSelect" execute="acHos" render="acWard" ></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
-
+                                <p:tooltip for="acHos" value="Select Hospital" showEffect="fade" hideEffect="fade" />
                                 <td><ul>RDHS Division  
                                         <p:autoComplete
                                             forceSelection="true"                                 
@@ -67,7 +70,7 @@
                                             <f:ajax event="itemSelect" execute="acdiv" render="acmoh"></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
-
+                                <p:tooltip for="acdiv" value="Auto Fill RDHS Division with District" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
                                 <td><ul>Ward/Unit  
@@ -79,7 +82,7 @@
                                             var="of" itemLabel="#{of.name}" itemValue="#{of}" converter="departmentConverter" >
                                         </p:autoComplete></ul>
                                 </td>
-
+                                <p:tooltip for="acWard" value="Select Ward" showEffect="fade" hideEffect="fade" />
                                 <td><ul>MOH Division   
                                         <p:autoComplete
                                             forceSelection="true"                                 
@@ -89,6 +92,7 @@
                                             <f:ajax event="itemSelect" execute="acmoh" render="acGn"></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
+                                <p:tooltip for="acmoh" value="Select MOH Area" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
                                 <td><ul>District   
@@ -100,7 +104,7 @@
                                             <f:ajax event="itemSelect" execute="acDis" render="acdiv"></f:ajax>
                                         </p:autoComplete></ul>
                                 </td>
-
+                                <p:tooltip for="acDis" value="Select District" showEffect="fade" hideEffect="fade" />
                                 <td><ul>GN Division    
                                         <p:autoComplete
                                             forceSelection="true"                                 
@@ -109,63 +113,85 @@
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" id="acGn" >
                                         </p:autoComplete></ul>
                                 </td>
+                                <p:tooltip for="acGn" value="Select Grama Niladari Area" showEffect="fade" hideEffect="fade" />
                             </tr> 
                             <tr>
                                 <td>4. Date of Case Identified</td>
-                                <td><p:calendar value="#{notificationFormController.current.caseIdentifiedDate}" size="40"></p:calendar></td>
+                                <td><p:calendar value="#{notificationFormController.current.caseIdentifiedDate}" size="40" id="calIden"></p:calendar></td>
+                                <p:tooltip for="calIden" value="Select Date from Calender" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
                                 <td>5. BHT No</td>
-                                <td><p:inputText value="#{notificationFormController.current.bhtNo}" size="40"></p:inputText></td>
+                                <td><p:inputText value="#{notificationFormController.current.bhtNo}" size="40" id="txtBHT"></p:inputText></td>
+                                <p:tooltip for="txtBHT" value="Type BHT Number" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
-                                <td>6. Whether the baby alive or dead ?</td><td><p:selectOneRadio id="liveOrDead">
+                                <td>6. Pregnancy Registration Number</td>
+                                <td><p:inputText value="#{notificationFormController.current.pregregno}" size="40" id="txtPregReg"></p:inputText></td>
+                                <p:tooltip for="txtPregReg" value="Type Pregnancy Registration Number" showEffect="fade" hideEffect="fade" />
+                            </tr>
+                            <tr>
+                                <td>7. Whether the baby alive or dead ?</td><td><p:selectOneRadio id="liveOrDead">
                                         <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
                                         <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
                                     </p:selectOneRadio>
                                 </td>
+                                <p:tooltip for="liveOrDead" value="Select the option" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
-                                <td>7. Diagnosis / Birth Defect Coding</td>
-                                <td><p:inputText value="#{notificationFormController.current.diagnosis}" size="40"></p:inputText></td>
+                                <td>8. Diagnosis / Birth Defect Coding</td>
+                                <td><p:inputText value="#{notificationFormController.current.diagnosis}" size="40" id="txtDiag"></p:inputText></td>
+                                <p:tooltip for="txtDiag" value="Type diagnosis" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
-                                <td>8. Name of the mother</td>
-                                <td><p:inputText value="#{notificationFormController.current.mother.name}" size="40"></p:inputText>></td>
+                                <td>9. Name of the mother</td>
+                                <td><p:inputText value="#{notificationFormController.current.mother.name}" size="40" id="txtMother"></p:inputText></td>
+                                <p:tooltip for="txtMother" value="Type mother's name" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
-                                <td>9. Mother’s Date of Birth</td>
-                                <td><p:calendar value="#{notificationFormController.current.mother.dob}" size="40"></p:calendar></td>
+                                <td>10. Mother’s Date of Birth</td>
+                                <td><p:calendar value="#{notificationFormController.current.mother.dob}" size="40" id="txtMDOB"></p:calendar></td>
+                                <p:tooltip for="txtMDOB" value="Type mother's Date of birth" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
-                                <td>10. Age</td>
-                                <td><p:inputText value="#{notificationFormController.current.mother.age}" size="35"></p:inputText>Years</td>
+                                <td>11. Age</td>
+                                <td><p:inputText value="#{notificationFormController.current.mother.age}" size="35" id="txtMAge"></p:inputText>Years</td>
+                                <p:tooltip for="txtMAge" value="Type mother's Age" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
-                                <td>11. National Identity Card No</td>
-                                <td><p:inputText value="#{notificationFormController.current.mother.nic}" size="40"></p:inputText></td>
+                                <td>12. National Identity Card No</td>
+                                <td><p:inputText value="#{notificationFormController.current.mother.nic}" size="40" id="txtNIC"></p:inputText></td>
+                                <p:tooltip for="txtNIC" value="Type mother's National Identity Card number" showEffect="fade" hideEffect="fade" />
                             </tr>
                             <tr>
-                                <td>12. Ethnicity</td>
+                                <td>13. Ethnicity</td>
                                 <td>
-                                    <p:selectOneMenu value="#{notificationFormController.current.mother.ethnicity}" >
+                                    <p:selectOneMenu value="#{notificationFormController.current.mother.ethnicity}" id="selEth">
                                         <f:selectItems value="#{enumController.ethnicities}" ></f:selectItems>
                                     </p:selectOneMenu>
 
-
+                                    <p:tooltip for="selEth" value="Select mother's National Ethnicity" showEffect="fade" hideEffect="fade" />
                                 </td>
                             </tr>
                             <tr>
-                                <td>13. Residence Address</td>
+                                <td>14. Residence Address</td>
                                 <td><p:inputText value="#{notificationFormController.current.address}" size="40"></p:inputText></td>
                             </tr>
                             <tr>
-                                <td>14. Phone1</td>
-                                <td><p:inputText value="#{notificationFormController.current.tp1}" size="40"></p:inputText></td>
+                                <td><p:outputLabel>15. Phone1</p:outputLabel></td>
+                                <td><p:inputText value="#{notificationFormController.current.tp1}" size="40" required="true" id="txtP1">
+                                        <f:validateLength minimum="10" maximum="10"/>  
+                                        <p:ajax update="msgPhone1" event="keyup" /> </p:inputText>
+                                </td>
+                                <td width="1px"><p:message for="txtP1" id="msgPhone1" display="icon"></p:message></td>
                             </tr>
                             <tr>
-                                <td>15. Phone2</td>
-                                <td><p:inputText value="#{notificationFormController.current.tp2}" size="40"></p:inputText></td>
+                                <td>16. Phone2</td>
+                                <td><p:inputText value="#{notificationFormController.current.tp2}" required="true" size="40" id="txtP2">
+                                    <f:validateLength minimum="10" maximum="10"/>  
+                                    <p:ajax update="msgPhone2" event="keyup" /></p:inputText>
+                                </td>
+                                <td width="1px"><p:message for="txtP2" id="msgPhone2" display="icon"></p:message></td>
                             </tr>
                             <tr>
                                 <td><font color="red">If dead</font></td>

@@ -34,7 +34,7 @@
                     <h:outputLabel rendered="#{sessionController.loggedUser.restrictedInstitution!=null}"  value="#{sessionController.loggedUser.restrictedInstitution.name}" />
                     
                     <p:autoComplete  forceSelection="true" id="cmbIns" rendered="#{sessionController.loggedUser.restrictedInstitution==null}" value="#{sessionController.institution}" 
-                                     completeMethod="#{institutionController.completePayCentres}"
+                                     completeMethod="#{institutionController.completeOffcialInstitutions}"
                                      var="ri" itemValue="#{ri}" itemLabel="#{ri.name}" 
                                      >
                         

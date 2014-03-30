@@ -48,14 +48,7 @@ public class LabTestController implements Serializable {
 
     Institution institution;
     Area area;
-    
-    
-    
-    
-    
-    
 
-    
 
     public Institution getInstitution() {
         return institution;

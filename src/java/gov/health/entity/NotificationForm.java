@@ -87,6 +87,16 @@ public class NotificationForm implements Serializable {
     Institution institution;
     @ManyToOne
     Area area;
+    String pregregno;
+
+    public String getPregregno() {
+        return pregregno;
+    }
+
+    public void setPregregno(String pregregno) {
+        this.pregregno = pregregno;
+    }
+    
 
     public Institution getInstitution() {
         return institution;

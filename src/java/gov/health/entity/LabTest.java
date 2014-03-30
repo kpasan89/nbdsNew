@@ -127,6 +127,112 @@ public class LabTest implements Serializable {
     Date datePreformed13;
     String facility13;
     String Results13;
+    String labTest14;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date datePreformed14;
+    String facility14;
+    String Results14;
+    @ManyToOne(cascade = CascadeType.ALL)
+    Person infantDod; // infant date of death
+    Long infantAodYrs; // infant age of death by year
+    Long infantAodMnths; // infant age of death by year
+    Long infantAodDys; // infant age of death by year
+    String placeOfDead;
+    boolean postMortem; // yes or no
+    @ManyToOne(cascade = CascadeType.ALL)
+    Person nameOfJmo;
+    String underlyingCause; // Causes of death
+    String immediateCause; // Causes of death
+    String conDeath; 
+    String pathExFind;//Pathological Examination Findings
+
+    public String getPathExFind() {
+        return pathExFind;
+    }
+
+    public void setPathExFind(String pathExFind) {
+        this.pathExFind = pathExFind;
+    }
+
+    public Person getInfantDod() {
+        return infantDod;
+    }
+
+    public void setInfantDod(Person infantDod) {
+        this.infantDod = infantDod;
+    }
+
+    public Long getInfantAodYrs() {
+        return infantAodYrs;
+    }
+
+    public void setInfantAodYrs(Long infantAodYrs) {
+        this.infantAodYrs = infantAodYrs;
+    }
+
+    public Long getInfantAodMnths() {
+        return infantAodMnths;
+    }
+
+    public void setInfantAodMnths(Long infantAodMnths) {
+        this.infantAodMnths = infantAodMnths;
+    }
+
+    public Long getInfantAodDys() {
+        return infantAodDys;
+    }
+
+    public void setInfantAodDys(Long infantAodDys) {
+        this.infantAodDys = infantAodDys;
+    }
+
+    public String getPlaceOfDead() {
+        return placeOfDead;
+    }
+
+    public void setPlaceOfDead(String placeOfDead) {
+        this.placeOfDead = placeOfDead;
+    }
+
+    public boolean isPostMortem() {
+        return postMortem;
+    }
+
+    public void setPostMortem(boolean postMortem) {
+        this.postMortem = postMortem;
+    }
+
+    public Person getNameOfJmo() {
+        return nameOfJmo;
+    }
+
+    public void setNameOfJmo(Person nameOfJmo) {
+        this.nameOfJmo = nameOfJmo;
+    }
+
+    public String getUnderlyingCause() {
+        return underlyingCause;
+    }
+
+    public void setUnderlyingCause(String underlyingCause) {
+        this.underlyingCause = underlyingCause;
+    }
+
+    public String getImmediateCause() {
+        return immediateCause;
+    }
+
+    public void setImmediateCause(String immediateCause) {
+        this.immediateCause = immediateCause;
+    }
+
+    public String getConDeath() {
+        return conDeath;
+    }
+
+    public void setConDeath(String conDeath) {
+        this.conDeath = conDeath;
+    }
     
 
     public AbstractionForm getAbstractionForm() {
@@ -761,6 +867,38 @@ public class LabTest implements Serializable {
 
     public void setResults13(String Results13) {
         this.Results13 = Results13;
+    }
+
+    public String getLabTest14() {
+        return labTest14;
+    }
+
+    public void setLabTest14(String labTest14) {
+        this.labTest14 = labTest14;
+    }
+
+    public Date getDatePreformed14() {
+        return datePreformed14;
+    }
+
+    public void setDatePreformed14(Date datePreformed14) {
+        this.datePreformed14 = datePreformed14;
+    }
+
+    public String getFacility14() {
+        return facility14;
+    }
+
+    public void setFacility14(String facility14) {
+        this.facility14 = facility14;
+    }
+
+    public String getResults14() {
+        return Results14;
+    }
+
+    public void setResults14(String Results14) {
+        this.Results14 = Results14;
     }
     
     

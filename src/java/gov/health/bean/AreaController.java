@@ -117,6 +117,14 @@ public class AreaController implements Serializable {
         List<Area> des = getFacade().findBySQL("select d from Area d where d.retired = false and lower(d.name) like :n and d.superArea=:sa", m);
         return des;
     }
+    
+     public List<Area> completeSkipedAreasUnderSuperArea(String qry) {
+        Map m = new HashMap();
+        m.put("n", "%" + qry.toLowerCase() + "%");
+        m.put("sa2", superArea);
+        List<Area> des = getFacade().findBySQL("select d from Area d where d.retired = false and lower(d.name) like :n and d.superArea.superArea.superArea=:sa2", m);
+        return des;
+    }
 
     public List<Area> completeProvinces(String qry) {
         return completeAreaByType(qry, AreaType.Province);

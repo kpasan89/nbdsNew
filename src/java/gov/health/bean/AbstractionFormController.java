@@ -12,12 +12,14 @@ import gov.health.bean.*;
 import gov.health.entity.Area;
 import gov.health.facade.AbstractionFormFacade;
 import gov.health.entity.AbstractionForm;
+import gov.health.entity.Department;
 import gov.health.entity.DysmorphologyExamination;
 import gov.health.entity.Institution;
 import gov.health.entity.LabTest;
 import gov.health.entity.NotificationForm;
 import gov.health.entity.Person;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -51,6 +53,13 @@ public class AbstractionFormController implements Serializable {
     Institution institution;
     Area area;
     NotificationForm notificationForm;
+    Department department;
+    @Inject
+    DepartmentController departmentController;
+    @Inject
+    AreaController areaController;
+    
+
 
     public String addNewAbstractionForm() {
         current = new AbstractionForm();
@@ -75,6 +84,12 @@ public class AbstractionFormController implements Serializable {
         current = new AbstractionForm();
         current.setMother(notificationForm.getMother());
         current.setInfant(notificationForm.getInfant());
+        current.setHospital(notificationForm.getHospital());
+        current.setDistrict(notificationForm.getDistrict());
+        current.setWard(notificationForm.getWard());
+        current.setRdhsArea(notificationForm.getRdhsArea());
+        current.setMohArea(notificationForm.getMohArea());
+        current.setGnArea(notificationForm.getGnArea());
         DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
         current.setDysmorphologyExamination(dysmorphologyExamination);
         LabTest labTest = new LabTest();
@@ -82,6 +97,52 @@ public class AbstractionFormController implements Serializable {
         return "birth_diffect_abstraction_form";
     }
 
+    public List<Department> completeOfficialDepartments(String qry) {
+        System.out.println("Complete");
+        System.out.println("current = " + current);
+        if (current == null || current.getHospital() == null) {
+            System.out.println("Null");
+            return new ArrayList<Department>();
+        } else {
+            System.out.println("Hospital name" + current.getHospital().getName());
+            getDepartmentController().setInstitution(current.getHospital());
+            return getDepartmentController().completeInstitutionDepartments(qry);
+        }
+
+    }
+    
+     public List<Area> completeMohAreas(String qry) {
+        if (current == null || current.getDistrict()== null) {
+            return new ArrayList<Area>();
+        } else {
+            getAreaController().setSuperArea(current.getDistrict());
+            return getAreaController().completeAreasUnderSuperArea(qry);
+        }
+
+    }
+     
+          
+     public List<Area> completeGnAreas(String qry) {
+        if (current == null || current.getMohArea()== null) {
+            return new ArrayList<Area>();
+        } else {
+            getAreaController().setSuperArea(current.getMohArea());
+            return getAreaController().completeSkipedAreasUnderSuperArea(qry);
+        }
+     }
+     
+     
+     public List<Area> completeRdhsAreas(String qry) {
+        if (current == null || current.getDistrict()== null) {
+            return new ArrayList<Area>();
+        } else {
+            getAreaController().setSuperArea(current.getDistrict());
+            return getAreaController().completeAreasUnderSuperArea(qry);
+        }
+
+    }
+     
+    
     public Institution getInstitution() {
         return institution;
     }
@@ -137,9 +198,35 @@ public class AbstractionFormController implements Serializable {
 
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public DepartmentController getDepartmentController() {
+        return departmentController;
+    }
+
+    public void setDepartmentController(DepartmentController departmentController) {
+        this.departmentController = departmentController;
+    }
+
+    public AreaController getAreaController() {
+        return areaController;
+    }
+
+    public void setAreaController(AreaController areaController) {
+        this.areaController = areaController;
+    }
+
     public String getSelectText() {
         return selectText;
     }
+
+
 
     public void setSelectText(String selectText) {
         this.selectText = selectText;

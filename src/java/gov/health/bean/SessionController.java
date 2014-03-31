@@ -58,6 +58,17 @@ public class SessionController implements Serializable {
     public SessionController() {
     }
 
+    public String prepareAddNewUser(){
+        newPersonName = "";
+        telNo="";
+        email="";
+        newUserName="";
+        newPassword="";
+        newPasswordConfirm="";
+        newPasswordHint="";
+        return "register_user";
+    }
+    
     public boolean isSysAdmin() {
         if (loggedUser == null) {
             return false;
@@ -424,9 +435,9 @@ public class SessionController implements Serializable {
             return "";
         }
 
-        if (!isValidEmailAddress(email)) {
-            return "";
-        }
+//        if (!isValidEmailAddress(email)) {
+//            return "";
+//        }
 
         WebUser user = new WebUser();
         Person person = new Person();
@@ -449,7 +460,7 @@ public class SessionController implements Serializable {
         } else if (user.getRole() != null && "superUser".equals(user.getRole().getName())) {
             user.setRestrictedInstitution(null);
         } else {
-            user.setRestrictedInstitution(institution);
+            user.setRestrictedInstitution(getLoggedUser().getRestrictedInstitution());
         }
         uFacade.create(user);
         JsfUtil.addSuccessMessage("New User Registered.");

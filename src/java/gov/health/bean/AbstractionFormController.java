@@ -58,6 +58,7 @@ public class AbstractionFormController implements Serializable {
     DepartmentController departmentController;
     @Inject
     AreaController areaController;
+    
 
 
     public String addNewAbstractionForm() {

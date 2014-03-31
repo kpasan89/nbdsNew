@@ -114,7 +114,7 @@
                                 <p:menuitem  ajax="false"  action="manage_users" value="Manage Users"  ></p:menuitem>
                             </p:submenu>
                             <p:submenu label="Administration"  rendered="#{sessionController.insAdmin}">
-                                <p:menuitem  ajax="false"  action="register_user" value="Add Users"  ></p:menuitem>
+                                <p:menuitem  ajax="false"  action="#{sessionController.prepareAddNewUser()}" value="Add Users"  ></p:menuitem>
                                 <p:menuitem  ajax="false"  action="manage_users" value="Manage Users"  ></p:menuitem>
                             </p:submenu>
                             <p:submenu label="Options"  >

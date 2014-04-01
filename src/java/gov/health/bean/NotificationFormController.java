@@ -8,7 +8,6 @@ package gov.health.bean;
  * and
  * a Set of Related Tools
  */
-import gov.health.bean.*;
 import gov.health.entity.Area;
 import gov.health.entity.Department;
 import gov.health.facade.NotificationFormFacade;
@@ -111,7 +110,17 @@ public class NotificationFormController implements Serializable {
     }
 
     public void listAll() {
-        items = getFacade().findAll();
+        String jpql;
+        System.out.println("getSessionController() = " + getSessionController());
+        System.out.println("getSessionController().loggedUser = " + getSessionController().loggedUser);
+        
+        if(getSessionController().loggedUser.getRestrictedInstitution()== null){
+            NotificationForm n = new NotificationForm();
+            jpql = "select n from NotificationForm n";
+        }else{
+            jpql = "select n from NotificationForm n";
+        }
+        items = getFacade().findBySQL(jpql);
     }
 
     public Department getDepartment() {

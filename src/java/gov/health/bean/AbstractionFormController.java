@@ -90,10 +90,15 @@ public class AbstractionFormController implements Serializable {
         current.setRdhsArea(notificationForm.getRdhsArea());
         current.setMohArea(notificationForm.getMohArea());
         current.setGnArea(notificationForm.getGnArea());
+        
         DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
         current.setDysmorphologyExamination(dysmorphologyExamination);
         LabTest labTest = new LabTest();
+        
         current.setLabTest(labTest);
+        current.getLabTest().getInfantAodYrs();
+        current.getLabTest().getInfantAodMnths();
+        current.getLabTest().getInfantAodDys();
         return "birth_diffect_abstraction_form";
     }
 

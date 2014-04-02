@@ -112,9 +112,9 @@ public class NotificationFormController implements Serializable {
     public void listAll() {
         String jpql;
         System.out.println("getSessionController() = " + getSessionController());
-        System.out.println("getSessionController().loggedUser = " + getSessionController().loggedUser);
+        System.out.println("getSessionController().loggedUser = " + getSessionController().getLoggedUser());
         
-        if(getSessionController().loggedUser.getRestrictedInstitution()== null){
+        if(getSessionController().getLoggedUser().getRestrictedInstitution()== null){
             NotificationForm n = new NotificationForm();
             jpql = "select n from NotificationForm n";
         }else{

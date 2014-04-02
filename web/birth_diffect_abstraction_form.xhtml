@@ -36,7 +36,8 @@
                                     <p:spacer width="10"></p:spacer>
                                     <tr>
                                         <td><p:outputLabel>1. Infant's name</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.infant.name}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.infant.name}" size="40" id="txtInfantName"></p:inputText></td>
+                                        <p:tooltip for="txtInfantName" value="Type infant's name" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>2. Sex of infant</p:outputLabel></td>
@@ -45,6 +46,7 @@
                                                 <f:selectItem itemValue="FEMALE" itemLabel="Female"></f:selectItem>
                                                 <f:selectItem itemValue="AMBIGUOUS" itemLabel="Ambiguous"></f:selectItem>
                                             </p:selectOneRadio></td>
+                                        <p:tooltip for="Sex" value="Type infant's sex" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel><font color="blue">3. Location where case identified :</font></p:outputLabel></td>
@@ -63,6 +65,7 @@
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
+                                        <p:tooltip for="acHos" value="Select hospital" showEffect="fade" hideEffect="fade" />
                                         <td>
                                             <ul><p:outputLabel>RDHS Division</p:outputLabel>  
                                                 <p:autoComplete
@@ -75,6 +78,7 @@
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
+                                        <p:tooltip for="acdiv" value="Select RDHS division" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td>
@@ -84,10 +88,11 @@
                                                     value="#{abstractionFormController.current.ward}" 
                                                     completeMethod="#{abstractionFormController.completeOfficialDepartments}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    converter="departmentConverter" id="acWard">
+                                                    id="acWard">
                                                 </p:autoComplete>
                                             </ul>
-                                        </td>                           
+                                        </td> 
+                                        <p:tooltip for="acWard" value="Select ward" showEffect="fade" hideEffect="fade" />
                                         <td>
                                             <ul><p:outputLabel>MOH Division</p:outputLabel>   
                                                 <p:autoComplete
@@ -100,6 +105,7 @@
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
+                                        <p:tooltip for="acmoh" value="Select MOH division" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td>
@@ -113,7 +119,8 @@
                                                     <f:ajax event="itemSelect" execute="acDis" render="acdiv"></f:ajax>
                                                 </p:autoComplete>
                                             </ul>
-                                        </td>                            
+                                        </td> 
+                                        <p:tooltip for="acDis" value="Select district" showEffect="fade" hideEffect="fade" />
                                         <td>
                                             <ul><p:outputLabel>GN Division</p:outputLabel>    
                                                 <p:autoComplete
@@ -125,14 +132,17 @@
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
+                                        <p:tooltip for="acGn" value="Select grama niladari division" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>4. Date of Case Identified</p:outputLabel></td>
-                                        <td><p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40"></p:calendar></td>
+                                        <td><p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40" id="txtDCI"></p:calendar></td>
+                                        <p:tooltip for="txtDCI" value="Date of Case Identified" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>5. BHT No</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.bhtno}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.bhtno}" size="40" id="txtBHT"></p:inputText></td>
+                                        <p:tooltip for="txtBHT" value="BHT number" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>6. Whether the baby alive or dead ?</p:outputLabel></td>
@@ -140,32 +150,38 @@
                                                 <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
                                                 <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
                                             </p:selectOneRadio></td>
+                                        <p:tooltip for="liveOrDead" value="Select option" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>7. Diagnosis / Birth Defect Coding</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.diagnosis}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.diagnosis}" size="40" id="txtDiag"></p:inputText></td>
+                                        <p:tooltip for="txtDiag" value="Diagnosis / Birth Defect Coding" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                 </table>
                                 <table width="680px" style="padding: 2.5%" align="center" bgcolor="white">
                                     <tr>
                                         <td><p:outputLabel>8. Name of the mother</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.mother.name}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.name}" size="40" id="txtMother"></p:inputText></td>
+                                        <p:tooltip for="txtMother" value="Name of the mother" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>9. Mother’s Date of Birth</p:outputLabel></td>
-                                        <td><p:calendar value="#{abstractionFormController.current.mother.dob}" size="40"></p:calendar></td>
+                                        <td><p:calendar value="#{abstractionFormController.current.mother.dob}" size="40" id="txtMDOB"></p:calendar></td>
+                                        <p:tooltip for="txtMDOB" value="Mother’s Date of Birth" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>10. Age</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.mother.age}" size="35"></p:inputText><p:outputLabel>Years</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.age}" size="35" id="txtMAge"></p:inputText><p:outputLabel>Years</p:outputLabel></td>
+                                        <p:tooltip for="txtMAge" value="Mother's age" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>11. National Identity Card No</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.mother.nic}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.nic}" size="40" id="txtNIC"></p:inputText></td>
+                                        <p:tooltip for="txtNIC" value="National Identity Card No" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>12. Ethnicity</p:outputLabel></td>
-                                        <td><p:selectOneMenu value="#{abstractionFormController.current.infant.ethnicity}" style="width: 80px">
+                                        <td><p:selectOneMenu value="#{abstractionFormController.current.infant.ethnicity}" style="width: 80px" id="somEth">
                                                 <f:selectItem itemLabel="Please Select" />
                                                 <f:selectItem itemLabel="Sinhala" itemValue="SINHALA" />
                                                 <f:selectItem itemLabel="Tamil" itemValue="TAMIL" />
@@ -173,34 +189,42 @@
                                                 <f:selectItem itemLabel="Burgher" itemValue="BURGHER" />
                                                 <f:selectItem itemLabel="Other" itemValue="OTHER" />
                                             </p:selectOneMenu></td>
+                                        <p:tooltip for="somEth" value="Ethnicity" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>13. Residence Address</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.mother.address}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.address}" size="40" id="txtAddress"></p:inputText></td>
+                                        <p:tooltip for="txtAddress" value="Residence Address" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>14. Phone1</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.tp1}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.tp1}" size="40" id="txtP1"></p:inputText></td>
+                                        <p:tooltip for="txtP1" value="Mobile phone number" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>15. Phone2</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.tp2}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.tp2}" size="40" id="txtP2"></p:inputText></td>
+                                        <p:tooltip for="txtP2" value="Land phone number" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>16. Total Pregnancies</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.totPreg}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.totPreg}" size="40" id="txtTP"></p:inputText></td>
+                                        <p:tooltip for="txtTP" value="Total Pregnancies" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>17. Live Births</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.liveBirth}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.liveBirth}" size="40" id="txtLB"></p:inputText></td>
+                                        <p:tooltip for="txtLB" value="Number of live births" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>18. Spontaneous Fetal Deaths </p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.sfDeath}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.sfDeath}" size="40" id="txtSFD"></p:inputText></td>
+                                        <p:tooltip for="txtSFD" value="Spontaneous fetal deaths" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>19. Unspecified Fetal Deaths / Pregnancy terminations</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.ufDeath}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.ufDeath}" size="40" id="txtUFD"></p:inputText></td>
+                                        <p:tooltip for="txtUFD" value="Unspecified Fetal Deaths / Pregnancy terminations" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr><td></td><td></td></tr>
                                     <tr>

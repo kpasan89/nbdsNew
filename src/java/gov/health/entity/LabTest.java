@@ -186,7 +186,7 @@ public class LabTest implements Serializable {
         this.placeOfDead = placeOfDead;
     }
 
-    public boolean isPostMortem() {
+    public boolean getPostMortem() {
         return postMortem;
     }
 

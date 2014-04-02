@@ -77,7 +77,6 @@
                         <p:menubar styleClass="nonPrintBlock" style=" border: 0px;" >
                             <p:menuitem  ajax="false"  action="index" value="Home" ></p:menuitem>
                             <p:submenu label="Cases" >
-                                <p:menuitem ajax="false" action="#{notificationFormController.addNewAreaNotificationForm()}" value="Field Birth Defect Notification" ></p:menuitem>
                                 <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
                                 <p:menuitem ajax="false" action="#{abstractionFormController.addNewAbstractionForm()}"  value="Case Ascertainment"  ></p:menuitem>
                                 <p:menuitem ajax="false" action="view_all_notification_form" value="List All Notification Forms"></p:menuitem>
@@ -192,6 +191,12 @@
                         <h:outputLabel rendered="#{sessionController.logged}" value="You are logged as #{sessionController.displayName}." ></h:outputLabel>
                         <p:commandLink rendered="#{sessionController.logged}" value="Click here to Logout" action="#{sessionController.logout}" ajax="false"></p:commandLink>
                     </h:panelGrid>
+                    
+                    <h1>
+                        #{sessionController.loggedUser}
+                    </h1>
+                    
+                    
                 </h:form>
             </div>
         </div>

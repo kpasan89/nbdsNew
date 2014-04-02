@@ -42,7 +42,7 @@ import org.primefaces.event.CaptureEvent;
 @SessionScoped
 public class SessionController implements Serializable {
 
-    WebUser loggedUser = null;
+    private WebUser loggedUser = null;
     boolean logged = false;
     boolean activated = false;
     String primeTheme;

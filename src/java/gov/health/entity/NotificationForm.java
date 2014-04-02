@@ -40,7 +40,7 @@ public class NotificationForm implements Serializable {
     @ManyToOne
     Institution hospital;
     @ManyToOne
-    Department ward;
+    private Department ward;
     @ManyToOne
     Area district;
     @ManyToOne
@@ -117,7 +117,7 @@ public class NotificationForm implements Serializable {
 
     
     
-    public boolean isPostMortem() {
+    public boolean getPostMortem() {
         return postMortem;
     }
 

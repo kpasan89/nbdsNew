@@ -58,6 +58,7 @@ public class AbstractionFormController implements Serializable {
     DepartmentController departmentController;
     @Inject
     AreaController areaController;
+
     
 
 
@@ -93,12 +94,20 @@ public class AbstractionFormController implements Serializable {
         
         DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
         current.setDysmorphologyExamination(dysmorphologyExamination);
-        LabTest labTest = new LabTest();
         
+        LabTest labTest = new LabTest();
         current.setLabTest(labTest);
-        current.getLabTest().getInfantAodYrs();
-        current.getLabTest().getInfantAodMnths();
-        current.getLabTest().getInfantAodDys();
+        
+        current.getLabTest().setInfantAodYrs(notificationForm.getInfantAodYrs());
+        current.getLabTest().setInfantAodMnths(notificationForm.getInfantAodMnths());
+        current.getLabTest().setInfantAodDys(notificationForm.getInfantAodDys());
+        current.getLabTest().setPlaceOfDead(notificationForm.getPlaceOfDead());
+        current.getLabTest().setPostMortem(notificationForm.getPostMortem());
+        current.getLabTest().setNameOfJmo(notificationForm.getNameOfJmo());
+        current.getLabTest().setUnderlyingCause(notificationForm.getUnderlyingCause());
+        current.getLabTest().setImmediateCause(notificationForm.getImmediateCause());
+        current.getLabTest().setConDeath(notificationForm.getConDeath());
+        
         return "birth_diffect_abstraction_form";
     }
 

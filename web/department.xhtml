@@ -33,7 +33,7 @@
 
                                         <h:outputText id="lblSelect" value="Department" >
                                         </h:outputText>
-                                        <p:selectOneListbox  converter="departmentConverter"  id="lstSelect"  value="#{departmentController.removing}" style="min-width: 223px">
+                                        <p:selectOneListbox id="lstSelect"  value="#{departmentController.removing}" style="min-width: 223px">
                                             <f:selectItems  value="#{departmentController.insDepts}" var="myItem" itemValue="#{myItem}" itemLabel="#{myItem.name}" ></f:selectItems>
                                             <f:ajax event="click" execute="@this" listener="#{departmentController.departmenListen(myItem)}"/>
                                         </p:selectOneListbox>

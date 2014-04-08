@@ -715,6 +715,154 @@
                                             </td>
                                         </tr>
                                     </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <p:spacer height="10px"></p:spacer>
+                                            <td width="80px"><p:outputLabel>Abdomen Back</p:outputLabel></td>
+
+                                            <td><p:selectBooleanCheckbox itemLabel="Normal abdomen" value="#{abstractionFormController.current.dysmorphologyExamination.normalAbdomain}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Extra skin / prune belly" value="#{abstractionFormController.current.dysmorphologyExamination.extraSkin}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Umbilicus" value="#{abstractionFormController.current.dysmorphologyExamination.umbilicus}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Hepatomegaly FB below LCM" value="#{abstractionFormController.current.dysmorphologyExamination.hepatomegaly}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Splenomegaly" value="#{abstractionFormController.current.dysmorphologyExamination.splenomegaly}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbdomen}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbdomenNote}"></p:inputText>
+                                            </td>
+                                            <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.abdSel1}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.abdSel2}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.abdSel3}"></p:selectBooleanCheckbox>
+                                            </td>
+                                            <td width="100px"><h:graphicImage  class="pic1" library="image" name="Picture13.png" width="225px" height="75px"></h:graphicImage></td>
+                                            <td><p:selectBooleanCheckbox itemLabel="Normal Back" value="#{abstractionFormController.current.dysmorphologyExamination.normalBack}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Scoliosis" value="#{abstractionFormController.current.dysmorphologyExamination.scolinosis}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Kyphosis / gibbus" value="#{abstractionFormController.current.dysmorphologyExamination.kyphosis}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Hirsutism" value="#{abstractionFormController.current.dysmorphologyExamination.hirsutism}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Sacral dimple / sinus" value="#{abstractionFormController.current.dysmorphologyExamination.sacralDimple}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Neural Tube Defects" value="#{abstractionFormController.current.dysmorphologyExamination.neural}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbd}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbdNote}"></p:inputText>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <p:spacer width="10px"></p:spacer>
+                                            <td width="80px"><p:outputLabel>Urogenital</p:outputLabel></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td colspan="2"><p:selectBooleanCheckbox itemLabel="Normal male genitalia" value="#{abstractionFormController.current.dysmorphologyExamination.normalMouth}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Penislength"></p:outputLabel></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.penisLength}"></p:inputText></td>
+                                                        <td><p:outputLabel value="cm"></p:outputLabel></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Penis"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.largePenis}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.smallPenis}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherPenis}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherPenisNote}"></p:inputText></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Chordee" value="#{abstractionFormController.current.dysmorphologyExamination.chordee}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Hypospadias" value="#{abstractionFormController.current.dysmorphologyExamination.hypospadias}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Epispandias" value="#{abstractionFormController.current.dysmorphologyExamination.epispadias}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Scrotum"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.smallScrotum}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherScrotum}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherScrotumNote}"></p:inputText></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Testes"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.largeTestes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="SmallS" value="#{abstractionFormController.current.dysmorphologyExamination.smallTestes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherTestes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherTestesNotes}"></p:inputText></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.urogSel1}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.urogSel2}"></p:selectBooleanCheckbox><br></br>
+                                            </td>
+                                            <td width="100px"><h:graphicImage  class="pic1" library="image" name="Picture14.png" width="150px" height="75px"></h:graphicImage></td>
+                                            <td><p:selectBooleanCheckbox itemLabel="Normal female genitalia" value="#{abstractionFormController.current.dysmorphologyExamination.normalFemaleGen}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Virilized" value="#{abstractionFormController.current.dysmorphologyExamination.virilized}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Hypoplastic labia / large clitoris" value="#{abstractionFormController.current.dysmorphologyExamination.hypoplastic}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Vagina" value="#{abstractionFormController.current.dysmorphologyExamination.vagina}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Labia" value="#{abstractionFormController.current.dysmorphologyExamination.labia}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherFemaleGen}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherFemaleGenNote}"></p:inputText><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherFemaleGen2}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherFemaleGen2Note}"></p:inputText>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <p:spacer width="10px"></p:spacer>
+                                            <td width="80px"><p:outputLabel>Limbs Joints</p:outputLabel></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Normal limbs" value="#{abstractionFormController.current.dysmorphologyExamination.normalLibs}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Asymmetry" value="#{abstractionFormController.current.dysmorphologyExamination.asymmetryLibs}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherLibs}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherLibsNote}"></p:inputText></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Upper limbs"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Short" value="#{abstractionFormController.current.dysmorphologyExamination.upperLibsShort}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Proximal-rhizo" value="#{abstractionFormController.current.dysmorphologyExamination.upperProximal}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Middle-meso" value="#{abstractionFormController.current.dysmorphologyExamination.upperMiddle}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Long" value="#{abstractionFormController.current.dysmorphologyExamination.upperLibsLong}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Lower limbs"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Short" value="#{abstractionFormController.current.dysmorphologyExamination.lowerLibsShort}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Proximal-rhizo" value="#{abstractionFormController.current.dysmorphologyExamination.lowerProximal}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Middle-meso" value="#{abstractionFormController.current.dysmorphologyExamination.lowerMiddle}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Long" value="#{abstractionFormController.current.dysmorphologyExamination.lowerLibsLong}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Asymmetry" value="#{abstractionFormController.current.dysmorphologyExamination.asymmetryMeasure}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Measures"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Right" value="#{abstractionFormController.current.dysmorphologyExamination.messureRight}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Left" value="#{abstractionFormController.current.dysmorphologyExamination.messureLeft}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            
+                                            <td><p:selectBooleanCheckbox itemLabel="Normal Joints" value="#{abstractionFormController.current.dysmorphologyExamination.normalJoints}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherJoints}"></p:selectBooleanCheckbox>
+                                                <p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.otherJointsNote}" size="8"></p:inputText><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Lax" value="#{abstractionFormController.current.dysmorphologyExamination.lax}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherJoints2}"></p:selectBooleanCheckbox>
+                                                <p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.otherJoints2Note}" size="8"></p:inputText><br></br>
+                                                
+                                                <p:selectBooleanCheckbox itemLabel="Virilized" value="#{abstractionFormController.current.dysmorphologyExamination.scolinosis}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Hypoplastic labia / large clitoris" value="#{abstractionFormController.current.dysmorphologyExamination.kyphosis}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Vagina" value="#{abstractionFormController.current.dysmorphologyExamination.hirsutism}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Labia" value="#{abstractionFormController.current.dysmorphologyExamination.sacralDimple}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.neural}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbdNote}"></p:inputText><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbd}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbdNote}"></p:inputText>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </table>
 
                             </p:tab>
@@ -949,8 +1097,8 @@
                                 </table>
                                 <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
                                     <p:spacer height="10px"></p:spacer>
-                                  
-                                        
+
+
 
                                     <tr>
                                         <td>Date of Death</td>

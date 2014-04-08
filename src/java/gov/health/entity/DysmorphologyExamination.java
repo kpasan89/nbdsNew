@@ -223,8 +223,1488 @@ public class DysmorphologyExamination implements Serializable {
     boolean clickHeart;
     boolean rhythm;
     boolean pulses;
+    
+    boolean normalAbdomain;
+    boolean extraSkin;
+    boolean umbilicus;
+    boolean hepatomegaly;
+    boolean splenomegaly;
+    boolean otherAbdomen;
+    String otherAbdomenNote;
+    boolean normalBack;
+    boolean scolinosis;
+    boolean kyphosis;
+    boolean hirsutism;
+    boolean sacralDimple;
+    boolean neural;
+    boolean otherAbd;
+    String otherAbdNote;
+    boolean abdSel1;
+    boolean abdSel2;
+    boolean abdSel3;
+    
+    boolean normalMaleGen;
+    double penisLength;
+    boolean largePenis;
+    boolean smallPenis;
+    boolean otherPenis;
+    String otherPenisNote;
+    boolean chordee;
+    boolean hypospadias;
+    boolean epispadias;
+    boolean smallScrotum;
+    boolean otherScrotum;
+    String otherScrotumNote;
+    boolean largeTestes;
+    boolean smallTestes;
+    boolean otherTestes;
+    String otherTestesNotes;
+    boolean normalFemaleGen;
+    boolean virilized;
+    boolean hypoplasticLabia;
+    boolean vagina;
+    boolean labia;
+    boolean otherFemaleGen;
+    String otherFemaleGenNote;
+    boolean otherFemaleGen2;
+    String otherFemaleGen2Note;
+    boolean urogSel1;
+    boolean urogSel2;   
+    
+    boolean normalLibs;
+    boolean asymmetryLibs;
+    boolean otherLibs;
+    String otherLibsNote;
+    boolean upperLibsShort;
+    boolean upperLibsLong;
+    boolean upperProximal;
+    boolean upperMiddle;
+    boolean lowerLibsShort;
+    boolean lowerLibsLong;
+    boolean lowerProximal;
+    boolean lowerMiddle;
+    boolean asymmetryMeasure;
+    boolean messureRight;
+    boolean messureLeft;
+    boolean normalJoints;
+    boolean otherJoints;
+    String otherJointsNote;
+    boolean lax;
+    boolean otherLax;
+    String otherLaxNote;
+    boolean tight;
+    boolean contractures;
+    boolean webs;
+    boolean dimples;
+    boolean otherJoints2;
+    String otherJoints2Note;
+    
+    boolean normalHands;
+    boolean largeHands;
+    boolean smallHands;
+    boolean broadHand;
+    boolean broadThumb;
+    boolean lowPlacedThumbs;
+    boolean otherThumbs;
+    String otherThumbsNote;
+    boolean broadFingers;
+    boolean splayedFingers;
+    boolean extraFingers;
+    boolean fused;
+    boolean shortMetacarpals;
+    boolean smallHandNails;
+    boolean brittleHandNails;
+    boolean otherHandNails;
+    String otherHandNailsNote;
+    boolean handSel1;
+    boolean handSel2;
+    boolean handSel3;
+    boolean handSel4;
+    boolean handSel5;
+    boolean handSel6;
+    boolean normalFeet;
+    boolean largeFeet;
+    boolean smallFeet;
+    boolean broadFeet;
+    boolean broadGreatToes;
+    boolean deviatedGreatToes;
+    boolean otherGreatToes;
+    String otherGreatToesNote;
+    boolean broadToes;
+    boolean splayedToes;
+    boolean overlappedToes;
+    boolean fusedToes;
+    boolean otherToes;
+    String otherToesNote;
+    boolean smallFeetNails;
+    boolean brittleFeetNails;
+    boolean otherFeetNails;
+    String otherFeetNailsNote;
+    boolean feetSel1;
+    boolean feetSel2;
+    boolean feetSel3;
+    boolean feetSel4;
+    boolean feetSel5;
+    
+//    Skin
+    boolean normalSkin;
+    boolean agedSkin;
+    boolean hyperelasticSkin;
+    boolean laxSkin;
+    boolean scalySkin;
+    boolean thickSkin;
+    boolean unusualScars;
+    boolean growths;
+    boolean pigmanted;
+    boolean depigmanted;
+    boolean moles;
+    boolean hemangiomas;
+    boolean otherSkin;
+    String otherSkinNotes;
+    boolean arches;
+    boolean whorls;
+    boolean leftDermat1;
+    boolean leftDermat2;
+    boolean leftDermat3;
+    boolean leftDermat4;
+    boolean leftDermat5;
+    boolean rightDermat1;
+    boolean rightDermat2;
+    boolean rightDermat3;
+    boolean rightDermat4;
+    boolean rightDermat5;
+    
+//    Neuro
+    boolean normal;
+    boolean cranialNerve;
+    boolean abnormalRef;
+    boolean ueDtr;
+    String ueDtrNote;
+    boolean leDtr;
+    String leDtrNote;
+    boolean otherDtr;
+    String otherDtrNote;
+    boolean ataxia;
+    boolean poorTandem;
+    boolean otherNeuro;
+    String otherNeuroNote;
+    boolean asymmetryMovements;
+    boolean mirror;
+    boolean repetitive;
+    boolean otherMove;
+    String otherMoveNote;
+    boolean strengthMuscles;
+    boolean massMuscles;
+    boolean hypoTone;
+    boolean hyperTone;
+    boolean speech;
+    
+//    Psych
+    boolean normalActivity;
+    boolean distructable;
+    boolean hyper;
+    boolean autistic;
+    boolean otherPsych;
+    String otherPsychNote;
+    boolean selMutilation;
+    boolean irritable;
+    boolean depressive;
+    boolean happy;
+    boolean otherPsych2;
+    String otherPsych2Note;
 
-    public boolean isOtherNipples() {
+    public String getOtherScrotumNote() {
+        return otherScrotumNote;
+    }
+
+    public void setOtherScrotumNote(String otherScrotumNote) {
+        this.otherScrotumNote = otherScrotumNote;
+    }
+    
+    public boolean getNormalLibs() {
+        return normalLibs;
+    }
+
+    public void setNormalLibs(boolean normalLibs) {
+        this.normalLibs = normalLibs;
+    }
+
+    public boolean getAsymmetryLibs() {
+        return asymmetryLibs;
+    }
+
+    public void setAsymmetryLibs(boolean asymmetryLibs) {
+        this.asymmetryLibs = asymmetryLibs;
+    }
+
+    public boolean getOtherLibs() {
+        return otherLibs;
+    }
+
+    public void setOtherLibs(boolean otherLibs) {
+        this.otherLibs = otherLibs;
+    }
+
+    public String getOtherLibsNote() {
+        return otherLibsNote;
+    }
+
+    public void setOtherLibsNote(String otherLibsNote) {
+        this.otherLibsNote = otherLibsNote;
+    }
+
+    public boolean getUpperLibsShort() {
+        return upperLibsShort;
+    }
+
+    public void setUpperLibsShort(boolean upperLibsShort) {
+        this.upperLibsShort = upperLibsShort;
+    }
+
+    public boolean getUpperLibsLong() {
+        return upperLibsLong;
+    }
+
+    public void setUpperLibsLong(boolean upperLibsLong) {
+        this.upperLibsLong = upperLibsLong;
+    }
+
+    public boolean getUpperProximal() {
+        return upperProximal;
+    }
+
+    public void setUpperProximal(boolean upperProximal) {
+        this.upperProximal = upperProximal;
+    }
+
+    public boolean getUpperMiddle() {
+        return upperMiddle;
+    }
+
+    public void setUpperMiddle(boolean upperMiddle) {
+        this.upperMiddle = upperMiddle;
+    }
+
+    public boolean getLowerLibsShort() {
+        return lowerLibsShort;
+    }
+
+    public void setLowerLibsShort(boolean lowerLibsShort) {
+        this.lowerLibsShort = lowerLibsShort;
+    }
+
+    public boolean getLowerLibsLong() {
+        return lowerLibsLong;
+    }
+
+    public void setLowerLibsLong(boolean lowerLibsLong) {
+        this.lowerLibsLong = lowerLibsLong;
+    }
+
+    public boolean getLowerProximal() {
+        return lowerProximal;
+    }
+
+    public void setLowerProximal(boolean lowerProximal) {
+        this.lowerProximal = lowerProximal;
+    }
+
+    public boolean isLowerMiddle() {
+        return lowerMiddle;
+    }
+
+    public void setLowerMiddle(boolean lowerMiddle) {
+        this.lowerMiddle = lowerMiddle;
+    }
+
+    public boolean getAsymmetryMeasure() {
+        return asymmetryMeasure;
+    }
+
+    public void setAsymmetryMeasure(boolean asymmetryMeasure) {
+        this.asymmetryMeasure = asymmetryMeasure;
+    }
+
+    public boolean getMessureRight() {
+        return messureRight;
+    }
+
+    public void setMessureRight(boolean messureRight) {
+        this.messureRight = messureRight;
+    }
+
+    public boolean getMessureLeft() {
+        return messureLeft;
+    }
+
+    public void setMessureLeft(boolean messureLeft) {
+        this.messureLeft = messureLeft;
+    }
+
+    public boolean getNormalJoints() {
+        return normalJoints;
+    }
+
+    public void setNormalJoints(boolean normalJoints) {
+        this.normalJoints = normalJoints;
+    }
+
+    public boolean getOtherJoints() {
+        return otherJoints;
+    }
+
+    public void setOtherJoints(boolean otherJoints) {
+        this.otherJoints = otherJoints;
+    }
+
+    public String getOtherJointsNote() {
+        return otherJointsNote;
+    }
+
+    public void setOtherJointsNote(String otherJointsNote) {
+        this.otherJointsNote = otherJointsNote;
+    }
+
+    public boolean isLax() {
+        return lax;
+    }
+
+    public void setLax(boolean lax) {
+        this.lax = lax;
+    }
+
+    public boolean getOtherLax() {
+        return otherLax;
+    }
+
+    public void setOtherLax(boolean otherLax) {
+        this.otherLax = otherLax;
+    }
+
+    public String getOtherLaxNote() {
+        return otherLaxNote;
+    }
+
+    public void setOtherLaxNote(String otherLaxNote) {
+        this.otherLaxNote = otherLaxNote;
+    }
+
+    public boolean getTight() {
+        return tight;
+    }
+
+    public void setTight(boolean tight) {
+        this.tight = tight;
+    }
+
+    public boolean getContractures() {
+        return contractures;
+    }
+
+    public void setContractures(boolean contractures) {
+        this.contractures = contractures;
+    }
+
+    public boolean getWebs() {
+        return webs;
+    }
+
+    public void setWebs(boolean webs) {
+        this.webs = webs;
+    }
+
+    public boolean getDimples() {
+        return dimples;
+    }
+
+    public void setDimples(boolean dimples) {
+        this.dimples = dimples;
+    }
+
+    public boolean getOtherJoints2() {
+        return otherJoints2;
+    }
+
+    public void setOtherJoints2(boolean otherJoints2) {
+        this.otherJoints2 = otherJoints2;
+    }
+
+    public String getOtherJoints2Note() {
+        return otherJoints2Note;
+    }
+
+    public void setOtherJoints2Note(String otherJoints2Note) {
+        this.otherJoints2Note = otherJoints2Note;
+    }
+
+    public boolean getNormalHands() {
+        return normalHands;
+    }
+
+    public void setNormalHands(boolean normalHands) {
+        this.normalHands = normalHands;
+    }
+
+    public boolean getLargeHands() {
+        return largeHands;
+    }
+
+    public void setLargeHands(boolean largeHands) {
+        this.largeHands = largeHands;
+    }
+
+    public boolean getSmallHands() {
+        return smallHands;
+    }
+
+    public void setSmallHands(boolean smallHands) {
+        this.smallHands = smallHands;
+    }
+
+    public boolean getBroadHand() {
+        return broadHand;
+    }
+
+    public void setBroadHand(boolean broadHand) {
+        this.broadHand = broadHand;
+    }
+
+    public boolean getBroadThumb() {
+        return broadThumb;
+    }
+
+    public void setBroadThumb(boolean broadThumb) {
+        this.broadThumb = broadThumb;
+    }
+
+    public boolean getLowPlacedThumbs() {
+        return lowPlacedThumbs;
+    }
+
+    public void setLowPlacedThumbs(boolean lowPlacedThumbs) {
+        this.lowPlacedThumbs = lowPlacedThumbs;
+    }
+
+    public boolean getOtherThumbs() {
+        return otherThumbs;
+    }
+
+    public void setOtherThumbs(boolean otherThumbs) {
+        this.otherThumbs = otherThumbs;
+    }
+
+    public String getOtherThumbsNote() {
+        return otherThumbsNote;
+    }
+
+    public void setOtherThumbsNote(String otherThumbsNote) {
+        this.otherThumbsNote = otherThumbsNote;
+    }
+
+    public boolean getBroadFingers() {
+        return broadFingers;
+    }
+
+    public void setBroadFingers(boolean broadFingers) {
+        this.broadFingers = broadFingers;
+    }
+
+    public boolean getSplayedFingers() {
+        return splayedFingers;
+    }
+
+    public void setSplayedFingers(boolean splayedFingers) {
+        this.splayedFingers = splayedFingers;
+    }
+
+    public boolean getExtraFingers() {
+        return extraFingers;
+    }
+
+    public void setExtraFingers(boolean extraFingers) {
+        this.extraFingers = extraFingers;
+    }
+
+    public boolean getFused() {
+        return fused;
+    }
+
+    public void setFused(boolean fused) {
+        this.fused = fused;
+    }
+
+    public boolean getShortMetacarpals() {
+        return shortMetacarpals;
+    }
+
+    public void setShortMetacarpals(boolean shortMetacarpals) {
+        this.shortMetacarpals = shortMetacarpals;
+    }
+
+    public boolean getSmallHandNails() {
+        return smallHandNails;
+    }
+
+    public void setSmallHandNails(boolean smallHandNails) {
+        this.smallHandNails = smallHandNails;
+    }
+
+    public boolean getBrittleHandNails() {
+        return brittleHandNails;
+    }
+
+    public void setBrittleHandNails(boolean brittleHandNails) {
+        this.brittleHandNails = brittleHandNails;
+    }
+
+    public boolean getOtherHandNails() {
+        return otherHandNails;
+    }
+
+    public void setOtherHandNails(boolean otherHandNails) {
+        this.otherHandNails = otherHandNails;
+    }
+
+    public String getOtherHandNailsNote() {
+        return otherHandNailsNote;
+    }
+
+    public void setOtherHandNailsNote(String otherHandNailsNote) {
+        this.otherHandNailsNote = otherHandNailsNote;
+    }
+
+    public boolean getHandSel1() {
+        return handSel1;
+    }
+
+    public void setHandSel1(boolean handSel1) {
+        this.handSel1 = handSel1;
+    }
+
+    public boolean getHandSel2() {
+        return handSel2;
+    }
+
+    public void setHandSel2(boolean handSel2) {
+        this.handSel2 = handSel2;
+    }
+
+    public boolean getHandSel3() {
+        return handSel3;
+    }
+
+    public void setHandSel3(boolean handSel3) {
+        this.handSel3 = handSel3;
+    }
+
+    public boolean getHandSel4() {
+        return handSel4;
+    }
+
+    public void setHandSel4(boolean handSel4) {
+        this.handSel4 = handSel4;
+    }
+
+    public boolean getHandSel5() {
+        return handSel5;
+    }
+
+    public void setHandSel5(boolean handSel5) {
+        this.handSel5 = handSel5;
+    }
+
+    public boolean getHandSel6() {
+        return handSel6;
+    }
+
+    public void setHandSel6(boolean handSel6) {
+        this.handSel6 = handSel6;
+    }
+
+    public boolean getNormalFeet() {
+        return normalFeet;
+    }
+
+    public void setNormalFeet(boolean normalFeet) {
+        this.normalFeet = normalFeet;
+    }
+
+    public boolean getLargeFeet() {
+        return largeFeet;
+    }
+
+    public void setLargeFeet(boolean largeFeet) {
+        this.largeFeet = largeFeet;
+    }
+
+    public boolean getSmallFeet() {
+        return smallFeet;
+    }
+
+    public void setSmallFeet(boolean smallFeet) {
+        this.smallFeet = smallFeet;
+    }
+
+    public boolean getBroadFeet() {
+        return broadFeet;
+    }
+
+    public void setBroadFeet(boolean broadFeet) {
+        this.broadFeet = broadFeet;
+    }
+
+    public boolean getBroadGreatToes() {
+        return broadGreatToes;
+    }
+
+    public void setBroadGreatToes(boolean broadGreatToes) {
+        this.broadGreatToes = broadGreatToes;
+    }
+
+    public boolean getDeviatedGreatToes() {
+        return deviatedGreatToes;
+    }
+
+    public void setDeviatedGreatToes(boolean deviatedGreatToes) {
+        this.deviatedGreatToes = deviatedGreatToes;
+    }
+
+    public boolean getOtherGreatToes() {
+        return otherGreatToes;
+    }
+
+    public void setOtherGreatToes(boolean otherGreatToes) {
+        this.otherGreatToes = otherGreatToes;
+    }
+
+    public String getOtherGreatToesNote() {
+        return otherGreatToesNote;
+    }
+
+    public void setOtherGreatToesNote(String otherGreatToesNote) {
+        this.otherGreatToesNote = otherGreatToesNote;
+    }
+
+    public boolean isBroadToes() {
+        return broadToes;
+    }
+
+    public void setBroadToes(boolean broadToes) {
+        this.broadToes = broadToes;
+    }
+
+    public boolean getSplayedToes() {
+        return splayedToes;
+    }
+
+    public void setSplayedToes(boolean splayedToes) {
+        this.splayedToes = splayedToes;
+    }
+
+    public boolean getOverlappedToes() {
+        return overlappedToes;
+    }
+
+    public void setOverlappedToes(boolean overlappedToes) {
+        this.overlappedToes = overlappedToes;
+    }
+
+    public boolean getFusedToes() {
+        return fusedToes;
+    }
+
+    public void setFusedToes(boolean fusedToes) {
+        this.fusedToes = fusedToes;
+    }
+
+    public boolean getOtherToes() {
+        return otherToes;
+    }
+
+    public void setOtherToes(boolean otherToes) {
+        this.otherToes = otherToes;
+    }
+
+    public String getOtherToesNote() {
+        return otherToesNote;
+    }
+
+    public void setOtherToesNote(String otherToesNote) {
+        this.otherToesNote = otherToesNote;
+    }
+
+    public boolean getSmallFeetNails() {
+        return smallFeetNails;
+    }
+
+    public void setSmallFeetNails(boolean smallFeetNails) {
+        this.smallFeetNails = smallFeetNails;
+    }
+
+    public boolean getBrittleFeetNails() {
+        return brittleFeetNails;
+    }
+
+    public void setBrittleFeetNails(boolean brittleFeetNails) {
+        this.brittleFeetNails = brittleFeetNails;
+    }
+
+    public boolean getOtherFeetNails() {
+        return otherFeetNails;
+    }
+
+    public void setOtherFeetNails(boolean otherFeetNails) {
+        this.otherFeetNails = otherFeetNails;
+    }
+
+    public String getOtherFeetNailsNote() {
+        return otherFeetNailsNote;
+    }
+
+    public void setOtherFeetNailsNote(String otherFeetNailsNote) {
+        this.otherFeetNailsNote = otherFeetNailsNote;
+    }
+
+    public boolean getFeetSel1() {
+        return feetSel1;
+    }
+
+    public void setFeetSel1(boolean feetSel1) {
+        this.feetSel1 = feetSel1;
+    }
+
+    public boolean getFeetSel2() {
+        return feetSel2;
+    }
+
+    public void setFeetSel2(boolean feetSel2) {
+        this.feetSel2 = feetSel2;
+    }
+
+    public boolean getFeetSel3() {
+        return feetSel3;
+    }
+
+    public void setFeetSel3(boolean feetSel3) {
+        this.feetSel3 = feetSel3;
+    }
+
+    public boolean getFeetSel4() {
+        return feetSel4;
+    }
+
+    public void setFeetSel4(boolean feetSel4) {
+        this.feetSel4 = feetSel4;
+    }
+
+    public boolean getFeetSel5() {
+        return feetSel5;
+    }
+
+    public void setFeetSel5(boolean feetSel5) {
+        this.feetSel5 = feetSel5;
+    }
+
+    public boolean getNormalSkin() {
+        return normalSkin;
+    }
+
+    public void setNormalSkin(boolean normalSkin) {
+        this.normalSkin = normalSkin;
+    }
+
+    public boolean getAgedSkin() {
+        return agedSkin;
+    }
+
+    public void setAgedSkin(boolean agedSkin) {
+        this.agedSkin = agedSkin;
+    }
+
+    public boolean getHyperelasticSkin() {
+        return hyperelasticSkin;
+    }
+
+    public void setHyperelasticSkin(boolean hyperelasticSkin) {
+        this.hyperelasticSkin = hyperelasticSkin;
+    }
+
+    public boolean getLaxSkin() {
+        return laxSkin;
+    }
+
+    public void setLaxSkin(boolean laxSkin) {
+        this.laxSkin = laxSkin;
+    }
+
+    public boolean getScalySkin() {
+        return scalySkin;
+    }
+
+    public void setScalySkin(boolean scalySkin) {
+        this.scalySkin = scalySkin;
+    }
+
+    public boolean getThickSkin() {
+        return thickSkin;
+    }
+
+    public void setThickSkin(boolean thickSkin) {
+        this.thickSkin = thickSkin;
+    }
+
+    public boolean getUnusualScars() {
+        return unusualScars;
+    }
+
+    public void setUnusualScars(boolean unusualScars) {
+        this.unusualScars = unusualScars;
+    }
+
+    public boolean getGrowths() {
+        return growths;
+    }
+
+    public void setGrowths(boolean growths) {
+        this.growths = growths;
+    }
+
+    public boolean getPigmanted() {
+        return pigmanted;
+    }
+
+    public void setPigmanted(boolean pigmanted) {
+        this.pigmanted = pigmanted;
+    }
+
+    public boolean getDepigmanted() {
+        return depigmanted;
+    }
+
+    public void setDepigmanted(boolean depigmanted) {
+        this.depigmanted = depigmanted;
+    }
+
+    public boolean getMoles() {
+        return moles;
+    }
+
+    public void setMoles(boolean moles) {
+        this.moles = moles;
+    }
+
+    public boolean getHemangiomas() {
+        return hemangiomas;
+    }
+
+    public void setHemangiomas(boolean hemangiomas) {
+        this.hemangiomas = hemangiomas;
+    }
+
+    public boolean getOtherSkin() {
+        return otherSkin;
+    }
+
+    public void setOtherSkin(boolean otherSkin) {
+        this.otherSkin = otherSkin;
+    }
+
+    public String getOtherSkinNotes() {
+        return otherSkinNotes;
+    }
+
+    public void setOtherSkinNotes(String otherSkinNotes) {
+        this.otherSkinNotes = otherSkinNotes;
+    }
+
+    public boolean getArches() {
+        return arches;
+    }
+
+    public void setArches(boolean arches) {
+        this.arches = arches;
+    }
+
+    public boolean getWhorls() {
+        return whorls;
+    }
+
+    public void setWhorls(boolean whorls) {
+        this.whorls = whorls;
+    }
+
+    public boolean getLeftDermat1() {
+        return leftDermat1;
+    }
+
+    public void setLeftDermat1(boolean leftDermat1) {
+        this.leftDermat1 = leftDermat1;
+    }
+
+    public boolean getLeftDermat2() {
+        return leftDermat2;
+    }
+
+    public void setLeftDermat2(boolean leftDermat2) {
+        this.leftDermat2 = leftDermat2;
+    }
+
+    public boolean getLeftDermat3() {
+        return leftDermat3;
+    }
+
+    public void setLeftDermat3(boolean leftDermat3) {
+        this.leftDermat3 = leftDermat3;
+    }
+
+    public boolean getLeftDermat4() {
+        return leftDermat4;
+    }
+
+    public void setLeftDermat4(boolean leftDermat4) {
+        this.leftDermat4 = leftDermat4;
+    }
+
+    public boolean getLeftDermat5() {
+        return leftDermat5;
+    }
+
+    public void setLeftDermat5(boolean leftDermat5) {
+        this.leftDermat5 = leftDermat5;
+    }
+
+    public boolean getRightDermat1() {
+        return rightDermat1;
+    }
+
+    public void setRightDermat1(boolean rightDermat1) {
+        this.rightDermat1 = rightDermat1;
+    }
+
+    public boolean getRightDermat2() {
+        return rightDermat2;
+    }
+
+    public void setRightDermat2(boolean rightDermat2) {
+        this.rightDermat2 = rightDermat2;
+    }
+
+    public boolean getRightDermat3() {
+        return rightDermat3;
+    }
+
+    public void setRightDermat3(boolean rightDermat3) {
+        this.rightDermat3 = rightDermat3;
+    }
+
+    public boolean getRightDermat4() {
+        return rightDermat4;
+    }
+
+    public void setRightDermat4(boolean rightDermat4) {
+        this.rightDermat4 = rightDermat4;
+    }
+
+    public boolean getRightDermat5() {
+        return rightDermat5;
+    }
+
+    public void setRightDermat5(boolean rightDermat5) {
+        this.rightDermat5 = rightDermat5;
+    }
+
+    public boolean getNormal() {
+        return normal;
+    }
+
+    public void setNormal(boolean normal) {
+        this.normal = normal;
+    }
+
+    public boolean getCranialNerve() {
+        return cranialNerve;
+    }
+
+    public void setCranialNerve(boolean cranialNerve) {
+        this.cranialNerve = cranialNerve;
+    }
+
+    public boolean getAbnormalRef() {
+        return abnormalRef;
+    }
+
+    public void setAbnormalRef(boolean abnormalRef) {
+        this.abnormalRef = abnormalRef;
+    }
+
+    public boolean getUeDtr() {
+        return ueDtr;
+    }
+
+    public void setUeDtr(boolean ueDtr) {
+        this.ueDtr = ueDtr;
+    }
+
+    public String getUeDtrNote() {
+        return ueDtrNote;
+    }
+
+    public void setUeDtrNote(String ueDtrNote) {
+        this.ueDtrNote = ueDtrNote;
+    }
+
+    public boolean getLeDtr() {
+        return leDtr;
+    }
+
+    public void setLeDtr(boolean leDtr) {
+        this.leDtr = leDtr;
+    }
+
+    public String getLeDtrNote() {
+        return leDtrNote;
+    }
+
+    public void setLeDtrNote(String leDtrNote) {
+        this.leDtrNote = leDtrNote;
+    }
+
+    public boolean getOtherDtr() {
+        return otherDtr;
+    }
+
+    public void setOtherDtr(boolean otherDtr) {
+        this.otherDtr = otherDtr;
+    }
+
+    public String getOtherDtrNote() {
+        return otherDtrNote;
+    }
+
+    public void setOtherDtrNote(String otherDtrNote) {
+        this.otherDtrNote = otherDtrNote;
+    }
+
+    public boolean getAtaxia() {
+        return ataxia;
+    }
+
+    public void setAtaxia(boolean ataxia) {
+        this.ataxia = ataxia;
+    }
+
+    public boolean getPoorTandem() {
+        return poorTandem;
+    }
+
+    public void setPoorTandem(boolean poorTandem) {
+        this.poorTandem = poorTandem;
+    }
+
+    public boolean getOtherNeuro() {
+        return otherNeuro;
+    }
+
+    public void setOtherNeuro(boolean otherNeuro) {
+        this.otherNeuro = otherNeuro;
+    }
+
+    public String getOtherNeuroNote() {
+        return otherNeuroNote;
+    }
+
+    public void setOtherNeuroNote(String otherNeuroNote) {
+        this.otherNeuroNote = otherNeuroNote;
+    }
+
+    public boolean getAsymmetryMovements() {
+        return asymmetryMovements;
+    }
+
+    public void setAsymmetryMovements(boolean asymmetryMovements) {
+        this.asymmetryMovements = asymmetryMovements;
+    }
+
+    public boolean getMirror() {
+        return mirror;
+    }
+
+    public void setMirror(boolean mirror) {
+        this.mirror = mirror;
+    }
+
+    public boolean getRepetitive() {
+        return repetitive;
+    }
+
+    public void setRepetitive(boolean repetitive) {
+        this.repetitive = repetitive;
+    }
+
+    public boolean getOtherMove() {
+        return otherMove;
+    }
+
+    public void setOtherMove(boolean otherMove) {
+        this.otherMove = otherMove;
+    }
+
+    public String getOtherMoveNote() {
+        return otherMoveNote;
+    }
+
+    public void setOtherMoveNote(String otherMoveNote) {
+        this.otherMoveNote = otherMoveNote;
+    }
+
+    public boolean getStrengthMuscles() {
+        return strengthMuscles;
+    }
+
+    public void setStrengthMuscles(boolean strengthMuscles) {
+        this.strengthMuscles = strengthMuscles;
+    }
+
+    public boolean getMassMuscles() {
+        return massMuscles;
+    }
+
+    public void setMassMuscles(boolean massMuscles) {
+        this.massMuscles = massMuscles;
+    }
+
+    public boolean getHypoTone() {
+        return hypoTone;
+    }
+
+    public void setHypoTone(boolean hypoTone) {
+        this.hypoTone = hypoTone;
+    }
+
+    public boolean getHyperTone() {
+        return hyperTone;
+    }
+
+    public void setHyperTone(boolean hyperTone) {
+        this.hyperTone = hyperTone;
+    }
+
+    public boolean getSpeech() {
+        return speech;
+    }
+
+    public void setSpeech(boolean speech) {
+        this.speech = speech;
+    }
+
+    public boolean getNormalActivity() {
+        return normalActivity;
+    }
+
+    public void setNormalActivity(boolean normalActivity) {
+        this.normalActivity = normalActivity;
+    }
+
+    public boolean getDistructable() {
+        return distructable;
+    }
+
+    public void setDistructable(boolean distructable) {
+        this.distructable = distructable;
+    }
+
+    public boolean getHyper() {
+        return hyper;
+    }
+
+    public void setHyper(boolean hyper) {
+        this.hyper = hyper;
+    }
+
+    public boolean getAutistic() {
+        return autistic;
+    }
+
+    public void setAutistic(boolean autistic) {
+        this.autistic = autistic;
+    }
+
+    public boolean getOtherPsych() {
+        return otherPsych;
+    }
+
+    public void setOtherPsych(boolean otherPsych) {
+        this.otherPsych = otherPsych;
+    }
+
+    public String getOtherPsychNote() {
+        return otherPsychNote;
+    }
+
+    public void setOtherPsychNote(String otherPsychNote) {
+        this.otherPsychNote = otherPsychNote;
+    }
+
+    public boolean getSelMutilation() {
+        return selMutilation;
+    }
+
+    public void setSelMutilation(boolean selMutilation) {
+        this.selMutilation = selMutilation;
+    }
+
+    public boolean getIrritable() {
+        return irritable;
+    }
+
+    public void setIrritable(boolean irritable) {
+        this.irritable = irritable;
+    }
+
+    public boolean getDepressive() {
+        return depressive;
+    }
+
+    public void setDepressive(boolean depressive) {
+        this.depressive = depressive;
+    }
+
+    public boolean getHappy() {
+        return happy;
+    }
+
+    public void setHappy(boolean happy) {
+        this.happy = happy;
+    }
+
+    public boolean getOtherPsych2() {
+        return otherPsych2;
+    }
+
+    public void setOtherPsych2(boolean otherPsych2) {
+        this.otherPsych2 = otherPsych2;
+    }
+
+    public String getOtherPsych2Note() {
+        return otherPsych2Note;
+    }
+
+    public void setOtherPsych2Note(String otherPsych2Note) {
+        this.otherPsych2Note = otherPsych2Note;
+    }
+
+    public DysmorphologyExamination() {
+    }
+    public boolean getOtherPenis() {
+        return otherPenis;
+    }
+
+    public void setOtherPenis(boolean otherPenis) {
+        this.otherPenis = otherPenis;
+    }
+
+    public String getOtherPenisNote() {
+        return otherPenisNote;
+    }
+
+    public void setOtherPenisNote(String otherPenisNote) {
+        this.otherPenisNote = otherPenisNote;
+    }
+
+    public String getOtherTestesNotes() {
+        return otherTestesNotes;
+    }
+
+    public void setOtherTestesNotes(String otherTestesNotes) {
+        this.otherTestesNotes = otherTestesNotes;
+    }
+
+    public boolean isNormalFemaleGen() {
+        return normalFemaleGen;
+    }
+
+    public void setNormalFemaleGen(boolean normalFemaleGen) {
+        this.normalFemaleGen = normalFemaleGen;
+    }
+
+    public boolean getVirilized() {
+        return virilized;
+    }
+
+    public void setVirilized(boolean virilized) {
+        this.virilized = virilized;
+    }
+
+    public boolean getHypoplasticLabia() {
+        return hypoplasticLabia;
+    }
+
+    public void setHypoplasticLabia(boolean hypoplasticLabia) {
+        this.hypoplasticLabia = hypoplasticLabia;
+    }
+
+    public boolean getVagina() {
+        return vagina;
+    }
+
+    public void setVagina(boolean vagina) {
+        this.vagina = vagina;
+    }
+
+    public boolean getLabia() {
+        return labia;
+    }
+
+    public void setLabia(boolean labia) {
+        this.labia = labia;
+    }
+
+    public boolean getOtherFemaleGen() {
+        return otherFemaleGen;
+    }
+
+    public void setOtherFemaleGen(boolean otherFemaleGen) {
+        this.otherFemaleGen = otherFemaleGen;
+    }
+
+    public String getOtherFemaleGenNote() {
+        return otherFemaleGenNote;
+    }
+
+    public void setOtherFemaleGenNote(String otherFemaleGenNote) {
+        this.otherFemaleGenNote = otherFemaleGenNote;
+    }
+
+    public boolean getOtherFemaleGen2() {
+        return otherFemaleGen2;
+    }
+
+    public void setOtherFemaleGen2(boolean otherFemaleGen2) {
+        this.otherFemaleGen2 = otherFemaleGen2;
+    }
+
+    public String getOtherFemaleGen2Note() {
+        return otherFemaleGen2Note;
+    }
+
+    public void setOtherFemaleGen2Note(String otherFemaleGen2Note) {
+        this.otherFemaleGen2Note = otherFemaleGen2Note;
+    }
+
+    public boolean getUrogSel1() {
+        return urogSel1;
+    }
+
+    public void setUrogSel1(boolean urogSel1) {
+        this.urogSel1 = urogSel1;
+    }
+
+    public boolean getUrogSel2() {
+        return urogSel2;
+    }
+
+    public void setUrogSel2(boolean urogSel2) {
+        this.urogSel2 = urogSel2;
+    }
+
+    public boolean getNormalMaleGen() {
+        return normalMaleGen;
+    }
+
+    public void setNormalMaleGen(boolean normalMaleGen) {
+        this.normalMaleGen = normalMaleGen;
+    }
+
+    public double getPenisLength() {
+        return penisLength;
+    }
+
+    public void setPenisLength(double penisLength) {
+        this.penisLength = penisLength;
+    }
+
+    public boolean getLargePenis() {
+        return largePenis;
+    }
+
+    public void setLargePenis(boolean largePenis) {
+        this.largePenis = largePenis;
+    }
+
+    public boolean getSmallPenis() {
+        return smallPenis;
+    }
+
+    public void setSmallPenis(boolean smallPenis) {
+        this.smallPenis = smallPenis;
+    }
+
+    public boolean getChordee() {
+        return chordee;
+    }
+
+    public void setChordee(boolean chordee) {
+        this.chordee = chordee;
+    }
+
+    public boolean getHypospadias() {
+        return hypospadias;
+    }
+
+    public void setHypospadias(boolean hypospadias) {
+        this.hypospadias = hypospadias;
+    }
+
+    public boolean getEpispadias() {
+        return epispadias;
+    }
+
+    public void setEpispadias(boolean epispadias) {
+        this.epispadias = epispadias;
+    }
+
+    public boolean getSmallScrotum() {
+        return smallScrotum;
+    }
+
+    public void setSmallScrotum(boolean smallScrotum) {
+        this.smallScrotum = smallScrotum;
+    }
+
+    public boolean getOtherScrotum() {
+        return otherScrotum;
+    }
+
+    public void setOtherScrotum(boolean otherScrotum) {
+        this.otherScrotum = otherScrotum;
+    }
+
+    public boolean getLargeTestes() {
+        return largeTestes;
+    }
+
+    public void setLargeTestes(boolean largeTestes) {
+        this.largeTestes = largeTestes;
+    }
+
+    public boolean getSmallTestes() {
+        return smallTestes;
+    }
+
+    public void setSmallTestes(boolean smallTestes) {
+        this.smallTestes = smallTestes;
+    }
+
+    public boolean getOtherTestes() {
+        return otherTestes;
+    }
+
+    public void setOtherTestes(boolean otherTestes) {
+        this.otherTestes = otherTestes;
+    }
+    
+
+    public boolean getOtherNipples() {
         return otherNipples;
     }
 
@@ -234,7 +1714,7 @@ public class DysmorphologyExamination implements Serializable {
     
     
 
-    public boolean isNormalEars() {
+    public boolean getNormalEars() {
         return normalEars;
     }
 
@@ -242,7 +1722,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalEars = normalEars;
     }
 
-    public boolean isRightSimp() {
+    public boolean getRightSimp() {
         return rightSimp;
     }
 
@@ -250,7 +1730,7 @@ public class DysmorphologyExamination implements Serializable {
         this.rightSimp = rightSimp;
     }
 
-    public boolean isLeftSimp() {
+    public boolean getLeftSimp() {
         return leftSimp;
     }
 
@@ -258,7 +1738,7 @@ public class DysmorphologyExamination implements Serializable {
         this.leftSimp = leftSimp;
     }
 
-    public boolean isRightPit() {
+    public boolean getRightPit() {
         return rightPit;
     }
 
@@ -266,7 +1746,7 @@ public class DysmorphologyExamination implements Serializable {
         this.rightPit = rightPit;
     }
 
-    public boolean isLeftPit() {
+    public boolean getLeftPit() {
         return leftPit;
     }
 
@@ -274,7 +1754,7 @@ public class DysmorphologyExamination implements Serializable {
         this.leftPit = leftPit;
     }
 
-    public boolean isRightTag() {
+    public boolean getRightTag() {
         return rightTag;
     }
 
@@ -282,7 +1762,7 @@ public class DysmorphologyExamination implements Serializable {
         this.rightTag = rightTag;
     }
 
-    public boolean isLeftTag() {
+    public boolean getLeftTag() {
         return leftTag;
     }
 
@@ -290,7 +1770,7 @@ public class DysmorphologyExamination implements Serializable {
         this.leftTag = leftTag;
     }
 
-    public boolean isRightPin() {
+    public boolean getRightPin() {
         return rightPin;
     }
 
@@ -298,7 +1778,7 @@ public class DysmorphologyExamination implements Serializable {
         this.rightPin = rightPin;
     }
 
-    public boolean isLeftPin() {
+    public boolean getLeftPin() {
         return leftPin;
     }
 
@@ -306,7 +1786,7 @@ public class DysmorphologyExamination implements Serializable {
         this.leftPin = leftPin;
     }
 
-    public boolean isRightLob() {
+    public boolean getRightLob() {
         return rightLob;
     }
 
@@ -314,7 +1794,7 @@ public class DysmorphologyExamination implements Serializable {
         this.rightLob = rightLob;
     }
 
-    public boolean isLeftLob() {
+    public boolean getLeftLob() {
         return leftLob;
     }
 
@@ -322,7 +1802,7 @@ public class DysmorphologyExamination implements Serializable {
         this.leftLob = leftLob;
     }
 
-    public boolean isRightEar() {
+    public boolean getRightEar() {
         return rightEar;
     }
 
@@ -338,7 +1818,7 @@ public class DysmorphologyExamination implements Serializable {
         this.rightEarSize = rightEarSize;
     }
 
-    public boolean isRightEarLarge() {
+    public boolean getRightEarLarge() {
         return rightEarLarge;
     }
 
@@ -346,7 +1826,7 @@ public class DysmorphologyExamination implements Serializable {
         this.rightEarLarge = rightEarLarge;
     }
 
-    public boolean isRightEarSmall() {
+    public boolean getRightEarSmall() {
         return rightEarSmall;
     }
 
@@ -354,7 +1834,7 @@ public class DysmorphologyExamination implements Serializable {
         this.rightEarSmall = rightEarSmall;
     }
 
-    public boolean isLeftEar() {
+    public boolean getLeftEar() {
         return LeftEar;
     }
 
@@ -370,7 +1850,7 @@ public class DysmorphologyExamination implements Serializable {
         this.leftEarSize = leftEarSize;
     }
 
-    public boolean isLeftEarLarge() {
+    public boolean getLeftEarLarge() {
         return leftEarLarge;
     }
 
@@ -378,7 +1858,7 @@ public class DysmorphologyExamination implements Serializable {
         this.leftEarLarge = leftEarLarge;
     }
 
-    public boolean isLeftEarSmall() {
+    public boolean getLeftEarSmall() {
         return leftEarSmall;
     }
 
@@ -402,7 +1882,7 @@ public class DysmorphologyExamination implements Serializable {
         this.leftEArNote = leftEArNote;
     }
 
-    public boolean isEarSel1() {
+    public boolean getEarSel1() {
         return earSel1;
     }
 
@@ -410,7 +1890,7 @@ public class DysmorphologyExamination implements Serializable {
         this.earSel1 = earSel1;
     }
 
-    public boolean isEarSel2() {
+    public boolean getEarSel2() {
         return earSel2;
     }
 
@@ -418,7 +1898,7 @@ public class DysmorphologyExamination implements Serializable {
         this.earSel2 = earSel2;
     }
 
-    public boolean isNormalNose() {
+    public boolean getNormalNose() {
         return normalNose;
     }
 
@@ -426,7 +1906,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalNose = normalNose;
     }
 
-    public boolean isAbsentNose() {
+    public boolean getAbsentNose() {
         return absentNose;
     }
 
@@ -434,7 +1914,7 @@ public class DysmorphologyExamination implements Serializable {
         this.absentNose = absentNose;
     }
 
-    public boolean isProboscisNose() {
+    public boolean getProboscisNose() {
         return proboscisNose;
     }
 
@@ -442,7 +1922,7 @@ public class DysmorphologyExamination implements Serializable {
         this.proboscisNose = proboscisNose;
     }
 
-    public boolean isOtherNose1() {
+    public boolean getOtherNose1() {
         return otherNose1;
     }
 
@@ -458,7 +1938,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherNoseNote1 = otherNoseNote1;
     }
 
-    public boolean isLongNose() {
+    public boolean getLongNose() {
         return longNose;
     }
 
@@ -466,7 +1946,7 @@ public class DysmorphologyExamination implements Serializable {
         this.longNose = longNose;
     }
 
-    public boolean isShortNose() {
+    public boolean getShortNose() {
         return shortNose;
     }
 
@@ -474,7 +1954,7 @@ public class DysmorphologyExamination implements Serializable {
         this.shortNose = shortNose;
     }
 
-    public boolean isShallowNose() {
+    public boolean getShallowNose() {
         return shallowNose;
     }
 
@@ -482,7 +1962,7 @@ public class DysmorphologyExamination implements Serializable {
         this.shallowNose = shallowNose;
     }
 
-    public boolean isHighNose() {
+    public boolean getHighNose() {
         return highNose;
     }
 
@@ -490,7 +1970,7 @@ public class DysmorphologyExamination implements Serializable {
         this.highNose = highNose;
     }
 
-    public boolean isShortColNose() {
+    public boolean getShortColNose() {
         return shortColNose;
     }
 
@@ -498,7 +1978,7 @@ public class DysmorphologyExamination implements Serializable {
         this.shortColNose = shortColNose;
     }
 
-    public boolean isAlaeNose() {
+    public boolean getAlaeNose() {
         return alaeNose;
     }
 
@@ -506,7 +1986,7 @@ public class DysmorphologyExamination implements Serializable {
         this.alaeNose = alaeNose;
     }
 
-    public boolean isDeepNasal() {
+    public boolean getDeepNasal() {
         return deepNasal;
     }
 
@@ -514,7 +1994,7 @@ public class DysmorphologyExamination implements Serializable {
         this.deepNasal = deepNasal;
     }
 
-    public boolean isNasalTip() {
+    public boolean getNasalTip() {
         return nasalTip;
     }
 
@@ -522,7 +2002,7 @@ public class DysmorphologyExamination implements Serializable {
         this.nasalTip = nasalTip;
     }
 
-    public boolean isNares() {
+    public boolean getNares() {
         return nares;
     }
 
@@ -530,7 +2010,7 @@ public class DysmorphologyExamination implements Serializable {
         this.nares = nares;
     }
 
-    public boolean isOtherNose2() {
+    public boolean getOtherNose2() {
         return otherNose2;
     }
 
@@ -546,7 +2026,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherNoseNote2 = otherNoseNote2;
     }
 
-    public boolean isNoseSel1() {
+    public boolean getNoseSel1() {
         return noseSel1;
     }
 
@@ -554,7 +2034,7 @@ public class DysmorphologyExamination implements Serializable {
         this.noseSel1 = noseSel1;
     }
 
-    public boolean isNoseSel2() {
+    public boolean getNoseSel2() {
         return noseSel2;
     }
 
@@ -562,7 +2042,7 @@ public class DysmorphologyExamination implements Serializable {
         this.noseSel2 = noseSel2;
     }
 
-    public boolean isNoseSel3() {
+    public boolean getNoseSel3() {
         return noseSel3;
     }
 
@@ -570,7 +2050,7 @@ public class DysmorphologyExamination implements Serializable {
         this.noseSel3 = noseSel3;
     }
 
-    public boolean isNoseSel4() {
+    public boolean getNoseSel4() {
         return noseSel4;
     }
 
@@ -578,7 +2058,7 @@ public class DysmorphologyExamination implements Serializable {
         this.noseSel4 = noseSel4;
     }
 
-    public boolean isNormalMouth() {
+    public boolean getNormalMouth() {
         return normalMouth;
     }
 
@@ -586,7 +2066,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalMouth = normalMouth;
     }
 
-    public boolean isCupid() {
+    public boolean getCupid() {
         return cupid;
     }
 
@@ -594,7 +2074,7 @@ public class DysmorphologyExamination implements Serializable {
         this.cupid = cupid;
     }
 
-    public boolean isDownMouth() {
+    public boolean getDownMouth() {
         return downMouth;
     }
 
@@ -602,7 +2082,7 @@ public class DysmorphologyExamination implements Serializable {
         this.downMouth = downMouth;
     }
 
-    public boolean isOpenCorners() {
+    public boolean getOpenCorners() {
         return openCorners;
     }
 
@@ -610,7 +2090,7 @@ public class DysmorphologyExamination implements Serializable {
         this.openCorners = openCorners;
     }
 
-    public boolean isLockedCorners() {
+    public boolean getLockedCorners() {
         return lockedCorners;
     }
 
@@ -618,7 +2098,7 @@ public class DysmorphologyExamination implements Serializable {
         this.lockedCorners = lockedCorners;
     }
 
-    public boolean isSmileCorners() {
+    public boolean getSmileCorners() {
         return smileCorners;
     }
 
@@ -626,7 +2106,7 @@ public class DysmorphologyExamination implements Serializable {
         this.smileCorners = smileCorners;
     }
 
-    public boolean isOtherShapeCorner1() {
+    public boolean getOtherShapeCorner1() {
         return otherShapeCorner1;
     }
 
@@ -642,7 +2122,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherShapeCornerNote1 = otherShapeCornerNote1;
     }
 
-    public boolean isOtherShapeCorner2() {
+    public boolean getOtherShapeCorner2() {
         return otherShapeCorner2;
     }
 
@@ -658,7 +2138,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherShapeCornerNote2 = otherShapeCornerNote2;
     }
 
-    public boolean isLargeTong() {
+    public boolean getLargeTong() {
         return largeTong;
     }
 
@@ -666,7 +2146,7 @@ public class DysmorphologyExamination implements Serializable {
         this.largeTong = largeTong;
     }
 
-    public boolean isSmallTong() {
+    public boolean getSmallTong() {
         return smallTong;
     }
 
@@ -674,7 +2154,7 @@ public class DysmorphologyExamination implements Serializable {
         this.smallTong = smallTong;
     }
 
-    public boolean isOtherTong() {
+    public boolean getOtherTong() {
         return otherTong;
     }
 
@@ -690,7 +2170,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherTongNote = otherTongNote;
     }
 
-    public boolean isFewTeath() {
+    public boolean getFewTeath() {
         return fewTeath;
     }
 
@@ -698,7 +2178,7 @@ public class DysmorphologyExamination implements Serializable {
         this.fewTeath = fewTeath;
     }
 
-    public boolean isSmallTeath() {
+    public boolean getSmallTeath() {
         return smallTeath;
     }
 
@@ -706,7 +2186,7 @@ public class DysmorphologyExamination implements Serializable {
         this.smallTeath = smallTeath;
     }
 
-    public boolean isConicalTeath() {
+    public boolean getConicalTeath() {
         return conicalTeath;
     }
 
@@ -714,7 +2194,7 @@ public class DysmorphologyExamination implements Serializable {
         this.conicalTeath = conicalTeath;
     }
 
-    public boolean isSpacingTeath() {
+    public boolean getSpacingTeath() {
         return spacingTeath;
     }
 
@@ -730,7 +2210,7 @@ public class DysmorphologyExamination implements Serializable {
         this.spacingTeathNote = spacingTeathNote;
     }
 
-    public boolean isThinLip() {
+    public boolean getThinLip() {
         return thinLip;
     }
 
@@ -738,7 +2218,7 @@ public class DysmorphologyExamination implements Serializable {
         this.thinLip = thinLip;
     }
 
-    public boolean isThickLips() {
+    public boolean getThickLips() {
         return thickLips;
     }
 
@@ -746,7 +2226,7 @@ public class DysmorphologyExamination implements Serializable {
         this.thickLips = thickLips;
     }
 
-    public boolean isOtherLips() {
+    public boolean getOtherLips() {
         return otherLips;
     }
 
@@ -762,7 +2242,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherLipNote = otherLipNote;
     }
 
-    public boolean isMouth() {
+    public boolean getMouth() {
         return mouth;
     }
 
@@ -770,7 +2250,7 @@ public class DysmorphologyExamination implements Serializable {
         this.mouth = mouth;
     }
 
-    public boolean isMouSel1() {
+    public boolean getMouSel1() {
         return mouSel1;
     }
 
@@ -778,7 +2258,7 @@ public class DysmorphologyExamination implements Serializable {
         this.mouSel1 = mouSel1;
     }
 
-    public boolean isMouSel2() {
+    public boolean getMouSel2() {
         return mouSel2;
     }
 
@@ -786,7 +2266,7 @@ public class DysmorphologyExamination implements Serializable {
         this.mouSel2 = mouSel2;
     }
 
-    public boolean isMouSel3() {
+    public boolean getMouSel3() {
         return mouSel3;
     }
 
@@ -794,7 +2274,7 @@ public class DysmorphologyExamination implements Serializable {
         this.mouSel3 = mouSel3;
     }
 
-    public boolean isMouSel4() {
+    public boolean getMouSel4() {
         return mouSel4;
     }
 
@@ -802,7 +2282,7 @@ public class DysmorphologyExamination implements Serializable {
         this.mouSel4 = mouSel4;
     }
 
-    public boolean isPlate() {
+    public boolean getPlate() {
         return plate;
     }
 
@@ -810,7 +2290,7 @@ public class DysmorphologyExamination implements Serializable {
         this.plate = plate;
     }
 
-    public boolean isPalSel1() {
+    public boolean getPalSel1() {
         return palSel1;
     }
 
@@ -818,7 +2298,7 @@ public class DysmorphologyExamination implements Serializable {
         this.palSel1 = palSel1;
     }
 
-    public boolean isPalSel2() {
+    public boolean getPalSel2() {
         return palSel2;
     }
 
@@ -826,7 +2306,7 @@ public class DysmorphologyExamination implements Serializable {
         this.palSel2 = palSel2;
     }
 
-    public boolean isPalSel3() {
+    public boolean getPalSel3() {
         return palSel3;
     }
 
@@ -834,7 +2314,7 @@ public class DysmorphologyExamination implements Serializable {
         this.palSel3 = palSel3;
     }
 
-    public boolean isNormalNeck() {
+    public boolean getNormalNeck() {
         return normalNeck;
     }
 
@@ -842,7 +2322,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalNeck = normalNeck;
     }
 
-    public boolean isRedundentSkin() {
+    public boolean getRedundentSkin() {
         return redundentSkin;
     }
 
@@ -850,7 +2330,7 @@ public class DysmorphologyExamination implements Serializable {
         this.redundentSkin = redundentSkin;
     }
 
-    public boolean isTorticollis() {
+    public boolean getTorticollis() {
         return torticollis;
     }
 
@@ -858,7 +2338,7 @@ public class DysmorphologyExamination implements Serializable {
         this.torticollis = torticollis;
     }
 
-    public boolean isSinuses() {
+    public boolean getSinuses() {
         return sinuses;
     }
 
@@ -866,7 +2346,7 @@ public class DysmorphologyExamination implements Serializable {
         this.sinuses = sinuses;
     }
 
-    public boolean isMasses() {
+    public boolean getMasses() {
         return masses;
     }
 
@@ -874,7 +2354,7 @@ public class DysmorphologyExamination implements Serializable {
         this.masses = masses;
     }
 
-    public boolean isOtherNeck() {
+    public boolean getOtherNeck() {
         return otherNeck;
     }
 
@@ -890,7 +2370,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherNeckNote = otherNeckNote;
     }
 
-    public boolean isNeckSel1() {
+    public boolean getNeckSel1() {
         return neckSel1;
     }
 
@@ -898,7 +2378,7 @@ public class DysmorphologyExamination implements Serializable {
         this.neckSel1 = neckSel1;
     }
 
-    public boolean isNeckSel2() {
+    public boolean getNeckSel2() {
         return neckSel2;
     }
 
@@ -906,7 +2386,7 @@ public class DysmorphologyExamination implements Serializable {
         this.neckSel2 = neckSel2;
     }
 
-    public boolean isNormalJaw() {
+    public boolean getNormalJaw() {
         return normalJaw;
     }
 
@@ -914,7 +2394,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalJaw = normalJaw;
     }
 
-    public boolean isRetrog() {
+    public boolean getRetrog() {
         return retrog;
     }
 
@@ -922,7 +2402,7 @@ public class DysmorphologyExamination implements Serializable {
         this.retrog = retrog;
     }
 
-    public boolean isPointedChin() {
+    public boolean getPointedChin() {
         return pointedChin;
     }
 
@@ -930,7 +2410,7 @@ public class DysmorphologyExamination implements Serializable {
         this.pointedChin = pointedChin;
     }
 
-    public boolean isCleftChin() {
+    public boolean getCleftChin() {
         return cleftChin;
     }
 
@@ -938,7 +2418,7 @@ public class DysmorphologyExamination implements Serializable {
         this.cleftChin = cleftChin;
     }
 
-    public boolean isOtherJaw() {
+    public boolean getOtherJaw() {
         return otherJaw;
     }
 
@@ -954,7 +2434,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherJawNote = otherJawNote;
     }
 
-    public boolean isJawSel1() {
+    public boolean getJawSel1() {
         return jawSel1;
     }
 
@@ -962,7 +2442,7 @@ public class DysmorphologyExamination implements Serializable {
         this.jawSel1 = jawSel1;
     }
 
-    public boolean isJawSel2() {
+    public boolean getJawSel2() {
         return jawSel2;
     }
 
@@ -970,7 +2450,7 @@ public class DysmorphologyExamination implements Serializable {
         this.jawSel2 = jawSel2;
     }
 
-    public boolean isNormalChest() {
+    public boolean getNormalChest() {
         return normalChest;
     }
 
@@ -978,7 +2458,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalChest = normalChest;
     }
 
-    public boolean isSmallChest() {
+    public boolean getSmallChest() {
         return smallChest;
     }
 
@@ -986,7 +2466,7 @@ public class DysmorphologyExamination implements Serializable {
         this.smallChest = smallChest;
     }
 
-    public boolean isBroad() {
+    public boolean getBroad() {
         return broad;
     }
 
@@ -994,7 +2474,7 @@ public class DysmorphologyExamination implements Serializable {
         this.broad = broad;
     }
 
-    public boolean isOtherChest() {
+    public boolean getOtherChest() {
         return otherChest;
     }
 
@@ -1010,7 +2490,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherChestNote = otherChestNote;
     }
 
-    public boolean isHypoplastic() {
+    public boolean getHypoplastic() {
         return hypoplastic;
     }
 
@@ -1018,7 +2498,7 @@ public class DysmorphologyExamination implements Serializable {
         this.hypoplastic = hypoplastic;
     }
 
-    public boolean isWidelySpace() {
+    public boolean getWidelySpace() {
         return widelySpace;
     }
 
@@ -1034,7 +2514,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherNipplesNote = otherNipplesNote;
     }
 
-    public boolean isCleftStenrnum() {
+    public boolean getCleftStenrnum() {
         return cleftStenrnum;
     }
 
@@ -1042,7 +2522,7 @@ public class DysmorphologyExamination implements Serializable {
         this.cleftStenrnum = cleftStenrnum;
     }
 
-    public boolean isShortSternum() {
+    public boolean getShortSternum() {
         return shortSternum;
     }
 
@@ -1050,7 +2530,7 @@ public class DysmorphologyExamination implements Serializable {
         this.shortSternum = shortSternum;
     }
 
-    public boolean isOtherSternum() {
+    public boolean getOtherSternum() {
         return otherSternum;
     }
 
@@ -1066,7 +2546,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherSternumNotes = otherSternumNotes;
     }
 
-    public boolean isCarinatum() {
+    public boolean getCarinatum() {
         return carinatum;
     }
 
@@ -1074,7 +2554,7 @@ public class DysmorphologyExamination implements Serializable {
         this.carinatum = carinatum;
     }
 
-    public boolean isExcavatum() {
+    public boolean getExcavatum() {
         return excavatum;
     }
 
@@ -1082,7 +2562,7 @@ public class DysmorphologyExamination implements Serializable {
         this.excavatum = excavatum;
     }
 
-    public boolean isOtherPectus() {
+    public boolean getOtherPectus() {
         return otherPectus;
     }
 
@@ -1098,7 +2578,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherPectusNote = otherPectusNote;
     }
 
-    public boolean isNormalHeart() {
+    public boolean getNormalHeart() {
         return normalHeart;
     }
 
@@ -1106,7 +2586,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalHeart = normalHeart;
     }
 
-    public boolean isOtherHeart() {
+    public boolean getOtherHeart() {
         return otherHeart;
     }
 
@@ -1122,7 +2602,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherHeartNote = otherHeartNote;
     }
 
-    public boolean isMurmur() {
+    public boolean getMurmur() {
         return murmur;
     }
 
@@ -1130,7 +2610,7 @@ public class DysmorphologyExamination implements Serializable {
         this.murmur = murmur;
     }
 
-    public boolean isClickHeart() {
+    public boolean getClickHeart() {
         return clickHeart;
     }
 
@@ -1138,7 +2618,7 @@ public class DysmorphologyExamination implements Serializable {
         this.clickHeart = clickHeart;
     }
 
-    public boolean isRhythm() {
+    public boolean getRhythm() {
         return rhythm;
     }
 
@@ -1146,7 +2626,7 @@ public class DysmorphologyExamination implements Serializable {
         this.rhythm = rhythm;
     }
 
-    public boolean isPulses() {
+    public boolean getPulses() {
         return pulses;
     }
 
@@ -1154,7 +2634,7 @@ public class DysmorphologyExamination implements Serializable {
         this.pulses = pulses;
     }
 
-    public boolean isNormalEye() {
+    public boolean getNormalEye() {
         return normalEye;
     }
 
@@ -1162,7 +2642,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalEye = normalEye;
     }
 
-    public boolean isArchedEyebrow() {
+    public boolean getArchedEyebrow() {
         return archedEyebrow;
     }
 
@@ -1170,7 +2650,7 @@ public class DysmorphologyExamination implements Serializable {
         this.archedEyebrow = archedEyebrow;
     }
 
-    public boolean isArchedMedialFlare() {
+    public boolean getArchedMedialFlare() {
         return archedMedialFlare;
     }
 
@@ -1178,7 +2658,7 @@ public class DysmorphologyExamination implements Serializable {
         this.archedMedialFlare = archedMedialFlare;
     }
 
-    public boolean isPtosisEyelids() {
+    public boolean getPtosisEyelids() {
         return ptosisEyelids;
     }
 
@@ -1186,7 +2666,7 @@ public class DysmorphologyExamination implements Serializable {
         this.ptosisEyelids = ptosisEyelids;
     }
 
-    public boolean isOtherEyelids() {
+    public boolean getOtherEyelids() {
         return otherEyelids;
     }
 
@@ -1202,7 +2682,7 @@ public class DysmorphologyExamination implements Serializable {
         this.eyelids = eyelids;
     }
 
-    public boolean isNarrowFissures() {
+    public boolean getNarrowFissures() {
         return narrowFissures;
     }
 
@@ -1210,7 +2690,7 @@ public class DysmorphologyExamination implements Serializable {
         this.narrowFissures = narrowFissures;
     }
 
-    public boolean isWideFissures() {
+    public boolean getWideFissures() {
         return wideFissures;
     }
 
@@ -1218,7 +2698,7 @@ public class DysmorphologyExamination implements Serializable {
         this.wideFissures = wideFissures;
     }
 
-    public boolean isUpEyeSlant() {
+    public boolean getUpEyeSlant() {
         return upEyeSlant;
     }
 
@@ -1226,7 +2706,7 @@ public class DysmorphologyExamination implements Serializable {
         this.upEyeSlant = upEyeSlant;
     }
 
-    public boolean isDownEyeSlant() {
+    public boolean getDownEyeSlant() {
         return downEyeSlant;
     }
 
@@ -1234,7 +2714,7 @@ public class DysmorphologyExamination implements Serializable {
         this.downEyeSlant = downEyeSlant;
     }
 
-    public boolean isBlueSclerae() {
+    public boolean getBlueSclerae() {
         return blueSclerae;
     }
 
@@ -1242,7 +2722,7 @@ public class DysmorphologyExamination implements Serializable {
         this.blueSclerae = blueSclerae;
     }
 
-    public boolean isOtherSclerae() {
+    public boolean getOtherSclerae() {
         return otherSclerae;
     }
 
@@ -1258,7 +2738,7 @@ public class DysmorphologyExamination implements Serializable {
         this.sclerae = sclerae;
     }
 
-    public boolean isIris() {
+    public boolean getIris() {
         return iris;
     }
 
@@ -1266,7 +2746,7 @@ public class DysmorphologyExamination implements Serializable {
         this.iris = iris;
     }
 
-    public boolean isPupils() {
+    public boolean getPupils() {
         return pupils;
     }
 
@@ -1274,7 +2754,7 @@ public class DysmorphologyExamination implements Serializable {
         this.pupils = pupils;
     }
 
-    public boolean isInterCanthalDis() {
+    public boolean getInterCanthalDis() {
         return interCanthalDis;
     }
 
@@ -1290,7 +2770,7 @@ public class DysmorphologyExamination implements Serializable {
         this.canSize = canSize;
     }
 
-    public boolean isCanLarge() {
+    public boolean getCanLarge() {
         return canLarge;
     }
 
@@ -1298,7 +2778,7 @@ public class DysmorphologyExamination implements Serializable {
         this.canLarge = canLarge;
     }
 
-    public boolean isCanSmall() {
+    public boolean getCanSmall() {
         return canSmall;
     }
 
@@ -1306,7 +2786,7 @@ public class DysmorphologyExamination implements Serializable {
         this.canSmall = canSmall;
     }
 
-    public boolean isInterPupillaryDis() {
+    public boolean getInterPupillaryDis() {
         return interPupillaryDis;
     }
 
@@ -1322,7 +2802,7 @@ public class DysmorphologyExamination implements Serializable {
         this.pupSize = pupSize;
     }
 
-    public boolean isPupLarge() {
+    public boolean getPupLarge() {
         return pupLarge;
     }
 
@@ -1330,7 +2810,7 @@ public class DysmorphologyExamination implements Serializable {
         this.pupLarge = pupLarge;
     }
 
-    public boolean isPupmall() {
+    public boolean getPupmall() {
         return pupmall;
     }
 
@@ -1338,7 +2818,7 @@ public class DysmorphologyExamination implements Serializable {
         this.pupmall = pupmall;
     }
 
-    public boolean isEyeSel1() {
+    public boolean getEyeSel1() {
         return eyeSel1;
     }
 
@@ -1346,7 +2826,7 @@ public class DysmorphologyExamination implements Serializable {
         this.eyeSel1 = eyeSel1;
     }
 
-    public boolean isEyeSel2() {
+    public boolean getEyeSel2() {
         return eyeSel2;
     }
 
@@ -1354,7 +2834,7 @@ public class DysmorphologyExamination implements Serializable {
         this.eyeSel2 = eyeSel2;
     }
 
-    public boolean isEyeSel3() {
+    public boolean getEyeSel3() {
         return eyeSel3;
     }
 
@@ -1362,7 +2842,7 @@ public class DysmorphologyExamination implements Serializable {
         this.eyeSel3 = eyeSel3;
     }
 
-    public boolean isEyeSel4() {
+    public boolean getEyeSel4() {
         return eyeSel4;
     }
 
@@ -1370,7 +2850,7 @@ public class DysmorphologyExamination implements Serializable {
         this.eyeSel4 = eyeSel4;
     }
 
-    public boolean isEyeSel5() {
+    public boolean getEyeSel5() {
         return eyeSel5;
     }
 
@@ -1378,7 +2858,7 @@ public class DysmorphologyExamination implements Serializable {
         this.eyeSel5 = eyeSel5;
     }
 
-    public boolean isEyeSel6() {
+    public boolean getEyeSel6() {
         return eyeSel6;
     }
 
@@ -1386,7 +2866,7 @@ public class DysmorphologyExamination implements Serializable {
         this.eyeSel6 = eyeSel6;
     }
 
-    public boolean isEyeSel7() {
+    public boolean getEyeSel7() {
         return eyeSel7;
     }
 
@@ -1410,7 +2890,7 @@ public class DysmorphologyExamination implements Serializable {
         this.height = height;
     }
 
-    public boolean isUnWeight() {
+    public boolean getUnWeight() {
         return unWeight;
     }
 
@@ -1418,7 +2898,7 @@ public class DysmorphologyExamination implements Serializable {
         this.unWeight = unWeight;
     }
 
-    public boolean isOvWeight() {
+    public boolean getOvWeight() {
         return ovWeight;
     }
 
@@ -1426,7 +2906,7 @@ public class DysmorphologyExamination implements Serializable {
         this.ovWeight = ovWeight;
     }
 
-    public boolean isShrtStature() {
+    public boolean getShrtStature() {
         return shrtStature;
     }
 
@@ -1434,7 +2914,7 @@ public class DysmorphologyExamination implements Serializable {
         this.shrtStature = shrtStature;
     }
 
-    public boolean isTallStature() {
+    public boolean getTallStature() {
         return tallStature;
     }
 
@@ -1442,7 +2922,7 @@ public class DysmorphologyExamination implements Serializable {
         this.tallStature = tallStature;
     }
 
-    public boolean isMicrocephaly() {
+    public boolean getMicrocephaly() {
         return Microcephaly;
     }
 
@@ -1450,7 +2930,7 @@ public class DysmorphologyExamination implements Serializable {
         this.Microcephaly = Microcephaly;
     }
 
-    public boolean isMacrocephaly() {
+    public boolean getMacrocephaly() {
         return Macrocephaly;
     }
 
@@ -1458,7 +2938,7 @@ public class DysmorphologyExamination implements Serializable {
         this.Macrocephaly = Macrocephaly;
     }
 
-    public boolean isNormalHair() {
+    public boolean getNormalHair() {
         return normalHair;
     }
 
@@ -1466,7 +2946,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalHair = normalHair;
     }
 
-    public boolean isUnTexturedHair() {
+    public boolean getUnTexturedHair() {
         return unTexturedHair;
     }
 
@@ -1474,7 +2954,7 @@ public class DysmorphologyExamination implements Serializable {
         this.unTexturedHair = unTexturedHair;
     }
 
-    public boolean isSparsedHair() {
+    public boolean getSparsedHair() {
         return sparsedHair;
     }
 
@@ -1482,7 +2962,7 @@ public class DysmorphologyExamination implements Serializable {
         this.sparsedHair = sparsedHair;
     }
 
-    public boolean isUnPatternedHair() {
+    public boolean getUnPatternedHair() {
         return unPatternedHair;
     }
 
@@ -1490,7 +2970,7 @@ public class DysmorphologyExamination implements Serializable {
         this.unPatternedHair = unPatternedHair;
     }
 
-    public boolean isUnRulyHair() {
+    public boolean getUnRulyHair() {
         return unRulyHair;
     }
 
@@ -1498,7 +2978,7 @@ public class DysmorphologyExamination implements Serializable {
         this.unRulyHair = unRulyHair;
     }
 
-    public boolean isHaSel1() {
+    public boolean getHaSel1() {
         return haSel1;
     }
 
@@ -1506,7 +2986,7 @@ public class DysmorphologyExamination implements Serializable {
         this.haSel1 = haSel1;
     }
 
-    public boolean isHaSel2() {
+    public boolean getHaSel2() {
         return haSel2;
     }
 
@@ -1514,7 +2994,7 @@ public class DysmorphologyExamination implements Serializable {
         this.haSel2 = haSel2;
     }
 
-    public boolean isHaSel3() {
+    public boolean getHaSel3() {
         return haSel3;
     }
 
@@ -1522,7 +3002,7 @@ public class DysmorphologyExamination implements Serializable {
         this.haSel3 = haSel3;
     }
 
-    public boolean isHaSel4() {
+    public boolean getHaSel4() {
         return haSel4;
     }
 
@@ -1530,7 +3010,7 @@ public class DysmorphologyExamination implements Serializable {
         this.haSel4 = haSel4;
     }
 
-    public boolean isHaSel5() {
+    public boolean getHaSel5() {
         return haSel5;
     }
 
@@ -1538,7 +3018,7 @@ public class DysmorphologyExamination implements Serializable {
         this.haSel5 = haSel5;
     }
 
-    public boolean isNormalHead() {
+    public boolean getNormalHead() {
         return normalHead;
     }
 
@@ -1546,7 +3026,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalHead = normalHead;
     }
 
-    public boolean isAbnShapedHead() {
+    public boolean getAbnShapedHead() {
         return abnShapedHead;
     }
 
@@ -1554,7 +3034,7 @@ public class DysmorphologyExamination implements Serializable {
         this.abnShapedHead = abnShapedHead;
     }
 
-    public boolean isRidSutureHead() {
+    public boolean getRidSutureHead() {
         return ridSutureHead;
     }
 
@@ -1562,7 +3042,7 @@ public class DysmorphologyExamination implements Serializable {
         this.ridSutureHead = ridSutureHead;
     }
 
-    public boolean isOpenSutureHead() {
+    public boolean getOpenSutureHead() {
         return openSutureHead;
     }
 
@@ -1570,7 +3050,7 @@ public class DysmorphologyExamination implements Serializable {
         this.openSutureHead = openSutureHead;
     }
 
-    public boolean isAbFontanelleHead() {
+    public boolean getAbFontanelleHead() {
         return abFontanelleHead;
     }
 
@@ -1578,7 +3058,7 @@ public class DysmorphologyExamination implements Serializable {
         this.abFontanelleHead = abFontanelleHead;
     }
 
-    public boolean isAnencephalyHead() {
+    public boolean getAnencephalyHead() {
         return anencephalyHead;
     }
 
@@ -1586,7 +3066,7 @@ public class DysmorphologyExamination implements Serializable {
         this.anencephalyHead = anencephalyHead;
     }
 
-    public boolean isHeSel1() {
+    public boolean getHeSel1() {
         return heSel1;
     }
 
@@ -1594,7 +3074,7 @@ public class DysmorphologyExamination implements Serializable {
         this.heSel1 = heSel1;
     }
 
-    public boolean isHeSel2() {
+    public boolean getHeSel2() {
         return heSel2;
     }
 
@@ -1602,7 +3082,7 @@ public class DysmorphologyExamination implements Serializable {
         this.heSel2 = heSel2;
     }
 
-    public boolean isHeSel3() {
+    public boolean getHeSel3() {
         return heSel3;
     }
 
@@ -1610,7 +3090,7 @@ public class DysmorphologyExamination implements Serializable {
         this.heSel3 = heSel3;
     }
 
-    public boolean isHeSel4() {
+    public boolean getHeSel4() {
         return heSel4;
     }
 
@@ -1618,7 +3098,7 @@ public class DysmorphologyExamination implements Serializable {
         this.heSel4 = heSel4;
     }
 
-    public boolean isNormalFace() {
+    public boolean getNormalFace() {
         return normalFace;
     }
 
@@ -1626,7 +3106,7 @@ public class DysmorphologyExamination implements Serializable {
         this.normalFace = normalFace;
     }
 
-    public boolean isUnGestaltFace() {
+    public boolean getUnGestaltFace() {
         return unGestaltFace;
     }
 
@@ -1634,7 +3114,7 @@ public class DysmorphologyExamination implements Serializable {
         this.unGestaltFace = unGestaltFace;
     }
 
-    public boolean isAsymmetryFace() {
+    public boolean getAsymmetryFace() {
         return asymmetryFace;
     }
 
@@ -1642,7 +3122,7 @@ public class DysmorphologyExamination implements Serializable {
         this.asymmetryFace = asymmetryFace;
     }
 
-    public boolean isRoundFace() {
+    public boolean getRoundFace() {
         return roundFace;
     }
 
@@ -1650,7 +3130,7 @@ public class DysmorphologyExamination implements Serializable {
         this.roundFace = roundFace;
     }
 
-    public boolean isCoarseFace() {
+    public boolean getCoarseFace() {
         return coarseFace;
     }
 
@@ -1658,7 +3138,7 @@ public class DysmorphologyExamination implements Serializable {
         this.coarseFace = coarseFace;
     }
 
-    public boolean isNarrowFace() {
+    public boolean getNarrowFace() {
         return narrowFace;
     }
 
@@ -1666,7 +3146,7 @@ public class DysmorphologyExamination implements Serializable {
         this.narrowFace = narrowFace;
     }
 
-    public boolean isMyopathicFace() {
+    public boolean getMyopathicFace() {
         return myopathicFace;
     }
 
@@ -1674,7 +3154,7 @@ public class DysmorphologyExamination implements Serializable {
         this.myopathicFace = myopathicFace;
     }
 
-    public boolean isFaSel1() {
+    public boolean getFaSel1() {
         return faSel1;
     }
 
@@ -1682,7 +3162,7 @@ public class DysmorphologyExamination implements Serializable {
         this.faSel1 = faSel1;
     }
 
-    public boolean isFaSel2() {
+    public boolean getFaSel2() {
         return faSel2;
     }
 
@@ -1690,7 +3170,7 @@ public class DysmorphologyExamination implements Serializable {
         this.faSel2 = faSel2;
     }
 
-    public boolean isFaSel3() {
+    public boolean getFaSel3() {
         return faSel3;
     }
 
@@ -1698,13 +3178,159 @@ public class DysmorphologyExamination implements Serializable {
         this.faSel3 = faSel3;
     }
 
-    public boolean isFaSel4() {
+    public boolean getFaSel4() {
         return faSel4;
     }
 
     public void setFaSel4(boolean faSel4) {
         this.faSel4 = faSel4;
     }
+
+    public boolean getNormalAbdomain() {
+        return normalAbdomain;
+    }
+
+    public void setNormalAbdomain(boolean normalAbdomain) {
+        this.normalAbdomain = normalAbdomain;
+    }
+
+    public boolean getExtraSkin() {
+        return extraSkin;
+    }
+
+    public void setExtraSkin(boolean extraSkin) {
+        this.extraSkin = extraSkin;
+    }
+
+    public boolean getUmbilicus() {
+        return umbilicus;
+    }
+
+    public void setUmbilicus(boolean umbilicus) {
+        this.umbilicus = umbilicus;
+    }
+
+    public boolean getHepatomegaly() {
+        return hepatomegaly;
+    }
+
+    public void setHepatomegaly(boolean hepatomegaly) {
+        this.hepatomegaly = hepatomegaly;
+    }
+
+    public boolean getSplenomegaly() {
+        return splenomegaly;
+    }
+
+    public void setSplenomegaly(boolean splenomegaly) {
+        this.splenomegaly = splenomegaly;
+    }
+
+    public boolean getNormalBack() {
+        return normalBack;
+    }
+
+    public void setNormalBack(boolean normalBack) {
+        this.normalBack = normalBack;
+    }
+
+    public boolean getScolinosis() {
+        return scolinosis;
+    }
+
+    public void setScolinosis(boolean scolinosis) {
+        this.scolinosis = scolinosis;
+    }
+
+    public boolean getKyphosis() {
+        return kyphosis;
+    }
+
+    public void setKyphosis(boolean kyphosis) {
+        this.kyphosis = kyphosis;
+    }
+
+    public boolean getHirsutism() {
+        return hirsutism;
+    }
+
+    public void setHirsutism(boolean hirsutism) {
+        this.hirsutism = hirsutism;
+    }
+
+    public boolean getSacralDimple() {
+        return sacralDimple;
+    }
+
+    public void setSacralDimple(boolean sacralDimple) {
+        this.sacralDimple = sacralDimple;
+    }
+
+    public boolean getNeural() {
+        return neural;
+    }
+
+    public void setNeural(boolean neural) {
+        this.neural = neural;
+    }
+
+    public boolean getOtherAbd() {
+        return otherAbd;
+    }
+
+    public void setOtherAbd(boolean otherAbd) {
+        this.otherAbd = otherAbd;
+    }
+
+    public String getOtherAbdNote() {
+        return otherAbdNote;
+    }
+
+    public void setOtherAbdNote(String otherAbdNote) {
+        this.otherAbdNote = otherAbdNote;
+    }
+
+    public boolean getAbdSel1() {
+        return abdSel1;
+    }
+
+    public void setAbdSel1(boolean abdSel1) {
+        this.abdSel1 = abdSel1;
+    }
+
+    public boolean getAbdSel2() {
+        return abdSel2;
+    }
+
+    public void setAbdSel2(boolean abdSel2) {
+        this.abdSel2 = abdSel2;
+    }
+
+    public boolean getAbdSel3() {
+        return abdSel3;
+    }
+
+    public void setAbdSel3(boolean abdSel3) {
+        this.abdSel3 = abdSel3;
+    }
+
+    public boolean getOtherAbdomen() {
+        return otherAbdomen;
+    }
+
+    public void setOtherAbdomen(boolean otherAbdomen) {
+        this.otherAbdomen = otherAbdomen;
+    }
+
+    public String getOtherAbdomenNote() {
+        return otherAbdomenNote;
+    }
+
+    public void setOtherAbdomenNote(String otherAbdomenNote) {
+        this.otherAbdomenNote = otherAbdomenNote;
+    }
+    
+    
 
     public AbstractionForm getAbstractionForm() {
         return abstractionForm;

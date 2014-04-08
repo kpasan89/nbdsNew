@@ -79,7 +79,7 @@ public Designation findDesingation(String desName, boolean createNew) {
             des = new Designation();
             des.setName(desName);
             des.setCreatedAt(Calendar.getInstance().getTime());
-            des.setCreater(sessionController.loggedUser);
+            des.setCreater(sessionController.getLoggedUser());
             des.setOfficial(Boolean.FALSE);
             getFacade().create(des);
         }
@@ -344,7 +344,7 @@ public List<Designation> completeDesignation(String qry){
             searchedItem = new Designation();
             searchedItem.setName(itemName);
             searchedItem.setCreatedAt(Calendar.getInstance().getTime());
-            searchedItem.setCreater(sessionController.loggedUser);
+            searchedItem.setCreater(sessionController.getLoggedUser());
             getFacade().create(searchedItem);
         }
         return searchedItem;
@@ -376,7 +376,7 @@ public List<Designation> completeDesignation(String qry){
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
         } else {
             current.setCreatedAt(Calendar.getInstance().getTime());
-            current.setCreater(sessionController.loggedUser);
+            current.setCreater(sessionController.getLoggedUser());
             getFacade().create(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
         }
@@ -392,7 +392,7 @@ public List<Designation> completeDesignation(String qry){
         try {
 
             current.setCreatedAt(Calendar.getInstance().getTime());
-            current.setCreater(sessionController.loggedUser);
+            current.setCreater(sessionController.getLoggedUser());
 
             getFacade().create(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
@@ -412,7 +412,7 @@ public List<Designation> completeDesignation(String qry){
         if (current != null) {
             current.setRetired(true);
             current.setRetiredAt(Calendar.getInstance().getTime());
-            current.setRetirer(sessionController.loggedUser);
+            current.setRetirer(sessionController.getLoggedUser());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
         } else {

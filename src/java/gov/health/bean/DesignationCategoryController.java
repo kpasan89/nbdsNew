@@ -144,7 +144,7 @@ public class DesignationCategoryController  implements Serializable {
             d = new DesignationCategory();
             d.setName(itemName);
             d.setCreatedAt(Calendar.getInstance().getTime());
-            d.setCreater(sessionController.loggedUser);
+            d.setCreater(sessionController.getLoggedUser());
             getFacade().create(d);
         }
         return d;
@@ -179,7 +179,7 @@ public class DesignationCategoryController  implements Serializable {
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
         } else {
             current.setCreatedAt(Calendar.getInstance().getTime());
-            current.setCreater(sessionController.loggedUser);
+            current.setCreater(sessionController.getLoggedUser());
             getFacade().create(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
         }
@@ -195,7 +195,7 @@ public class DesignationCategoryController  implements Serializable {
         try {
 
             current.setCreatedAt(Calendar.getInstance().getTime());
-            current.setCreater(sessionController.loggedUser);
+            current.setCreater(sessionController.getLoggedUser());
 
             getFacade().create(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
@@ -214,7 +214,7 @@ public class DesignationCategoryController  implements Serializable {
         if (current != null) {
             current.setRetired(true);
             current.setRetiredAt(Calendar.getInstance().getTime());
-            current.setRetirer(sessionController.loggedUser);
+            current.setRetirer(sessionController.getLoggedUser());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
         } else {

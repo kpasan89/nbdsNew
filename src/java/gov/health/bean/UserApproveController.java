@@ -210,7 +210,7 @@ public class UserApproveController implements Serializable {
         }
         selectedUser.setActivated(true);
         selectedUser.setActivatedAt(Calendar.getInstance().getTime());
-        selectedUser.setActivator(sessionController.loggedUser);
+        selectedUser.setActivator(sessionController.getLoggedUser());
         selectedUser.setActivateComments(activateComments);
         userFacade.edit(selectedUser);
 

@@ -21,16 +21,9 @@
                             <h:outputLabel value="Hospital Notification Form" style="alignment-adjust: middle"></h:outputLabel>
                             <p:spacer width="10" ></p:spacer>
                             <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}" id="cmdSv"></p:commandButton>
-                            
-                            <p:commandButton ajax="false" value="Print" >
-                                <p:printer target="panelDetail" ></p:printer>
-                            </p:commandButton>
-                            
                             <p:tooltip for="cmdSv" value="Save Hospital Notification Form" showEffect="fade" hideEffect="fade" />  
                         </f:facet>
-
-                        <p:panel id="panelDetail" >
-
+                        <p:panel>
                             <table width="800px" style="padding: 2.5%" align="center" bgcolor="white" >
                                 <tr>
                                     <td colspan="2" align="center"><p:outputLabel><b><font size="4">Hospital Notification Form</font></b></p:outputLabel></td>
@@ -86,7 +79,7 @@
                                                 forceSelection="true"                                 
                                                 value="#{notificationFormController.current.ward}" 
                                                 completeMethod="#{notificationFormController.completeOfficialDepartments}"
-                                                var="of" itemLabel="#{of.name}" itemValue="#{of}" converter="departmentConverter" >
+                                                var="of" itemLabel="#{of.name}" itemValue="#{of}">
                                             </p:autoComplete></ul>
                                     </td>
                                     <p:tooltip for="acWard" value="Select Ward" showEffect="fade" hideEffect="fade" />
@@ -187,22 +180,16 @@
                                 </tr>
                                 <tr>
                                     <td><p:outputLabel>15. Phone1</p:outputLabel></td>
-                                    <td><p:inputText value="#{notificationFormController.current.tp1}" size="40" required="true" id="txtP1">
-                                            <f:validateLength minimum="10" maximum="10"/>  
-                                            <p:ajax update="msgPhone1" event="keyup" /> </p:inputText>
+                                    <td><p:inputText value="#{notificationFormController.current.tp1}" size="40" id="txtP1"></p:inputText>
                                         <p:tooltip for="txtP1" value="Type Telephone number" showEffect="fade" hideEffect="fade" />
                                     </td>
-                                    <td width="1px"><p:message for="txtP1" id="msgPhone1" display="icon"></p:message></td>
 
                                 </tr>
                                 <tr>
                                     <td>16. Phone2</td>
-                                    <td><p:inputText value="#{notificationFormController.current.tp2}" required="true" size="40" id="txtP2">
-                                            <f:validateLength minimum="10" maximum="10"/>  
-                                            <p:ajax update="msgPhone2" event="keyup" /></p:inputText>
+                                    <td><p:inputText value="#{notificationFormController.current.tp2}" size="40" id="txtP2"></p:inputText>
                                         <p:tooltip for="txtP2" value="Type Mobile phone number" showEffect="fade" hideEffect="fade" />
                                     </td>
-                                    <td width="1px"><p:message for="txtP2" id="msgPhone2" display="icon"></p:message></td>
                                 </tr>
                                 <tr>
                                     <td><font color="red">If dead</font></td>
@@ -265,16 +252,12 @@
                         </tr>
                         <tr>
                             <td>Contact Phone</td>
-                            <td><p:inputText value="#{notificationFormController.current.inTp}" size="40" id="txtcoIm" required="true" >
-                            <f:validateLength minimum="10" maximum="10"/>  
-                                    <p:ajax update="msgPhone3" event="keyup"/></p:inputText></td>
-                            <td width="1px"><p:message for="txtcoIm" id="msgPhone3" display="icon"></p:message></td>
+                            <td><p:inputText value="#{notificationFormController.current.inTp}" size="40" id="txtcoIm" ></p:inputText></td>
+                            
                             <p:tooltip for="txtcoIm" value="Type Contact Phone" showEffect="fade" hideEffect="fade" />
                         </tr>          
                     </table>
-                        
-                        </p:panel>
-                        
+                            </p:panel>
                         
                         <f:facet name="footer">
                             <p align="center"><h:outputLabel value="Hospital Notification Form"></h:outputLabel>
@@ -283,7 +266,7 @@
                             <p:tooltip for="cmdSv2" value="Save Hospital Notification Form" showEffect="fade" hideEffect="fade" />
                         </f:facet>
                     
-                    
+                   
                 </p:panel>
                 
                 </h:form>

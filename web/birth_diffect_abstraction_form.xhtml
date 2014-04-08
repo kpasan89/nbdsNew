@@ -36,7 +36,8 @@
                                     <p:spacer width="10"></p:spacer>
                                     <tr>
                                         <td><p:outputLabel>1. Infant's name</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.infant.name}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.infant.name}" size="40" id="txtInfantName"></p:inputText></td>
+                                        <p:tooltip for="txtInfantName" value="Type infant's name" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>2. Sex of infant</p:outputLabel></td>
@@ -45,6 +46,7 @@
                                                 <f:selectItem itemValue="FEMALE" itemLabel="Female"></f:selectItem>
                                                 <f:selectItem itemValue="AMBIGUOUS" itemLabel="Ambiguous"></f:selectItem>
                                             </p:selectOneRadio></td>
+                                        <p:tooltip for="Sex" value="Type infant's sex" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel><font color="blue">3. Location where case identified :</font></p:outputLabel></td>
@@ -63,6 +65,7 @@
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
+                                        <p:tooltip for="acHos" value="Select hospital" showEffect="fade" hideEffect="fade" />
                                         <td>
                                             <ul><p:outputLabel>RDHS Division</p:outputLabel>  
                                                 <p:autoComplete
@@ -75,6 +78,7 @@
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
+                                        <p:tooltip for="acdiv" value="Select RDHS division" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td>
@@ -84,10 +88,11 @@
                                                     value="#{abstractionFormController.current.ward}" 
                                                     completeMethod="#{abstractionFormController.completeOfficialDepartments}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    converter="departmentConverter" id="acWard">
+                                                    id="acWard">
                                                 </p:autoComplete>
                                             </ul>
-                                        </td>                           
+                                        </td> 
+                                        <p:tooltip for="acWard" value="Select ward" showEffect="fade" hideEffect="fade" />
                                         <td>
                                             <ul><p:outputLabel>MOH Division</p:outputLabel>   
                                                 <p:autoComplete
@@ -100,6 +105,7 @@
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
+                                        <p:tooltip for="acmoh" value="Select MOH division" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td>
@@ -113,7 +119,8 @@
                                                     <f:ajax event="itemSelect" execute="acDis" render="acdiv"></f:ajax>
                                                 </p:autoComplete>
                                             </ul>
-                                        </td>                            
+                                        </td> 
+                                        <p:tooltip for="acDis" value="Select district" showEffect="fade" hideEffect="fade" />
                                         <td>
                                             <ul><p:outputLabel>GN Division</p:outputLabel>    
                                                 <p:autoComplete
@@ -125,14 +132,17 @@
                                                 </p:autoComplete>
                                             </ul>
                                         </td>
+                                        <p:tooltip for="acGn" value="Select grama niladari division" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>4. Date of Case Identified</p:outputLabel></td>
-                                        <td><p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40"></p:calendar></td>
+                                        <td><p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40" id="txtDCI"></p:calendar></td>
+                                        <p:tooltip for="txtDCI" value="Date of Case Identified" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>5. BHT No</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.bhtno}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.bhtno}" size="40" id="txtBHT"></p:inputText></td>
+                                        <p:tooltip for="txtBHT" value="BHT number" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>6. Whether the baby alive or dead ?</p:outputLabel></td>
@@ -140,32 +150,38 @@
                                                 <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
                                                 <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
                                             </p:selectOneRadio></td>
+                                        <p:tooltip for="liveOrDead" value="Select option" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>7. Diagnosis / Birth Defect Coding</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.diagnosis}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.diagnosis}" size="40" id="txtDiag"></p:inputText></td>
+                                        <p:tooltip for="txtDiag" value="Diagnosis / Birth Defect Coding" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                 </table>
                                 <table width="680px" style="padding: 2.5%" align="center" bgcolor="white">
                                     <tr>
                                         <td><p:outputLabel>8. Name of the mother</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.mother.name}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.name}" size="40" id="txtMother"></p:inputText></td>
+                                        <p:tooltip for="txtMother" value="Name of the mother" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>9. Mother’s Date of Birth</p:outputLabel></td>
-                                        <td><p:calendar value="#{abstractionFormController.current.mother.dob}" size="40"></p:calendar></td>
+                                        <td><p:calendar value="#{abstractionFormController.current.mother.dob}" size="40" id="txtMDOB"></p:calendar></td>
+                                        <p:tooltip for="txtMDOB" value="Mother’s Date of Birth" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>10. Age</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.mother.age}" size="35"></p:inputText><p:outputLabel>Years</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.age}" size="35" id="txtMAge"></p:inputText><p:outputLabel>Years</p:outputLabel></td>
+                                        <p:tooltip for="txtMAge" value="Mother's age" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>11. National Identity Card No</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.mother.nic}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.nic}" size="40" id="txtNIC"></p:inputText></td>
+                                        <p:tooltip for="txtNIC" value="National Identity Card No" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>12. Ethnicity</p:outputLabel></td>
-                                        <td><p:selectOneMenu value="#{abstractionFormController.current.infant.ethnicity}" style="width: 80px">
+                                        <td><p:selectOneMenu value="#{abstractionFormController.current.infant.ethnicity}" style="width: 80px" id="somEth">
                                                 <f:selectItem itemLabel="Please Select" />
                                                 <f:selectItem itemLabel="Sinhala" itemValue="SINHALA" />
                                                 <f:selectItem itemLabel="Tamil" itemValue="TAMIL" />
@@ -173,34 +189,42 @@
                                                 <f:selectItem itemLabel="Burgher" itemValue="BURGHER" />
                                                 <f:selectItem itemLabel="Other" itemValue="OTHER" />
                                             </p:selectOneMenu></td>
+                                        <p:tooltip for="somEth" value="Ethnicity" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>13. Residence Address</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.mother.address}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.address}" size="40" id="txtAddress"></p:inputText></td>
+                                        <p:tooltip for="txtAddress" value="Residence Address" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>14. Phone1</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.tp1}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.tp1}" size="40" id="txtP1"></p:inputText></td>
+                                        <p:tooltip for="txtP1" value="Mobile phone number" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>15. Phone2</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.tp2}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.tp2}" size="40" id="txtP2"></p:inputText></td>
+                                        <p:tooltip for="txtP2" value="Land phone number" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>16. Total Pregnancies</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.totPreg}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.totPreg}" size="40" id="txtTP"></p:inputText></td>
+                                        <p:tooltip for="txtTP" value="Total Pregnancies" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>17. Live Births</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.liveBirth}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.liveBirth}" size="40" id="txtLB"></p:inputText></td>
+                                        <p:tooltip for="txtLB" value="Number of live births" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>18. Spontaneous Fetal Deaths </p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.sfDeath}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.sfDeath}" size="40" id="txtSFD"></p:inputText></td>
+                                        <p:tooltip for="txtSFD" value="Spontaneous fetal deaths" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>19. Unspecified Fetal Deaths / Pregnancy terminations</p:outputLabel></td>
-                                        <td><p:inputText value="#{abstractionFormController.current.ufDeath}" size="40"></p:inputText></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.ufDeath}" size="40" id="txtUFD"></p:inputText></td>
+                                        <p:tooltip for="txtUFD" value="Unspecified Fetal Deaths / Pregnancy terminations" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr><td></td><td></td></tr>
                                     <tr>
@@ -691,6 +715,298 @@
                                             </td>
                                         </tr>
                                     </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <p:spacer height="10px"></p:spacer>
+                                            <td width="80px"><p:outputLabel>Abdomen Back</p:outputLabel></td>
+
+                                            <td><p:selectBooleanCheckbox itemLabel="Normal abdomen" value="#{abstractionFormController.current.dysmorphologyExamination.normalAbdomain}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Extra skin / prune belly" value="#{abstractionFormController.current.dysmorphologyExamination.extraSkin}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Umbilicus" value="#{abstractionFormController.current.dysmorphologyExamination.umbilicus}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Hepatomegaly FB below LCM" value="#{abstractionFormController.current.dysmorphologyExamination.hepatomegaly}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Splenomegaly" value="#{abstractionFormController.current.dysmorphologyExamination.splenomegaly}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbdomen}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbdomenNote}"></p:inputText>
+                                            </td>
+                                            <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.abdSel1}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.abdSel2}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.abdSel3}"></p:selectBooleanCheckbox>
+                                            </td>
+                                            <td width="100px"><h:graphicImage  class="pic1" library="image" name="Picture13.png" width="225px" height="75px"></h:graphicImage></td>
+                                            <td><p:selectBooleanCheckbox itemLabel="Normal Back" value="#{abstractionFormController.current.dysmorphologyExamination.normalBack}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Scoliosis" value="#{abstractionFormController.current.dysmorphologyExamination.scolinosis}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Kyphosis / gibbus" value="#{abstractionFormController.current.dysmorphologyExamination.kyphosis}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Hirsutism" value="#{abstractionFormController.current.dysmorphologyExamination.hirsutism}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Sacral dimple / sinus" value="#{abstractionFormController.current.dysmorphologyExamination.sacralDimple}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Neural Tube Defects" value="#{abstractionFormController.current.dysmorphologyExamination.neural}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbd}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherAbdNote}"></p:inputText>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <p:spacer width="10px"></p:spacer>
+                                            <td width="80px"><p:outputLabel>Urogenital</p:outputLabel></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td colspan="2"><p:selectBooleanCheckbox itemLabel="Normal male genitalia" value="#{abstractionFormController.current.dysmorphologyExamination.normalMouth}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Penislength"></p:outputLabel></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.penisLength}"></p:inputText></td>
+                                                        <td><p:outputLabel value="cm"></p:outputLabel></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Penis"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.largePenis}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.smallPenis}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherPenis}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherPenisNote}"></p:inputText></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Chordee" value="#{abstractionFormController.current.dysmorphologyExamination.chordee}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Hypospadias" value="#{abstractionFormController.current.dysmorphologyExamination.hypospadias}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Epispandias" value="#{abstractionFormController.current.dysmorphologyExamination.epispadias}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Scrotum"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.smallScrotum}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherScrotum}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherScrotumNote}"></p:inputText></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Testes"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.largeTestes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="SmallS" value="#{abstractionFormController.current.dysmorphologyExamination.smallTestes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherTestes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherTestesNotes}"></p:inputText></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.urogSel1}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.urogSel2}"></p:selectBooleanCheckbox><br></br>
+                                            </td>
+                                            <td width="100px"><h:graphicImage  class="pic1" library="image" name="Picture14.png" width="150px" height="75px"></h:graphicImage></td>
+                                            <td><p:selectBooleanCheckbox itemLabel="Normal female genitalia" value="#{abstractionFormController.current.dysmorphologyExamination.normalFemaleGen}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Virilized" value="#{abstractionFormController.current.dysmorphologyExamination.virilized}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Hypoplastic labia / large clitoris" value="#{abstractionFormController.current.dysmorphologyExamination.hypoplastic}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Vagina" value="#{abstractionFormController.current.dysmorphologyExamination.vagina}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Labia" value="#{abstractionFormController.current.dysmorphologyExamination.labia}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherFemaleGen}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherFemaleGenNote}"></p:inputText><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherFemaleGen2}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherFemaleGen2Note}"></p:inputText>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <p:spacer width="10px"></p:spacer>
+                                            <td width="80px"><p:outputLabel>Limbs Joints</p:outputLabel></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Normal limbs" value="#{abstractionFormController.current.dysmorphologyExamination.normalLibs}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Asymmetry" value="#{abstractionFormController.current.dysmorphologyExamination.asymmetryLibs}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherLibs}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherLibsNote}"></p:inputText></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Upper limbs"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Short" value="#{abstractionFormController.current.dysmorphologyExamination.upperLibsShort}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Proximal-rhizo" value="#{abstractionFormController.current.dysmorphologyExamination.upperProximal}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Middle-meso" value="#{abstractionFormController.current.dysmorphologyExamination.upperMiddle}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Long" value="#{abstractionFormController.current.dysmorphologyExamination.upperLibsLong}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Lower limbs"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Short" value="#{abstractionFormController.current.dysmorphologyExamination.lowerLibsShort}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Proximal-rhizo" value="#{abstractionFormController.current.dysmorphologyExamination.lowerProximal}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Middle-meso" value="#{abstractionFormController.current.dysmorphologyExamination.lowerMiddle}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Long" value="#{abstractionFormController.current.dysmorphologyExamination.lowerLibsLong}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Asymmetry" value="#{abstractionFormController.current.dysmorphologyExamination.asymmetryMeasure}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Measures"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Right" value="#{abstractionFormController.current.dysmorphologyExamination.messureRight}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Left" value="#{abstractionFormController.current.dysmorphologyExamination.messureLeft}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+
+                                            <td><p:selectBooleanCheckbox itemLabel="Normal Joints" value="#{abstractionFormController.current.dysmorphologyExamination.normalJoints}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherJoints}"></p:selectBooleanCheckbox>
+                                                <p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.otherJointsNote}" size="8"></p:inputText><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Lax" value="#{abstractionFormController.current.dysmorphologyExamination.lax}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherLax}"></p:selectBooleanCheckbox>
+                                                <p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.otherLaxNote}" size="8"></p:inputText><br></br>
+
+                                                <p:selectBooleanCheckbox itemLabel="Tight" value="#{abstractionFormController.current.dysmorphologyExamination.tight}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Contractures" value="#{abstractionFormController.current.dysmorphologyExamination.contractures}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Webs" value="#{abstractionFormController.current.dysmorphologyExamination.webs}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Dimples" value="#{abstractionFormController.current.dysmorphologyExamination.dimples}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherJoints2}"></p:selectBooleanCheckbox>
+                                                <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherJoints2Note}"></p:inputText><br></br>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <p:spacer width="10px"></p:spacer>
+                                            <td width="80px"><p:outputLabel>Hands / Feet</p:outputLabel></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Normal hands" value="#{abstractionFormController.current.dysmorphologyExamination.normalHands}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.largeHands}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.smallHands}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Broad" value="#{abstractionFormController.current.dysmorphologyExamination.broadHand}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Thumbs"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Broad" value="#{abstractionFormController.current.dysmorphologyExamination.broadThumb}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Low placed" value="#{abstractionFormController.current.dysmorphologyExamination.lowPlacedThumbs}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherThumbs}"></p:selectBooleanCheckbox>
+                                                            <p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.otherThumbsNote}" size="8"></p:inputText></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Fingers"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Broad" value="#{abstractionFormController.current.dysmorphologyExamination.broadFingers}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Splayed" value="#{abstractionFormController.current.dysmorphologyExamination.splayedFingers}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Extra" value="#{abstractionFormController.current.dysmorphologyExamination.extraFingers}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Fused" value="#{abstractionFormController.current.dysmorphologyExamination.fused}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Short metacarpals 4/5" value="#{abstractionFormController.current.dysmorphologyExamination.shortMetacarpals}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Nails"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Small / Absent" value="#{abstractionFormController.current.dysmorphologyExamination.smallHandNails}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Brittle" value="#{abstractionFormController.current.dysmorphologyExamination.brittleHandNails}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherHandNails}"></p:selectBooleanCheckbox>
+                                                            <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherHandNailsNote}"></p:inputText></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.handSel1}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.handSel2}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 3" value="#{abstractionFormController.current.dysmorphologyExamination.handSel3}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 4" value="#{abstractionFormController.current.dysmorphologyExamination.handSel4}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 5" value="#{abstractionFormController.current.dysmorphologyExamination.handSel5}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 6" value="#{abstractionFormController.current.dysmorphologyExamination.handSel6}"></p:selectBooleanCheckbox><br></br>
+                                            </td>
+                                            <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture15.png" width="250px" height="75px"></h:graphicImage><h:graphicImage  class="pic1" library="image" name="Picture16.png" width="150px" height="75px"></h:graphicImage></td>
+                                        </tr>
+                                        <tr>
+                                            <p:spacer width="10px"></p:spacer>
+                                            <td width="80px"></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Normal Feet" value="#{abstractionFormController.current.dysmorphologyExamination.normalFeet}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Large" value="#{abstractionFormController.current.dysmorphologyExamination.largeFeet}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Small" value="#{abstractionFormController.current.dysmorphologyExamination.smallFeet}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Broad" value="#{abstractionFormController.current.dysmorphologyExamination.broadFeet}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Great toes"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Broad" value="#{abstractionFormController.current.dysmorphologyExamination.broadGreatToes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Deviated" value="#{abstractionFormController.current.dysmorphologyExamination.deviatedGreatToes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherGreatToes}"></p:selectBooleanCheckbox>
+                                                            <p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.otherGreatToesNote}" size="8"></p:inputText></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Toes"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Broad" value="#{abstractionFormController.current.dysmorphologyExamination.broadToes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Splayed" value="#{abstractionFormController.current.dysmorphologyExamination.splayedToes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Overlapping" value="#{abstractionFormController.current.dysmorphologyExamination.overlappedToes}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Fused" value="#{abstractionFormController.current.dysmorphologyExamination.fusedToes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherGreatToes}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText validator="#{abstractionFormController.current.dysmorphologyExamination.otherToesNote}"></p:inputText></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:outputLabel value="Nails"></p:outputLabel></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Small / Absent" value="#{abstractionFormController.current.dysmorphologyExamination.smallFeetNails}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Brittle" value="#{abstractionFormController.current.dysmorphologyExamination.brittleFeetNails}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherFeetNails}"></p:selectBooleanCheckbox>
+                                                            <p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherFeetNailsNote}"></p:inputText></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="80px"><p:selectBooleanCheckbox itemLabel="Select 1" value="#{abstractionFormController.current.dysmorphologyExamination.feetSel1}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 2" value="#{abstractionFormController.current.dysmorphologyExamination.feetSel2}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 3" value="#{abstractionFormController.current.dysmorphologyExamination.feetSel3}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 4" value="#{abstractionFormController.current.dysmorphologyExamination.feetSel4}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel="Select 5" value="#{abstractionFormController.current.dysmorphologyExamination.feetSel5}"></p:selectBooleanCheckbox><br></br>
+                                            </td>
+                                            <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture17.png" width="200px" height="75px"></h:graphicImage><h:graphicImage  class="pic1" library="image" name="Picture18.png" width="150px" height="75px"></h:graphicImage></td>
+                                        </tr>
+                                    </table>
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                        <tr>
+                                            <p:spacer width="10px"></p:spacer>
+                                            <td width="80px"><p:outputLabel>Skin</p:outputLabel></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Normal" value="#{abstractionFormController.current.dysmorphologyExamination.normalSkin}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Aged / Thin" value="#{abstractionFormController.current.dysmorphologyExamination.agedSkin}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Hyperelastic" value="#{abstractionFormController.current.dysmorphologyExamination.hypoplastic}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Lax" value="#{abstractionFormController.current.dysmorphologyExamination.laxSkin}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Scaly" value="#{abstractionFormController.current.dysmorphologyExamination.scalySkin}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Thick" value="#{abstractionFormController.current.dysmorphologyExamination.thickSkin}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Unusual scars" value="#{abstractionFormController.current.dysmorphologyExamination.unusualScars}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Growths / lumps" value="#{abstractionFormController.current.dysmorphologyExamination.growths}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Pigmented spots" value="#{abstractionFormController.current.dysmorphologyExamination.pigmanted}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Depigmented spots" value="#{abstractionFormController.current.dysmorphologyExamination.depigmanted}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Moles / nevi" value="#{abstractionFormController.current.dysmorphologyExamination.moles}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Hemangiomas" value="#{abstractionFormController.current.dysmorphologyExamination.hemangiomas}"></p:selectBooleanCheckbox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p:selectBooleanCheckbox itemLabel="Others" value="#{abstractionFormController.current.dysmorphologyExamination.otherSkin}"></p:selectBooleanCheckbox></td>
+                                                        <td><p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.otherSkinNotes}" size="8"></p:inputText></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="100px"><h:graphicImage  class="pic1" library="image" name="Picture19.png" width="100px" height="75px"></h:graphicImage>
+                                                <p:spacer width="50px"></p:spacer>
+                                            <h:graphicImage  class="pic1" library="image" name="Picture20.png" width="100px" height="75px"></h:graphicImage></td>
+                                            <td width="100px"><p:selectBooleanCheckbox itemLabel=">2 Arches" value="#{abstractionFormController.current.dysmorphologyExamination.arches}"></p:selectBooleanCheckbox><br></br>
+                                                <p:selectBooleanCheckbox itemLabel=">6 Whorts"></p:selectBooleanCheckbox></td>
+                                            <td width="200px"><h:graphicImage  class="pic1" library="image" name="Pictur21.png" width="338px" height="265px"></h:graphicImage></td>
+                                        </tr>
+                                    </table>
                                 </table>
 
                             </p:tab>
@@ -727,7 +1043,7 @@
                                         <td width="100px"><p:outputLabel value="Procedure"></p:outputLabel><br></br>
                                             <p:inputText value="#{abstractionFormController.current.labTest.proced}"></p:inputText></td>
                                         <td width="100px"><p:outputLabel value="US Scan / Fetal"></p:outputLabel><br></br>
-                                            <p:inputText value="#{abstractionFormController.current.labTest.fetalAnomalyScan}"></p:inputText></td>
+                                            <p:calendar value="#{abstractionFormController.current.labTest.fetalAnomalyScan}"></p:calendar></td>
                                         <td width="100px"><p:outputLabel value="Facility"></p:outputLabel><br></br>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility}"></p:inputText></td>
                                         <td><p:outputLabel value="Done by"></p:outputLabel><br></br>
@@ -925,12 +1241,12 @@
                                 </table>
                                 <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
                                     <p:spacer height="10px"></p:spacer>
-                                  
-                                        
+
+
 
                                     <tr>
                                         <td>Date of Death</td>
-                                        <td><p:calendar size="40" value="#{abstractionFormController.current.labTest.infantDod}"></p:calendar></td>
+                                        <td><p:calendar size="40" value="#{abstractionFormController.current.infant.dateOfDead}"></p:calendar></td>
                                     </tr>
                                     <tr>
                                         <td>Age at Death</td>

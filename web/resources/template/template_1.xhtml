@@ -49,23 +49,28 @@
             </f:facet>  
         </p:ajaxStatus>  
 
-        <div Class="wholepage" style="width: 98%; height: 96%; " >
+        <div Class="wholepage" style="width: 98%; height: 96%; ">
 
-            <h:panelGrid columns="2" id="header" class="headerblock" >
-                <h:panelGroup style="margin: auto; padding: 5px; border:0px; width: 20%; text-align: center; vertical-align: middle;">
-                    <h:graphicImage  class="pdLogo" library="image" name="logo.png"  height="40px"></h:graphicImage>
-                    <p:spacer width="20px"></p:spacer>
-                    <h:graphicImage  class="pdLogo" library="image" name="2.jpg"  height="40px"></h:graphicImage>
-                    <p:spacer width="20px"></p:spacer>
-                    <h:graphicImage  class="pdLogo" library="image" name="logo.jpg"  height="40px"></h:graphicImage>
-                    
-                </h:panelGroup>
-                <h:panelGroup style="margin: auto; padding: 1px; border: 0px; width: 75%;  text-align: center; vertical-align: middle;  ">
-                    <h:outputLabel value="#{labels.topic}" style="font-size: 2.0em; font-family: Verdana ;" ></h:outputLabel><br/>&nbsp;
-                    <h:outputLabel value="#{labels.subtopic}" style="font-size: 1.0em; font-family: Verdana ;" ></h:outputLabel> 
+            <!--            <h:panelGrid columns="2" id="header" class="headerblock" >
+                            <h:graphicImage  class="pdLogin" library="image" name="BDS 2.png"  height="150px" width="1400px"></h:graphicImage>
+                            <h:panelGroup style="margin: auto; padding: 5px; border:0px; width: 20%; text-align: center; vertical-align: middle;">
+                                <h:graphicImage  class="pdLogo" library="image" name="logo.png"  height="40px"></h:graphicImage>
+                                <p:spacer width="20px"></p:spacer>
+                                <h:graphicImage  class="pdLogo" library="image" name="2.jpg"  height="40px"></h:graphicImage>
+                                <p:spacer width="20px"></p:spacer>
+                                <h:graphicImage  class="pdLogo" library="image" name="logo.jpg"  height="40px"></h:graphicImage>
+                                
+                            </h:panelGroup>
+                            <h:panelGroup style="margin: auto; padding: 1px; border: 0px; width: 75%;  text-align: center; vertical-align: middle;  ">
+                                <h:outputLabel value="#{labels.topic}" style="font-size: 2.0em; font-family: Verdana ;" ></h:outputLabel><br/>&nbsp;
+                                <h:outputLabel value="#{labels.subtopic}" style="font-size: 1.0em; font-family: Verdana ;" ></h:outputLabel> 
+                            </h:panelGroup>
+                        </h:panelGrid>-->
+            <h:panelGrid columns="2" id="header">
+                <h:panelGroup style="margin: auto">
+                    <h:graphicImage class="banner" library="image" name="BDS 2.png"  height="150px" width="1405px"></h:graphicImage>
                 </h:panelGroup>
             </h:panelGrid>
-
 
             <div id="menu" >
 
@@ -77,7 +82,6 @@
                         <p:menubar styleClass="nonPrintBlock" style=" border: 0px;" >
                             <p:menuitem  ajax="false"  action="index" value="Home" ></p:menuitem>
                             <p:submenu label="Cases" >
-                                <p:menuitem ajax="false" action="#{notificationFormController.addNewAreaNotificationForm()}" value="Field Birth Defect Notification" ></p:menuitem>
                                 <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
                                 <p:menuitem ajax="false" action="#{abstractionFormController.addNewAbstractionForm()}"  value="Case Ascertainment"  ></p:menuitem>
                                 <p:menuitem ajax="false" action="view_all_notification_form" value="List All Notification Forms"></p:menuitem>
@@ -192,6 +196,7 @@
                         <h:outputLabel rendered="#{sessionController.logged}" value="You are logged as #{sessionController.displayName}." ></h:outputLabel>
                         <p:commandLink rendered="#{sessionController.logged}" value="Click here to Logout" action="#{sessionController.logout}" ajax="false"></p:commandLink>
                     </h:panelGrid>
+
                 </h:form>
             </div>
         </div>

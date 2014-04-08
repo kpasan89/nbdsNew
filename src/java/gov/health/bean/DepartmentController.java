@@ -140,7 +140,7 @@ public class DepartmentController implements Serializable {
             ins = new Department();
             ins.setName(insName);
             ins.setCreatedAt(Calendar.getInstance().getTime());
-            ins.setCreater(sessionController.loggedUser);
+            ins.setCreater(sessionController.getLoggedUser());
             getFacade().create(ins);
         }
         return ins;
@@ -236,7 +236,7 @@ public class DepartmentController implements Serializable {
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
         } else {
             current.setCreatedAt(Calendar.getInstance().getTime());
-            current.setCreater(sessionController.loggedUser);
+            current.setCreater(sessionController.getLoggedUser());
             getFacade().create(current);
 
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
@@ -251,7 +251,7 @@ public class DepartmentController implements Serializable {
         if (current != null) {
             current.setRetired(true);
             current.setRetiredAt(Calendar.getInstance().getTime());
-            current.setRetirer(sessionController.loggedUser);
+            current.setRetirer(sessionController.getLoggedUser());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
         } else {
@@ -302,6 +302,8 @@ public class DepartmentController implements Serializable {
         return dep;
     }
 
+    
+      
     @FacesConverter(forClass = Department.class)
     public static class DepartmentControllerConverter implements Converter {
 
@@ -340,50 +342,5 @@ public class DepartmentController implements Serializable {
         }
     }
 
-    @FacesConverter("departmentConverter")
-    public static class DepartmentConverter implements Converter {
-
-        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
-            if (value == null || value.length() == 0) {
-                return null;
-            }
-            DepartmentController controller = (DepartmentController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "departmentController");
-
-            System.out.println("controller = " + controller);
-
-            System.out.println("controller.getFacade() = " + controller.getFacade());
-
-            System.out.println("getKey(value) = " + getKey(value));
-            if (controller.getFacade() == null) {
-                return null;
-            }
-            return controller.getFacade().find(getKey(value));
-        }
-
-        java.lang.Long getKey(String value) {
-            java.lang.Long key;
-            key = Long.valueOf(value);
-            return key;
-        }
-
-        String getStringKey(java.lang.Long value) {
-            StringBuffer sb = new StringBuffer();
-            sb.append(value);
-            return sb.toString();
-        }
-
-        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
-            if (object == null) {
-                return null;
-            }
-            if (object instanceof Department) {
-                Department o = (Department) object;
-                return getStringKey(o.getId());
-            } else {
-                throw new IllegalArgumentException("object " + object + " is of type "
-                        + object.getClass().getName() + "; expected type: " + DepartmentController.class.getName());
-            }
-        }
-    }
+    
 }

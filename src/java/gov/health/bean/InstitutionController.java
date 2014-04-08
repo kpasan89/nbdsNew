@@ -486,7 +486,7 @@ public class InstitutionController implements Serializable {
             ins = new Institution();
             ins.setName(insName);
             ins.setCreatedAt(Calendar.getInstance().getTime());
-            ins.setCreater(sessionController.loggedUser);
+            ins.setCreater(sessionController.getLoggedUser());
             ins.setOfficial(Boolean.FALSE);
             getFacade().create(ins);
         }
@@ -752,7 +752,7 @@ public class InstitutionController implements Serializable {
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
         } else {
             current.setCreatedAt(Calendar.getInstance().getTime());
-            current.setCreater(sessionController.loggedUser);
+            current.setCreater(sessionController.getLoggedUser());
             current.setOfficial(true);
             getFacade().create(current);
 
@@ -760,7 +760,7 @@ public class InstitutionController implements Serializable {
                 InstitutionSet insSet = new InstitutionSet();
                 insSet.setName("Default");
                 insSet.setCreatedAt(Calendar.getInstance().getTime());
-                insSet.setCreater(sessionController.loggedUser);
+                insSet.setCreater(sessionController.getLoggedUser());
                 insSet.setInstitution(current);
 
                 inSetFacade.create(insSet);
@@ -806,7 +806,7 @@ public class InstitutionController implements Serializable {
         try {
 
             current.setCreatedAt(Calendar.getInstance().getTime());
-            current.setCreater(sessionController.loggedUser);
+            current.setCreater(sessionController.getLoggedUser());
             current.setOfficial(Boolean.FALSE);
 
             getFacade().create(current);
@@ -827,7 +827,7 @@ public class InstitutionController implements Serializable {
         if (current != null) {
             current.setRetired(true);
             current.setRetiredAt(Calendar.getInstance().getTime());
-            current.setRetirer(sessionController.loggedUser);
+            current.setRetirer(sessionController.getLoggedUser());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
         } else {

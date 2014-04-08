@@ -1046,7 +1046,7 @@ public class DbfController implements Serializable {
         for (PersonInstitution pi : getExistingPersonInstitutions()) {
             pi.setRetired(true);
             pi.setRetiredAt(Calendar.getInstance().getTime());
-            pi.setRetirer(sessionController.loggedUser);
+            pi.setRetirer(sessionController.getLoggedUser());
             getPiFacade().edit(pi);
         }
         for (PersonInstitution pi : newPersonInstitutions) {
@@ -1588,7 +1588,7 @@ public class DbfController implements Serializable {
         for (PersonInstitution pi : getExistingPersonInstitutions()) {
             pi.setRetired(true);
             pi.setRetiredAt(Calendar.getInstance().getTime());
-            pi.setRetirer(sessionController.loggedUser);
+            pi.setRetirer(sessionController.getLoggedUser());
             getPiFacade().edit(pi);
         }
         for (PersonInstitution pi : newPersonInstitutions) {

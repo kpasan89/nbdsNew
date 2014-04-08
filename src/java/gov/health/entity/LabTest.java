@@ -132,8 +132,7 @@ public class LabTest implements Serializable {
     Date datePreformed14;
     String facility14;
     String Results14;
-    @ManyToOne(cascade = CascadeType.ALL)
-    Person infantDod; // infant date of death
+    
     Long infantAodYrs; // infant age of death by year
     Long infantAodMnths; // infant age of death by year
     Long infantAodDys; // infant age of death by year
@@ -154,13 +153,6 @@ public class LabTest implements Serializable {
         this.pathExFind = pathExFind;
     }
 
-    public Person getInfantDod() {
-        return infantDod;
-    }
-
-    public void setInfantDod(Person infantDod) {
-        this.infantDod = infantDod;
-    }
 
     public Long getInfantAodYrs() {
         return infantAodYrs;
@@ -194,7 +186,7 @@ public class LabTest implements Serializable {
         this.placeOfDead = placeOfDead;
     }
 
-    public boolean isPostMortem() {
+    public boolean getPostMortem() {
         return postMortem;
     }
 

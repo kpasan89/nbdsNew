@@ -157,7 +157,7 @@ public  class InstitutionSetController implements Serializable {
             }
             System.out.println("4");
             getCurrent().setCreatedAt(Calendar.getInstance().getTime());
-            getCurrent().setCreater(sessionController.loggedUser);
+            getCurrent().setCreater(sessionController.getLoggedUser());
             getFacade().create(getCurrent());
             setCurrent(new InstitutionSet());
             newName="";
@@ -172,7 +172,7 @@ public  class InstitutionSetController implements Serializable {
         if (getToRemove() != null) {
             getToRemove().setRetired(true);
             getToRemove().setRetiredAt(Calendar.getInstance().getTime());
-            getToRemove().setRetirer(sessionController.loggedUser);
+            getToRemove().setRetirer(sessionController.getLoggedUser());
             getFacade().edit(getToRemove());
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
         } else {

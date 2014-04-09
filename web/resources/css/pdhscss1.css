@@ -29,9 +29,10 @@ html, body{
 
 
 .headerblock{
-    background-color: #b1eafa;
+    background-color: #ffffff;
     border-bottom:  #6fddfc solid 2px;
     width: 100%;
+    alignment-adjust: middle;
 }
 
 .pdFullWidthHeight{

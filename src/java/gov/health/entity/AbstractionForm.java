@@ -111,6 +111,9 @@ public class AbstractionForm implements Serializable {
     @ManyToOne
     Person perRelationship4;
 
+    public AbstractionForm() {
+    }
+
     
     
     public LabTest getLabTest() {

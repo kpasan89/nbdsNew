@@ -375,9 +375,11 @@ public class DysmorphologyExamination implements Serializable {
     boolean rightDermat5;
     
 //    Neuro
-    boolean normal;
+    boolean normalNeuro;
     boolean cranialNerve;
+    String cranialNerveNote;
     boolean abnormalRef;
+    String abnormalRefNote;
     boolean ueDtr;
     String ueDtrNote;
     boolean leDtr;
@@ -389,29 +391,147 @@ public class DysmorphologyExamination implements Serializable {
     boolean otherNeuro;
     String otherNeuroNote;
     boolean asymmetryMovements;
+    String asymmetryMovementsNote;
     boolean mirror;
     boolean repetitive;
     boolean otherMove;
     String otherMoveNote;
     boolean strengthMuscles;
+    String strengthMusclesNote;
     boolean massMuscles;
+    String massMusclesNote;
     boolean hypoTone;
     boolean hyperTone;
     boolean speech;
+    String speechNote;
+    String toneNote;
     
 //    Psych
     boolean normalActivity;
     boolean distructable;
     boolean hyper;
+    String hyperNote;
     boolean autistic;
+    String autisticNote;
     boolean otherPsych;
     String otherPsychNote;
     boolean selMutilation;
+    String selMutilationNote;
     boolean irritable;
+    String irritableNote;
     boolean depressive;
+    String depressiveNote;
     boolean happy;
+    String happyNote;
     boolean otherPsych2;
     String otherPsych2Note;
+
+    public String getHyperNote() {
+        return hyperNote;
+    }
+
+    public void setHyperNote(String hyperNote) {
+        this.hyperNote = hyperNote;
+    }
+
+    public String getAutisticNote() {
+        return autisticNote;
+    }
+
+    public void setAutisticNote(String autisticNote) {
+        this.autisticNote = autisticNote;
+    }
+
+    public String getSelMutilationNote() {
+        return selMutilationNote;
+    }
+
+    public void setSelMutilationNote(String selMutilationNote) {
+        this.selMutilationNote = selMutilationNote;
+    }
+
+    public String getIrritableNote() {
+        return irritableNote;
+    }
+
+    public void setIrritableNote(String irritableNote) {
+        this.irritableNote = irritableNote;
+    }
+
+    public String getDepressiveNote() {
+        return depressiveNote;
+    }
+
+    public void setDepressiveNote(String depressiveNote) {
+        this.depressiveNote = depressiveNote;
+    }
+
+    public String getHappyNote() {
+        return happyNote;
+    }
+
+    public void setHappyNote(String happyNote) {
+        this.happyNote = happyNote;
+    }
+
+    public String getStrengthMusclesNote() {
+        return strengthMusclesNote;
+    }
+
+    public void setStrengthMusclesNote(String strengthMusclesNote) {
+        this.strengthMusclesNote = strengthMusclesNote;
+    }
+
+    public String getMassMusclesNote() {
+        return massMusclesNote;
+    }
+
+    public void setMassMusclesNote(String massMusclesNote) {
+        this.massMusclesNote = massMusclesNote;
+    }
+
+    public String getSpeechNote() {
+        return speechNote;
+    }
+
+    public void setSpeechNote(String speechNote) {
+        this.speechNote = speechNote;
+    }
+
+    public String getToneNote() {
+        return toneNote;
+    }
+
+    public void setToneNote(String toneNote) {
+        this.toneNote = toneNote;
+    }
+
+    public String getAsymmetryMovementsNote() {
+        return asymmetryMovementsNote;
+    }
+
+    public void setAsymmetryMovementsNote(String asymmetryMovementsNote) {
+        this.asymmetryMovementsNote = asymmetryMovementsNote;
+    }
+
+    public DysmorphologyExamination() {
+    }
+
+    public String getAbnormalRefNote() {
+        return abnormalRefNote;
+    }
+
+    public void setAbnormalRefNote(String abnormalRefNote) {
+        this.abnormalRefNote = abnormalRefNote;
+    }
+
+    public String getCranialNerveNote() {
+        return cranialNerveNote;
+    }
+
+    public void setCranialNerveNote(String cranialNerveNote) {
+        this.cranialNerveNote = cranialNerveNote;
+    }
 
     public String getOtherScrotumNote() {
         return otherScrotumNote;
@@ -1213,12 +1333,12 @@ public class DysmorphologyExamination implements Serializable {
         this.rightDermat5 = rightDermat5;
     }
 
-    public boolean getNormal() {
-        return normal;
+    public boolean isNormalNeuro() {
+        return normalNeuro;
     }
 
-    public void setNormal(boolean normal) {
-        this.normal = normal;
+    public void setNormalNeuro(boolean normalNeuro) {
+        this.normalNeuro = normalNeuro;
     }
 
     public boolean getCranialNerve() {
@@ -1493,8 +1613,7 @@ public class DysmorphologyExamination implements Serializable {
         this.otherPsych2Note = otherPsych2Note;
     }
 
-    public DysmorphologyExamination() {
-    }
+
     public boolean getOtherPenis() {
         return otherPenis;
     }

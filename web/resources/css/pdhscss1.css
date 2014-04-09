@@ -30,7 +30,7 @@ html, body{
 
 .headerblock{
     background-color: #ffffff;
-    border-bottom:  #6fddfc solid 2px;
+/*    border-bottom:  #6fddfc solid 2px;*/
     width: 100%;
     alignment-adjust: middle;
 }

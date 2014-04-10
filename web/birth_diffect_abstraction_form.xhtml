@@ -16,311 +16,306 @@
                             <h:outputLabel value="Case Ascertainment"></h:outputLabel>
                             <p:spacer width="10"></p:spacer>
                             <p:commandButton ajax="false" value="Save" action="#{abstractionFormController.saveSelected()}" id="cmdSv"></p:commandButton>
-                            <p:tooltip for="cmdSv" value="Save Birth Diffect Abstraction Form" showEffect="fade" hideEffect="fade" />
+                            <p:tooltip for="cmdSv" value="Save Birth Defects Abstraction Form" showEffect="fade" hideEffect="fade" />
                         </f:facet>
                         <p:tabView>
                             <!--<p:wizard>-->
-                            <p:tab title="Birth Diffect Abstraction Form ">
-
-
+                            <p:tab title="Birth Defects Abstraction Form ">
                                 <f:facet name="header">
-                                    <h:outputLabel value="Birth Diffect Abstraction Form"></h:outputLabel>
+                                    <h:outputLabel value="Birth Defects Abstraction Form"></h:outputLabel>
                                 </f:facet>
-                                
-                                    <table width="680px" style="padding: 2.5%" align="center" bgcolor="white" >
+                                <table width="680px" style="padding: 2.5%" align="center" bgcolor="#f0f0f0" >
                                         <tr>
                                             <td colspan="2" align="center"><p:outputLabel><b><font size="4">Birth Diffect Abstraction Form</font></b></p:outputLabel></td>
                                         </tr>
-                                    </table>
-                    
-                                    <table width="680px" style="padding: 2.5%" align="center" bgcolor="white">
-
-                                        <p:spacer width="10"></p:spacer>
+                                </table>
+                                <table width="680px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
+                                    <p:spacer width="10"></p:spacer>
+                                    <tr>
+                                        <td><p:outputLabel>1. Infant's name</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.infant.name}" size="40" id="txtInfantName"></p:inputText></td>
+                                        <p:tooltip for="txtInfantName" value="Type infant's name" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>2. Sex of infant</p:outputLabel></td>
+                                        <td><p:selectOneRadio value="#{abstractionFormController.current.infant.personSex}" id="Sex">
+                                                <f:selectItem itemValue="MALE" itemLabel="Male"></f:selectItem>
+                                                <f:selectItem itemValue="FEMALE" itemLabel="Female"></f:selectItem>
+                                                <f:selectItem itemValue="AMBIGUOUS" itemLabel="Ambiguous"></f:selectItem>
+                                            </p:selectOneRadio></td>
+                                        <p:tooltip for="Sex" value="Type infant's sex" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel><font color="blue">3. Location where case identified :</font></p:outputLabel></td>
+                                        <td><p:outputLabel><font color="blue">Residence :</font></p:outputLabel></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul><p:outputLabel>Hospital</p:outputLabel>
+                                                <p:autoComplete
+                                                    forceSelection="true"                                 
+                                                    value="#{abstractionFormController.current.hospital}" 
+                                                    completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                                    var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                                    converter="institutionConverter" id="acHos">
+                                                    <f:ajax event="itemSelect" execute="acHos" render="acWard" ></f:ajax>
+                                                </p:autoComplete>
+                                            </ul>
+                                        </td>
+                                        <p:tooltip for="acHos" value="Select hospital" showEffect="fade" hideEffect="fade" />
+                                        <td>
+                                            <ul><p:outputLabel>RDHS Division</p:outputLabel>  
+                                                <p:autoComplete
+                                                    forceSelection="true"                                 
+                                                    value="#{abstractionFormController.current.rdhsArea}" 
+                                                    completeMethod="#{areaController.completeDistricts}"
+                                                    var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                                    converter="areaConverter" id="acdiv">
+                                                    <f:ajax event="itemSelect" execute="acdiv" render="acmoh"></f:ajax>
+                                                </p:autoComplete>
+                                            </ul>
+                                        </td>
+                                        <p:tooltip for="acdiv" value="Select RDHS division" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul><p:outputLabel>Ward/Unit</p:outputLabel>  
+                                                <p:autoComplete
+                                                    forceSelection="true"                                 
+                                                    value="#{abstractionFormController.current.ward}" 
+                                                    completeMethod="#{abstractionFormController.completeOfficialDepartments}"
+                                                    var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                                    id="acWard">
+                                                </p:autoComplete>
+                                            </ul>
+                                        </td> 
+                                        <p:tooltip for="acWard" value="Select ward" showEffect="fade" hideEffect="fade" />
+                                        <td>
+                                            <ul><p:outputLabel>MOH Division</p:outputLabel>   
+                                                <p:autoComplete
+                                                    forceSelection="true"                                 
+                                                    value="#{abstractionFormController.current.mohArea}" 
+                                                    completeMethod="#{abstractionFormController.completeMohAreas}"
+                                                    var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                                    converter="areaConverter" id="acmoh">
+                                                    <f:ajax event="itemSelect" execute="acmoh" render="acGn"></f:ajax>
+                                                </p:autoComplete>
+                                            </ul>
+                                        </td>
+                                        <p:tooltip for="acmoh" value="Select MOH division" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul><p:outputLabel>District</p:outputLabel>   
+                                                <p:autoComplete
+                                                    forceSelection="true"                                 
+                                                    value="#{abstractionFormController.current.district}" 
+                                                    completeMethod="#{areaController.completeDistricts}"
+                                                    var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                                    converter="areaConverter" id="acDis">
+                                                    <f:ajax event="itemSelect" execute="acDis" render="acdiv"></f:ajax>
+                                                </p:autoComplete>
+                                            </ul>
+                                        </td> 
+                                        <p:tooltip for="acDis" value="Select district" showEffect="fade" hideEffect="fade" />
+                                        <td>
+                                            <ul><p:outputLabel>GN Division</p:outputLabel>    
+                                                <p:autoComplete
+                                                    forceSelection="true"                                 
+                                                    value="#{abstractionFormController.current.gnArea}" 
+                                                    completeMethod="#{abstractionFormController.completeGnAreas}"
+                                                    var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
+                                                    converter="areaConverter" id="acGn">
+                                                </p:autoComplete>
+                                            </ul>
+                                        </td>
+                                        <p:tooltip for="acGn" value="Select grama niladari division" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>4. Date of Case Identified</p:outputLabel></td>
+                                        <td><p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40" id="txtDCI"></p:calendar></td>
+                                        <p:tooltip for="txtDCI" value="Date of Case Identified" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>5. BHT No</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.bhtno}" size="40" id="txtBHT"></p:inputText></td>
+                                        <p:tooltip for="txtBHT" value="BHT number" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>6. Whether the baby alive or dead ?</p:outputLabel></td>
+                                        <td><p:selectOneRadio id="liveOrDead">
+                                                <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
+                                                <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
+                                            </p:selectOneRadio></td>
+                                        <p:tooltip for="liveOrDead" value="Select option" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>7. Diagnosis / Birth Defect Coding</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.diagnosis}" size="40" id="txtDiag"></p:inputText></td>
+                                        <p:tooltip for="txtDiag" value="Diagnosis / Birth Defect Coding" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                </table>
+                                <table width="680px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
+                                    <tr>
+                                        <td><p:outputLabel>8. Name of the mother</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.name}" size="40" id="txtMother"></p:inputText></td>
+                                        <p:tooltip for="txtMother" value="Name of the mother" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>9. Mother’s Date of Birth</p:outputLabel></td>
+                                        <td><p:calendar value="#{abstractionFormController.current.mother.dob}" size="40" id="txtMDOB"></p:calendar></td>
+                                        <p:tooltip for="txtMDOB" value="Mother’s Date of Birth" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>10. Age</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.age}" size="35" id="txtMAge"></p:inputText><p:outputLabel>Years</p:outputLabel></td>
+                                        <p:tooltip for="txtMAge" value="Mother's age" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>11. National Identity Card No</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.nic}" size="40" id="txtNIC"></p:inputText></td>
+                                        <p:tooltip for="txtNIC" value="National Identity Card No" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>12. Ethnicity</p:outputLabel></td>
+                                        <td><p:selectOneMenu value="#{abstractionFormController.current.infant.ethnicity}" style="width: 80px" id="somEth">
+                                                <f:selectItem itemLabel="Please Select" />
+                                                <f:selectItem itemLabel="Sinhala" itemValue="SINHALA" />
+                                                <f:selectItem itemLabel="Tamil" itemValue="TAMIL" />
+                                                <f:selectItem itemLabel="Muslim" itemValue="MUSLIM" />
+                                                <f:selectItem itemLabel="Burgher" itemValue="BURGHER" />
+                                                <f:selectItem itemLabel="Other" itemValue="OTHER" />
+                                            </p:selectOneMenu></td>
+                                        <p:tooltip for="somEth" value="Ethnicity" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>13. Residence Address</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.mother.address}" size="40" id="txtAddress"></p:inputText></td>
+                                        <p:tooltip for="txtAddress" value="Residence Address" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>14. Phone1</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.tp1}" size="40" id="txtP1"></p:inputText></td>
+                                        <p:tooltip for="txtP1" value="Mobile phone number" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>15. Phone2</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.tp2}" size="40" id="txtP2"></p:inputText></td>
+                                        <p:tooltip for="txtP2" value="Land phone number" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>16. Total Pregnancies</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.totPreg}" size="40" id="txtTP"></p:inputText></td>
+                                        <p:tooltip for="txtTP" value="Total Pregnancies" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>17. Live Births</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.liveBirth}" size="40" id="txtLB"></p:inputText></td>
+                                        <p:tooltip for="txtLB" value="Number of live births" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>18. Spontaneous Fetal Deaths </p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.sfDeath}" size="40" id="txtSFD"></p:inputText></td>
+                                        <p:tooltip for="txtSFD" value="Spontaneous fetal deaths" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel>19. Unspecified Fetal Deaths / Pregnancy terminations</p:outputLabel></td>
+                                        <td><p:inputText value="#{abstractionFormController.current.ufDeath}" size="40" id="txtUFD"></p:inputText></td>
+                                        <p:tooltip for="txtUFD" value="Unspecified Fetal Deaths / Pregnancy terminations" showEffect="fade" hideEffect="fade" />
+                                    </tr>
+                                    <tr><td></td><td></td></tr>
+                                    <tr>
+                                        <td colspan="2" align="center"><p:outputLabel><i><font size="2.5" color="red">Please select all maternal illnesses, conditions, and complications that apply</font></i></p:outputLabel></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.iddm}" itemLabel="Pre-pregnancy diabetes mellitus, IDDM" ></p:selectBooleanCheckbox></td>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.nidm}" itemLabel="Pre-pregnancy diabetes mellitus, NIDM"></p:selectBooleanCheckbox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.gdm}" itemLabel="GDM During this pregnancy" ></p:selectBooleanCheckbox></td>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.hyten}" itemLabel="Hypertension"></p:selectBooleanCheckbox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.epileps}" itemLabel="Epilepsy/seizures before or during this pregnancy" ></p:selectBooleanCheckbox></td>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.bmi}" itemLabel="Maternal obesity"></p:selectBooleanCheckbox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.cons}" itemLabel="Consanguinity" ></p:selectBooleanCheckbox></td>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.falicSupp}" itemLabel="Pre-pregnancy Folic Acid Supplementation"></p:selectBooleanCheckbox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.rub}" itemLabel="Rubella" ></p:selectBooleanCheckbox></td>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.cmv}" itemLabel="Cytomegalovirus (CMV)"></p:selectBooleanCheckbox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.othrFebIll}" itemLabel="Other febrile illness" ></p:selectBooleanCheckbox></td>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.medDurPreg}" itemLabel="Medications during pregnancy"></p:selectBooleanCheckbox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.actSmk}" itemLabel="Active Smoking" ></p:selectBooleanCheckbox></td>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.pasSmk}" itemLabel="Passive Smoking"></p:selectBooleanCheckbox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.alBfrPreg}" itemLabel="Alcohol Before Pregnancy" ></p:selectBooleanCheckbox></td>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.alDurPreg}" itemLabel="Alcohol During Pregnancy"></p:selectBooleanCheckbox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.othrSubs}" itemLabel="Other substances" ></p:selectBooleanCheckbox></td>
+                                        <td></td>
+                                    </tr>
+                                    <table align="center" width="680px" bgcolor="#f5f5f5" cellpadding="2.5" border="1">
                                         <tr>
-                                            <td><p:outputLabel>1. Infant's name</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.infant.name}" size="40" id="txtInfantName"></p:inputText></td>
-                                            <p:tooltip for="txtInfantName" value="Type infant's name" showEffect="fade" hideEffect="fade" />
-                                        </tr>
+                                            <th><p:outputLabel>Relationship to Child</p:outputLabel></th>
+                                            <th><p:outputLabel>Family Member’s Birth Defect</p:outputLabel></th>
+                                        </tr> 
                                         <tr>
-                                            <td><p:outputLabel>2. Sex of infant</p:outputLabel></td>
-                                            <td><p:selectOneRadio value="#{abstractionFormController.current.infant.personSex}" id="Sex">
-                                                    <f:selectItem itemValue="MALE" itemLabel="Male"></f:selectItem>
-                                                    <f:selectItem itemValue="FEMALE" itemLabel="Female"></f:selectItem>
-                                                    <f:selectItem itemValue="AMBIGUOUS" itemLabel="Ambiguous"></f:selectItem>
-                                                </p:selectOneRadio></td>
-                                            <p:tooltip for="Sex" value="Type infant's sex" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel><font color="blue">3. Location where case identified :</font></p:outputLabel></td>
-                                            <td><p:outputLabel><font color="blue">Residence :</font></p:outputLabel></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <ul><p:outputLabel>Hospital</p:outputLabel>
-                                                    <p:autoComplete
-                                                        forceSelection="true"                                 
-                                                        value="#{abstractionFormController.current.hospital}" 
-                                                        completeMethod="#{institutionController.completeOffcialInstitutions}"
-                                                        var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                        converter="institutionConverter" id="acHos">
-                                                        <f:ajax event="itemSelect" execute="acHos" render="acWard" ></f:ajax>
-                                                    </p:autoComplete>
-                                                </ul>
-                                            </td>
-                                            <p:tooltip for="acHos" value="Select hospital" showEffect="fade" hideEffect="fade" />
-                                            <td>
-                                                <ul><p:outputLabel>RDHS Division</p:outputLabel>  
-                                                    <p:autoComplete
-                                                        forceSelection="true"                                 
-                                                        value="#{abstractionFormController.current.rdhsArea}" 
-                                                        completeMethod="#{areaController.completeDistricts}"
-                                                        var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                        converter="areaConverter" id="acdiv">
-                                                        <f:ajax event="itemSelect" execute="acdiv" render="acmoh"></f:ajax>
-                                                    </p:autoComplete>
-                                                </ul>
-                                            </td>
-                                            <p:tooltip for="acdiv" value="Select RDHS division" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <ul><p:outputLabel>Ward/Unit</p:outputLabel>  
-                                                    <p:autoComplete
-                                                        forceSelection="true"                                 
-                                                        value="#{abstractionFormController.current.ward}" 
-                                                        completeMethod="#{abstractionFormController.completeOfficialDepartments}"
-                                                        var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                        id="acWard">
-                                                    </p:autoComplete>
-                                                </ul>
-                                            </td> 
-                                            <p:tooltip for="acWard" value="Select ward" showEffect="fade" hideEffect="fade" />
-                                            <td>
-                                                <ul><p:outputLabel>MOH Division</p:outputLabel>   
-                                                    <p:autoComplete
-                                                        forceSelection="true"                                 
-                                                        value="#{abstractionFormController.current.mohArea}" 
-                                                        completeMethod="#{abstractionFormController.completeMohAreas}"
-                                                        var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                        converter="areaConverter" id="acmoh">
-                                                        <f:ajax event="itemSelect" execute="acmoh" render="acGn"></f:ajax>
-                                                    </p:autoComplete>
-                                                </ul>
-                                            </td>
-                                            <p:tooltip for="acmoh" value="Select MOH division" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <ul><p:outputLabel>District</p:outputLabel>   
-                                                    <p:autoComplete
-                                                        forceSelection="true"                                 
-                                                        value="#{abstractionFormController.current.district}" 
-                                                        completeMethod="#{areaController.completeDistricts}"
-                                                        var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                        converter="areaConverter" id="acDis">
-                                                        <f:ajax event="itemSelect" execute="acDis" render="acdiv"></f:ajax>
-                                                    </p:autoComplete>
-                                                </ul>
-                                            </td> 
-                                            <p:tooltip for="acDis" value="Select district" showEffect="fade" hideEffect="fade" />
-                                            <td>
-                                                <ul><p:outputLabel>GN Division</p:outputLabel>    
-                                                    <p:autoComplete
-                                                        forceSelection="true"                                 
-                                                        value="#{abstractionFormController.current.gnArea}" 
-                                                        completeMethod="#{abstractionFormController.completeGnAreas}"
-                                                        var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                        converter="areaConverter" id="acGn">
-                                                    </p:autoComplete>
-                                                </ul>
-                                            </td>
-                                            <p:tooltip for="acGn" value="Select grama niladari division" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>4. Date of Case Identified</p:outputLabel></td>
-                                            <td><p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40" id="txtDCI"></p:calendar></td>
-                                            <p:tooltip for="txtDCI" value="Date of Case Identified" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>5. BHT No</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.bhtno}" size="40" id="txtBHT"></p:inputText></td>
-                                            <p:tooltip for="txtBHT" value="BHT number" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>6. Whether the baby alive or dead ?</p:outputLabel></td>
-                                            <td><p:selectOneRadio id="liveOrDead">
-                                                    <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
-                                                    <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
-                                                </p:selectOneRadio></td>
-                                            <p:tooltip for="liveOrDead" value="Select option" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>7. Diagnosis / Birth Defect Coding</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.diagnosis}" size="40" id="txtDiag"></p:inputText></td>
-                                            <p:tooltip for="txtDiag" value="Diagnosis / Birth Defect Coding" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                    </table>
-                                    <table width="680px" style="padding: 2.5%" align="center" bgcolor="white">
-                                        <tr>
-                                            <td><p:outputLabel>8. Name of the mother</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.mother.name}" size="40" id="txtMother"></p:inputText></td>
-                                            <p:tooltip for="txtMother" value="Name of the mother" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>9. Mother’s Date of Birth</p:outputLabel></td>
-                                            <td><p:calendar value="#{abstractionFormController.current.mother.dob}" size="40" id="txtMDOB"></p:calendar></td>
-                                            <p:tooltip for="txtMDOB" value="Mother’s Date of Birth" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>10. Age</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.mother.age}" size="35" id="txtMAge"></p:inputText><p:outputLabel>Years</p:outputLabel></td>
-                                            <p:tooltip for="txtMAge" value="Mother's age" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>11. National Identity Card No</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.mother.nic}" size="40" id="txtNIC"></p:inputText></td>
-                                            <p:tooltip for="txtNIC" value="National Identity Card No" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>12. Ethnicity</p:outputLabel></td>
-                                            <td><p:selectOneMenu value="#{abstractionFormController.current.infant.ethnicity}" style="width: 80px" id="somEth">
+                                            <td><p:selectOneMenu value="#{abstractionFormController.current.relationship1}" style="width: 225px">
                                                     <f:selectItem itemLabel="Please Select" />
-                                                    <f:selectItem itemLabel="Sinhala" itemValue="SINHALA" />
-                                                    <f:selectItem itemLabel="Tamil" itemValue="TAMIL" />
-                                                    <f:selectItem itemLabel="Muslim" itemValue="MUSLIM" />
-                                                    <f:selectItem itemLabel="Burgher" itemValue="BURGHER" />
-                                                    <f:selectItem itemLabel="Other" itemValue="OTHER" />
+                                                    <f:selectItem itemLabel="Father" itemValue="father" />
+                                                    <f:selectItem itemLabel="Mother" itemValue="mother" />
+                                                    <f:selectItem itemLabel="Siblings" itemValue="siblings" />
                                                 </p:selectOneMenu></td>
-                                            <p:tooltip for="somEth" value="Ethnicity" showEffect="fade" hideEffect="fade" />
+                                            <td><p:inputText value="#{abstractionFormController.current.perRelationship1}" style="width: 425px"></p:inputText></td>
                                         </tr>
                                         <tr>
-                                            <td><p:outputLabel>13. Residence Address</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.mother.address}" size="40" id="txtAddress"></p:inputText></td>
-                                            <p:tooltip for="txtAddress" value="Residence Address" showEffect="fade" hideEffect="fade" />
+                                            <td><p:selectOneMenu value="#{abstractionFormController.current.relationship2}" style="width: 225px">
+                                                    <f:selectItem itemLabel="Please Select" />
+                                                    <f:selectItem itemLabel="Father" itemValue="father" />
+                                                    <f:selectItem itemLabel="Mother" itemValue="mother" />
+                                                    <f:selectItem itemLabel="Siblings" itemValue="siblings" />
+                                                </p:selectOneMenu></td>
+                                            <td><p:inputText value="#{abstractionFormController.current.perRelationship2}" style="width: 425px"></p:inputText></td>
                                         </tr>
                                         <tr>
-                                            <td><p:outputLabel>14. Phone1</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.tp1}" size="40" id="txtP1"></p:inputText></td>
-                                            <p:tooltip for="txtP1" value="Mobile phone number" showEffect="fade" hideEffect="fade" />
+                                            <td><p:selectOneMenu value="#{abstractionFormController.current.relationship3}" style="width: 225px">
+                                                    <f:selectItem itemLabel="Please Select" />
+                                                    <f:selectItem itemLabel="Father" itemValue="father" />
+                                                    <f:selectItem itemLabel="Mother" itemValue="mother" />
+                                                    <f:selectItem itemLabel="Siblings" itemValue="siblings" />
+                                                </p:selectOneMenu></td>
+                                            <td><p:inputText value="#{abstractionFormController.current.perRelationship3}" style="width: 425px"></p:inputText></td>
                                         </tr>
                                         <tr>
-                                            <td><p:outputLabel>15. Phone2</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.tp2}" size="40" id="txtP2"></p:inputText></td>
-                                            <p:tooltip for="txtP2" value="Land phone number" showEffect="fade" hideEffect="fade" />
+                                            <td><p:selectOneMenu value="#{abstractionFormController.current.relationship4}" style="width: 225px">
+                                                    <f:selectItem itemLabel="Please Select" />
+                                                    <f:selectItem itemLabel="Father" itemValue="father" />
+                                                    <f:selectItem itemLabel="Mother" itemValue="mother" />
+                                                    <f:selectItem itemLabel="Siblings" itemValue="siblings" />
+                                                </p:selectOneMenu></td>
+                                            <td><p:inputText value="#{abstractionFormController.current.perRelationship4}" style="width: 425px"></p:inputText></td>
                                         </tr>
-                                        <tr>
-                                            <td><p:outputLabel>16. Total Pregnancies</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.totPreg}" size="40" id="txtTP"></p:inputText></td>
-                                            <p:tooltip for="txtTP" value="Total Pregnancies" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>17. Live Births</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.liveBirth}" size="40" id="txtLB"></p:inputText></td>
-                                            <p:tooltip for="txtLB" value="Number of live births" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>18. Spontaneous Fetal Deaths </p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.sfDeath}" size="40" id="txtSFD"></p:inputText></td>
-                                            <p:tooltip for="txtSFD" value="Spontaneous fetal deaths" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr>
-                                            <td><p:outputLabel>19. Unspecified Fetal Deaths / Pregnancy terminations</p:outputLabel></td>
-                                            <td><p:inputText value="#{abstractionFormController.current.ufDeath}" size="40" id="txtUFD"></p:inputText></td>
-                                            <p:tooltip for="txtUFD" value="Unspecified Fetal Deaths / Pregnancy terminations" showEffect="fade" hideEffect="fade" />
-                                        </tr>
-                                        <tr><td></td><td></td></tr>
-                                        <tr>
-                                            <td colspan="2" align="center"><p:outputLabel><i><font size="2.5" color="red">Please select all maternal illnesses, conditions, and complications that apply</font></i></p:outputLabel></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td><td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.iddm}" itemLabel="Pre-pregnancy diabetes mellitus, IDDM" ></p:selectBooleanCheckbox></td>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.nidm}" itemLabel="Pre-pregnancy diabetes mellitus, NIDM"></p:selectBooleanCheckbox></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.gdm}" itemLabel="GDM During this pregnancy" ></p:selectBooleanCheckbox></td>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.hyten}" itemLabel="Hypertension"></p:selectBooleanCheckbox></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.epileps}" itemLabel="Epilepsy/seizures before or during this pregnancy" ></p:selectBooleanCheckbox></td>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.bmi}" itemLabel="Maternal obesity"></p:selectBooleanCheckbox></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.cons}" itemLabel="Consanguinity" ></p:selectBooleanCheckbox></td>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.falicSupp}" itemLabel="Pre-pregnancy Folic Acid Supplementation"></p:selectBooleanCheckbox></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.rub}" itemLabel="Rubella" ></p:selectBooleanCheckbox></td>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.cmv}" itemLabel="Cytomegalovirus (CMV)"></p:selectBooleanCheckbox></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.othrFebIll}" itemLabel="Other febrile illness" ></p:selectBooleanCheckbox></td>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.medDurPreg}" itemLabel="Medications during pregnancy"></p:selectBooleanCheckbox></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.actSmk}" itemLabel="Active Smoking" ></p:selectBooleanCheckbox></td>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.pasSmk}" itemLabel="Passive Smoking"></p:selectBooleanCheckbox></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.alBfrPreg}" itemLabel="Alcohol Before Pregnancy" ></p:selectBooleanCheckbox></td>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.alDurPreg}" itemLabel="Alcohol During Pregnancy"></p:selectBooleanCheckbox></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p:selectBooleanCheckbox value="#{abstractionFormController.current.othrSubs}" itemLabel="Other substances" ></p:selectBooleanCheckbox></td>
-                                            <td></td>
-                                        </tr>
-                                        <table align="center" width="680px" bgcolor="white" cellpadding="2.5" border="1">
-                                            <tr>
-                                                <th><p:outputLabel>Relationship to Child</p:outputLabel></th>
-                                                <th><p:outputLabel>Family Member’s Birth Defect</p:outputLabel></th>
-                                            </tr> 
-                                            <tr>
-                                                <td><p:selectOneMenu value="#{abstractionFormController.current.relationship1}" style="width: 225px">
-                                                        <f:selectItem itemLabel="Please Select" />
-                                                        <f:selectItem itemLabel="Father" itemValue="father" />
-                                                        <f:selectItem itemLabel="Mother" itemValue="mother" />
-                                                        <f:selectItem itemLabel="Siblings" itemValue="siblings" />
-                                                    </p:selectOneMenu></td>
-                                                <td><p:inputText value="#{abstractionFormController.current.perRelationship1}" style="width: 425px"></p:inputText></td>
-                                            </tr>
-                                            <tr>
-                                                <td><p:selectOneMenu value="#{abstractionFormController.current.relationship2}" style="width: 225px">
-                                                        <f:selectItem itemLabel="Please Select" />
-                                                        <f:selectItem itemLabel="Father" itemValue="father" />
-                                                        <f:selectItem itemLabel="Mother" itemValue="mother" />
-                                                        <f:selectItem itemLabel="Siblings" itemValue="siblings" />
-                                                    </p:selectOneMenu></td>
-                                                <td><p:inputText value="#{abstractionFormController.current.perRelationship2}" style="width: 425px"></p:inputText></td>
-                                            </tr>
-                                            <tr>
-                                                <td><p:selectOneMenu value="#{abstractionFormController.current.relationship3}" style="width: 225px">
-                                                        <f:selectItem itemLabel="Please Select" />
-                                                        <f:selectItem itemLabel="Father" itemValue="father" />
-                                                        <f:selectItem itemLabel="Mother" itemValue="mother" />
-                                                        <f:selectItem itemLabel="Siblings" itemValue="siblings" />
-                                                    </p:selectOneMenu></td>
-                                                <td><p:inputText value="#{abstractionFormController.current.perRelationship3}" style="width: 425px"></p:inputText></td>
-                                            </tr>
-                                            <tr>
-                                                <td><p:selectOneMenu value="#{abstractionFormController.current.relationship4}" style="width: 225px">
-                                                        <f:selectItem itemLabel="Please Select" />
-                                                        <f:selectItem itemLabel="Father" itemValue="father" />
-                                                        <f:selectItem itemLabel="Mother" itemValue="mother" />
-                                                        <f:selectItem itemLabel="Siblings" itemValue="siblings" />
-                                                    </p:selectOneMenu></td>
-                                                <td><p:inputText value="#{abstractionFormController.current.perRelationship4}" style="width: 425px"></p:inputText></td>
-                                            </tr>
-                                        </table>
-                                        
                                     </table>
-                                
+
+                                </table>
+
                             </p:tab>
                             <p:tab title="Dysmorphology Examination">
 
 
-                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f0f0f0">
                                     <tr>
                                         <th colspan="2"><p:outputLabel><font size="4px">Dysmorphology Examination</font></p:outputLabel></th>
                                         <td></td>
@@ -329,7 +324,7 @@
                                             <p:outputLabel>Facility</p:outputLabel><br></br><p:inputText></p:inputText></td>
                                     </tr>
 
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer height="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Growth</p:outputLabel></td>
@@ -343,7 +338,7 @@
                                                 <p:selectBooleanCheckbox value="#{abstractionFormController.current.dysmorphologyExamination.macrocephaly}" itemLabel="Macrocephaly"></p:selectBooleanCheckbox></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer height="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Hair</p:outputLabel></td>
@@ -362,7 +357,7 @@
                                             <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture1.png" width="150px" height="75px"></h:graphicImage><h:graphicImage  class="pic2" library="image" name="Picture2.png" width="250px" height="75px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer height="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Head</p:outputLabel></td>
@@ -381,7 +376,7 @@
                                             <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture3.png" width="250px" height="75px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Face</p:outputLabel></td>
@@ -401,7 +396,7 @@
                                             <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture4.png" width="250px" height="75px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Eyes</p:outputLabel></td>
@@ -463,7 +458,7 @@
                                             <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture5.png" width="250px" height="75px"></h:graphicImage><h:graphicImage  class="pic1" library="image" name="Picture7.png" width="250px" height="75px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Ears</p:outputLabel></td>
@@ -522,7 +517,7 @@
                                             <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture8.png" width="150px" height="75px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Nose</p:outputLabel></td>
@@ -562,7 +557,7 @@
                                             <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture22.png" width="250px" height="75px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Mouth</p:outputLabel></td>
@@ -624,7 +619,7 @@
                                                 <h:graphicImage  class="pic1" library="image" name="Picture10.png" width="250px" height="75px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer height="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Neck / Jaw</p:outputLabel></td>
@@ -654,13 +649,13 @@
                                             <td width="100px"><h:graphicImage  class="pic1" library="image" name="Picture12.png" width="150px" height="75px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer height="10px"></p:spacer>
                                             <td colspan="4" align="center"><p:outputLabel><i><font size="2.5" color="red">*score as abnormal if divergent from head circumference centiles</font></i></p:outputLabel></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Chest / Heart</p:outputLabel></td>
@@ -718,7 +713,7 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer height="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Abdomen Back</p:outputLabel></td>
@@ -748,7 +743,7 @@
 
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Urogenital</p:outputLabel></td>
@@ -805,7 +800,7 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Limbs / Joints</p:outputLabel></td>
@@ -864,7 +859,7 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px" rowspan="2"><p:outputLabel>Hands / Feet</p:outputLabel></td>
@@ -961,7 +956,7 @@
                                             <td width="200px"><h:graphicImage  class="pic1" library="image" name="Picture17.png" width="200px" height="75px"></h:graphicImage><h:graphicImage  class="pic1" library="image" name="Picture18.png" width="150px" height="75px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <tr>
                                             <p:spacer width="10px"></p:spacer>
                                             <td width="80px"><p:outputLabel>Skin</p:outputLabel></td>
@@ -1124,7 +1119,7 @@
                                             <td width="100px"><h:graphicImage  class="pic1" library="image" name="Pictur21.png" width="265px" height="265px"></h:graphicImage></td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <p:spacer width="10px"></p:spacer>
                                         <tr>
                                             <td width="80px"><p:outputLabel>Neuro</p:outputLabel></td>
@@ -1209,7 +1204,7 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                    <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                         <p:spacer width="10px"></p:spacer>
                                         <tr>
                                             <td width="80px"><p:outputLabel>Psych</p:outputLabel></td>
@@ -1265,12 +1260,12 @@
                             </p:tab>
                             <p:tab title="Lab Notification Form">
 
-                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white" >
+                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f0f0f0" >
                                     <tr>
                                         <td colspan="2" align="center"><p:outputLabel><b><font size="4">Lab Notification Form</font></b></p:outputLabel></td>
                                     </tr>
                                 </table>
-                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                     <p:spacer height="10px"></p:spacer>
                                     <tr>
                                         <td width="200px"><p:outputLabel value="Major anomalies / medical problems"></p:outputLabel></td>
@@ -1289,7 +1284,7 @@
                                         <td><p:inputText value="#{abstractionFormController.current.labTest.comments}"></p:inputText></td>
                                     </tr>
                                 </table>
-                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                     <tr>
                                         <p:spacer height="10px"></p:spacer>
                                         <td rowspan="2" width="50px"><p:outputLabel value="1"></p:outputLabel></td>
@@ -1340,7 +1335,7 @@
                                             <p:inputText value="#{abstractionFormController.current.labTest.results5}" style="width: 400px"></p:inputText></td>
                                     </tr>
                                 </table>
-                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                     <p:spacer height="10px"></p:spacer>
 
                                     <tr>
@@ -1387,7 +1382,7 @@
                                         <td colspan="4"><p:inputTextarea value="#{abstractionFormController.current.labTest.neonatalComplications}" style="width: 725px"></p:inputTextarea></td>
                                     </tr>
                                 </table>
-                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                     <p:spacer height="10px"></p:spacer>
                                     <tr>
                                         <td width="50px"><p:outputLabel value="1"></p:outputLabel></td>
@@ -1445,7 +1440,7 @@
                                             <p:inputText value="#{abstractionFormController.current.labTest.results10}" style="width: 400px"></p:inputText></td>
                                     </tr>
                                 </table>
-                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                     <p:spacer height="10px"></p:spacer>
                                     <tr>
                                         <td width="50px"><p:outputLabel value="1"></p:outputLabel></td>
@@ -1492,7 +1487,7 @@
                                             <p:inputText value="#{abstractionFormController.current.labTest.results14}" style="width: 400px"></p:inputText></td>
                                     </tr>
                                 </table>
-                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="white">
+                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                     <p:spacer height="10px"></p:spacer>
 
 
@@ -1540,7 +1535,7 @@
                                     </table>
                                     <table width="1000px" align="center" bgcolor="white">
                                        <p:spacer height="10px"></p:spacer>
-                                       <table align="center" width="1000px" bgcolor="white" cellpadding="2.5" border="1">
+                                       <table align="center" width="1000px" bgcolor="#f5f5f5" cellpadding="2.5" border="1">
                                         <tr>
                                             <td width="50px"><p:outputLabel value="No"></p:outputLabel></td>
                                             <td><p:outputLabel value="Birth Defect Description"></p:outputLabel></td>
@@ -1602,10 +1597,10 @@
                             <!--</p:wizard>-->
                         </p:tabView>
                         <f:facet name="footer">
-                            <p align="center"><h:outputLabel value="Birth Diffect Abstraction Form"></h:outputLabel>
+                            <p align="center"><h:outputLabel value="Birth Defects Abstraction Form"></h:outputLabel>
                             <p:spacer width="10" ></p:spacer>
                             <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}" id="cmdSv2"></p:commandButton></p>
-                            <p:tooltip for="cmdSv2" value="Save Birth Diffect Abstraction Form" showEffect="fade" hideEffect="fade" />
+                            <p:tooltip for="cmdSv2" value="Save Birth Defects Abstraction Form" showEffect="fade" hideEffect="fade" />
                         </f:facet>
                     </p:panel>
                 </h:form>

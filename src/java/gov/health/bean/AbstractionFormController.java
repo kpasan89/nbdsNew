@@ -183,10 +183,11 @@ public class AbstractionFormController implements Serializable {
         return current;
     }
 
-    public void listAll() {
+    public String listAll() {
         System.out.println("lisintg all abs/ forms");
         items = getFacade().findAll();
         System.out.println("items = " + items);
+        return "view_all_abstraction_form";
     }
 
     public void setCurrent(AbstractionForm current) {

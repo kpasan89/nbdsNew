@@ -16,7 +16,9 @@ import gov.health.entity.Institution;
 import gov.health.entity.Person;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.EJB;
 import javax.inject.Named;
 
@@ -67,9 +69,9 @@ public class NotificationFormController implements Serializable {
         }
 
     }
-    
-     public List<Area> completeMohAreas(String qry) {
-        if (current == null || current.getDistrict()== null) {
+
+    public List<Area> completeMohAreas(String qry) {
+        if (current == null || current.getDistrict() == null) {
             return new ArrayList<Area>();
         } else {
             getAreaController().setSuperArea(current.getDistrict());
@@ -77,20 +79,18 @@ public class NotificationFormController implements Serializable {
         }
 
     }
-     
-          
-     public List<Area> completeGnAreas(String qry) {
-        if (current == null || current.getMohArea()== null) {
+
+    public List<Area> completeGnAreas(String qry) {
+        if (current == null || current.getMohArea() == null) {
             return new ArrayList<Area>();
         } else {
             getAreaController().setSuperArea(current.getMohArea());
             return getAreaController().completeSkipedAreasUnderSuperArea(qry);
         }
-     }
-     
-     
-     public List<Area> completeRdhsAreas(String qry) {
-        if (current == null || current.getDistrict()== null) {
+    }
+
+    public List<Area> completeRdhsAreas(String qry) {
+        if (current == null || current.getDistrict() == null) {
             return new ArrayList<Area>();
         } else {
             getAreaController().setSuperArea(current.getDistrict());
@@ -98,8 +98,6 @@ public class NotificationFormController implements Serializable {
         }
 
     }
-     
-
 
     public DepartmentController getDepartmentController() {
         return departmentController;
@@ -109,18 +107,26 @@ public class NotificationFormController implements Serializable {
         this.departmentController = departmentController;
     }
 
-    public void listAll() {
+    public String listAll() {
         String jpql;
         System.out.println("getSessionController() = " + getSessionController());
         System.out.println("getSessionController().loggedUser = " + getSessionController().getLoggedUser());
-        
-        if(getSessionController().getLoggedUser().getRestrictedInstitution()== null){
+
+        if (getSessionController().getLoggedUser().getRestrictedInstitution() == null) {
             NotificationForm n = new NotificationForm();
             jpql = "select n from NotificationForm n";
-        }else{
-            jpql = "select n from NotificationForm n";
+            items = getFacade().findBySQL(jpql);
+        } else {
+            Map m = new HashMap();
+            m.put("h", getSessionController().getLoggedUser().getRestrictedInstitution());
+            jpql = "select n from NotificationForm n Where n.hospital =:h";
+            System.out.println("m = " + m);
+            System.out.println("jpql = " + jpql);
+            items = getFacade().findBySQL(jpql,m);
         }
-        items = getFacade().findBySQL(jpql);
+        
+
+        return "view_all_notification_form";
     }
 
     public Department getDepartment() {
@@ -137,6 +143,9 @@ public class NotificationFormController implements Serializable {
         Person mother = new Person();
         current.setInfant(infant);
         current.setMother(mother);
+        if (getSessionController().getLoggedUser().getRestrictedInstitution() != null) {
+            current.setHospital(getSessionController().getLoggedUser().getRestrictedInstitution());
+        }
         return "add_hospital_notification_form";
     }
 
@@ -235,7 +244,6 @@ public class NotificationFormController implements Serializable {
         this.areaController = areaController;
     }
 
-    
     @FacesConverter(forClass = NotificationForm.class)
     public static class NotificationFormControllerConverter implements Converter {
 

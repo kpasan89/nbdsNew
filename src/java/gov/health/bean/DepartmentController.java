@@ -1,166 +1,38 @@
-/*
- * MSc(Biomedical Informatics) Project
- * 
- * Development and Implementation of a Web-based Combined Data Repository of 
- Genealogical, Clinical, Laboratory and Genetic Data 
- * and
- * a Set of Related Tools
- */
 package gov.health.bean;
 
-import gov.health.facade.DepartmentFacade;
 import gov.health.entity.Department;
+import gov.health.bean.util.JsfUtil;
+import gov.health.bean.util.PaginationHelper;
 import gov.health.entity.Institution;
+import gov.health.facade.DepartmentFacade;
+
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
-
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import javax.inject.Inject;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
+import javax.faces.model.SelectItem;
 
-/**
- *
- * @author Dr. M. H. B. Ariyaratne, MBBS, PGIM Trainee for MSc(Biomedical
- * Informatics)
- */
-@Named
+
+@Named("departmentController")
 @SessionScoped
 public class DepartmentController implements Serializable {
 
-    @EJB
-    DepartmentFacade ejbFacade;
-
-    @Inject
-    SessionController sessionController;
-
-    Department removing;
-    private Department current;
-    private List<Department> items = null;
-    String selectText = "";
-
     Institution institution;
-    String depaertmentName;
-
-    List<Department> insDepts;
-
-    private DepartmentFacade getFacade() {
-        return ejbFacade;
-    }
-
-    public void fillInsDepts() {
-        String sql;
-        Map m = new HashMap();
-        sql = "select d from Department d where d.retired=false and d.institution=:ins order by d.name";
-        m.put("ins", institution);
-        insDepts = getFacade().findBySQL(sql, m);
-    }
-
-    public void addDepartmentForInstitution() {
-        if (institution == null) {
-            JsfUtil.addErrorMessage("Please select the Institution");
-            return;
-        }
-        if (depaertmentName.trim().equals("")) {
-            JsfUtil.addErrorMessage("Please enter the name of the Department");
-            return;
-        }
-        Department departmentAdd = new Department();
-        departmentAdd.setInstitution(institution);
-        departmentAdd.setName(depaertmentName);
-        getFacade().create(departmentAdd);
-        depaertmentName = "";
-        fillInsDepts();
-        JsfUtil.addSuccessMessage("Saved");
-
-    }
-
-    public void prepareAdd() {
-        current = new Department();
-
-    }
-
-    public void removeDepartment() {
-        if (removing == null) {
-            JsfUtil.addErrorMessage("Nothing to Delete");
-            return;
-        }
-        removing.setRetired(true);
-        getFacade().edit(removing);
-        JsfUtil.addErrorMessage("Removed");
-        fillInsDepts();
-        removing = null;
-    }
-
-    public Department getRemoving() {
-        return removing;
-    }
-
-    public void setRemoving(Department removing) {
-        System.err.println("dep " + removing);
-        this.removing = removing;
-    }
-
-    public void departmenListen(Department dep) {
-        setRemoving(dep);
-    }
-
-    public List<Department> getInsDepts() {
-        return insDepts;
-    }
-
-    public void setInsDepts(List<Department> insDepts) {
-        this.insDepts = insDepts;
-    }
-
-    public void saveDepartment(Department ins) {
-        if (ins == null) {
-            JsfUtil.addErrorMessage("Nothing to update");
-            return;
-        }
-        if (ins.getId() == null || ins.getId() == 0) {
-            getFacade().create(ins);
-            JsfUtil.addSuccessMessage("Saved");
-        } else {
-            getFacade().edit(ins);
-            JsfUtil.addSuccessMessage("Updated");
-        }
-    }
-
-    public Department findDepartment(String insName, boolean createNew) {
-        insName = insName.trim();
-        if (insName.equals("")) {
-            return null;
-        }
-        Department ins = getFacade().findFirstBySQL("select d from Department d where d.retired = false and lower(d.name) = '" + insName.toLowerCase() + "'");
-        if (ins == null && createNew == true) {
-            ins = new Department();
-            ins.setName(insName);
-            ins.setCreatedAt(Calendar.getInstance().getTime());
-            ins.setCreater(sessionController.getLoggedUser());
-            getFacade().create(ins);
-        }
-        return ins;
-    }
-
-    public DepartmentController() {
-
-    }
-
-    public SessionController getSessionController() {
-        return sessionController;
-    }
-
-    public void setSessionController(SessionController sessionController) {
-        this.sessionController = sessionController;
-    }
+    private Department current;
+    private DataModel items = null;
+    @EJB private gov.health.facade.DepartmentFacade ejbFacade;
+    private PaginationHelper pagination;
+    private int selectedItemIndex;
 
     public Institution getInstitution() {
         return institution;
@@ -170,134 +42,185 @@ public class DepartmentController implements Serializable {
         this.institution = institution;
     }
 
-    public String getDepaertmentName() {
-        return depaertmentName;
-    }
-
-    public void setDepaertmentName(String depaertmentName) {
-        this.depaertmentName = depaertmentName;
-    }
-
     public Department getCurrent() {
-        if (current == null) {
-            current = new Department();
-        }
         return current;
     }
 
     public void setCurrent(Department current) {
-        if (this.current != current) {
-        }
         this.current = current;
     }
 
-    public List<Department> getItems() {
-        String temSql;
-        //if (items != null) {
-        //    return items;
-        // }
-        // if (getSelectText().equals("")) {
+    
+    
+    public DepartmentController() {
+    }
 
-        temSql = "SELECT i FROM Department i where i.retired=false order by i.name";
+    public Department getSelected() {
+        if (current == null) {
+            current = new Department();
+            selectedItemIndex = -1;
+        }
+        return current;
+    }
 
-        //} else {
-        //        temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + getSelectText().toLowerCase() + "%' order by i.name";
-        // }
-        items = getFacade().findBySQL(temSql);
-        System.out.println(temSql);
+    private DepartmentFacade getFacade() {
+        return ejbFacade;
+    }
+    public PaginationHelper getPagination() {
+        if (pagination == null) {
+            pagination = new PaginationHelper(10) {
+
+                @Override
+                public int getItemsCount() {
+                    return getFacade().count();
+                }
+
+                @Override
+                public DataModel createPageDataModel() {
+                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}));
+                }
+            };
+        }
+        return pagination;
+    }
+
+    public String prepareList() {
+        recreateModel();
+        return "List";
+    }
+
+    public String prepareView() {
+        current = (Department)getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "View";
+    }
+
+    public String prepareCreate() {
+        current = new Department();
+        selectedItemIndex = -1;
+        return "Create";
+    }
+
+    public String create() {
+        try {
+            getFacade().create(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DepartmentCreated"));
+            return prepareCreate();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+
+    public String prepareEdit() {
+        current = (Department)getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "Edit";
+    }
+
+    public String update() {
+        try {
+            getFacade().edit(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DepartmentUpdated"));
+            return "View";
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+
+    public String destroy() {
+        current = (Department)getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        performDestroy();
+        recreatePagination();
+        recreateModel();
+        return "List";
+    }
+
+    public String destroyAndView() {
+        performDestroy();
+        recreateModel();
+        updateCurrentItem();
+        if (selectedItemIndex >= 0) {
+            return "View";
+        } else {
+            // all items were removed - go back to list
+            recreateModel();
+            return "List";
+        }
+    }
+
+    private void performDestroy() {
+        try {
+            getFacade().remove(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DepartmentDeleted"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+    }
+
+    private void updateCurrentItem() {
+        int count = getFacade().count();
+        if (selectedItemIndex >= count) {
+            // selected index cannot be bigger than number of items:
+            selectedItemIndex = count-1;
+            // go to previous page if last page disappeared:
+            if (pagination.getPageFirstItem() >= count) {
+                pagination.previousPage();
+            }
+        }
+        if (selectedItemIndex >= 0) {
+            current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex+1}).get(0);
+        }
+    }
+    public DataModel getItems() {
+        if (items == null) {
+            items = getPagination().createPageDataModel();
+        }
         return items;
     }
 
-    public void setItems(List<Department> items) {
-        this.items = items;
+    private void recreateModel() {
+        items = null;
     }
 
-    public static int intValue(long value) {
-        int valueInt = (int) value;
-        if (valueInt != value) {
-            throw new IllegalArgumentException(
-                    "The long value " + value + " is not within range of the int type");
-        }
-        return valueInt;
+    private void recreatePagination() {
+        pagination = null;
     }
 
-    public void saveSelected() {
-        if (current == null) {
-            JsfUtil.addErrorMessage("Nothing to save");
-            return;
-        }
-
-        if (current.getId() != null && current.getId() != 0) {
-            getFacade().edit(current);
-            JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
-        } else {
-            current.setCreatedAt(Calendar.getInstance().getTime());
-            current.setCreater(sessionController.getLoggedUser());
-            getFacade().create(current);
-
-            JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
-        }
-
-        getItems();
-        selectText = "";
+    public String next() {
+        getPagination().nextPage();
+        recreateModel();
+        return "List";
     }
 
-    public void delete() {
-
-        if (current != null) {
-            current.setRetired(true);
-            current.setRetiredAt(Calendar.getInstance().getTime());
-            current.setRetirer(sessionController.getLoggedUser());
-            getFacade().edit(current);
-            JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
-        } else {
-            JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
-        }
-
-        getItems();
-        selectText = "";
-        current = null;
-
+    public String previous() {
+        getPagination().previousPage();
+        recreateModel();
+        return "List";
     }
 
-    public String getSelectText() {
-        return selectText;
+    public SelectItem[] getItemsAvailableSelectMany() {
+        return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
     }
 
-    public void setSelectText(String selectText) {
-        this.selectText = selectText;
-
+    public SelectItem[] getItemsAvailableSelectOne() {
+        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public List<Department> completeOfficialDepartments(String qry) {
-        String temSql;
-        List<Department> dep;
-        temSql = "SELECT i FROM Department i where i.retired=false  and LOWER(i.name) like '%" + qry.toLowerCase() + "%' order by i.name";
-        dep = getFacade().findBySQL(temSql);
-        return dep;
+    public Department getDepartment(java.lang.Long id) {
+        return ejbFacade.find(id);
     }
 
-    public List<Department> completeInstitutionDepartments(String qry) {
-        String temSql;
-        List<Department> dep;
+    List<Department> completeInstitutionDepartments(String qry) {
         Map m = new HashMap();
-        m.put("ins", institution);
-        temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + qry.toLowerCase() + "%' and i.institution=:ins order by i.name";
-        dep = getFacade().findBySQL(temSql, m);
-        System.out.println("m = " + m);
-        System.out.println("temSql = " + temSql);
-        return dep;
+        m.put("i", institution);
+        String jpql = "Select d from Department d where d.retired=false and d.institution=:i order by d.name";
+        return getFacade().findBySQL(jpql, m);
     }
 
-    public List<Department> completePayCentres(String qry) {
-        String temSql;
-        List<Department> dep;
-        temSql = "SELECT i FROM Department i where i.retired=false and i.payCentre = true and LOWER(i.name) like '%" + qry.toLowerCase() + "%' order by i.name";
-        dep = getFacade().findBySQL(temSql);
-        return dep;
-    }
-
-    @FacesConverter(forClass = Department.class)
+    @FacesConverter(forClass=Department.class)
     public static class DepartmentControllerConverter implements Converter {
 
         @Override
@@ -305,62 +228,9 @@ public class DepartmentController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            DepartmentController controller = (DepartmentController) facesContext.getApplication().getELResolver().
+            DepartmentController controller = (DepartmentController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "departmentController");
-            return controller.getFacade().find(getKey(value));
-        }
-
-        java.lang.Long getKey(String value) {
-            java.lang.Long key;
-            key = Long.valueOf(value);
-            return key;
-        }
-
-        String getStringKey(java.lang.Long value) {
-            StringBuffer sb = new StringBuffer();
-            sb.append(value);
-            return sb.toString();
-        }
-
-        @Override
-        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
-            if (object == null) {
-                return null;
-            }
-            if (object instanceof Department) {
-                Department o = (Department) object;
-                return getStringKey(o.getId());
-            } else {
-                throw new IllegalArgumentException("object " + object + " is of type "
-                        + object.getClass().getName() + "; expected type: " + DepartmentController.class.getName());
-            }
-        }
-    }
-
-    @FacesConverter("deptConverter")
-    public static class DepartmentConverter implements Converter {
-
-        /**
-         *
-         * @param facesContext
-         * @param component
-         * @param value
-         * @return
-         */
-        @Override
-        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
-            if (value == null || value.length() == 0) {
-                return null;
-            }
-            DepartmentController controller = (DepartmentController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "departmentController");
-
-            System.out.println("controller = " + controller);
-            System.out.println("controller.getFacade() = " + controller.getFacade());
-            System.out.println("value = " + value);
-            System.out.println("getKey(value) = " + getKey(value));
-
-            return controller.getFacade().find(getKey(value));
+            return controller.getDepartment(getKey(value));
         }
 
         java.lang.Long getKey(String value) {
@@ -375,13 +245,6 @@ public class DepartmentController implements Serializable {
             return sb.toString();
         }
 
-        /**
-         *
-         * @param facesContext
-         * @param component
-         * @param object
-         * @return
-         */
         @Override
         public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
             if (object == null) {
@@ -391,10 +254,10 @@ public class DepartmentController implements Serializable {
                 Department o = (Department) object;
                 return getStringKey(o.getId());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type "
-                        + object.getClass().getName() + "; expected type: " + DepartmentController.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+Department.class.getName());
             }
         }
+
     }
 
 }

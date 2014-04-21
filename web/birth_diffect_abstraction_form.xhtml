@@ -11,6 +11,8 @@
 
             <ui:define name="content">
                 <h:form>
+                 
+                    
                     <p:panel header="Case Ascertainment">
                         <f:facet name="header">
                             <h:outputLabel value="Case Ascertainment"></h:outputLabel>
@@ -85,8 +87,7 @@
                                                     value="#{abstractionFormController.current.ward}" 
                                                     completeMethod="#{abstractionFormController.completeOfficialDepartments}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    id="acWard"
-                                                    converter="deptConverter">
+                                                    id="acWard">
                                                 </p:autoComplete>
                                             </ul>
                                         </td> 

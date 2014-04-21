@@ -61,65 +61,14 @@
 
                 <h:panelGroup  rendered="#{sessionController.logged}" style="margin: 0px; padding: 0px; border: 0px;" >
 
-                    <h:form >
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                    <h:form >   
                         
                         <p:menubar styleClass="nonPrintBlock" style="border: 0px;">
                             <p:menuitem  ajax="false"  action="index" value="Home"></p:menuitem>
                             <p:submenu label="Cases" >
                                 <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
                                 <p:menuitem ajax="false" action="#{abstractionFormController.addNewAbstractionForm()}"  value="Case Ascertainment"  ></p:menuitem>
-                                <p:menuitem ajax="false" action="#{notificationFormController.listAll()}" value="List All Notification Forms"></p:menuitem>
+                                <p:menuitem ajax="false" action="#{notificationFormController.listAll}" value="List All Notification Forms"></p:menuitem>
                                 <p:menuitem ajax="false" action="#{abstractionFormController.listAll()}" value="List All Abstraction Forms"></p:menuitem> 
                             </p:submenu>
                             <p:submenu label="Reports" >

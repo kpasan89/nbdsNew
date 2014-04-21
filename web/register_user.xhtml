@@ -31,9 +31,12 @@
                     </p:selectOneListbox>
 
                     <h:outputLabel value="Previleges Restricted to" />
-                    <h:outputLabel rendered="#{sessionController.loggedUser.restrictedInstitution!=null}"  value="#{sessionController.loggedUser.restrictedInstitution.name}" />
+                    <h:outputLabel rendered="#{sessionController.loggedUser.restrictedInstitution!=null}"  
+                                   value="#{sessionController.loggedUser.restrictedInstitution.name}" />
                     
-                    <p:autoComplete  forceSelection="true" id="cmbIns" rendered="#{sessionController.loggedUser.restrictedInstitution==null}" value="#{sessionController.institution}" 
+                    <p:autoComplete  forceSelection="true" id="cmbIns" 
+                                     rendered="#{sessionController.loggedUser.restrictedInstitution==null}" 
+                                     value="#{sessionController.institution}" 
                                      completeMethod="#{institutionController.completeOffcialInstitutions}"
                                      var="ri" itemValue="#{ri}" itemLabel="#{ri.name}" 
                                      >

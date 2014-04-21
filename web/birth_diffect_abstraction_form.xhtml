@@ -85,7 +85,8 @@
                                                     value="#{abstractionFormController.current.ward}" 
                                                     completeMethod="#{abstractionFormController.completeOfficialDepartments}"
                                                     var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" 
-                                                    id="acWard">
+                                                    id="acWard"
+                                                    converter="deptConverter">
                                                 </p:autoComplete>
                                             </ul>
                                         </td> 

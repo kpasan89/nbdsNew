@@ -36,7 +36,7 @@ import javax.inject.Inject;
 public class DepartmentController implements Serializable {
 
     @EJB
-    DepartmentFacade facade;
+    DepartmentFacade ejbFacade;
 
     @Inject
     SessionController sessionController;
@@ -50,6 +50,10 @@ public class DepartmentController implements Serializable {
     String depaertmentName;
 
     List<Department> insDepts;
+
+    private DepartmentFacade getFacade() {
+        return ejbFacade;
+    }
 
     public void fillInsDepts() {
         String sql;
@@ -187,10 +191,6 @@ public class DepartmentController implements Serializable {
         this.current = current;
     }
 
-    private DepartmentFacade getFacade() {
-        return facade;
-    }
-
     public List<Department> getItems() {
         String temSql;
         //if (items != null) {
@@ -206,10 +206,6 @@ public class DepartmentController implements Serializable {
         items = getFacade().findBySQL(temSql);
         System.out.println(temSql);
         return items;
-    }
-
-    public void setFacade(DepartmentFacade facade) {
-        this.facade = facade;
     }
 
     public void setItems(List<Department> items) {
@@ -280,15 +276,14 @@ public class DepartmentController implements Serializable {
         dep = getFacade().findBySQL(temSql);
         return dep;
     }
-    
-    
+
     public List<Department> completeInstitutionDepartments(String qry) {
         String temSql;
         List<Department> dep;
         Map m = new HashMap();
         m.put("ins", institution);
         temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + qry.toLowerCase() + "%' and i.institution=:ins order by i.name";
-        dep = getFacade().findBySQL(temSql,m);
+        dep = getFacade().findBySQL(temSql, m);
         System.out.println("m = " + m);
         System.out.println("temSql = " + temSql);
         return dep;
@@ -302,11 +297,10 @@ public class DepartmentController implements Serializable {
         return dep;
     }
 
-    
-      
     @FacesConverter(forClass = Department.class)
     public static class DepartmentControllerConverter implements Converter {
 
+        @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
@@ -328,6 +322,7 @@ public class DepartmentController implements Serializable {
             return sb.toString();
         }
 
+        @Override
         public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
             if (object == null) {
                 return null;
@@ -342,5 +337,64 @@ public class DepartmentController implements Serializable {
         }
     }
 
-    
+    @FacesConverter("deptConverter")
+    public static class DepartmentConverter implements Converter {
+
+        /**
+         *
+         * @param facesContext
+         * @param component
+         * @param value
+         * @return
+         */
+        @Override
+        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
+            if (value == null || value.length() == 0) {
+                return null;
+            }
+            DepartmentController controller = (DepartmentController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "departmentController");
+
+            System.out.println("controller = " + controller);
+            System.out.println("controller.getFacade() = " + controller.getFacade());
+            System.out.println("value = " + value);
+            System.out.println("getKey(value) = " + getKey(value));
+
+            return controller.getFacade().find(getKey(value));
+        }
+
+        java.lang.Long getKey(String value) {
+            java.lang.Long key;
+            key = Long.valueOf(value);
+            return key;
+        }
+
+        String getStringKey(java.lang.Long value) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(value);
+            return sb.toString();
+        }
+
+        /**
+         *
+         * @param facesContext
+         * @param component
+         * @param object
+         * @return
+         */
+        @Override
+        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
+            if (object == null) {
+                return null;
+            }
+            if (object instanceof Department) {
+                Department o = (Department) object;
+                return getStringKey(o.getId());
+            } else {
+                throw new IllegalArgumentException("object " + object + " is of type "
+                        + object.getClass().getName() + "; expected type: " + DepartmentController.class.getName());
+            }
+        }
+    }
+
 }

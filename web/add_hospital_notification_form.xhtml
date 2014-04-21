@@ -13,9 +13,9 @@
 
             <ui:define name="content">
 
-                <h:form >
+                <h:form>
 
-                    <p:panel  >
+                    <p:panel>
 
                         <f:facet name="header" >
                             <h:outputLabel value="Hospital Notification Form" style="alignment-adjust: middle"></h:outputLabel>
@@ -79,7 +79,8 @@
                                                 forceSelection="true"                                 
                                                 value="#{notificationFormController.current.ward}" 
                                                 completeMethod="#{notificationFormController.completeOfficialDepartments}"
-                                                var="of" itemLabel="#{of.name}" itemValue="#{of}">
+                                                var="of" itemLabel="#{of.name}" itemValue="#{of}"
+                                                converter="deptConverter">
                                             </p:autoComplete></ul>
                                     </td>
                                     <p:tooltip for="acWard" value="Select Ward" showEffect="fade" hideEffect="fade" />

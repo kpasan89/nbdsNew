@@ -18,7 +18,16 @@
 
 
             <p:panel header="Dashboard" >
-                <h:graphicImage  class="pdLogin" library="image" name="Welcome.png"  height="60%" width="100%"></h:graphicImage>
+                <h:graphicImage  class="pdLogin" library="image" name="Welcome.png"  height="60%" width="100%">
+                    <p:stack icon="/resources/image/stack.png">
+                        <p:menuitem value="Home" icon="/resources/image/aperture.png" url="#"/>  
+                        <p:menuitem value="Home" icon="/resources/image/safari.png" url="#"/>  
+                        <p:menuitem value="Music" icon="/resources/image/coda.png" url="#"/>
+                        <p:menuitem value="Music" icon="/resources/image/itunes.png" url="#"/>
+                        <p:menuitem value="Music" icon="/resources/image/finder.png" url="#"/>
+                        <p:menuitem value="Music" icon="/resources/image/apple_logo.png" url="#"/>
+                    </p:stack>
+                </h:graphicImage>
             </p:panel> 
         </h:form>
     </ui:define>

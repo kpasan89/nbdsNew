@@ -49,26 +49,11 @@
             </f:facet>  
         </p:ajaxStatus>  
 
-        <div Class="wholepage" style="width: 98%; height: 96%; ">
+        <div Class="wholepage" style="width: 98%; height: 96%">
 
-            <!--            <h:panelGrid columns="2" id="header" class="headerblock" >
-                            <h:graphicImage  class="pdLogin" library="image" name="BDS 2.png"  height="150px" width="1400px"></h:graphicImage>
-                            <h:panelGroup style="margin: auto; padding: 5px; border:0px; width: 20%; text-align: center; vertical-align: middle;">
-                                <h:graphicImage  class="pdLogo" library="image" name="logo.png"  height="40px"></h:graphicImage>
-                                <p:spacer width="20px"></p:spacer>
-                                <h:graphicImage  class="pdLogo" library="image" name="2.jpg"  height="40px"></h:graphicImage>
-                                <p:spacer width="20px"></p:spacer>
-                                <h:graphicImage  class="pdLogo" library="image" name="logo.jpg"  height="40px"></h:graphicImage>
-                                
-                            </h:panelGroup>
-                            <h:panelGroup style="margin: auto; padding: 1px; border: 0px; width: 75%;  text-align: center; vertical-align: middle;  ">
-                                <h:outputLabel value="#{labels.topic}" style="font-size: 2.0em; font-family: Verdana ;" ></h:outputLabel><br/>&nbsp;
-                                <h:outputLabel value="#{labels.subtopic}" style="font-size: 1.0em; font-family: Verdana ;" ></h:outputLabel> 
-                            </h:panelGroup>
-                        </h:panelGrid>-->
-            <h:panelGrid columns="2" id="header">
+            <h:panelGrid columns="2" id="header" class="headerblock">
                 <h:panelGroup style="margin: auto">
-                    <h:graphicImage class="banner" library="image" name="BDS 2.png"  height="150px" width="1405px"></h:graphicImage>
+                    <h:graphicImage class="banner" library="image" name="BDS 2.png"  height="20%" width="100%"></h:graphicImage>
                 </h:panelGroup>
             </h:panelGrid>
 
@@ -90,8 +75,8 @@
                             <p:submenu label="Reports"  >
                                 <p:menuitem ajax="false" action="institution_designation_summary" value="Institutional Birth Defects Registry" ></p:menuitem>
                                 <p:menuitem ajax="false" action="paycentre_designation_summary" value="District Birth Defects Registry" ></p:menuitem>
-                                <p:menuitem ajax="false" action="records_without_nic"  value="Quarterly Institutional Summery"  ></p:menuitem>
-                                <p:menuitem ajax="false" action="records_without_nic"  value="Quarterly District Summery"  ></p:menuitem>
+                                <p:menuitem ajax="false" action="records_without_nic"  value="Quarterly Institutional Summary"  ></p:menuitem>
+                                <p:menuitem ajax="false" action="records_without_nic"  value="Quarterly District Summary"  ></p:menuitem>
                             </p:submenu>
                             <p:submenu label="Administration"  rendered="#{sessionController.sysAdmin}">
                                 <p:submenu label="Institutions" >

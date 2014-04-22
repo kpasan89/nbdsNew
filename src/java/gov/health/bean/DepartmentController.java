@@ -1,16 +1,9 @@
-/*
- * MSc(Biomedical Informatics) Project
- * 
- * Development and Implementation of a Web-based Combined Data Repository of 
- Genealogical, Clinical, Laboratory and Genetic Data 
- * and
- * a Set of Related Tools
- */
 package gov.health.bean;
 
-import gov.health.facade.DepartmentFacade;
 import gov.health.entity.Department;
 import gov.health.entity.Institution;
+import gov.health.facade.DepartmentFacade;
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -18,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.inject.Named;
-
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -26,17 +18,13 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-/**
- *
- * @author Dr. M. H. B. Ariyaratne, MBBS, PGIM Trainee for MSc(Biomedical
- * Informatics)
- */
-@Named
+
+@Named("departmentController")
 @SessionScoped
 public class DepartmentController implements Serializable {
 
     @EJB
-    DepartmentFacade facade;
+    DepartmentFacade ejbFacade;
 
     @Inject
     SessionController sessionController;
@@ -51,6 +39,10 @@ public class DepartmentController implements Serializable {
 
     List<Department> insDepts;
 
+    private DepartmentFacade getFacade() {
+        return ejbFacade;
+    }
+
     public void fillInsDepts() {
         String sql;
         Map m = new HashMap();
@@ -61,11 +53,11 @@ public class DepartmentController implements Serializable {
 
     public void addDepartmentForInstitution() {
         if (institution == null) {
-            JsfUtil.addErrorMessage("Please select the Institution");
+            gov.health.bean.JsfUtil.addErrorMessage("Please select the Institution");
             return;
         }
         if (depaertmentName.trim().equals("")) {
-            JsfUtil.addErrorMessage("Please enter the name of the Department");
+            gov.health.bean.JsfUtil.addErrorMessage("Please enter the name of the Department");
             return;
         }
         Department departmentAdd = new Department();
@@ -74,7 +66,7 @@ public class DepartmentController implements Serializable {
         getFacade().create(departmentAdd);
         depaertmentName = "";
         fillInsDepts();
-        JsfUtil.addSuccessMessage("Saved");
+        gov.health.bean.JsfUtil.addSuccessMessage("Saved");
 
     }
 
@@ -85,12 +77,12 @@ public class DepartmentController implements Serializable {
 
     public void removeDepartment() {
         if (removing == null) {
-            JsfUtil.addErrorMessage("Nothing to Delete");
+            gov.health.bean.JsfUtil.addErrorMessage("Nothing to Delete");
             return;
         }
         removing.setRetired(true);
         getFacade().edit(removing);
-        JsfUtil.addErrorMessage("Removed");
+        gov.health.bean.JsfUtil.addErrorMessage("Removed");
         fillInsDepts();
         removing = null;
     }
@@ -118,15 +110,15 @@ public class DepartmentController implements Serializable {
 
     public void saveDepartment(Department ins) {
         if (ins == null) {
-            JsfUtil.addErrorMessage("Nothing to update");
+            gov.health.bean.JsfUtil.addErrorMessage("Nothing to update");
             return;
         }
         if (ins.getId() == null || ins.getId() == 0) {
             getFacade().create(ins);
-            JsfUtil.addSuccessMessage("Saved");
+            gov.health.bean.JsfUtil.addSuccessMessage("Saved");
         } else {
             getFacade().edit(ins);
-            JsfUtil.addSuccessMessage("Updated");
+            gov.health.bean.JsfUtil.addSuccessMessage("Updated");
         }
     }
 
@@ -187,10 +179,6 @@ public class DepartmentController implements Serializable {
         this.current = current;
     }
 
-    private DepartmentFacade getFacade() {
-        return facade;
-    }
-
     public List<Department> getItems() {
         String temSql;
         //if (items != null) {
@@ -208,10 +196,6 @@ public class DepartmentController implements Serializable {
         return items;
     }
 
-    public void setFacade(DepartmentFacade facade) {
-        this.facade = facade;
-    }
-
     public void setItems(List<Department> items) {
         this.items = items;
     }
@@ -227,19 +211,19 @@ public class DepartmentController implements Serializable {
 
     public void saveSelected() {
         if (current == null) {
-            JsfUtil.addErrorMessage("Nothing to save");
+            gov.health.bean.JsfUtil.addErrorMessage("Nothing to save");
             return;
         }
 
         if (current.getId() != null && current.getId() != 0) {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
+            gov.health.bean.JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
         } else {
             current.setCreatedAt(Calendar.getInstance().getTime());
             current.setCreater(sessionController.getLoggedUser());
             getFacade().create(current);
 
-            JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
+            gov.health.bean.JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
         }
 
         getItems();
@@ -253,9 +237,9 @@ public class DepartmentController implements Serializable {
             current.setRetiredAt(Calendar.getInstance().getTime());
             current.setRetirer(sessionController.getLoggedUser());
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
+            gov.health.bean.JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
         } else {
-            JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
+            gov.health.bean.JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
         }
 
         getItems();
@@ -272,7 +256,9 @@ public class DepartmentController implements Serializable {
         this.selectText = selectText;
 
     }
-
+public Department getDepartment(java.lang.Long id) {
+        return ejbFacade.find(id);
+    }
     public List<Department> completeOfficialDepartments(String qry) {
         String temSql;
         List<Department> dep;
@@ -280,40 +266,30 @@ public class DepartmentController implements Serializable {
         dep = getFacade().findBySQL(temSql);
         return dep;
     }
-    
-    
+
     public List<Department> completeInstitutionDepartments(String qry) {
         String temSql;
         List<Department> dep;
         Map m = new HashMap();
         m.put("ins", institution);
         temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + qry.toLowerCase() + "%' and i.institution=:ins order by i.name";
-        dep = getFacade().findBySQL(temSql,m);
+        dep = getFacade().findBySQL(temSql, m);
         System.out.println("m = " + m);
         System.out.println("temSql = " + temSql);
         return dep;
     }
 
-    public List<Department> completePayCentres(String qry) {
-        String temSql;
-        List<Department> dep;
-        temSql = "SELECT i FROM Department i where i.retired=false and i.payCentre = true and LOWER(i.name) like '%" + qry.toLowerCase() + "%' order by i.name";
-        dep = getFacade().findBySQL(temSql);
-        return dep;
-    }
-
-    
-      
-    @FacesConverter(forClass = Department.class)
+    @FacesConverter(forClass=Department.class)
     public static class DepartmentControllerConverter implements Converter {
 
+        @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            DepartmentController controller = (DepartmentController) facesContext.getApplication().getELResolver().
+            DepartmentController controller = (DepartmentController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "departmentController");
-            return controller.getFacade().find(getKey(value));
+            return controller.getDepartment(getKey(value));
         }
 
         java.lang.Long getKey(String value) {
@@ -323,11 +299,12 @@ public class DepartmentController implements Serializable {
         }
 
         String getStringKey(java.lang.Long value) {
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
         }
 
+        @Override
         public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
             if (object == null) {
                 return null;
@@ -336,11 +313,10 @@ public class DepartmentController implements Serializable {
                 Department o = (Department) object;
                 return getStringKey(o.getId());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type "
-                        + object.getClass().getName() + "; expected type: " + DepartmentController.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+Department.class.getName());
             }
         }
+
     }
 
-    
 }

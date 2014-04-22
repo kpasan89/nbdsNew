@@ -460,7 +460,7 @@ public class SessionController implements Serializable {
         } else if (user.getRole() != null && "superUser".equals(user.getRole().getName())) {
             user.setRestrictedInstitution(null);
         } else {
-            user.setRestrictedInstitution(getLoggedUser().getRestrictedInstitution());
+            user.setRestrictedInstitution(institution);
         }
         uFacade.create(user);
         JsfUtil.addSuccessMessage("New User Registered.");

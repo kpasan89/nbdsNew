@@ -13,9 +13,10 @@
 
             <ui:define name="content">
 
-                <h:form >
+                <h:form>
 
-                    <p:panel  >
+                    
+                    <p:panel>
 
                         <f:facet name="header" >
                             <h:outputLabel value="Hospital Notification Form" style="alignment-adjust: middle"></h:outputLabel>
@@ -55,7 +56,7 @@
                                             <p:autoComplete id="acHos"
                                                             forceSelection="true"                                 
                                                             value="#{notificationFormController.current.hospital}" 
-                                                            completeMethod="#{institutionController.completeOffcialInstitutions}"
+                                                            completeMethod="#{institutionController.completeHospitals}"
                                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
                                                 <f:ajax event="itemSelect" execute="acHos" render="acWard" ></f:ajax>
                                             </p:autoComplete></ul>

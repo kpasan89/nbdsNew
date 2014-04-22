@@ -7,22 +7,26 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:p="http://primefaces.org/ui">
 
-
     <ui:define name="content">
 
-         
         <h:form>
-            
-             
+
             <p:growl id="messages" autoUpdate="true"/>
-
-
+            
             <p:panel header="Dashboard" >
-                <h:graphicImage  class="pdLogin" library="image" name="Welcome.png"  height="60%" width="100%"></h:graphicImage>
+                <h:graphicImage  class="pdLogin" library="image" name="Welcome.png"  height="60%" width="100%">
+                    
+                    <p:stack icon="/resources/image/stack.png">
+                        <p:menuitem value="Log_Out" icon="/resources/image/Logout1.png" style="width: 25px; height: 25px" action="#{sessionController.logout}" ajax="false" rendered="#{sessionController.logged}"/>  
+                        <p:menuitem value="Notification_Form" icon="/resources/image/forms.png" style="width: 25px; height: 25px" action="add_hospital_notification_form" />  
+                        <p:menuitem value="Abstraction_Form" icon="/resources/image/Form1.png" style="width: 25px; height: 25px" action="birth_diffect_abstraction_form"/>
+                        <p:menuitem value="List_All_Notification_Forms" icon="/resources/image/view.png" style="width: 25px; height: 25px" action="view_all_notification_form"/>
+                        <p:menuitem value="List_All_Abstraction_Forms" icon="/resources/image/view.png" style="width: 25px; height: 25px" action="view_all_abstraction_form"/>
+                        <p:menuitem value="Add_Users" icon="/resources/image/UserGroup.png" style="width: 25px; height: 25px" action="manage_users"/>
+                    </p:stack>
+                    
+                </h:graphicImage>
             </p:panel> 
-
-
-
         </h:form>
     </ui:define>
 

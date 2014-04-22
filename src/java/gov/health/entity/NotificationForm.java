@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package gov.health.entity;
 
-import gov.health.data.Ethnicity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
@@ -25,11 +22,12 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class NotificationForm implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @ManyToOne(cascade = CascadeType.ALL)
     Person infant;
     @ManyToOne(cascade = CascadeType.ALL)
@@ -88,6 +86,66 @@ public class NotificationForm implements Serializable {
     @ManyToOne
     Area area;
     String pregregno;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    Date registeredAt;
+    boolean registered;
+    @ManyToOne
+    WebUser registeredUser;
+    String registeredNumber;
+    boolean retired;
+    @ManyToOne
+    WebUser retiredUser;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    Date retiredAt;
+    @Lob
+    String retiredComments;
+
+    @ManyToOne
+    NotificationForm originalNotification;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    Date originalSetAt;
+    @ManyToOne
+    WebUser originalSetUser;
+    @Lob
+    String originalSetComments;
+    
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    Date createdAt;
+    @ManyToOne
+    WebUser createdUser;
+    
+
+    public Date getRegisteredAt() {
+        return registeredAt;
+    }
+
+    public void setRegisteredAt(Date registeredAt) {
+        this.registeredAt = registeredAt;
+    }
+
+    public boolean isRegistered() {
+        return registered;
+    }
+
+    public void setRegistered(boolean registered) {
+        this.registered = registered;
+    }
+
+    public WebUser getRegisteredUser() {
+        return registeredUser;
+    }
+
+    public void setRegisteredUser(WebUser registeredUser) {
+        this.registeredUser = registeredUser;
+    }
+
+    public String getRegisteredNumber() {
+        return registeredNumber;
+    }
+
+    public void setRegisteredNumber(String registeredNumber) {
+        this.registeredNumber = registeredNumber;
+    }
 
     public String getPregregno() {
         return pregregno;
@@ -96,7 +154,6 @@ public class NotificationForm implements Serializable {
     public void setPregregno(String pregregno) {
         this.pregregno = pregregno;
     }
-    
 
     public Institution getInstitution() {
         return institution;
@@ -113,10 +170,7 @@ public class NotificationForm implements Serializable {
     public void setArea(Area area) {
         this.area = area;
     }
-    
 
-    
-    
     public boolean getPostMortem() {
         return postMortem;
     }
@@ -125,8 +179,6 @@ public class NotificationForm implements Serializable {
         this.postMortem = postMortem;
     }
 
-    
-    
     public String getInTp() {
         return inTp;
     }
@@ -335,8 +387,7 @@ public class NotificationForm implements Serializable {
     public void setTp2(String tp2) {
         this.tp2 = tp2;
     }
-    
-    
+
     public Person getInfantDod() {
         return infantDod;
     }
@@ -435,6 +486,87 @@ public class NotificationForm implements Serializable {
 
     public NotificationForm() {
     }
-    
-    
+
+    public boolean isRetired() {
+        return retired;
+    }
+
+    public void setRetired(boolean retired) {
+        this.retired = retired;
+    }
+
+    public WebUser getRetiredUser() {
+        return retiredUser;
+    }
+
+    public void setRetiredUser(WebUser retiredUser) {
+        this.retiredUser = retiredUser;
+    }
+
+    public Date getRetiredAt() {
+        return retiredAt;
+    }
+
+    public void setRetiredAt(Date retiredAt) {
+        this.retiredAt = retiredAt;
+    }
+
+    public String getRetiredComments() {
+        return retiredComments;
+    }
+
+    public void setRetiredComments(String retiredComments) {
+        this.retiredComments = retiredComments;
+    }
+
+    public NotificationForm getOriginalNotification() {
+        return originalNotification;
+    }
+
+    public void setOriginalNotification(NotificationForm originalNotification) {
+        this.originalNotification = originalNotification;
+    }
+
+    public Date getOriginalSetAt() {
+        return originalSetAt;
+    }
+
+    public void setOriginalSetAt(Date originalSetAt) {
+        this.originalSetAt = originalSetAt;
+    }
+
+    public WebUser getOriginalSetUser() {
+        return originalSetUser;
+    }
+
+    public void setOriginalSetUser(WebUser originalSetUser) {
+        this.originalSetUser = originalSetUser;
+    }
+
+    public String getOriginalSetComments() {
+        return originalSetComments;
+    }
+
+    public void setOriginalSetComments(String originalSetComments) {
+        this.originalSetComments = originalSetComments;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public WebUser getCreatedUser() {
+        return createdUser;
+    }
+
+    public void setCreatedUser(WebUser createdUser) {
+        this.createdUser = createdUser;
+    }
+
+ 
+
 }

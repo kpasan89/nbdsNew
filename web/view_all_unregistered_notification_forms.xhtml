@@ -14,7 +14,7 @@
                 <h:form>
                     <p:panel >
                         <f:facet name="header" >
-                            <h:outputLabel value="Unregisterd Notification Forms" ></h:outputLabel>
+                            <h:outputLabel value="View All Unregisterd Notification Forms" ></h:outputLabel>
                             <p:commandButton ajax="false" action="#{notificationFormController.listUnregForms()}" 
                                              value="Refresh" ></p:commandButton>
 
@@ -32,7 +32,6 @@
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
                             </p:autoComplete>
                         </p:panelGrid>
-
 
                         <p:dataTable value="#{notificationFormController.items}" var="nf" rowIndexVar="se">
                             <p:column headerText="No">
@@ -63,11 +62,12 @@
                                     <f:setPropertyActionListener value="#{nf}" target="#{abstractionFormController.notificationForm}" ></f:setPropertyActionListener>
                                 </p:commandButton>
                             </p:column>
-
+                            <p:column headerText="To Register">
+                                <p:commandButton value="Register" action="#{notificationFormController.registerNotificationForm()}" ajax="false" >
+                                    <f:setPropertyActionListener value="#{nf}" target="#{notificationFormController.current}" ></f:setPropertyActionListener>
+                                </p:commandButton>
+                            </p:column>
                         </p:dataTable>
-
-
-
                     </p:panel>
 
                 </h:form>

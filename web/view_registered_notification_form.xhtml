@@ -1,17 +1,54 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-
         <ui:composition template="./resources/template/template_1.xhtml">
-
             <ui:define name="content">
-                content
+                <h:form>
+                    <p:panel >
+                        <f:facet name="header" >
+                            <h:outputLabel value="Registerd Notification Forms" ></h:outputLabel>
+                        </f:facet>
+                        <table width="800px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5" >
+                            <p:spacer width="10"></p:spacer>
+                            <tr>
+                                <td>Infant's name</td>
+                                <td><p:inputText value="#{notificationFormController.current.infant.name}" size="40" id="txtInfantName"></p:inputText></td>
+                                <p:tooltip for="txtInfantName" value="Type Infant's Name" showEffect="fade" hideEffect="fade" />  
+                            </tr>
+                            <tr>
+                                <td>Hospital</td>
+                                <td>
+                                    <p:autoComplete id="acHos"
+                                                    forceSelection="true"                                 
+                                                    value="#{notificationFormController.current.hospital}" 
+                                                    completeMethod="#{institutionController.completeHospitals}"
+                                                    var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" size="40">
+
+                                    </p:autoComplete>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Name of the mother</td>
+                                <td><p:inputText value="#{notificationFormController.current.mother.name}" size="40"></p:inputText></td>
+
+                            </tr>
+                            <tr>
+                                <td>Register Number</td>
+                                <td><p:inputText value="#{notificationFormController.current.registeredNumber}" size="40" id="txtMother"></p:inputText></td>
+
+                            </tr>
+                        </table>
+
+                    </p:panel>
+                </h:form>
             </ui:define>
-
         </ui:composition>
-
     </body>
 </html>

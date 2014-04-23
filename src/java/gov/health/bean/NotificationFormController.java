@@ -98,7 +98,7 @@ public class NotificationFormController implements Serializable {
         m.put("fd", fd.getTime());
         m.put("td", td.getTime());
 
-        jpql = "select count(n) from NotificationFrom n where n.registered=true and n.registerdAt between :fd and :td";
+        jpql = "select count(n) from NotificationForm n where n.registered=true and n.registeredAt between :fd and :td";
 
         yearCount = getFacade().findLongByJpql(jpql, m, TemporalType.DATE);
 
@@ -109,6 +109,24 @@ public class NotificationFormController implements Serializable {
 
         return year + "/" + insCode + "/" + yearCount;
 
+    }
+    
+    public String listRegForms() {
+        Map m = new HashMap();
+        m.put("fwdt", fromDate);
+        m.put("tdt", toDate);
+        String jpql;
+        if (getSessionController().getLoggedUser().getRestrictedInstitution() != null) {
+            institution = getSessionController().getLoggedUser().getRestrictedInstitution();
+        }
+        if (institution == null) {
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=true and n.createdAt between :fwdt and :tdt order by n.id";
+        } else {
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=true and n.hospital=:hsptl and n.createdAt between :fwdt and :tdt order by n.id";
+            m.put("hsptl", institution);
+        }
+        items = getFacade().findBySQL(jpql, m, TemporalType.DATE);
+        return "view_all_registered_notification_forms";
     }
 
     public String listUnregForms() {
@@ -126,7 +144,7 @@ public class NotificationFormController implements Serializable {
             m.put("hos", institution);
         }
         items = getFacade().findBySQL(jpql, m, TemporalType.DATE);
-        return "view_unregistered_notification_forms";
+        return "view_all_unregistered_notification_forms";
     }
 
     public Date getFromDate() {

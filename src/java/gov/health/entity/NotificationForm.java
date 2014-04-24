@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -49,7 +50,7 @@ public class NotificationForm implements Serializable {
     Area gnArea;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date caseIdentifiedDate;
-    int bhtNo;
+    String bhtNo;
     Boolean aliveOrDead;
     String diagnosis;
     String motherName;
@@ -114,6 +115,8 @@ public class NotificationForm implements Serializable {
     @ManyToOne
     WebUser createdUser;
     
+    @OneToOne
+    AbstractionForm abstractionForm;
 
     public Date getRegisteredAt() {
         return registeredAt;
@@ -308,15 +311,15 @@ public class NotificationForm implements Serializable {
         this.caseIdentifiedDate = caseIdentifiedDate;
     }
 
-    public int getBhtNo() {
+    public String getBhtNo() {
         return bhtNo;
     }
 
-    public void setBhtNo(int bhtNo) {
+    public void setBhtNo(String bhtNo) {
         this.bhtNo = bhtNo;
     }
 
-    public Boolean isAliveOrDead() {
+    public Boolean getAliveOrDead() {
         return aliveOrDead;
     }
 
@@ -565,6 +568,14 @@ public class NotificationForm implements Serializable {
 
     public void setCreatedUser(WebUser createdUser) {
         this.createdUser = createdUser;
+    }
+
+    public AbstractionForm getAbstractionForm() {
+        return abstractionForm;
+    }
+
+    public void setAbstractionForm(AbstractionForm abstractionForm) {
+        this.abstractionForm = abstractionForm;
     }
 
  

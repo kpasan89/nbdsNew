@@ -180,15 +180,10 @@
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>12. Ethnicity</p:outputLabel></td>
-                                        <td><p:selectOneMenu value="#{abstractionFormController.current.infant.ethnicity}" style="width: 80px" id="somEth">
-                                                <f:selectItem itemLabel="Please Select" />
-                                                <f:selectItem itemLabel="Sinhala" itemValue="SINHALA" />
-                                                <f:selectItem itemLabel="Tamil" itemValue="TAMIL" />
-                                                <f:selectItem itemLabel="Muslim" itemValue="MUSLIM" />
-                                                <f:selectItem itemLabel="Burgher" itemValue="BURGHER" />
-                                                <f:selectItem itemLabel="Other" itemValue="OTHER" />
-                                            </p:selectOneMenu></td>
-                                        <p:tooltip for="somEth" value="Ethnicity" showEffect="fade" hideEffect="fade" />
+                                        <td><p:selectOneMenu value="#{abstractionFormController.current.mother.ethnicity}" id="selEth">
+                                            <f:selectItems value="#{enumController.ethnicities}" ></f:selectItems>
+                                        </p:selectOneMenu></td>
+                                        <p:tooltip for="selEth" value="Ethnicity" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>13. Residence Address</p:outputLabel></td>
@@ -938,7 +933,7 @@
                                                         <td></td>
                                                         <td><p:selectBooleanCheckbox itemLabel="Fused" value="#{abstractionFormController.current.dysmorphologyExamination.fusedToes}"></p:selectBooleanCheckbox></td>
                                                         <td><p:selectBooleanCheckbox itemLabel="Other" value="#{abstractionFormController.current.dysmorphologyExamination.otherGreatToes}"></p:selectBooleanCheckbox></td>
-                                                        <td><p:inputText size="8" validator="#{abstractionFormController.current.dysmorphologyExamination.otherToesNote}"></p:inputText></td>
+                                                        <td><p:inputText size="8" value="#{abstractionFormController.current.dysmorphologyExamination.otherToesNote}"></p:inputText></td>
                                                     </tr>
                                                     <tr>
                                                         <td><p:outputLabel value="Nails"></p:outputLabel></td>
@@ -1293,7 +1288,7 @@
                                         <td width="100px"><p:outputLabel value="Procedure"></p:outputLabel><br></br>
                                             <p:inputText value="#{abstractionFormController.current.labTest.proced}"></p:inputText></td>
                                         <td width="100px"><p:outputLabel value="US Scan / Fetal"></p:outputLabel><br></br>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.fetalAnomalyScan}"></p:calendar></td>
+                                            <p:inputText value="#{abstractionFormController.current.labTest.fetalAnomalyScan}"></p:inputText></td>
                                         <td width="100px"><p:outputLabel value="Facility"></p:outputLabel><br></br>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility}"></p:inputText></td>
                                         <td><p:outputLabel value="Done by"></p:outputLabel><br></br>

@@ -36,6 +36,10 @@ public class AbstractionForm implements Serializable {
     @OneToOne(mappedBy = "abstractionForm",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private LabTest labTest;
     
+    @OneToOne(mappedBy = "abstractionForm",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    NotificationForm notificationForm;
+    
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -543,6 +547,14 @@ public class AbstractionForm implements Serializable {
 
     public void setFamBrthDef(String famBrthDef) {
         this.famBrthDef = famBrthDef;
+    }
+
+    public NotificationForm getNotificationForm() {
+        return notificationForm;
+    }
+
+    public void setNotificationForm(NotificationForm notificationForm) {
+        this.notificationForm = notificationForm;
     }
 
    

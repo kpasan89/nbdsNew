@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -11,13 +12,18 @@
 
             <ui:define name="content">
                 <h:form>
-                    <p:commandButton ajax="false" value="List All" action="#{abstractionFormController.listAll()}"></p:commandButton>
-                    <p:dataTable value="#{abstractionFormController.items}" var="af">
-                        <p:column headerText="Hospital/RDHS Area">
-                            <h:outputLabel value="#{af}"></h:outputLabel>
-                            <h:outputLabel value="#{af.rdhsArea.name}"></h:outputLabel>
-                        </p:column>
-                    </p:dataTable>
+                    <p:panel>
+                        <f:facet name="header" >
+                            <h:outputLabel value="View All Abstraction Forms" ></h:outputLabel>
+                        </f:facet>
+                        <p:commandButton ajax="false" value="List All" action="#{abstractionFormController.listAll()}"></p:commandButton>
+                        <p:dataTable value="#{abstractionFormController.items}" var="af">
+                            <p:column headerText="Hospital/RDHS Area">
+                                <h:outputLabel value="#{af}"></h:outputLabel>
+                                <h:outputLabel value="#{af.rdhsArea.name}"></h:outputLabel>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
                 </h:form>
             </ui:define>
 

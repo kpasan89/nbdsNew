@@ -363,16 +363,16 @@ public class DysmorphologyExamination implements Serializable {
     String otherSkinNotes;
     boolean arches;
     boolean whorls;
-    boolean leftDermat1;
-    boolean leftDermat2;
-    boolean leftDermat3;
-    boolean leftDermat4;
-    boolean leftDermat5;
-    boolean rightDermat1;
-    boolean rightDermat2;
-    boolean rightDermat3;
-    boolean rightDermat4;
-    boolean rightDermat5;
+    String leftDermat1;
+    String leftDermat2;
+    String leftDermat3;
+    String leftDermat4;
+    String leftDermat5;
+    String rightDermat1;
+    String rightDermat2;
+    String rightDermat3;
+    String rightDermat4;
+    String rightDermat5;
     
 //    Neuro
     boolean normalNeuro;
@@ -1253,87 +1253,87 @@ public class DysmorphologyExamination implements Serializable {
         this.whorls = whorls;
     }
 
-    public boolean getLeftDermat1() {
+    public String getLeftDermat1() {
         return leftDermat1;
     }
 
-    public void setLeftDermat1(boolean leftDermat1) {
+    public void setLeftDermat1(String leftDermat1) {
         this.leftDermat1 = leftDermat1;
     }
 
-    public boolean getLeftDermat2() {
+    public String getLeftDermat2() {
         return leftDermat2;
     }
 
-    public void setLeftDermat2(boolean leftDermat2) {
+    public void setLeftDermat2(String leftDermat2) {
         this.leftDermat2 = leftDermat2;
     }
 
-    public boolean getLeftDermat3() {
+    public String getLeftDermat3() {
         return leftDermat3;
     }
 
-    public void setLeftDermat3(boolean leftDermat3) {
+    public void setLeftDermat3(String leftDermat3) {
         this.leftDermat3 = leftDermat3;
     }
 
-    public boolean getLeftDermat4() {
+    public String getLeftDermat4() {
         return leftDermat4;
     }
 
-    public void setLeftDermat4(boolean leftDermat4) {
+    public void setLeftDermat4(String leftDermat4) {
         this.leftDermat4 = leftDermat4;
     }
 
-    public boolean getLeftDermat5() {
+    public String getLeftDermat5() {
         return leftDermat5;
     }
 
-    public void setLeftDermat5(boolean leftDermat5) {
+    public void setLeftDermat5(String leftDermat5) {
         this.leftDermat5 = leftDermat5;
     }
 
-    public boolean getRightDermat1() {
+    public String getRightDermat1() {
         return rightDermat1;
     }
 
-    public void setRightDermat1(boolean rightDermat1) {
+    public void setRightDermat1(String rightDermat1) {
         this.rightDermat1 = rightDermat1;
     }
 
-    public boolean getRightDermat2() {
+    public String getRightDermat2() {
         return rightDermat2;
     }
 
-    public void setRightDermat2(boolean rightDermat2) {
+    public void setRightDermat2(String rightDermat2) {
         this.rightDermat2 = rightDermat2;
     }
 
-    public boolean getRightDermat3() {
+    public String getRightDermat3() {
         return rightDermat3;
     }
 
-    public void setRightDermat3(boolean rightDermat3) {
+    public void setRightDermat3(String rightDermat3) {
         this.rightDermat3 = rightDermat3;
     }
 
-    public boolean getRightDermat4() {
+    public String getRightDermat4() {
         return rightDermat4;
     }
 
-    public void setRightDermat4(boolean rightDermat4) {
+    public void setRightDermat4(String rightDermat4) {
         this.rightDermat4 = rightDermat4;
     }
 
-    public boolean getRightDermat5() {
+    public String getRightDermat5() {
         return rightDermat5;
     }
 
-    public void setRightDermat5(boolean rightDermat5) {
+    public void setRightDermat5(String rightDermat5) {
         this.rightDermat5 = rightDermat5;
     }
-
-    public boolean isNormalNeuro() {
+    
+    public boolean getNormalNeuro() {
         return normalNeuro;
     }
 

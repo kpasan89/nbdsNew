@@ -59,9 +59,6 @@ public class AbstractionFormController implements Serializable {
     @Inject
     AreaController areaController;
 
-    
-
-
     public String addNewAbstractionForm() {
         current = new AbstractionForm();
         Person infant = new Person();
@@ -79,10 +76,23 @@ public class AbstractionFormController implements Serializable {
     }
 
     public String addNewAbstractionFormFromNotificationForm() {
-        if (notificationForm == null || notificationForm.getId()==null) {
+        if (notificationForm == null || notificationForm.getId() == null) {
             return "";
         }
-        current = new AbstractionForm();
+
+        if (notificationForm.getAbstractionForm() == null) {
+            current = new AbstractionForm();
+            notificationForm.setAbstractionForm(current);
+            current.setNotificationForm(notificationForm);
+            
+            DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
+            current.setDysmorphologyExamination(dysmorphologyExamination);
+            LabTest labTest = new LabTest();
+            current.setLabTest(labTest);
+
+        } else {
+            current = notificationForm.getAbstractionForm();
+        }
         current.setMother(notificationForm.getMother());
         current.setInfant(notificationForm.getInfant());
         current.setHospital(notificationForm.getHospital());
@@ -91,13 +101,14 @@ public class AbstractionFormController implements Serializable {
         current.setRdhsArea(notificationForm.getRdhsArea());
         current.setMohArea(notificationForm.getMohArea());
         current.setGnArea(notificationForm.getGnArea());
+        current.setCaseIdentifiedDate(notificationForm.getCaseIdentifiedDate());
+        current.setBhtno(notificationForm.getBhtNo());
+        current.setDiagnosis(notificationForm.getDiagnosis());
+        current.setTp1(notificationForm.getTp1());
+        current.setTp2(notificationForm.getTp2());
         
-        DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
-        current.setDysmorphologyExamination(dysmorphologyExamination);
         
-        LabTest labTest = new LabTest();
-        current.setLabTest(labTest);
-        
+
         current.getLabTest().setInfantAodYrs(notificationForm.getInfantAodYrs());
         current.getLabTest().setInfantAodMnths(notificationForm.getInfantAodMnths());
         current.getLabTest().setInfantAodDys(notificationForm.getInfantAodDys());
@@ -107,7 +118,7 @@ public class AbstractionFormController implements Serializable {
         current.getLabTest().setUnderlyingCause(notificationForm.getUnderlyingCause());
         current.getLabTest().setImmediateCause(notificationForm.getImmediateCause());
         current.getLabTest().setConDeath(notificationForm.getConDeath());
-        
+
         return "birth_diffect_abstraction_form";
     }
 
@@ -124,9 +135,9 @@ public class AbstractionFormController implements Serializable {
         }
 
     }
-    
-     public List<Area> completeMohAreas(String qry) {
-        if (current == null || current.getDistrict()== null) {
+
+    public List<Area> completeMohAreas(String qry) {
+        if (current == null || current.getDistrict() == null) {
             return new ArrayList<Area>();
         } else {
             getAreaController().setSuperArea(current.getDistrict());
@@ -134,20 +145,18 @@ public class AbstractionFormController implements Serializable {
         }
 
     }
-     
-          
-     public List<Area> completeGnAreas(String qry) {
-        if (current == null || current.getMohArea()== null) {
+
+    public List<Area> completeGnAreas(String qry) {
+        if (current == null || current.getMohArea() == null) {
             return new ArrayList<Area>();
         } else {
             getAreaController().setSuperArea(current.getMohArea());
             return getAreaController().completeSkipedAreasUnderSuperArea(qry);
         }
-     }
-     
-     
-     public List<Area> completeRdhsAreas(String qry) {
-        if (current == null || current.getDistrict()== null) {
+    }
+
+    public List<Area> completeRdhsAreas(String qry) {
+        if (current == null || current.getDistrict() == null) {
             return new ArrayList<Area>();
         } else {
             getAreaController().setSuperArea(current.getDistrict());
@@ -155,8 +164,7 @@ public class AbstractionFormController implements Serializable {
         }
 
     }
-     
-    
+
     public Institution getInstitution() {
         return institution;
     }
@@ -241,8 +249,6 @@ public class AbstractionFormController implements Serializable {
         return selectText;
     }
 
-
-
     public void setSelectText(String selectText) {
         this.selectText = selectText;
 
@@ -280,9 +286,6 @@ public class AbstractionFormController implements Serializable {
         this.notificationForm = notificationForm;
     }
 
-    
-    
-    
     @FacesConverter(forClass = AbstractionForm.class)
     public static class AbstractionFormControllerConverter implements Converter {
 

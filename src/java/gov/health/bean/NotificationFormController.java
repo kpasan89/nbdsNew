@@ -16,6 +16,8 @@ import gov.health.entity.Institution;
 import gov.health.entity.Person;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +30,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -55,6 +58,121 @@ public class NotificationFormController implements Serializable {
     DepartmentController departmentController;
     @Inject
     AreaController areaController;
+    Date fromDate;
+    Date toDate;
+
+    public String registerNotificationForm() {
+        if (current == null) {
+            JsfUtil.addErrorMessage("Select a Form");
+            return "";
+        }
+
+        current.setRegistered(true);
+        current.setRegisteredUser(getSessionController().getLoggedUser());
+        current.setRegisteredAt(new Date());
+        current.setRegisteredNumber(newRegNumber());
+
+        getFacade().edit(current);
+
+        JsfUtil.addSuccessMessage("Registered");
+
+        return "view_registered_notification_form";
+    }
+
+    public String newRegNumber() {
+        String year;
+        String insCode;
+        Long yearCount;
+        String jpql;
+        Map m = new HashMap();
+
+        Calendar fd = Calendar.getInstance();
+        fd.set(Calendar.MONTH, 0);
+        fd.set(Calendar.DATE, 1);
+
+        Calendar td = Calendar.getInstance();
+        td.set(Calendar.YEAR, td.get(Calendar.YEAR) + 1);
+        fd.set(Calendar.MONTH, 0);
+        fd.set(Calendar.DATE, 1);
+
+        m.put("fd", fd.getTime());
+        m.put("td", td.getTime());
+
+        jpql = "select count(n) from NotificationForm n where n.registered=true and n.registeredAt between :fd and :td";
+
+        yearCount = getFacade().findLongByJpql(jpql, m, TemporalType.DATE);
+
+        Calendar cal = Calendar.getInstance();
+
+        year = cal.get(Calendar.YEAR) + "";
+        insCode = current.getHospital().getCode();
+
+        return year + "/" + insCode + "/" + yearCount;
+
+    }
+    
+    public String listRegForms() {
+        Map m = new HashMap();
+        m.put("fwdt", fromDate);
+        m.put("tdt", toDate);
+        String jpql;
+        if (getSessionController().getLoggedUser().getRestrictedInstitution() != null) {
+            institution = getSessionController().getLoggedUser().getRestrictedInstitution();
+        }
+        if (institution == null) {
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=true and n.createdAt between :fwdt and :tdt order by n.id";
+        } else {
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=true and n.hospital=:hsptl and n.createdAt between :fwdt and :tdt order by n.id";
+            m.put("hsptl", institution);
+        }
+        items = getFacade().findBySQL(jpql, m, TemporalType.DATE);
+        return "view_all_registered_notification_forms";
+    }
+
+    public String listUnregForms() {
+        Map m = new HashMap();
+        m.put("fd", fromDate);
+        m.put("td", toDate);
+        String jpql;
+        if (getSessionController().getLoggedUser().getRestrictedInstitution() != null) {
+            institution = getSessionController().getLoggedUser().getRestrictedInstitution();
+        }
+        if (institution == null) {
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=false and n.createdAt between :fd and :td order by n.id";
+        } else {
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=false and n.hospital=:hos and n.createdAt between :fd and :td order by n.id";
+            m.put("hos", institution);
+        }
+        items = getFacade().findBySQL(jpql, m, TemporalType.DATE);
+        return "view_all_unregistered_notification_forms";
+    }
+
+    public Date getFromDate() {
+        if (fromDate == null) {
+            Calendar c = Calendar.getInstance();
+            Calendar today = Calendar.getInstance();
+            c.set(Calendar.YEAR, today.get(Calendar.YEAR));
+            c.set(Calendar.MONTH, 0);
+            c.set(Calendar.DATE, 1);
+            fromDate = c.getTime();
+        }
+        return fromDate;
+    }
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public Date getToDate() {
+        if (toDate == null) {
+            toDate = new Date();
+        }
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
 
     public List<Department> completeOfficialDepartments(String qry) {
         System.out.println("Complete");
@@ -122,9 +240,8 @@ public class NotificationFormController implements Serializable {
             jpql = "select n from NotificationForm n Where n.hospital =:h";
             System.out.println("m = " + m);
             System.out.println("jpql = " + jpql);
-            items = getFacade().findBySQL(jpql,m);
+            items = getFacade().findBySQL(jpql, m);
         }
-        
 
         return "view_all_notification_form";
     }
@@ -143,6 +260,8 @@ public class NotificationFormController implements Serializable {
         Person mother = new Person();
         current.setInfant(infant);
         current.setMother(mother);
+        current.setCreatedAt(new Date());
+        current.setCreatedUser(getSessionController().getLoggedUser());
         if (getSessionController().getLoggedUser().getRestrictedInstitution() != null) {
             current.setHospital(getSessionController().getLoggedUser().getRestrictedInstitution());
         }
@@ -194,11 +313,18 @@ public class NotificationFormController implements Serializable {
             JsfUtil.addErrorMessage("Error");
             return;
         }
+
+        if (current.getHospital() == null) {
+            JsfUtil.addErrorMessage("Please select the hospital");
+            return;
+        }
+
         if (current.getId() == null || current.getId() == 0) {
             getFacade().create(current);
         } else {
             getFacade().edit(current);
         }
+
         JsfUtil.addSuccessMessage("Saved");
 
     }

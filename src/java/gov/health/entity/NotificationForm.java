@@ -51,6 +51,7 @@ public class NotificationForm implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     Date caseIdentifiedDate;
     String bhtNo;
+    String bhtNo2;
     Boolean aliveOrDead;
     String diagnosis;
     String motherName;
@@ -317,6 +318,14 @@ public class NotificationForm implements Serializable {
 
     public void setBhtNo(String bhtNo) {
         this.bhtNo = bhtNo;
+    }
+
+    public String getBhtNo2() {
+        return bhtNo2;
+    }
+
+    public void setBhtNo2(String bhtNo2) {
+        this.bhtNo2 = bhtNo2;
     }
 
     public Boolean getAliveOrDead() {

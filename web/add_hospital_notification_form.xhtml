@@ -15,7 +15,7 @@
 
                 <h:form>
 
-                    
+
                     <p:panel>
 
                         <f:facet name="header" >
@@ -132,7 +132,8 @@
                                     <p:tooltip for="txtPregReg" value="Type Pregnancy Registration Number" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
-                                    <td>7. Whether the baby alive or dead ?</td><td><p:selectOneRadio id="liveOrDead" >
+                                    <td>7. Whether the baby alive or dead ?</td>
+                                    <td><p:selectOneRadio id="liveOrDead">
                                             <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
                                             <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
                                         </p:selectOneRadio>
@@ -203,9 +204,9 @@
                                 <tr>
                                     <td>Age at Death</td>
                                     <td><pre>Years   <p:inputText value="#{notificationFormController.current.infantAodYrs}" size="33" id="txtAgeYear"></p:inputText></pre><pre>Months  <p:inputText value="#{notificationFormController.current.infantAodMnths}" size="33" id="txtAgeMonth"></p:inputText></pre><pre>Days    <p:inputText value="#{notificationFormController.current.infantAodDys}" size="33" id="txtAgeDay"></p:inputText></pre></td>
-<p:tooltip for="txtAgeYear" value="Type Infant's date of death in years" showEffect="fade" hideEffect="fade" />
-<p:tooltip for="txtAgeMonth" value="Type Infant's date of death in months" showEffect="fade" hideEffect="fade" />
-<p:tooltip for="txtAgeDay" value="Type Infant's date of death in days" showEffect="fade" hideEffect="fade" />
+                                        <p:tooltip for="txtAgeYear" value="Type Infant's date of death in years" showEffect="fade" hideEffect="fade" />
+                                        <p:tooltip for="txtAgeMonth" value="Type Infant's date of death in months" showEffect="fade" hideEffect="fade" />
+                                        <p:tooltip for="txtAgeDay" value="Type Infant's date of death in days" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td>Place of Death</td>
@@ -219,7 +220,7 @@
                         </tr>
                         <tr>
                             <td>Name of the JMO / Pathologist</td>
-                            <td><p:inputText  size="40" id="txtJMO"></p:inputText></td>
+                            <td><p:inputText  size="40" id="txtJMO" value="#{notificationFormController.current.nameOfJmo.name}"></p:inputText></td>
                             <p:tooltip for="txtJMO" value="Type name of pathogist" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
@@ -243,12 +244,12 @@
      
                         <tr>
                             <td>Name of the Informant</td>
-                            <td><p:inputText  size="40" id="txtimf" ></p:inputText></td>
+                            <td><p:inputText  size="40" id="txtimf" value="#{notificationFormController.current.informant.name}"></p:inputText></td>
                             <p:tooltip for="txtimf" value="Type Name of the Informant" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
                             <td>Designation of the Informant</td>
-                            <td><p:inputText  size="40" id="txtdes" ></p:inputText></td>
+                            <td><p:inputText  size="40" id="txtdes" value="#{notificationFormController.current.imDesignation.description}"></p:inputText></td>
                             <p:tooltip for="txtdes" value="Type Designation of the Informant" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>

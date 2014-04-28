@@ -10,6 +10,7 @@ package gov.health.bean;
  */
 import gov.health.entity.Area;
 import gov.health.entity.Department;
+import gov.health.entity.Designation;
 import gov.health.facade.NotificationFormFacade;
 import gov.health.entity.NotificationForm;
 import gov.health.entity.Institution;
@@ -110,7 +111,7 @@ public class NotificationFormController implements Serializable {
         return year + "/" + insCode + "/" + yearCount;
 
     }
-    
+
     public String listRegForms() {
         Map m = new HashMap();
         m.put("fwdt", fromDate);
@@ -258,8 +259,14 @@ public class NotificationFormController implements Serializable {
         current = new NotificationForm();
         Person infant = new Person();
         Person mother = new Person();
+        Person informant = new Person();
+        Person jmo = new Person();
+        Designation imforDesignation = new Designation();
         current.setInfant(infant);
         current.setMother(mother);
+        current.setInformant(informant);
+        current.setNameOfJmo(jmo);
+        current.setImDesignation(imforDesignation);
         current.setCreatedAt(new Date());
         current.setCreatedUser(getSessionController().getLoggedUser());
         if (getSessionController().getLoggedUser().getRestrictedInstitution() != null) {
@@ -291,11 +298,33 @@ public class NotificationFormController implements Serializable {
     public NotificationForm getCurrent() {
         if (current == null) {
             current = new NotificationForm();
-            Person mother = new Person();
             Person infant = new Person();
-            current.setMother(mother);
+            Person mother = new Person();
+            Person informant = new Person();
+            Person jmo = new Person();
+            Designation imforDesignation = new Designation();
             current.setInfant(infant);
+            current.setMother(mother);
+            current.setInformant(informant);
+            current.setNameOfJmo(jmo);
+            current.setImDesignation(imforDesignation);
         }
+
+        if (current.getNameOfJmo() == null) {
+            Person j = new Person();
+            current.setNameOfJmo(j);
+        }
+
+        if (current.getInformant() == null) {
+            Person i = new Person();
+            current.setInformant(i);
+        }
+        
+        if (current.getImDesignation()== null) {
+            Designation d = new Designation();
+            current.setImDesignation(d);
+        }
+
         return current;
     }
 

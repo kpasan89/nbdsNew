@@ -145,9 +145,9 @@
                                     </tr>
                                     <tr>
                                         <td><p:outputLabel>6. Whether the baby alive or dead ?</p:outputLabel></td>
-                                        <td><p:selectOneRadio id="liveOrDead">
-                                                <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
-                                                <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
+                                        <td><p:selectOneRadio id="liveOrDead" value="#{abstractionFormController.current.live}">
+                                                <f:selectItem itemValue="False" itemLabel="Live"></f:selectItem>
+                                                <f:selectItem itemValue="True" itemLabel="Dead"></f:selectItem>
                                             </p:selectOneRadio></td>
                                         <p:tooltip for="liveOrDead" value="Select option" showEffect="fade" hideEffect="fade" />
                                     </tr>
@@ -1254,6 +1254,8 @@
                                         </tr>
                                     </table>
                                 </table>
+                           
+                            
                             </p:tab>
                             <p:tab title="Lab Notification Form">
 
@@ -1507,7 +1509,7 @@
                         </tr>
                         <tr>
                             <td>Name of the JMO / Pathologist</td>
-                            <td><p:inputText  size="40" value="#{abstractionFormController.current.labTest.nameOfJmo}"></p:inputText></td>
+                            <td><p:inputText  size="40" value="#{abstractionFormController.current.labTest.jmo.name}"></p:inputText></td>
                         </tr>
                                     <tr>
                                         <td colspan="2"><p:outputLabel value="Post-Mortem / Pathological Examination Findings"></p:outputLabel><br></br>

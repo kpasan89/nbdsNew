@@ -106,6 +106,7 @@ public class AbstractionFormController implements Serializable {
         current.setDiagnosis(notificationForm.getDiagnosis());
         current.setTp1(notificationForm.getTp1());
         current.setTp2(notificationForm.getTp2());
+        current.setLive(notificationForm.getLive());
         
         
 
@@ -114,7 +115,7 @@ public class AbstractionFormController implements Serializable {
         current.getLabTest().setInfantAodDys(notificationForm.getInfantAodDys());
         current.getLabTest().setPlaceOfDead(notificationForm.getPlaceOfDead());
         current.getLabTest().setPostMortem(notificationForm.getPostMortem());
-        current.getLabTest().setNameOfJmo(notificationForm.getJmo());
+        current.getLabTest().setJmo(notificationForm.getJmo());
         current.getLabTest().setUnderlyingCause(notificationForm.getUnderlyingCause());
         current.getLabTest().setImmediateCause(notificationForm.getImmediateCause());
         current.getLabTest().setConDeath(notificationForm.getConDeath());

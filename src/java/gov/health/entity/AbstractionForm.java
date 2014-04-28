@@ -63,7 +63,7 @@ public class AbstractionForm implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     Date caseIdentifiedDate;
     String bhtno;
-    boolean aliveOrDead;
+    boolean live;
     String diagnosis;
     @ManyToOne(cascade = CascadeType.ALL)
     Person mother;
@@ -299,12 +299,12 @@ public class AbstractionForm implements Serializable {
         this.bhtno = bhtno;
     }
 
-    public boolean isAliveOrDead() {
-        return aliveOrDead;
+    public boolean getLive() {
+        return live;
     }
 
-    public void setAliveOrDead(boolean aliveOrDead) {
-        this.aliveOrDead = aliveOrDead;
+    public void setLive(boolean live) {
+        this.live = live;
     }
 
     public String getDiagnosis() {

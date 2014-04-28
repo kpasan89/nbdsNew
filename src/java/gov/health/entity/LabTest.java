@@ -139,11 +139,19 @@ public class LabTest implements Serializable {
     String placeOfDead;
     boolean postMortem; // yes or no
     @ManyToOne(cascade = CascadeType.ALL)
-    Person nameOfJmo;
+    Person jmo;
     String underlyingCause; // Causes of death
     String immediateCause; // Causes of death
     String conDeath; 
     String pathExFind;//Pathological Examination Findings
+
+    public Person getJmo() {
+        return jmo;
+    }
+
+    public void setJmo(Person jmo) {
+        this.jmo = jmo;
+    }
 
     public String getPathExFind() {
         return pathExFind;
@@ -192,14 +200,6 @@ public class LabTest implements Serializable {
 
     public void setPostMortem(boolean postMortem) {
         this.postMortem = postMortem;
-    }
-
-    public Person getNameOfJmo() {
-        return nameOfJmo;
-    }
-
-    public void setNameOfJmo(Person nameOfJmo) {
-        this.nameOfJmo = nameOfJmo;
     }
 
     public String getUnderlyingCause() {

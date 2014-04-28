@@ -249,7 +249,7 @@
                         </tr>
                         <tr>
                             <td>Designation of the Informant</td>
-                            <td><p:inputText  size="40" id="txtdes"></p:inputText></td>
+                            <td><p:inputText  size="40" id="txtdes" value="#{notificationFormController.current.designation}"></p:inputText></td>
                             <p:tooltip for="txtdes" value="Type Designation of the Informant" showEffect="fade" hideEffect="fade" />
                         </tr>
                         <tr>
@@ -257,7 +257,17 @@
                             <td><p:inputText value="#{notificationFormController.current.inTp}" size="40" id="txtcoIm" ></p:inputText></td>
                             
                             <p:tooltip for="txtcoIm" value="Type Contact Phone" showEffect="fade" hideEffect="fade" />
-                        </tr>          
+                        </tr>
+                        <tr>
+                            <td>Name of the Head of the Institution</td>
+                            <td><p:inputText  size="40" id="txthoi" value="#{notificationFormController.current.hoi.name}"></p:inputText></td>
+                            <p:tooltip for="txthoi" value="Type Name of the HOI" showEffect="fade" hideEffect="fade" />
+                        </tr>
+                        <tr>
+                            <td>Approved Date</td>
+                            <td><p:calendar  size="40" id="txtapp" value="#{notificationFormController.current.approveDate}"></p:calendar></td>
+                            <p:tooltip for="txtapp" value="Approved Date by HOI" showEffect="fade" hideEffect="fade" />
+                        </tr>        
                     </table>
                             </p:panel>
                         

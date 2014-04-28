@@ -76,8 +76,7 @@ public class NotificationForm implements Serializable {
     String conDeath; // Conditions contributing to Death
     @ManyToOne(cascade = CascadeType.ALL)
     Person informant; // imformant name
-    @ManyToOne
-    Designation imDesignation; // imformant designation
+    String designation; // imformant designation
     String inTp; // informant telephone
     @ManyToOne(cascade = CascadeType.ALL)
     Person hoi; // Head of the institutions' name
@@ -473,12 +472,12 @@ public class NotificationForm implements Serializable {
         this.informant = informant;
     }
 
-    public Designation getImDesignation() {
-        return imDesignation;
+    public String getDesignation() {
+        return designation;
     }
 
-    public void setImDesignation(Designation imDesignation) {
-        this.imDesignation = imDesignation;
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
 
     public Person getHoi() {

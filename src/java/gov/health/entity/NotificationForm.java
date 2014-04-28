@@ -328,6 +328,7 @@ public class NotificationForm implements Serializable {
         this.bhtNo2 = bhtNo2;
     }
 
+    
     public boolean getLive() {
         return live;
     }

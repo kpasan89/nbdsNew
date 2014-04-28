@@ -133,12 +133,12 @@
                                 </tr>
                                 <tr>
                                     <td>7. Whether the baby alive or dead ?</td>
-                                    <td><p:selectOneRadio id="liveOrDead">
-                                            <f:selectItem itemValue="live" itemLabel="Live"></f:selectItem>
-                                            <f:selectItem itemValue="dead" itemLabel="Dead"></f:selectItem>
+                                    <td><p:selectOneRadio value="#{notificationFormController.current.live}" id="live">
+                                            <f:selectItem itemValue="False" itemLabel="Live"></f:selectItem>
+                                            <f:selectItem itemValue="True" itemLabel="Dead"></f:selectItem>
                                         </p:selectOneRadio>
                                     </td>
-                                    <p:tooltip for="liveOrDead" value="Select the option" showEffect="fade" hideEffect="fade" />
+                                    <p:tooltip for="live" value="Select the option" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
                                     <td>8. Diagnosis / Birth Defect Coding</td>

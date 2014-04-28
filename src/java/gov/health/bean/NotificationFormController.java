@@ -324,6 +324,7 @@ public class NotificationFormController implements Serializable {
             Designation d = new Designation();
             current.setImDesignation(d);
         }
+        
 
         return current;
     }

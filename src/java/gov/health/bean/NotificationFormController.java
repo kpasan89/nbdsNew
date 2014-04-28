@@ -261,12 +261,10 @@ public class NotificationFormController implements Serializable {
         Person mother = new Person();
         Person informant = new Person();
         Person jmo = new Person();
-        Designation imforDesignation = new Designation();
         current.setInfant(infant);
         current.setMother(mother);
         current.setInformant(informant);
-        current.setNameOfJmo(jmo);
-        current.setImDesignation(imforDesignation);
+        current.setJmo(jmo);
         current.setCreatedAt(new Date());
         current.setCreatedUser(getSessionController().getLoggedUser());
         if (getSessionController().getLoggedUser().getRestrictedInstitution() != null) {
@@ -302,30 +300,21 @@ public class NotificationFormController implements Serializable {
             Person mother = new Person();
             Person informant = new Person();
             Person jmo = new Person();
-            Designation imforDesignation = new Designation();
             current.setInfant(infant);
             current.setMother(mother);
             current.setInformant(informant);
-            current.setNameOfJmo(jmo);
-            current.setImDesignation(imforDesignation);
+            current.setJmo(jmo);
         }
 
-        if (current.getNameOfJmo() == null) {
+        if (current.getJmo() == null) {
             Person j = new Person();
-            current.setNameOfJmo(j);
+            current.setJmo(j);
         }
 
         if (current.getInformant() == null) {
             Person i = new Person();
             current.setInformant(i);
         }
-        
-        if (current.getImDesignation()== null) {
-            Designation d = new Designation();
-            current.setImDesignation(d);
-        }
-        
-
         return current;
     }
 

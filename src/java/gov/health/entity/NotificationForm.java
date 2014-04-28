@@ -70,7 +70,7 @@ public class NotificationForm implements Serializable {
     String placeOfDead;
     boolean postMortem; // yes or no
     @ManyToOne(cascade = CascadeType.ALL)
-    Person nameOfJmo;
+    Person jmo;
     String underlyingCause; // Causes of death
     String immediateCause; // Causes of death
     String conDeath; // Conditions contributing to Death
@@ -80,7 +80,7 @@ public class NotificationForm implements Serializable {
     Designation imDesignation; // imformant designation
     String inTp; // informant telephone
     @ManyToOne(cascade = CascadeType.ALL)
-    Person nameHOI; // Head of the institutions' name
+    Person hoi; // Head of the institutions' name
     @Temporal(javax.persistence.TemporalType.DATE)
     Date approveDate; // by head of the institution
     @ManyToOne
@@ -433,12 +433,12 @@ public class NotificationForm implements Serializable {
         this.infantAodDys = infantAodDys;
     }
 
-    public Person getNameOfJmo() {
-        return nameOfJmo;
+    public Person getJmo() {
+        return jmo;
     }
 
-    public void setNameOfJmo(Person nameOfJmo) {
-        this.nameOfJmo = nameOfJmo;
+    public void setJmo(Person jmo) {
+        this.jmo = jmo;
     }
 
     public String getUnderlyingCause() {
@@ -481,12 +481,12 @@ public class NotificationForm implements Serializable {
         this.imDesignation = imDesignation;
     }
 
-    public Person getNameHOI() {
-        return nameHOI;
+    public Person getHoi() {
+        return hoi;
     }
 
-    public void setNameHOI(Person nameHOI) {
-        this.nameHOI = nameHOI;
+    public void setHoi(Person hoi) {
+        this.hoi = hoi;
     }
 
     public Date getApproveDate() {

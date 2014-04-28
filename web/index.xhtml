@@ -12,13 +12,12 @@
         <h:form>
 
             <p:growl id="messages" autoUpdate="true"/>
-            
-            <p:panel header="Dashboard" >
-                <h:graphicImage  class="pdLogin" library="image" name="Welcome.png"  height="60%" width="100%">
-                    
-                    
-                    
-                </h:graphicImage>
+
+            <p:panel>
+                <f:facet name="header" >
+                    <h:outputLabel value="Dash board" style="alignment-adjust: middle"></h:outputLabel>
+                </f:facet>
+                <h:graphicImage  class="pdLogin" library="image" name="Welcome.png"  height="60%" width="100%"></h:graphicImage>
             </p:panel> 
         </h:form>
     </ui:define>

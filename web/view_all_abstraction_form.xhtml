@@ -18,7 +18,7 @@
                             <p:spacer width="10"></p:spacer>
                             <p:commandButton ajax="false" value="List All" action="#{abstractionFormController.listAll()}"></p:commandButton>
                         </f:facet>
-                        
+
                         <p:dataTable value="#{abstractionFormController.items}" var="af">
                             <p:column headerText="Hospital/RDHS Area">
                                 <h:outputLabel value="#{af}"></h:outputLabel>

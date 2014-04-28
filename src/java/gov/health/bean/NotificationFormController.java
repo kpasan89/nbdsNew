@@ -319,6 +319,11 @@ public class NotificationFormController implements Serializable {
             Person i = new Person();
             current.setInformant(i);
         }
+        
+        if (current.getHoi() == null){
+            Person h = new Person();
+            current.setHoi(h);
+        }
         return current;
     }
 

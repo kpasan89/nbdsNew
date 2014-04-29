@@ -144,6 +144,265 @@ public class LabTest implements Serializable {
     String immediateCause; // Causes of death
     String conDeath; 
     String pathExFind;//Pathological Examination Findings
+    
+    String bdes1;
+    String bdes2;
+    String bdes3;
+    String bdes4;
+    String bdes5;
+    String bdes6;
+    String bdes7;
+    String bdes8;
+    String bcode1;
+    String bcode2;
+    String bcode3;
+    String bcode4;
+    String bcode5;
+    String bcode6;
+    String bcode7;
+    String bcode8;
+    String extention1;
+    String extention2;
+    String extention3;
+    String extention4;
+    String extention5;
+    String extention6;
+    String extention7;
+    String extention8;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    Person mo;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date modate;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    Person hoi;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date hoidate;
+
+    public String getBdes1() {
+        return bdes1;
+    }
+
+    public void setBdes1(String bdes1) {
+        this.bdes1 = bdes1;
+    }
+
+    public String getBdes2() {
+        return bdes2;
+    }
+
+    public void setBdes2(String bdes2) {
+        this.bdes2 = bdes2;
+    }
+
+    public String getBdes3() {
+        return bdes3;
+    }
+
+    public void setBdes3(String bdes3) {
+        this.bdes3 = bdes3;
+    }
+
+    public String getBdes4() {
+        return bdes4;
+    }
+
+    public void setBdes4(String bdes4) {
+        this.bdes4 = bdes4;
+    }
+
+    public String getBdes5() {
+        return bdes5;
+    }
+
+    public void setBdes5(String bdes5) {
+        this.bdes5 = bdes5;
+    }
+
+    public String getBdes6() {
+        return bdes6;
+    }
+
+    public void setBdes6(String bdes6) {
+        this.bdes6 = bdes6;
+    }
+
+    public String getBdes7() {
+        return bdes7;
+    }
+
+    public void setBdes7(String bdes7) {
+        this.bdes7 = bdes7;
+    }
+
+    public String getBdes8() {
+        return bdes8;
+    }
+
+    public void setBdes8(String bdes8) {
+        this.bdes8 = bdes8;
+    }
+
+    public String getBcode1() {
+        return bcode1;
+    }
+
+    public void setBcode1(String bcode1) {
+        this.bcode1 = bcode1;
+    }
+
+    public String getBcode2() {
+        return bcode2;
+    }
+
+    public void setBcode2(String bcode2) {
+        this.bcode2 = bcode2;
+    }
+
+    public String getBcode3() {
+        return bcode3;
+    }
+
+    public void setBcode3(String bcode3) {
+        this.bcode3 = bcode3;
+    }
+
+    public String getBcode4() {
+        return bcode4;
+    }
+
+    public void setBcode4(String bcode4) {
+        this.bcode4 = bcode4;
+    }
+
+    public String getBcode5() {
+        return bcode5;
+    }
+
+    public void setBcode5(String bcode5) {
+        this.bcode5 = bcode5;
+    }
+
+    public String getBcode6() {
+        return bcode6;
+    }
+
+    public void setBcode6(String bcode6) {
+        this.bcode6 = bcode6;
+    }
+
+    public String getBcode7() {
+        return bcode7;
+    }
+
+    public void setBcode7(String bcode7) {
+        this.bcode7 = bcode7;
+    }
+
+    public String getBcode8() {
+        return bcode8;
+    }
+
+    public void setBcode8(String bcode8) {
+        this.bcode8 = bcode8;
+    }
+
+    public String getExtention1() {
+        return extention1;
+    }
+
+    public void setExtention1(String extention1) {
+        this.extention1 = extention1;
+    }
+
+    public String getExtention2() {
+        return extention2;
+    }
+
+    public void setExtention2(String extention2) {
+        this.extention2 = extention2;
+    }
+
+    public String getExtention3() {
+        return extention3;
+    }
+
+    public void setExtention3(String extention3) {
+        this.extention3 = extention3;
+    }
+
+    public String getExtention4() {
+        return extention4;
+    }
+
+    public void setExtention4(String extention4) {
+        this.extention4 = extention4;
+    }
+
+    public String getExtention5() {
+        return extention5;
+    }
+
+    public void setExtention5(String extention5) {
+        this.extention5 = extention5;
+    }
+
+    public String getExtention6() {
+        return extention6;
+    }
+
+    public void setExtention6(String extention6) {
+        this.extention6 = extention6;
+    }
+
+    public String getExtention7() {
+        return extention7;
+    }
+
+    public void setExtention7(String extention7) {
+        this.extention7 = extention7;
+    }
+
+    public String getExtention8() {
+        return extention8;
+    }
+
+    public void setExtention8(String extention8) {
+        this.extention8 = extention8;
+    }
+
+    public Person getMo() {
+        return mo;
+    }
+
+    public void setMo(Person mo) {
+        this.mo = mo;
+    }
+
+    public Date getModate() {
+        return modate;
+    }
+
+    public void setModate(Date modate) {
+        this.modate = modate;
+    }
+
+    public Person getHoi() {
+        return hoi;
+    }
+
+    public void setHoi(Person hoi) {
+        this.hoi = hoi;
+    }
+
+    public Date getHoidate() {
+        return hoidate;
+    }
+
+    public void setHoidate(Date hoidate) {
+        this.hoidate = hoidate;
+    }
 
     public Person getJmo() {
         return jmo;

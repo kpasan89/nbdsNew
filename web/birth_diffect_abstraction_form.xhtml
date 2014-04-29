@@ -11,8 +11,8 @@
 
             <ui:define name="content">
                 <h:form>
-                 
-                    
+
+
                     <p:panel header="Case Ascertainment">
                         <f:facet name="header">
                             <h:outputLabel value="Case Ascertainment"></h:outputLabel>
@@ -27,9 +27,9 @@
                                     <h:outputLabel value="Birth Defects Abstraction Form"></h:outputLabel>
                                 </f:facet>
                                 <table width="680px" style="padding: 2.5%" align="center" bgcolor="#f0f0f0" >
-                                        <tr>
-                                            <td colspan="2" align="center"><p:outputLabel><b><font size="4">Birth Diffect Abstraction Form</font></b></p:outputLabel></td>
-                                        </tr>
+                                    <tr>
+                                        <td colspan="2" align="center"><p:outputLabel><b><font size="4">Birth Diffect Abstraction Form</font></b></p:outputLabel></td>
+                                    </tr>
                                 </table>
                                 <table width="680px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
                                     <p:spacer width="10"></p:spacer>
@@ -181,8 +181,8 @@
                                     <tr>
                                         <td><p:outputLabel>12. Ethnicity</p:outputLabel></td>
                                         <td><p:selectOneMenu value="#{abstractionFormController.current.mother.ethnicity}" id="selEth">
-                                            <f:selectItems value="#{enumController.ethnicities}" ></f:selectItems>
-                                        </p:selectOneMenu></td>
+                                                <f:selectItems value="#{enumController.ethnicities}" ></f:selectItems>
+                                            </p:selectOneMenu></td>
                                         <p:tooltip for="selEth" value="Ethnicity" showEffect="fade" hideEffect="fade" />
                                     </tr>
                                     <tr>
@@ -1254,8 +1254,8 @@
                                         </tr>
                                     </table>
                                 </table>
-                           
-                            
+
+
                             </p:tab>
                             <p:tab title="Lab Notification Form">
 
@@ -1543,54 +1543,85 @@
                                         </tr>
                                            <tr>
                                                <td><p:outputLabel value="1"></p:outputLabel></td>
-                                               <td><p:inputText style="width: 500px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
+                                               <td><p:inputText style="width: 500px" value="#{abstractionFormController.current.labTest.bdes1}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.bcode1}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.extention1}"></p:inputText></td>
                                            </tr>
                                            <tr>
                                                <td><p:outputLabel value="2"></p:outputLabel></td>
-                                               <td><p:inputText style="width: 500px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
+                                               <td><p:inputText style="width: 500px" value="#{abstractionFormController.current.labTest.bdes2}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.bcode2}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.extention2}"></p:inputText></td>
                                            </tr>
                                            <tr>
                                                <td><p:outputLabel value="3"></p:outputLabel></td>
-                                               <td><p:inputText style="width: 500px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
+                                               <td><p:inputText style="width: 500px" value="#{abstractionFormController.current.labTest.bdes3}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.bcode3}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.extention3}"></p:inputText></td>
                                            </tr>
                                            <tr>
                                                <td><p:outputLabel value="4"></p:outputLabel></td>
-                                               <td><p:inputText style="width: 500px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
+                                               <td><p:inputText style="width: 500px" value="#{abstractionFormController.current.labTest.bdes4}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.bcode4}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.extention4}"></p:inputText></td>
                                            </tr>
                                            <tr>
                                                <td><p:outputLabel value="5"></p:outputLabel></td>
-                                               <td><p:inputText style="width: 500px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
+                                               <td><p:inputText style="width: 500px" value="#{abstractionFormController.current.labTest.bdes5}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.bcode5}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.extention5}"></p:inputText></td>
                                            </tr>
                                            <tr>
                                                <td><p:outputLabel value="6"></p:outputLabel></td>
-                                               <td><p:inputText style="width: 500px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
+                                               <td><p:inputText style="width: 500px" value="#{abstractionFormController.current.labTest.bdes6}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.bcode6}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.extention6}"></p:inputText></td>
                                            </tr>
                                            <tr>
                                                <td><p:outputLabel value="7"></p:outputLabel></td>
-                                               <td><p:inputText style="width: 500px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
+                                               <td><p:inputText style="width: 500px" value="#{abstractionFormController.current.labTest.bdes7}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.bcode7}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.extention7}"></p:inputText></td>
                                            </tr>
                                            <tr>
                                                <td><p:outputLabel value="8"></p:outputLabel></td>
-                                               <td><p:inputText style="width: 500px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
-                                               <td><p:inputText style="width: 200px"></p:inputText></td>
+                                               <td><p:inputText style="width: 500px" value="#{abstractionFormController.current.labTest.bdes8}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.bcode8}"></p:inputText></td>
+                                               <td><p:inputText style="width: 200px" value="#{abstractionFormController.current.labTest.extention8}"></p:inputText></td>
                                            </tr>
                                        </table>
                                     </table>
+                                <table width="1000px" style="padding: 2.5%" align="center" bgcolor="#f5f5f5">
+                                    <p:spacer height="10px"></p:spacer>
+                                <tr>
+                            <td>Name of the Clinician / Medical Officer</td>
+                            <td><p:inputText  size="40" id="txtimf" value="#{abstractionFormController.current.labTest.mo.name}"></p:inputText></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Designation of the Clinician / Medical Officer</td>
+                            <td><p:inputText  size="40" id="txtdes" value="#{abstractionFormController.current.labTest.mo.designation}"></p:inputText></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Approved Date</td>
+                            <td><p:calendar  size="40" id="txtmoapp" value="#{abstractionFormController.current.labTest.modate}"></p:calendar></td>
+                            
+                        </tr>
+                                    <tr>
+                                        <td colspan="2"><p:separator></p:separator></td>
+                                    </tr>
+                        <tr>
+                            <td>Name of the Head of the Institution</td>
+                            <td><p:inputText  size="40" id="txthoi" value="#{abstractionFormController.current.labTest.hoi.name}"></p:inputText></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Approved Date</td>
+                            <td><p:calendar  size="40" id="txthoiapp" value="#{abstractionFormController.current.labTest.hoidate}"></p:calendar></td>
+                            
+                        </tr>
+                            </table>
                             </p:tab>
                             
                             <!--</p:wizard>-->

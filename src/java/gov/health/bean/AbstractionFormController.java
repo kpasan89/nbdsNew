@@ -65,10 +65,16 @@ public class AbstractionFormController implements Serializable {
         Person mother = new Person();
         current.setMother(mother);
         current.setInfant(infant);
+        Person jmo = new Person();
+        Person mo = new Person();
+        Person hoi = new Person();
         DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
         current.setDysmorphologyExamination(dysmorphologyExamination);
         LabTest labTest = new LabTest();
         current.setLabTest(labTest);
+        current.getLabTest().setJmo(jmo);
+        current.getLabTest().setMo(mo);
+        current.getLabTest().setHoi(hoi);
         //current.setInfant(infant);
         //current.setMother(mother);
 
@@ -84,7 +90,7 @@ public class AbstractionFormController implements Serializable {
             current = new AbstractionForm();
             notificationForm.setAbstractionForm(current);
             current.setNotificationForm(notificationForm);
-            
+
             DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
             current.setDysmorphologyExamination(dysmorphologyExamination);
             LabTest labTest = new LabTest();
@@ -107,8 +113,6 @@ public class AbstractionFormController implements Serializable {
         current.setTp1(notificationForm.getTp1());
         current.setTp2(notificationForm.getTp2());
         current.setLive(notificationForm.getLive());
-        
-        
 
         current.getLabTest().setInfantAodYrs(notificationForm.getInfantAodYrs());
         current.getLabTest().setInfantAodMnths(notificationForm.getInfantAodMnths());
@@ -119,6 +123,7 @@ public class AbstractionFormController implements Serializable {
         current.getLabTest().setUnderlyingCause(notificationForm.getUnderlyingCause());
         current.getLabTest().setImmediateCause(notificationForm.getImmediateCause());
         current.getLabTest().setConDeath(notificationForm.getConDeath());
+        current.getLabTest().setHoi(notificationForm.getHoi());
 
         return "birth_diffect_abstraction_form";
     }

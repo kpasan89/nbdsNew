@@ -187,8 +187,14 @@ public class AbstractionFormController implements Serializable {
             current = new AbstractionForm();
             Person mother = new Person();
             Person infant = new Person();
+            Person jmo = new Person();
+            Person mo = new Person();
+            Person hoi = new Person();
             current.setMother(mother);
             current.setInfant(infant);
+            current.getLabTest().setJmo(jmo);
+            current.getLabTest().setMo(mo);
+            current.getLabTest().setHoi(hoi);
             DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
             current.setDysmorphologyExamination(dysmorphologyExamination);
             LabTest labTest = new LabTest();

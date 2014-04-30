@@ -113,7 +113,6 @@
                                 <p:menuitem  ajax="false"  action="preferances" value="Preferances"  ></p:menuitem>
                             </p:submenu>
                         </p:menubar>
-
                         <p:stack icon="/resources/image/stack.png">
                             <p:menuitem value="Log_Out" icon="/resources/image/Logout1.png" style="width: 25px; height: 25px" action="#{sessionController.logout}" ajax="false" rendered="#{sessionController.logged}"/>
                             <p:menuitem value="List_All_Abstraction_Forms" icon="/resources/image/search.png" style="width: 25px; height: 25px" action="view_all_abstraction_form"/>  
@@ -190,6 +189,9 @@
                     </h:panelGrid>
 
                 </h:form>
+            </div>
+            <div style="position: fixed; bottom: 25px; left:  12px;" class="nonPrintBlock" >
+                <p:clock pattern="HH:mm a - dd MMMM yyyy" mode="server"  /> 
             </div>
         </div>
 

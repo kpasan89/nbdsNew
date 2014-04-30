@@ -18,7 +18,6 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-
 @Named("departmentController")
 @SessionScoped
 public class DepartmentController implements Serializable {
@@ -256,7 +255,7 @@ public class DepartmentController implements Serializable {
         this.selectText = selectText;
 
     }
-public Department getDepartment(java.lang.Long id) {
+    public Department getDepartment(java.lang.Long id) {
         return ejbFacade.find(id);
     }
     public List<Department> completeOfficialDepartments(String qry) {
@@ -279,7 +278,7 @@ public Department getDepartment(java.lang.Long id) {
         return dep;
     }
 
-    @FacesConverter(forClass=Department.class)
+    @FacesConverter(forClass = Department.class)
     public static class DepartmentControllerConverter implements Converter {
 
         @Override
@@ -287,7 +286,7 @@ public Department getDepartment(java.lang.Long id) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            DepartmentController controller = (DepartmentController)facesContext.getApplication().getELResolver().
+            DepartmentController controller = (DepartmentController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "departmentController");
             return controller.getDepartment(getKey(value));
         }
@@ -313,7 +312,7 @@ public Department getDepartment(java.lang.Long id) {
                 Department o = (Department) object;
                 return getStringKey(o.getId());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+Department.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Department.class.getName());
             }
         }
 

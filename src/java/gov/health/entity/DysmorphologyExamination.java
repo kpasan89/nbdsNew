@@ -6,13 +6,16 @@
 package gov.health.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -29,6 +32,12 @@ public class DysmorphologyExamination implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     AbstractionForm abstractionForm;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    Person examinar;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date dysDate;
+    String facility;
+    
     double weight;
     double height;
     boolean unWeight; //Underweight for height
@@ -426,6 +435,31 @@ public class DysmorphologyExamination implements Serializable {
     boolean otherPsych2;
     String otherPsych2Note;
 
+    public Person getExaminar() {
+        return examinar;
+    }
+
+    public void setExaminar(Person examinar) {
+        this.examinar = examinar;
+    }
+
+    public Date getDysDate() {
+        return dysDate;
+    }
+
+    public void setDysDate(Date dysDate) {
+        this.dysDate = dysDate;
+    }
+
+    public String getFacility() {
+        return facility;
+    }
+
+    public void setFacility(String facility) {
+        this.facility = facility;
+    }
+
+    
     public String getHyperNote() {
         return hyperNote;
     }

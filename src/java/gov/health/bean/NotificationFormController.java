@@ -10,7 +10,6 @@ package gov.health.bean;
  */
 import gov.health.entity.Area;
 import gov.health.entity.Department;
-import gov.health.entity.Designation;
 import gov.health.facade.NotificationFormFacade;
 import gov.health.entity.NotificationForm;
 import gov.health.entity.Institution;

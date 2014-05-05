@@ -1,5 +1,6 @@
 package gov.health.bean;
 
+import gov.health.entity.Area;
 import gov.health.entity.Department;
 import gov.health.entity.Institution;
 import gov.health.facade.DepartmentFacade;
@@ -38,6 +39,9 @@ public class DepartmentController implements Serializable {
 
     List<Department> insDepts;
 
+    boolean selectControlDisable = false;
+    boolean modifyControlDisable = true;
+
     private DepartmentFacade getFacade() {
         return ejbFacade;
     }
@@ -67,8 +71,32 @@ public class DepartmentController implements Serializable {
         fillInsDepts();
         gov.health.bean.JsfUtil.addSuccessMessage("Saved");
 
+        
     }
 
+    
+//    public void saveSelected() {
+//        if (current == null) {
+//            gov.health.bean.JsfUtil.addErrorMessage("Nothing to save");
+//            return;
+//        }
+//
+//        if (current.getId() != null && current.getId() != 0) {
+//            getFacade().edit(current);
+//            gov.health.bean.JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedOldSuccessfully"));
+//        } else {
+//            current.setCreatedAt(Calendar.getInstance().getTime());
+//            current.setCreater(sessionController.getLoggedUser());
+//            getFacade().create(current);
+//
+//            gov.health.bean.JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
+//        }
+//
+//        getItems();
+//        selectText = "";
+//    }
+//    
+    
     public void prepareAdd() {
         current = new Department();
 
@@ -84,6 +112,52 @@ public class DepartmentController implements Serializable {
         gov.health.bean.JsfUtil.addErrorMessage("Removed");
         fillInsDepts();
         removing = null;
+    }
+
+    public void prepareModifyControlDisable() {
+        selectControlDisable = false;
+        modifyControlDisable = true;
+    }
+
+    List<Department> mappedDepartment;
+
+    Department currentMappingDepartment;
+
+    public void recreateModel() {
+        items = null;
+    }
+
+    public void prepareSelect() {
+        this.prepareModifyControlDisable();
+    }
+
+    public void delete() {
+
+        if (current != null) {
+            current.setRetired(true);
+            current.setRetiredAt(Calendar.getInstance().getTime());
+            current.setRetirer(sessionController.getLoggedUser());
+            getFacade().edit(current);
+            JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
+        } else {
+            JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
+        }
+        
+//        if (current != null) {
+//            current.setRetired(true);
+//            current.setRetiredAt(Calendar.getInstance().getTime());
+//            current.setRetirer(sessionController.getLoggedUser());
+//            getFacade().edit(current);
+//            gov.health.bean.JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
+//        } else {
+//            gov.health.bean.JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
+//        }
+        
+        recreateModel();
+        getItems();
+        selectText = "";
+        current = null;
+        this.prepareSelect();
     }
 
     public Department getRemoving() {
@@ -105,6 +179,46 @@ public class DepartmentController implements Serializable {
 
     public void setInsDepts(List<Department> insDepts) {
         this.insDepts = insDepts;
+    }
+
+    public DepartmentFacade getEjbFacade() {
+        return ejbFacade;
+    }
+
+    public void setEjbFacade(DepartmentFacade ejbFacade) {
+        this.ejbFacade = ejbFacade;
+    }
+
+    public boolean isSelectControlDisable() {
+        return selectControlDisable;
+    }
+
+    public void setSelectControlDisable(boolean selectControlDisable) {
+        this.selectControlDisable = selectControlDisable;
+    }
+
+    public boolean isModifyControlDisable() {
+        return modifyControlDisable;
+    }
+
+    public void setModifyControlDisable(boolean modifyControlDisable) {
+        this.modifyControlDisable = modifyControlDisable;
+    }
+
+    public List<Department> getMappedDepartment() {
+        return mappedDepartment;
+    }
+
+    public void setMappedDepartment(List<Department> mappedDepartment) {
+        this.mappedDepartment = mappedDepartment;
+    }
+
+    public Department getCurrentMappingDepartment() {
+        return currentMappingDepartment;
+    }
+
+    public void setCurrentMappingDepartment(Department currentMappingDepartment) {
+        this.currentMappingDepartment = currentMappingDepartment;
     }
 
     public void saveDepartment(Department ins) {
@@ -179,19 +293,23 @@ public class DepartmentController implements Serializable {
     }
 
     public List<Department> getItems() {
-        String temSql;
-        //if (items != null) {
-        //    return items;
-        // }
-        // if (getSelectText().equals("")) {
-
-        temSql = "SELECT i FROM Department i where i.retired=false order by i.name";
-
-        //} else {
-        //        temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + getSelectText().toLowerCase() + "%' order by i.name";
-        // }
-        items = getFacade().findBySQL(temSql);
-        System.out.println(temSql);
+//        String temSql;
+//        //if (items != null) {
+//        //    return items;
+//        // }
+//        // if (getSelectText().equals("")) {
+//
+//        temSql = "SELECT i FROM Department i where i.retired=false order by i.name";
+//
+//        //} else {
+//        //        temSql = "SELECT i FROM Department i where i.retired=false and LOWER(i.name) like '%" + getSelectText().toLowerCase() + "%' order by i.name";
+//        // }
+//        items = getFacade().findBySQL(temSql);
+//        System.out.println(temSql);
+//        return items;
+        
+        
+        items = getFacade().findAll("name", true);
         return items;
     }
 
@@ -229,23 +347,23 @@ public class DepartmentController implements Serializable {
         selectText = "";
     }
 
-    public void delete() {
-
-        if (current != null) {
-            current.setRetired(true);
-            current.setRetiredAt(Calendar.getInstance().getTime());
-            current.setRetirer(sessionController.getLoggedUser());
-            getFacade().edit(current);
-            gov.health.bean.JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
-        } else {
-            gov.health.bean.JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
-        }
-
-        getItems();
-        selectText = "";
-        current = null;
-
-    }
+//    public void delete() {
+//
+//        if (current != null) {
+//            current.setRetired(true);
+//            current.setRetiredAt(Calendar.getInstance().getTime());
+//            current.setRetirer(sessionController.getLoggedUser());
+//            getFacade().edit(current);
+//            gov.health.bean.JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
+//        } else {
+//            gov.health.bean.JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
+//        }
+//
+//        getItems();
+//        selectText = "";
+//        current = null;
+//
+//    }
 
     public String getSelectText() {
         return selectText;
@@ -255,9 +373,11 @@ public class DepartmentController implements Serializable {
         this.selectText = selectText;
 
     }
+
     public Department getDepartment(java.lang.Long id) {
         return ejbFacade.find(id);
     }
+
     public List<Department> completeOfficialDepartments(String qry) {
         String temSql;
         List<Department> dep;

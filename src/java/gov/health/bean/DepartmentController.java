@@ -152,12 +152,14 @@ public class DepartmentController implements Serializable {
 //        } else {
 //            gov.health.bean.JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
 //        }
+//        
+//        recreateModel();
+//        getItems();
+//        selectText = "";
+//        current = null;
+//        this.prepareSelect();
+        fillInsDepts();
         
-        recreateModel();
-        getItems();
-        selectText = "";
-        current = null;
-        this.prepareSelect();
     }
 
     public Department getRemoving() {

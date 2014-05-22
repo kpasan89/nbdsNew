@@ -44,7 +44,7 @@
                             </p:commandButton>
                         </p:column>
                         <p:column headerText="Case Ascertainment Form">
-                            <p:commandButton value="Enter" action="#{abstractionFormController.addNewAbstractionFormFromNotificationForm()}" >
+                            <p:commandButton ajax="false" value="Enter" action="#{abstractionFormController.addNewAbstractionFormFromNotificationForm}" >
                                 <f:setPropertyActionListener value="#{anf}" target="#{abstractionFormController.notificationForm}" ></f:setPropertyActionListener>
                             </p:commandButton>
                         </p:column>

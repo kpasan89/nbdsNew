@@ -185,6 +185,7 @@ public class AbstractionFormController implements Serializable {
     }
 
     public AbstractionForm getCurrent() {
+        
         if (current == null) {
             current = new AbstractionForm();
             Person mother = new Person();

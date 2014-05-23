@@ -20,7 +20,9 @@ import gov.health.entity.NotificationForm;
 import gov.health.entity.Person;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.EJB;
 import javax.inject.Named;
 
@@ -200,14 +202,53 @@ public class AbstractionFormController implements Serializable {
             LabTest labTest = new LabTest();
             current.setLabTest(labTest);
         }
+        if (current.getInfant() == null) {
+            Person i = new Person();
+            current.setInfant(i);
+        }
+
+        if (current.getMother() == null) {
+            Person m = new Person();
+            current.setMother(m);
+        }
+
+        if (current.getLabTest().getJmo() == null) {
+            Person j = new Person();
+            current.getLabTest().setJmo(j);
+        }
+        if (current.getLabTest().getMo() == null) {
+            Person m = new Person();
+            current.getLabTest().setMo(m);
+        }
+
+        if (current.getLabTest().getHoi() == null) {
+            Person h = new Person();
+            current.getLabTest().setHoi(h);
+        }
+
         return current;
     }
 
     public String listAll() {
+
+        //String jpql;
         System.out.println("lisintg all abs/ forms");
         items = getFacade().findAll();
         System.out.println("items = " + items);
         return "view_all_abstraction_form";
+
+//        if (getSessionController().getLoggedUser().getRestrictedInstitution() == null) {
+//            AbstractionForm a = new AbstractionForm();
+//            jpql = "select a from AbstractionForm a";
+//            items = getFacade().findBySQL(jpql);
+//        } else {
+//            Map m = new HashMap();
+//            m.put("h", getSessionController().getLoggedUser().getRestrictedInstitution());
+//            jpql = "select a from AbstractionForm a Where a.hospital =:h";
+//            items = getFacade().findBySQL(jpql, m);
+//        }
+//
+//        return "view_all_abstraction_form";
     }
 
     public void setCurrent(AbstractionForm current) {

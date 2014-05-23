@@ -37,10 +37,10 @@ public class Person implements Serializable {
     String title;
     String surname;
     String initials;
-    
+
     String familyName;
     String otherName;
-    
+
     @Enumerated(EnumType.STRING)
     Sex personSex;
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -61,8 +61,7 @@ public class Person implements Serializable {
     Date retiredAt;
     String retireComments;
     String nic;
-    @ManyToOne
-    Designation designation;
+    String designation;
     @ManyToOne
     Institution institution;
     @ManyToOne
@@ -83,7 +82,6 @@ public class Person implements Serializable {
         this.ageInWeek = ageInWeek;
     }
 
-    
     public String getAddress() {
         return address;
     }
@@ -99,7 +97,7 @@ public class Person implements Serializable {
     public void setEthnicity(Ethnicity ethnicity) {
         this.ethnicity = ethnicity;
     }
-   
+
     public Date getDateOfDead() {
         return dateOfDead;
     }
@@ -115,8 +113,6 @@ public class Person implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
-
-    
 
     public String getInitials() {
         return initials;
@@ -142,13 +138,11 @@ public class Person implements Serializable {
         this.title = title;
     }
 
-    
-        
-    public Designation getDesignation() {
+    public String getDesignation() {
         return designation;
     }
 
-    public void setDesignation(Designation designation) {
+    public void setDesignation(String designation) {
         this.designation = designation;
     }
 
@@ -208,7 +202,6 @@ public class Person implements Serializable {
         this.personSex = personSex;
     }
 
-
     public Long getId() {
         return id;
     }
@@ -216,8 +209,6 @@ public class Person implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
-    
 
     public Date getCreatedAt() {
         return createdAt;
@@ -314,6 +305,5 @@ public class Person implements Serializable {
     public String toString() {
         return name;
     }
-
 
 }

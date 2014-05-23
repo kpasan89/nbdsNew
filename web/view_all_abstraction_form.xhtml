@@ -19,11 +19,31 @@
                             <p:commandButton ajax="false" value="List All" action="#{abstractionFormController.listAll()}"></p:commandButton>
                         </f:facet>
 
-                        <p:dataTable value="#{abstractionFormController.items}" var="af">
-                            <p:column headerText="Hospital/RDHS Area">
-                                <h:outputLabel value="#{af}"></h:outputLabel>
-                                <h:outputLabel value="#{af.rdhsArea.name}"></h:outputLabel>
+                        <p:dataTable value="#{abstractionFormController.items}" var="aaf" rowIndexVar="iv">
+                            <p:column headerText="No">
+                                <h:outputLabel value="#{iv + 1}"></h:outputLabel>
                             </p:column>
+                            <p:column headerText="Infants Name">
+                                <h:outputLabel value="#{aaf.infant.name}"></h:outputLabel>
+                            </p:column>
+                            <p:column headerText="Infants Sex">
+                                <h:outputLabel value="#{aaf.infant.personSex }"></h:outputLabel>
+                            </p:column>
+                            <p:column headerText="Diagnosis">
+                                <h:outputLabel value="#{aaf.diagnosis}"></h:outputLabel>
+                            </p:column>
+                            <p:column headerText="Institution">
+                                <h:outputLabel value="#{aaf.hospital.name}"></h:outputLabel>
+                            </p:column>
+                            <p:column headerText="Ward">
+                                <h:outputLabel value="#{aaf.ward.name}"></h:outputLabel>
+                            </p:column>
+                            <p:column headerText="View">
+                                <p:commandButton value="View" action="birth_diffect_abstraction_form" ajax="false">
+                                    <f:setPropertyActionListener value="#{aaf}" target="#{abstractionFormController.current}" ></f:setPropertyActionListener>
+                                </p:commandButton>
+                            </p:column>
+
                         </p:dataTable>
                     </p:panel>
                 </h:form>

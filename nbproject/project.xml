@@ -80,7 +80,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jquery-ui-1.10.4.custom.zip}</file>
+                    <file>${file.reference.Pasan-theme.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

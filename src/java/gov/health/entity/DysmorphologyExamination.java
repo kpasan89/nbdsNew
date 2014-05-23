@@ -5,6 +5,7 @@
  */
 package gov.health.entity;
 
+import gov.health.data.Dermatolglyphics;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
@@ -372,16 +373,17 @@ public class DysmorphologyExamination implements Serializable {
     String otherSkinNotes;
     boolean arches;
     boolean whorls;
-    String leftDermat1;
-    String leftDermat2;
-    String leftDermat3;
-    String leftDermat4;
-    String leftDermat5;
-    String rightDermat1;
-    String rightDermat2;
-    String rightDermat3;
-    String rightDermat4;
-    String rightDermat5;
+    
+    Dermatolglyphics leftDermat1;
+    Dermatolglyphics leftDermat2;
+    Dermatolglyphics leftDermat3;
+    Dermatolglyphics leftDermat4;
+    Dermatolglyphics leftDermat5;
+    Dermatolglyphics rightDermat1;
+    Dermatolglyphics rightDermat2;
+    Dermatolglyphics rightDermat3;
+    Dermatolglyphics rightDermat4;
+    Dermatolglyphics rightDermat5;
     
 //    Neuro
     boolean normalNeuro;
@@ -1287,85 +1289,87 @@ public class DysmorphologyExamination implements Serializable {
         this.whorls = whorls;
     }
 
-    public String getLeftDermat1() {
+    public Dermatolglyphics getLeftDermat1() {
         return leftDermat1;
     }
 
-    public void setLeftDermat1(String leftDermat1) {
+    public void setLeftDermat1(Dermatolglyphics leftDermat1) {
         this.leftDermat1 = leftDermat1;
     }
 
-    public String getLeftDermat2() {
+    public Dermatolglyphics getLeftDermat2() {
         return leftDermat2;
     }
 
-    public void setLeftDermat2(String leftDermat2) {
+    public void setLeftDermat2(Dermatolglyphics leftDermat2) {
         this.leftDermat2 = leftDermat2;
     }
 
-    public String getLeftDermat3() {
+    public Dermatolglyphics getLeftDermat3() {
         return leftDermat3;
     }
 
-    public void setLeftDermat3(String leftDermat3) {
+    public void setLeftDermat3(Dermatolglyphics leftDermat3) {
         this.leftDermat3 = leftDermat3;
     }
 
-    public String getLeftDermat4() {
+    public Dermatolglyphics getLeftDermat4() {
         return leftDermat4;
     }
 
-    public void setLeftDermat4(String leftDermat4) {
+    public void setLeftDermat4(Dermatolglyphics leftDermat4) {
         this.leftDermat4 = leftDermat4;
     }
 
-    public String getLeftDermat5() {
+    public Dermatolglyphics getLeftDermat5() {
         return leftDermat5;
     }
 
-    public void setLeftDermat5(String leftDermat5) {
+    public void setLeftDermat5(Dermatolglyphics leftDermat5) {
         this.leftDermat5 = leftDermat5;
     }
 
-    public String getRightDermat1() {
+    public Dermatolglyphics getRightDermat1() {
         return rightDermat1;
     }
 
-    public void setRightDermat1(String rightDermat1) {
+    public void setRightDermat1(Dermatolglyphics rightDermat1) {
         this.rightDermat1 = rightDermat1;
     }
 
-    public String getRightDermat2() {
+    public Dermatolglyphics getRightDermat2() {
         return rightDermat2;
     }
 
-    public void setRightDermat2(String rightDermat2) {
+    public void setRightDermat2(Dermatolglyphics rightDermat2) {
         this.rightDermat2 = rightDermat2;
     }
 
-    public String getRightDermat3() {
+    public Dermatolglyphics getRightDermat3() {
         return rightDermat3;
     }
 
-    public void setRightDermat3(String rightDermat3) {
+    public void setRightDermat3(Dermatolglyphics rightDermat3) {
         this.rightDermat3 = rightDermat3;
     }
 
-    public String getRightDermat4() {
+    public Dermatolglyphics getRightDermat4() {
         return rightDermat4;
     }
 
-    public void setRightDermat4(String rightDermat4) {
+    public void setRightDermat4(Dermatolglyphics rightDermat4) {
         this.rightDermat4 = rightDermat4;
     }
 
-    public String getRightDermat5() {
+    public Dermatolglyphics getRightDermat5() {
         return rightDermat5;
     }
 
-    public void setRightDermat5(String rightDermat5) {
+    public void setRightDermat5(Dermatolglyphics rightDermat5) {
         this.rightDermat5 = rightDermat5;
     }
+
+    
     
     public boolean getNormalNeuro() {
         return normalNeuro;

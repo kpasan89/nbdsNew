@@ -63,7 +63,7 @@
 
                     <h:form >  
 
-                        <p:menubar styleClass="nonPrintBlock" style="border: 0px;">
+                        <p:menubar styleClass="nonPrintBlock" style="border: 0px; ">
                             <p:menuitem  ajax="false"  action="index" value="Home"></p:menuitem>
                             <p:submenu label="Cases" >
                                 <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
@@ -85,15 +85,7 @@
                                     <p:menuitem  ajax="false"  action="institutions" value="Institutions"  ></p:menuitem>
                                     <p:menuitem  ajax="false"  action="import_institutions" value="Import Official Institutions"  ></p:menuitem>
                                 </p:submenu>
-                                <p:submenu label="Area" >
-                                    <p:menuitem  ajax="false"  action="area" value="Area"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="Provinces"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="Districts"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="MOH Areas"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="PHI Areas"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="PHM Areas"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="GN Areas"  ></p:menuitem>
-                                </p:submenu>
+                                <p:menuitem  ajax="false"  action="area" value="Area"  ></p:menuitem>
                                 <p:submenu label="Designations" >
                                     <p:menuitem  ajax="false"  action="designation" value="Designations"  ></p:menuitem>
                                     <p:menuitem  ajax="false"  action="designation_category" value="Designation (Service) Type"  ></p:menuitem>
@@ -202,7 +194,7 @@
 
                 </h:form>
             </div>
-            
+
         </div>
 
     </h:body>

@@ -13,12 +13,18 @@
             <ui:define name="content">
 
                 <h:form>
-                    <p:themeSwitcher style="width:165px" id="defaultSwitcher" value="#{themeSwitcherBean.theme}">
-                        <f:selectItem itemLabel="Choose Theme" itemValue="" />
-                        <f:selectItems value="#{themeSwitcherBean.themes}" />
-                    </p:themeSwitcher>
-                    <p:commandButton ajax="false" value="Set" action="#{themeSwitcherBean.saveTheme}"></p:commandButton>
-
+                    <p:panel>
+                        <f:facet name="header" >
+                            <h:outputLabel value="Theme Gallary" ></h:outputLabel>
+                        </f:facet>
+                        <p:panelGrid columns="2">
+                            <p:themeSwitcher style="width:165px" id="defaultSwitcher" value="#{themeSwitcherBean.theme}">
+                                <f:selectItem itemLabel="Choose Theme" itemValue="" />
+                                <f:selectItems value="#{themeSwitcherBean.themes}" />
+                            </p:themeSwitcher>
+                            <p:commandButton ajax="false" value="Set" action="#{themeSwitcherBean.saveTheme}"></p:commandButton>
+                        </p:panelGrid>
+                    </p:panel>
                 </h:form>
 
 

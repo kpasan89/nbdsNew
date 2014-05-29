@@ -90,6 +90,7 @@ public class ThemeSwitcherBean  implements Serializable {
         themes.put("Casablanca", "casablanca");
         themes.put("Cupertino", "cupertino");
         themes.put("Dark-Hive", "dark-hive");
+        themes.put("Delta", "delta");
         themes.put("Dot-Luv", "dot-luv");
         themes.put("Eggplant", "eggplant");
         themes.put("Excite-Bike", "excite-bike");

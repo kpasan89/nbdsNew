@@ -6,6 +6,7 @@
 
 package gov.health.bean;
 
+import gov.health.data.Birth;
 import gov.health.data.Dermatolglyphics;
 import gov.health.data.Ethnicity;
 import javax.inject.Named;
@@ -31,5 +32,9 @@ public class EnumController {
     
     public Dermatolglyphics[] getDermatolglyphicses(){
         return Dermatolglyphics.values();
+    }
+    
+    public Birth[] getBirths(){
+        return Birth.values();
     }
 }

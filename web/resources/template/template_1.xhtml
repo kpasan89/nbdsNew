@@ -65,10 +65,16 @@
 
                         <p:menubar styleClass="nonPrintBlock" style="border: 0px; ">
                             <p:menuitem  ajax="false"  action="index" value="Home"></p:menuitem>
-                            <p:submenu label="Cases" >
-                                <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
+                            <p:submenu label="Cases"  rendered="#{sessionController.sysAdmin}">
                                 <p:menuitem ajax="false" action="#{notificationFormController.listUnregForms()}" value="Register Notifications" ></p:menuitem>
                                 <p:menuitem ajax="false" action="#{notificationFormController.listRegForms()}" value="List All Registered Notifications" ></p:menuitem>
+                                <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
+                                <p:menuitem ajax="false" action="#{abstractionFormController.addNewAbstractionForm()}"  value="Case Ascertainment"  ></p:menuitem>
+                                <p:menuitem ajax="false" action="#{notificationFormController.listAll}" value="List All Notification Forms"></p:menuitem>
+                                <p:menuitem ajax="false" action="#{abstractionFormController.listAll()}" value="List All Abstraction Forms"></p:menuitem>
+                            </p:submenu>
+                            <p:submenu label="Cases" rendered="#{sessionController.insAdmin}">
+                                <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
                                 <p:menuitem ajax="false" action="#{abstractionFormController.addNewAbstractionForm()}"  value="Case Ascertainment"  ></p:menuitem>
                                 <p:menuitem ajax="false" action="#{notificationFormController.listAll}" value="List All Notification Forms"></p:menuitem>
                                 <p:menuitem ajax="false" action="#{abstractionFormController.listAll()}" value="List All Abstraction Forms"></p:menuitem> 
@@ -99,15 +105,7 @@
                                 <p:menuitem  ajax="false"  action="#{sessionController.prepareAddNewUser()}" value="Add Users"  ></p:menuitem>
                                 <p:menuitem  ajax="false"  action="manage_users" value="Manage Users"  ></p:menuitem>
                                 <p:menuitem  ajax="false"  action="department" value="Department"  ></p:menuitem>
-                                <p:submenu label="Area" >
-                                    <p:menuitem  ajax="false"  action="area" value="Area"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="Provinces"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="Districts"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="MOH Areas"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="PHI Areas"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="PHM Areas"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="area" value="GN Areas"  ></p:menuitem>
-                                </p:submenu>
+                                <p:menuitem  ajax="false"  action="area" value="Area"  ></p:menuitem>
                             </p:submenu>
                             <p:submenu label="Options"  >
                                 <p:menuitem  ajax="false"  action="change_password" value="Change Password" ></p:menuitem>

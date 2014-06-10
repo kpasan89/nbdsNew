@@ -5,10 +5,13 @@
  */
 package gov.health.entity;
 
+import gov.health.data.Birth;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -117,7 +120,30 @@ public class NotificationForm implements Serializable {
     
     @OneToOne
     AbstractionForm abstractionForm;
+    
+    @Enumerated(EnumType.STRING)
+    Birth birthType;
+    int multiBirths;
 
+    public int getMultiBirths() {
+        return multiBirths;
+    }
+
+    public void setMultiBirths(int multiBirths) {
+        this.multiBirths = multiBirths;
+    }
+    
+
+    public Birth getBirthType() {
+        return birthType;
+    }
+
+    public void setBirthType(Birth birthType) {
+        this.birthType = birthType;
+    }
+
+    
+    
     public Date getRegisteredAt() {
         return registeredAt;
     }

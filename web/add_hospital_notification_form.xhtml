@@ -132,7 +132,25 @@
                                     <p:tooltip for="txtPregReg" value="Type Pregnancy Registration Number" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
-                                    <td>7. Whether the baby alive or dead ?</td>
+                                    <td>7. Birth Type</td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <p:selectOneMenu value="#{notificationFormController.current.birthType}" id="txtPregType">
+                                                        <f:selectItems value="#{enumController.births}"></f:selectItems>
+                                                    </p:selectOneMenu>
+                                                </td>
+                                                <td>
+                                                    <p:inputText value="#{notificationFormController.current.multiBirths}" size="10"></p:inputText>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <p:tooltip for="txtPregType" value="Pregnancy Type" showEffect="fade" hideEffect="fade" />
+                                </tr>
+                                <tr>
+                                    <td>8. Whether the baby alive or dead ?</td>
                                     <td><p:selectOneRadio value="#{notificationFormController.current.live}" id="live">
                                             <f:selectItem itemValue="False" itemLabel="Live"></f:selectItem>
                                             <f:selectItem itemValue="True" itemLabel="Dead"></f:selectItem>
@@ -141,32 +159,32 @@
                                     <p:tooltip for="live" value="Select the option" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
-                                    <td>8. Diagnosis / Birth Defect Coding</td>
+                                    <td>9. Diagnosis / Birth Defect Coding</td>
                                     <td><p:inputText value="#{notificationFormController.current.diagnosis}" size="40" id="txtDiag"></p:inputText></td>
                                     <p:tooltip for="txtDiag" value="Type diagnosis" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
-                                    <td>9. Name of the mother</td>
+                                    <td>10. Name of the mother</td>
                                     <td><p:inputText value="#{notificationFormController.current.mother.name}" size="40" id="txtMother"></p:inputText></td>
                                     <p:tooltip for="txtMother" value="Type mother's name" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
-                                    <td>10. Mother’s Date of Birth</td>
+                                    <td>11. Mother’s Date of Birth</td>
                                     <td><p:calendar value="#{notificationFormController.current.mother.dob}" size="40" id="txtMDOB"></p:calendar></td>
                                     <p:tooltip for="txtMDOB" value="Type mother's Date of birth" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
-                                    <td>11. Age</td>
+                                    <td>12. Age</td>
                                     <td><p:inputText value="#{notificationFormController.current.mother.age}" size="35" id="txtMAge"></p:inputText>Years</td>
                                     <p:tooltip for="txtMAge" value="Type mother's Age" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
-                                    <td>12. National Identity Card No</td>
+                                    <td>13. National Identity Card No</td>
                                     <td><p:inputText value="#{notificationFormController.current.mother.nic}" size="40" id="txtNIC"></p:inputText></td>
                                     <p:tooltip for="txtNIC" value="Type mother's National Identity Card number" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
-                                    <td>13. Ethnicity</td>
+                                    <td>14. Ethnicity</td>
                                     <td>
                                         <p:selectOneMenu value="#{notificationFormController.current.mother.ethnicity}" id="selEth">
                                             <f:selectItems value="#{enumController.ethnicities}" ></f:selectItems>
@@ -176,19 +194,19 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>14. Residence Address</td>
+                                    <td>15. Residence Address</td>
                                     <td><p:inputText value="#{notificationFormController.current.mother.address}" size="40" id="txtAddress"></p:inputText></td>
                                     <p:tooltip for="txtAddress" value="Type permanent address" showEffect="fade" hideEffect="fade" />
                                 </tr>
                                 <tr>
-                                    <td><p:outputLabel>15. Phone1</p:outputLabel></td>
+                                    <td><p:outputLabel>16. Phone1</p:outputLabel></td>
                                     <td><p:inputText value="#{notificationFormController.current.tp1}" size="40" id="txtP1"></p:inputText>
                                         <p:tooltip for="txtP1" value="Type Telephone number" showEffect="fade" hideEffect="fade" />
                                     </td>
 
                                 </tr>
                                 <tr>
-                                    <td>16. Phone2</td>
+                                    <td>17. Phone2</td>
                                     <td><p:inputText value="#{notificationFormController.current.tp2}" size="40" id="txtP2"></p:inputText>
                                         <p:tooltip for="txtP2" value="Type Mobile phone number" showEffect="fade" hideEffect="fade" />
                                     </td>

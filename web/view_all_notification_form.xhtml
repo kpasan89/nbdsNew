@@ -12,7 +12,7 @@
 
             <ui:define name="content">
                 <h:form>
-                    <p:panel>
+                    <p:panel rendered="#{sessionController.insAdmin or sessionController.sysAdmin}">
                         <f:facet name="header" >
                             <h:outputLabel value="View All Notification Forms" ></h:outputLabel>
                             <p:spacer width="10"></p:spacer>

@@ -95,6 +95,7 @@ public class AbstractionFormController implements Serializable {
 
             DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
             current.setDysmorphologyExamination(dysmorphologyExamination);
+            
             LabTest labTest = new LabTest();
             current.setLabTest(labTest);
 

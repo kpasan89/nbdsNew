@@ -20,30 +20,30 @@
                         </f:facet>
                     
                     <p:dataTable value="#{notificationFormController.items}" var="anf" rowIndexVar="iv">
-                        <p:column headerText="No">
+                        <p:column headerText="No" width="25">
                             <h:outputLabel value="#{iv + 1}"></h:outputLabel>
                         </p:column>
                         <p:column headerText="Infants Name">
                             <h:outputLabel value="#{anf.infant.name}"></h:outputLabel>
                         </p:column>
-                        <p:column headerText="Infants Sex">
+                        <p:column headerText="Infants Sex" width="100">
                             <h:outputLabel value="#{anf.infant.personSex }"></h:outputLabel>
                         </p:column>
                         <p:column headerText="Diagnosis">
                             <h:outputLabel value="#{anf.diagnosis}"></h:outputLabel>
                         </p:column>
-                        <p:column headerText="Institution">
+                        <p:column headerText="Institution" width="150">
                             <h:outputLabel value="#{anf.hospital.name}"></h:outputLabel>
                         </p:column>
-                        <p:column headerText="Ward">
+                        <p:column headerText="Ward" width="100">
                             <h:outputLabel value="#{anf.ward.name}"></h:outputLabel>
                         </p:column>
-                        <p:column headerText="View">
-                            <p:commandButton value="View" action="add_hospital_notification_form" ajax="false" >
+                        <p:column headerText="View Notification Form" width="100">
+                            <p:commandButton value="View" action="add_hospital_notification_form" ajax="false">
                                 <f:setPropertyActionListener value="#{anf}" target="#{notificationFormController.current}" ></f:setPropertyActionListener>
                             </p:commandButton>
                         </p:column>
-                        <p:column headerText="Case Ascertainment Form">
+                        <p:column headerText="Case Ascertainment Form" width="100">
                             <p:commandButton ajax="false" value="Enter" action="#{abstractionFormController.addNewAbstractionFormFromNotificationForm}" >
                                 <f:setPropertyActionListener value="#{anf}" target="#{abstractionFormController.notificationForm}" ></f:setPropertyActionListener>
                             </p:commandButton>

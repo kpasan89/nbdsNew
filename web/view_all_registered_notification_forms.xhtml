@@ -12,7 +12,7 @@
 
             <ui:define name="content">
                 <h:form>
-                    <p:panel >
+                    <p:panel rendered="#{sessionController.insAdmin or sessionController.sysAdmin}">
                         <f:facet name="header" >
                             <h:outputLabel value="View All Registerd Notification Forms" ></h:outputLabel>
                             <p:spacer width="10" ></p:spacer>
@@ -56,12 +56,12 @@
                             <p:column headerText="Ward">
                                 <h:outputLabel value="#{nf.ward.name}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="View">
+                            <p:column headerText="View Notification Form" width="100">
                                 <p:commandButton value="View" action="add_hospital_notification_form" ajax="false" >
                                     <f:setPropertyActionListener value="#{nf}" target="#{notificationFormController.current}" ></f:setPropertyActionListener>
                                 </p:commandButton>
                             </p:column>
-                            <p:column headerText="Case Ascertainment Form">
+                            <p:column headerText="Case Ascertainment Form" width="150">
                                 <p:commandButton ajax="false" value="View" disabled="#{notificationFormController.current.abstractionForm eq null}" action="birth_diffect_abstraction_form" >
                                     <f:setPropertyActionListener value="#{nf}" target="#{abstractionFormController.current}" ></f:setPropertyActionListener>
                                 </p:commandButton>

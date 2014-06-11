@@ -203,6 +203,21 @@ public class UserApproveController implements Serializable {
         JsfUtil.addSuccessMessage("Successfully activated");
     }
 
+    
+    
+    
+     public void updateUser() {
+        if (selectedUser == null) {
+            JsfUtil.addErrorMessage("Please select a user");
+            return;
+        }
+        
+        userFacade.edit(selectedUser);
+        //selectedUser = null;
+
+        JsfUtil.addSuccessMessage("Successfully Updated");
+    }
+    
     public void approveUser() {
         if (selectedUser == null) {
             JsfUtil.addErrorMessage("Please select a user to approve");

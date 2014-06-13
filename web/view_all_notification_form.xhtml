@@ -48,6 +48,11 @@
                                 <f:setPropertyActionListener value="#{anf}" target="#{abstractionFormController.notificationForm}" ></f:setPropertyActionListener>
                             </p:commandButton>
                         </p:column>
+                         <p:column headerText="Delete Notification Form" width="100">
+                             <p:commandButton ajax="false" value="Delete" action="#{notificationFormController.retiredRecord()}" >
+                                <f:setPropertyActionListener value="#{anf}" target="#{notificationFormController.current}" ></f:setPropertyActionListener>
+                            </p:commandButton>
+                        </p:column>
                         
                     </p:dataTable>
                     </p:panel>

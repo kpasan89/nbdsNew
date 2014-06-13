@@ -232,12 +232,12 @@ public class NotificationFormController implements Serializable {
 
         if (getSessionController().getLoggedUser().getRestrictedInstitution() == null) {
             NotificationForm n = new NotificationForm();
-            jpql = "select n from NotificationForm n";
+            jpql = "select n from NotificationForm n where n.retired = false order by n.id desc";
             items = getFacade().findBySQL(jpql);
         } else {
             Map m = new HashMap();
             m.put("h", getSessionController().getLoggedUser().getRestrictedInstitution());
-            jpql = "select n from NotificationForm n Where n.hospital =:h";
+            jpql = "select n from NotificationForm n Where n.hospital =:h and n.retired = false order by n.id desc";
             System.out.println("m = " + m);
             System.out.println("jpql = " + jpql);
             items = getFacade().findBySQL(jpql, m);
@@ -354,6 +354,18 @@ public class NotificationFormController implements Serializable {
 
         JsfUtil.addSuccessMessage("Saved");
 
+    }
+    
+    public void retiredRecord(){
+        if (current != null) {
+            current.setRetired(true);
+            current.setRetiredAt(Calendar.getInstance().getTime());
+            current.setRetiredUser(getSessionController().getLoggedUser());
+            getFacade().edit(current);
+            JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
+        } else {
+            JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
+        }
     }
 
     public String getSelectText() {

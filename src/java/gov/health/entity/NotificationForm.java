@@ -103,6 +103,8 @@ public class NotificationForm implements Serializable {
     Date retiredAt;
     @Lob
     String retiredComments;
+    @ManyToOne
+    WebUser setRetiredUser;
 
     @ManyToOne
     NotificationForm originalNotification;
@@ -140,6 +142,14 @@ public class NotificationForm implements Serializable {
 
     public void setBirthType(Birth birthType) {
         this.birthType = birthType;
+    }
+
+    public WebUser getSetRetiredUser() {
+        return setRetiredUser;
+    }
+
+    public void setSetRetiredUser(WebUser setRetiredUser) {
+        this.setRetiredUser = setRetiredUser;
     }
 
     

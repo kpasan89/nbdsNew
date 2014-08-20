@@ -126,6 +126,7 @@ public class NotificationForm implements Serializable {
     @Enumerated(EnumType.STRING)
     Birth birthType;
     int multiBirths;
+    
 
     public int getMultiBirths() {
         return multiBirths;

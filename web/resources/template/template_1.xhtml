@@ -14,7 +14,7 @@
         <style type="text/css">
             .ui-widget,
             .ui-widget .ui-widget {
-                font-size: 10px !important;
+                font-size: 12px !important;
             }
             .ui-layout-north {
                 z-index:20 !important;
@@ -32,6 +32,7 @@
                 overflow:hidden !important;
             }
 
+
         </style>   
     </h:head>
 
@@ -39,9 +40,9 @@
     <h:body >
 
         <p:growl id="growl" autoUpdate="true"/>
-        <p:ajaxStatus style="position: absolute; width:28px;height:28px;position:fixed;right: 25px;top: 25px">  
+        <p:ajaxStatus style="position: absolute; width:28px;height:28px;position:fixed;right: 60px;top: 25px">  
             <f:facet name="start">  
-                <p:graphicImage library="image" name="Flip Flop.gif" />  
+                <p:graphicImage library="image" name="loader.gif" />  
             </f:facet>  
 
             <f:facet name="complete">  
@@ -54,6 +55,15 @@
             <h:panelGrid columns="2" id="header" class="headerblock">
                 <h:panelGroup style="margin: auto">
                     <h:graphicImage class="banner" library="image" name="BDS 2.png"  height="100%" width="100%"></h:graphicImage>
+<!--                    <div align="right" style="position: fixed; top: 2.5%; right: 1.5%;">
+                        <p:imageSwitch effect="fade">
+                            <p:graphicImage library="image/DashBoard" name="P1.JPG" style="height: 148px; width: 250px;"/>
+                            <p:graphicImage library="image/DashBoard" name="P2.JPG" style="height: 148px; width: 250px;" />
+                            <p:graphicImage library="image/DashBoard" name="P3.JPG" style="height: 148px; width: 250px;" /> 
+                            <p:graphicImage library="image/DashBoard" name="P4.JPG" style="height: 148px; width: 250px;" />
+                            <p:graphicImage library="image/DashBoard" name="P5.JPG" style="height: 148px; width: 250px;" />
+                        </p:imageSwitch>
+                    </div>-->
                 </h:panelGroup>
             </h:panelGrid>
 
@@ -62,65 +72,57 @@
                 <h:panelGroup  rendered="#{sessionController.logged}" style="margin: 0px; padding: 0px; border: 0px;" >
 
                     <h:form >  
-
-                        <p:menubar styleClass="nonPrintBlock" style="border: 0px; ">
-                            <p:menuitem  ajax="false"  action="index" value="Home"></p:menuitem>
-                            <p:submenu label="Cases"  rendered="#{sessionController.sysAdmin}">
-                                <p:menuitem ajax="false" action="#{notificationFormController.listUnregForms()}" value="Register Notifications" ></p:menuitem>
-                                <p:menuitem ajax="false" action="#{notificationFormController.listRegForms()}" value="List All Registered Notifications" ></p:menuitem>
-                                <p:menuitem ajax="false" action="#{notificationFormController.listAll}" value="List All Notification Forms"></p:menuitem>
-                                <p:menuitem ajax="false" action="#{abstractionFormController.listAll()}" value="List All Abstraction Forms"></p:menuitem>
-                                <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
-                                <p:menuitem ajax="false" action="#{abstractionFormController.addNewAbstractionForm()}"  value="Case Ascertainment"  ></p:menuitem>
-                            </p:submenu>
-                            <p:submenu label="Cases" rendered="#{sessionController.insAdmin}">
-                                <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
-                                <p:menuitem ajax="false" action="#{abstractionFormController.addNewAbstractionForm()}"  value="Case Ascertainment"  ></p:menuitem>
-                                <p:menuitem ajax="false" action="#{notificationFormController.listAll}" value="List All Notification Forms"></p:menuitem>
-                                <p:menuitem ajax="false" action="#{abstractionFormController.listAll()}" value="List All Abstraction Forms"></p:menuitem>
-                                <p:menuitem ajax="false" action="#{notificationFormController.listRegForms()}" value="List All Registered Notifications" ></p:menuitem>
-                            </p:submenu>
-                            <p:submenu label="Reports" >
-                                <p:menuitem ajax="false" action="institution_designation_summary" value="Institutional Birth Defects Registry" ></p:menuitem>
-                                <p:menuitem ajax="false" action="paycentre_designation_summary" value="District Birth Defects Registry" ></p:menuitem>
-                                <p:menuitem ajax="false" action="records_without_nic"  value="Quarterly Institutional Summary"  ></p:menuitem>
-                                <p:menuitem ajax="false" action="records_without_nic"  value="Quarterly District Summary"  ></p:menuitem>
-                            </p:submenu>
-                            <p:submenu label="Administration"  rendered="#{sessionController.sysAdmin}">
-                                <p:submenu label="Institutions" >
-                                    <p:menuitem  ajax="false"  action="institution_type" value="Institution Type"   ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="institutions" value="Institutions"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="import_institutions" value="Import Official Institutions"  ></p:menuitem>
+                        <div>
+                            <p:menubar styleClass="nonPrintBlock" style="border: 0px">
+                                <p:menuitem  ajax="false"  action="index" value="Home"></p:menuitem>
+                                <p:submenu label="Cases"  rendered="#{sessionController.sysAdmin or sessionController.superUser}">
+                                    <p:menuitem ajax="false" action="#{notificationFormController.listUnregForms()}" value="Register Notifications" ></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{notificationFormController.listRegForms()}" value="List All Registered Notifications" ></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{notificationFormController.listAll}" value="List All Notification Forms"></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{abstractionFormController.listAll()}" value="List All Abstraction Forms"></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{abstractionFormController.addNewAbstractionForm()}"  value="Case Ascertainment"  ></p:menuitem>
                                 </p:submenu>
-                                <p:menuitem  ajax="false"  action="area" value="Area"  ></p:menuitem>
-                                <p:submenu label="Designations" >
-                                    <p:menuitem  ajax="false"  action="designation" value="Designations"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="designation_category" value="Designation (Service) Type"  ></p:menuitem>
-                                    <p:menuitem  ajax="false"  action="import_designations" value="Import Official Designations"  ></p:menuitem>
+                                <p:submenu label="Cases" rendered="#{sessionController.insAdmin}">
+                                    <p:menuitem ajax="false" action="#{notificationFormController.addNewHospitalNotificationForm()}" value="Hospital Birth Defect Notification" ></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{abstractionFormController.addNewAbstractionForm()}"  value="Case Ascertainment"  ></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{notificationFormController.listAll}" value="List All Notification Forms"></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{abstractionFormController.listAll()}" value="List All Abstraction Forms"></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{notificationFormController.listRegForms()}" value="List All Registered Notifications" ></p:menuitem>
                                 </p:submenu>
-                                <p:menuitem  ajax="false"  action="department" value="#{labels.department}"  ></p:menuitem>
-                                <p:menuitem  ajax="false"  action="#{webUserController.newUserAdd}" value="Add Users"  ></p:menuitem>
-                                <p:menuitem  ajax="false"  action="manage_users" value="Manage Users"  ></p:menuitem>
-                            </p:submenu>
-                            <p:submenu label="Administration"  rendered="#{sessionController.insAdmin}">
-                                <p:menuitem  ajax="false"  action="#{sessionController.prepareAddNewUser()}" value="Add Users"  ></p:menuitem>
-                                <p:menuitem  ajax="false"  action="manage_users" value="Manage Users"  ></p:menuitem>
-                                <p:menuitem  ajax="false"  action="department" value="Department"  ></p:menuitem>
-                                <p:menuitem  ajax="false"  action="area" value="Area"  ></p:menuitem>
-                            </p:submenu>
-                            <p:submenu label="Options"  >
-                                <p:menuitem  ajax="false"  action="change_password" value="Change Password" ></p:menuitem>
-                                <p:menuitem  ajax="false"  action="preferances" value="Preferances"  ></p:menuitem>
-                            </p:submenu>
-                        </p:menubar>
-                        <p:stack icon="/resources/image/stack.png">
-                            <p:menuitem value="Log_Out" icon="/resources/image/Logout1.png" style="width: 25px; height: 25px" action="#{sessionController.logout}" ajax="false" rendered="#{sessionController.logged}"/>
-                            <p:menuitem value="List_All_Abstraction_Forms" icon="/resources/image/search.png" style="width: 25px; height: 25px" action="view_all_abstraction_form"/>  
-                            <p:menuitem value="Abstraction_Form" icon="/resources/image/forms.png" style="width: 25px; height: 25px" action="birth_diffect_abstraction_form"/>
-                            <p:menuitem value="List_All_Notification_Forms" icon="/resources/image/search.png" style="width: 25px; height: 25px" action="view_all_notification_form"/>
-                            <p:menuitem value="Notification_Form" icon="/resources/image/forms.png" style="width: 25px; height: 25px" action="add_hospital_notification_form" />
-                            <p:menuitem value="Add_Users" icon="/resources/image/UserGroup.png" style="width: 25px; height: 25px" action="manage_users"/>
-                        </p:stack>
+                                <p:submenu label="Reports" >
+                                    <p:menuitem ajax="false" action="institution_designation_summary" value="Institutional Birth Defects Registry" ></p:menuitem>
+                                    <p:menuitem ajax="false" action="paycentre_designation_summary" value="District Birth Defects Registry" ></p:menuitem>
+                                    <p:menuitem ajax="false" action="records_without_nic"  value="Quarterly Institutional Summary"  ></p:menuitem>
+                                    <p:menuitem ajax="false" action="records_without_nic"  value="Quarterly District Summary"  ></p:menuitem>
+                                </p:submenu>
+                                <p:submenu label="Administration"  rendered="#{sessionController.sysAdmin or sessionController.superUser}">
+                                    <p:submenu label="Institutions" >
+                                        <p:menuitem  ajax="false"  action="institution_type" value="Institution Type"   ></p:menuitem>
+                                        <p:menuitem  ajax="false"  action="institutions" value="Institutions"  ></p:menuitem>
+                                        <p:menuitem  ajax="false"  action="import_institutions" value="Import Official Institutions"  ></p:menuitem>
+                                    </p:submenu>
+                                    <p:menuitem  ajax="false"  action="area" value="Area"  ></p:menuitem>
+                                    <p:submenu label="Designations" >
+                                        <p:menuitem  ajax="false"  action="designation" value="Designations"  ></p:menuitem>
+                                        <p:menuitem  ajax="false"  action="designation_category" value="Designation (Service) Type"  ></p:menuitem>
+                                        <p:menuitem  ajax="false"  action="import_designations" value="Import Official Designations"  ></p:menuitem>
+                                    </p:submenu>
+                                    <p:menuitem  ajax="false"  action="department" value="#{labels.department}"  ></p:menuitem>
+                                    <p:menuitem  ajax="false"  action="#{webUserController.newUserAdd}" value="Add Users"  ></p:menuitem>
+                                    <p:menuitem  ajax="false"  action="manage_users" value="Manage Users"  ></p:menuitem>
+                                </p:submenu>
+                                <p:submenu label="Administration"  rendered="#{sessionController.insAdmin}">
+                                    <p:menuitem  ajax="false"  action="#{sessionController.prepareAddNewUser()}" value="Add Users"  ></p:menuitem>
+                                    <p:menuitem  ajax="false"  action="manage_users" value="Manage Users"  ></p:menuitem>
+                                    <p:menuitem  ajax="false"  action="department" value="Department"  ></p:menuitem>
+                                    <p:menuitem  ajax="false"  action="area" value="Area"  ></p:menuitem>
+                                </p:submenu>
+                                <p:submenu label="Options"  >
+                                    <p:menuitem  ajax="false"  action="change_password" value="Change Password" ></p:menuitem>
+                                </p:submenu>
+                            </p:menubar>
+                        </div>
                     </h:form>
 
                 </h:panelGroup>
@@ -180,7 +182,17 @@
                     </ui:insert>
                 </h:panelGroup>
             </div>
-            <div style="position: fixed; bottom: 10px; right:  10px;" class="nonPrintBlock" >
+            <div style="position: fixed; bottom: 8px; right:  10px;" class="nonPrintBlock" >
+                <h:form>
+                    <p:stack icon="/resources/image/stack.png">
+                        <p:menuitem value="Log_Out" icon="/resources/image/Logout1.png" style="width: 25px; height: 25px" action="#{sessionController.logout}" ajax="false" rendered="#{sessionController.logged}"/>
+                        <p:menuitem value="List_All_Abstraction_Forms" icon="/resources/image/search.png" style="width: 25px; height: 25px" action="view_all_abstraction_form"/>  
+                        <p:menuitem value="Abstraction_Form" icon="/resources/image/forms.png" style="width: 25px; height: 25px" action="birth_diffect_abstraction_form"/>
+                        <p:menuitem value="List_All_Notification_Forms" icon="/resources/image/search.png" style="width: 25px; height: 25px" action="view_all_notification_form"/>
+                        <p:menuitem value="Notification_Form" icon="/resources/image/forms.png" style="width: 25px; height: 25px" action="add_hospital_notification_form" />
+                        <p:menuitem value="Add_Users" icon="/resources/image/UserGroup.png" style="width: 25px; height: 25px" action="manage_users"/>
+                    </p:stack>
+                </h:form>
                 <p:clock pattern="HH:mm a - dd MMMM yyyy" mode="server"  /> 
             </div>
             <div style="bottom: 0px;">

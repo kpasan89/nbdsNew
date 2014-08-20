@@ -87,6 +87,9 @@ public class SessionController implements Serializable {
         if (loggedUser == null) {
             return false;
         }
+        if(loggedUser.getRole()==null){
+            return true;
+        }
         return loggedUser.getRole().getName().equalsIgnoreCase("superUser");
 
     }

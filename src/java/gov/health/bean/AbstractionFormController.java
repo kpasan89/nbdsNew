@@ -264,9 +264,8 @@ Map m ;m = new HashMap();
             System.out.println("jpql = " + jpql);
             items = getFacade().findBySQL(jpql);
         } else {
-            
             m.put("h", getSessionController().getLoggedUser().getRestrictedInstitution());
-            jpql = "select a from AbstractionForm a Where a.hospital=:h";
+            jpql = "select a from AbstractionForm a Where a.hospital=:h and a.retired = false order by a.id desc";
             System.out.println("m = " + m);
             System.out.println("jpql = " + jpql);
             items = getFacade().findBySQL(jpql, m);

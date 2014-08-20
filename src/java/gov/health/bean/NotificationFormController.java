@@ -120,9 +120,9 @@ public class NotificationFormController implements Serializable {
             institution = getSessionController().getLoggedUser().getRestrictedInstitution();
         }
         if (institution == null) {
-            jpql = "select n from NotificationForm n where n.retired=false and n.registered=true and n.createdAt between :fwdt and :tdt order by n.id";
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=true and n.createdAt between :fwdt and :tdt order by n.id desc";
         } else {
-            jpql = "select n from NotificationForm n where n.retired=false and n.registered=true and n.hospital=:hsptl and n.createdAt between :fwdt and :tdt order by n.id";
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=true and n.hospital=:hsptl and n.createdAt between :fwdt and :tdt order by n.id desc";
             m.put("hsptl", institution);
         }
         items = getFacade().findBySQL(jpql, m, TemporalType.DATE);
@@ -138,9 +138,9 @@ public class NotificationFormController implements Serializable {
             institution = getSessionController().getLoggedUser().getRestrictedInstitution();
         }
         if (institution == null) {
-            jpql = "select n from NotificationForm n where n.retired=false and n.registered=false and n.createdAt between :fd and :td order by n.id";
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=false and n.createdAt between :fd and :td order by n.id desc";
         } else {
-            jpql = "select n from NotificationForm n where n.retired=false and n.registered=false and n.hospital=:hos and n.createdAt between :fd and :td order by n.id";
+            jpql = "select n from NotificationForm n where n.retired=false and n.registered=false and n.hospital=:hos and n.createdAt between :fd and :td order by n.id desc";
             m.put("hos", institution);
         }
         items = getFacade().findBySQL(jpql, m, TemporalType.DATE);

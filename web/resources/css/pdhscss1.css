@@ -18,6 +18,7 @@ html, body{
     border: 0px;
     margin: 3px;
     padding: 3px;
+
 }
 
 .wholepage{
@@ -266,4 +267,10 @@ html, body{
     height: 50%;
     min-height: 400px;
 }
+.notificatioFormHead{
+    background-color: #f0f0f0;
+}
 
+.notificatioForm{
+    background-color: #f5f5f5;
+}

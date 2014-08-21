@@ -274,6 +274,15 @@ public class NotificationFormController implements Serializable {
         return "registry_province";
     }
     
+    public String listProvinceInstitutionRegistry() {
+        String jpql;
+        Map m = new HashMap();
+        m.put("p", area);
+        jpql = "select n from NotificationForm n Where n.hospital.district.superArea =:p and n.retired = false order by n.id desc";
+        items = getFacade().findBySQL(jpql, m);
+        return "registry_province";
+    }
+    
     public Department getDepartment() {
         return department;
     }

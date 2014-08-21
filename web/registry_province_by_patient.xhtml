@@ -23,7 +23,7 @@
                                             completeMethod="#{areaController.completeProvinces}"
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
                             </p:autoComplete>
-                            <p:commandButton ajax="false" value="List All" action="#{notificationFormController.listProvinceInstitutionRegistry()}" ></p:commandButton>
+                            <p:commandButton ajax="false" value="List All" action="#{notificationFormController.listProvinceRegistry()}" ></p:commandButton>
                         </f:facet>
 
                         <p:dataTable value="#{notificationFormController.items}" var="anf" rowIndexVar="iv">

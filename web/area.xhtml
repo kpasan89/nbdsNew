@@ -48,7 +48,7 @@
                                 <p:inputText id="txtName" value="#{areaController.current.name}"  ></p:inputText>
                                 <h:outputText id="lblType" value="Type" ></h:outputText>
                                 <p:selectOneMenu value="#{areaController.current.areaType}" >
-                                    <f:selectItems value="#{areaController.areaTypes}" ></f:selectItems>
+                                    <f:selectItems value="#{areaController.userAreaTypes}" ></f:selectItems>
                                 </p:selectOneMenu>
                                 <h:outputText id="lblCatName" value="Parent Area" ></h:outputText>
                                 <p:autoComplete value="#{areaController.current.superArea}"

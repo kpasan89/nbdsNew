@@ -406,6 +406,11 @@ public class AreaController implements Serializable {
         return AreaType.values();
     }
     
+    public AreaType[] getUserAreaTypes(){
+        AreaType[] ats = new AreaType[] {AreaType.Moh, AreaType.Phi, AreaType.Phm , AreaType.Gn};
+        return ats;
+    }
+    
     
     
     @FacesConverter("areaConverter")

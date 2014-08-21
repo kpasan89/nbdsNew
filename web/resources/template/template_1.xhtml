@@ -74,7 +74,7 @@
                     <h:form >  
                         <div>
                             <p:menubar styleClass="nonPrintBlock" style="border: 0px">
-                                <p:menuitem  ajax="false"  action="index" value="Home"></p:menuitem>
+                                <p:menuitem  ajax="false"  action="index" value="Home" icon="ui-icon-home"></p:menuitem>
                                 <p:submenu label="Cases"  rendered="#{sessionController.sysAdmin or sessionController.superUser}">
                                     <p:menuitem ajax="false" action="#{notificationFormController.listUnregForms()}" value="Register Notifications" ></p:menuitem>
                                     <p:menuitem ajax="false" action="#{notificationFormController.listRegForms()}" value="List All Registered Notifications" ></p:menuitem>
@@ -94,7 +94,7 @@
                                     <p:menuitem ajax="false" action="registry_institution" value="Institutional Birth Defects Registry" ></p:menuitem>
                                     <p:menuitem ajax="false" action="registry_district" value="District Birth Defects Registry" ></p:menuitem>
                                     <p:menuitem ajax="false" action="registry_province"  value="Provincial Birth Defects Registry"  ></p:menuitem>
-                                    <p:menuitem ajax="false" action="registry_province_by_patient"  value="Provincial Birth Defects Registry By Patient"  ></p:menuitem>
+                                    <p:menuitem ajax="false" action="registry_province_by_patients"  value="Provincial Birth Defects Registry By Patients"  ></p:menuitem>
                                 </p:submenu>
                                 <p:submenu label="Administration"  rendered="#{sessionController.sysAdmin or sessionController.superUser}">
                                     <p:submenu label="Institutions" >
@@ -133,6 +133,8 @@
                 <h:panelGroup rendered="#{sessionController.logged}" >
                     <ui:insert name="content"   >
                     </ui:insert>
+                    
+                    
                 </h:panelGroup>
                 <h:panelGroup rendered="#{!sessionController.logged}" >
                     <ui:insert name="login"   >

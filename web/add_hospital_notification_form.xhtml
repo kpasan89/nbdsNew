@@ -149,9 +149,9 @@
                                         <p:outputLabel value="15. Residence Address"></p:outputLabel>
                                         <p:inputText value="#{notificationFormController.current.mother.address}" size="40" id="txtAddress"></p:inputText>
                                         <p:outputLabel value="16. Phone1"></p:outputLabel>
-                                        <p:inputText value="#{notificationFormController.current.tp1}" size="40" id="txtP1"></p:inputText>
+                                        <p:inputMask value="#{notificationFormController.current.tp1}" size="40" id="txtP1" mask="999-9999999"></p:inputMask>
                                         <p:outputLabel value="17. Phone2"></p:outputLabel>
-                                        <p:inputText value="#{notificationFormController.current.tp2}" size="40" id="txtP2"></p:inputText>
+                                        <p:inputMask value="#{notificationFormController.current.tp2}" size="40" id="txtP2" mask="999-9999999"></p:inputMask>
                                     </p:panelGrid>
 
                                     <p:accordionPanel id="panelDead">
@@ -187,7 +187,7 @@
                                                 <p:outputLabel value="Designation of the Informant"></p:outputLabel>
                                                 <p:inputText  size="40" id="txtdes" value="#{notificationFormController.current.designation}"></p:inputText>
                                                 <p:outputLabel value="Contact Phone"></p:outputLabel>
-                                                <p:inputText value="#{notificationFormController.current.inTp}" size="40" id="txtcoIm" ></p:inputText>
+                                                <p:inputMask value="#{notificationFormController.current.inTp}" size="40" id="txtcoIm" mask="999-9999999"></p:inputMask>
                                                 <p:outputLabel value="Name of the Head of the Institution"></p:outputLabel>
                                                 <p:inputText  size="40" id="txthoi" value="#{notificationFormController.current.hoi.name}"></p:inputText>
                                                 <p:outputLabel value="Approved Date"></p:outputLabel>

@@ -14,7 +14,7 @@
                 <h:form>
                     <p:panel rendered="#{sessionController.insAdmin or sessionController.sysAdmin or sessionController.superUser}">
                         <f:facet name="header" >
-                            <h:outputLabel value="Province Notification Register" ></h:outputLabel>
+                            <h:outputLabel value="Province Notification Register by Patients" ></h:outputLabel>
                             <p:spacer width="10"></p:spacer>
                             <!--                            <p:outputLabel value="District"></p:outputLabel>-->
                             <p:autoComplete id="acHos"
@@ -23,7 +23,7 @@
                                             completeMethod="#{areaController.completeProvinces}"
                                             var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
                             </p:autoComplete>
-                            <p:commandButton ajax="false" value="List All" action="#{notificationFormController.listProvinceRegistry()}" ></p:commandButton>
+                            <p:commandButton ajax="false" value="List All" action="#{notificationFormController.listPatientProvinceRegistry()}" ></p:commandButton>
                         </f:facet>
 
                         <p:dataTable value="#{notificationFormController.items}" var="anf" rowIndexVar="iv">

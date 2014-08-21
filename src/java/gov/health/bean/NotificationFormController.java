@@ -255,7 +255,6 @@ public class NotificationFormController implements Serializable {
         return "registry_institution";
     }
 
-    
     public String listDistrictRegistry() {
         String jpql;
         Map m = new HashMap();
@@ -264,16 +263,16 @@ public class NotificationFormController implements Serializable {
         items = getFacade().findBySQL(jpql, m);
         return "registry_district";
     }
-    
-    public String listProvinceRegistry() {
+
+    public String listPatientProvinceRegistry() {
         String jpql;
         Map m = new HashMap();
         m.put("p", area);
         jpql = "select n from NotificationForm n Where n.district.superArea =:p and n.retired = false order by n.id desc";
         items = getFacade().findBySQL(jpql, m);
-        return "registry_province";
+        return "registry_province_by_patients";
     }
-    
+
     public String listProvinceInstitutionRegistry() {
         String jpql;
         Map m = new HashMap();
@@ -282,7 +281,7 @@ public class NotificationFormController implements Serializable {
         items = getFacade().findBySQL(jpql, m);
         return "registry_province";
     }
-    
+
     public Department getDepartment() {
         return department;
     }
@@ -382,7 +381,7 @@ public class NotificationFormController implements Serializable {
             JsfUtil.addErrorMessage("Please select the hospital");
             return;
         }
-
+        
         if (current.getId() == null || current.getId() == 0) {
             getFacade().create(current);
         } else {

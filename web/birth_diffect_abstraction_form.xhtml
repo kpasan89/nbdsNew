@@ -145,9 +145,9 @@
                                                 <p:outputLabel value="13. Residence Address"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.mother.address}" size="40" id="txtAddress"></p:inputText>
                                                 <p:outputLabel value="14. Phone1"></p:outputLabel>
-                                                <p:inputText value="#{abstractionFormController.current.tp1}" size="40" id="txtP1"></p:inputText>
+                                                <p:inputMask value="#{abstractionFormController.current.tp1}" size="40" id="txtP1" mask="999-9999999"></p:inputMask>
                                                 <p:outputLabel value="15. Phone2"></p:outputLabel>
-                                                <p:inputText value="#{abstractionFormController.current.tp2}" size="40" id="txtP2"></p:inputText>
+                                                <p:inputMask value="#{abstractionFormController.current.tp2}" size="40" id="txtP2" mask="999-9999999"></p:inputMask>
 
                                                 <p:outputLabel value="16. Total Pregnancies"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.totPreg}" size="40" id="txtTP"></p:inputText>

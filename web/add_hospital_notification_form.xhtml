@@ -23,9 +23,12 @@
                             <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}" id="cmdSv" disabled="#{sessionController.superUser}"></p:commandButton>
                             <p:tooltip for="cmdSv" value="Save Hospital Notification Form" showEffect="fade" hideEffect="fade" />  
                         </f:facet>
+
                         <div align="center">
                             <p:panel style=" width:60%;height:100%">
-
+                                <div align="right" style="position: fixed; top: 45%; left: 4%;">
+                                    <p:graphicImage library="image" name="baby3.png" style="height: 120px; width: 120px;"/>
+                                </div>
                                 <p:panelGrid columns="1">
                                     <p:outputLabel ><font size="4">Hospital Notification Form</font></p:outputLabel>
                                 </p:panelGrid>

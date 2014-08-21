@@ -14,11 +14,18 @@
                 <h:form>
                     <p:panel rendered="#{sessionController.insAdmin or sessionController.sysAdmin or sessionController.superUser}">
                         <f:facet name="header" >
-                            <h:outputLabel value="View All Notification Forms" ></h:outputLabel>
+                            <h:outputLabel value="Hospital Notification Register" ></h:outputLabel>
                             <p:spacer width="10"></p:spacer>
-                            <p:commandButton ajax="false" value="List All" action="#{notificationFormController.listAll()}" ></p:commandButton>
+<!--                            <p:outputLabel value="Hospital"></p:outputLabel>-->
+                            <p:autoComplete id="acHos"
+                                            forceSelection="true"                                 
+                                            value="#{notificationFormController.institution}" 
+                                            completeMethod="#{institutionController.completeHospitals}"
+                                            var="oi" itemLabel="#{oi.name}" itemValue="#{oi}" >
+                            </p:autoComplete>
+                            <p:commandButton ajax="false" value="List All" action="#{notificationFormController.listInstitutionRegistry()}" ></p:commandButton>
                         </f:facet>
-                        
+
                         <p:dataTable value="#{notificationFormController.items}" var="anf" rowIndexVar="iv">
                             <p:column headerText="No" width="25">
                                 <h:outputLabel value="#{iv + 1}"></h:outputLabel>
@@ -49,7 +56,7 @@
                                     <f:setPropertyActionListener value="#{anf}" target="#{abstractionFormController.notificationForm}" ></f:setPropertyActionListener>
                                 </p:commandButton>
                             </p:column>
-                            <p:column headerText="Delete Notification Form" width="100" rendered="#{sessionController.superUser or sessionController.sysAdmin}">
+                            <p:column headerText="Delete Notification Form" width="100">
                                 <p:commandButton ajax="false" value="Delete" action="#{notificationFormController.retiredRecord()}" disabled="#{sessionController.superUser}" >
                                     <f:setPropertyActionListener value="#{anf}" target="#{notificationFormController.current}" ></f:setPropertyActionListener>
                                 </p:commandButton>

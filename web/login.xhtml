@@ -33,11 +33,11 @@
                 </tr>
                 <tr>
                     <td class="pdLabel" align="right" width="40%">Username:</td>
-                    <td align="left" width="60%"><p:inputText value="#{sessionController.userName}"/></td>
+                    <td align="left" width="60%"><p:inputText value="#{sessionController.userName}" id="un"></p:inputText></td>
                 </tr>
                 <tr>
                     <td class="pdLabel" align="right">Password:</td>
-                    <td align="left"><h:inputSecret value="#{sessionController.passord}"  /></td>
+                    <td align="left"><h:inputSecret value="#{sessionController.passord}" id="pw"></h:inputSecret></td>
                 </tr>
                 <tr>
                     <td align="left"><p:commandButton ajax="false" class="pdButton" type="submit" value="Login" action="#{sessionController.loginAction()}"/></td>

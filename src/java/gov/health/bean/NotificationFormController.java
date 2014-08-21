@@ -246,6 +246,34 @@ public class NotificationFormController implements Serializable {
         return "view_all_notification_form";
     }
 
+    public String listInstitutionRegistry() {
+        String jpql;
+        Map m = new HashMap();
+        m.put("i", institution);
+        jpql = "select n from NotificationForm n Where n.hospital =:i and n.retired = false order by n.id desc";
+        items = getFacade().findBySQL(jpql, m);
+        return "registry_institution";
+    }
+
+    
+    public String listDistrictRegistry() {
+        String jpql;
+        Map m = new HashMap();
+        m.put("d", area);
+        jpql = "select n from NotificationForm n Where n.district =:d and n.retired = false order by n.id desc";
+        items = getFacade().findBySQL(jpql, m);
+        return "registry_district";
+    }
+    
+    public String listProvinceRegistry() {
+        String jpql;
+        Map m = new HashMap();
+        m.put("p", area);
+        jpql = "select n from NotificationForm n Where n.district.superArea =:p and n.retired = false order by n.id desc";
+        items = getFacade().findBySQL(jpql, m);
+        return "registry_province";
+    }
+    
     public Department getDepartment() {
         return department;
     }
@@ -297,16 +325,16 @@ public class NotificationFormController implements Serializable {
     public NotificationForm getCurrent() {
         if (current == null) {
             current = new NotificationForm();
-        Person infant = new Person();
-        Person mother = new Person();
-        Person informant = new Person();
-        Person jmo = new Person();
-        Person hoi = new Person();
-        current.setInfant(infant);
-        current.setMother(mother);
-        current.setInformant(informant);
-        current.setJmo(jmo);
-        current.setHoi(hoi);
+            Person infant = new Person();
+            Person mother = new Person();
+            Person informant = new Person();
+            Person jmo = new Person();
+            Person hoi = new Person();
+            current.setInfant(infant);
+            current.setMother(mother);
+            current.setInformant(informant);
+            current.setJmo(jmo);
+            current.setHoi(hoi);
         }
 
         if (current.getJmo() == null) {
@@ -318,8 +346,8 @@ public class NotificationFormController implements Serializable {
             Person i = new Person();
             current.setInformant(i);
         }
-        
-        if (current.getHoi() == null){
+
+        if (current.getHoi() == null) {
             Person h = new Person();
             current.setHoi(h);
         }
@@ -355,8 +383,8 @@ public class NotificationFormController implements Serializable {
         JsfUtil.addSuccessMessage("Saved");
 
     }
-    
-    public void retiredRecord(){
+
+    public void retiredRecord() {
         if (current != null) {
             current.setRetired(true);
             current.setRetiredAt(Calendar.getInstance().getTime());

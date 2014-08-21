@@ -17,8 +17,13 @@
                 <f:facet name="header" >
                     <h:outputLabel value="Dash board" style="alignment-adjust: middle"></h:outputLabel>
                 </f:facet>
-                <h:graphicImage  class="pdLogin" library="image" name="Welcome.png"  height="60%" width="100%"></h:graphicImage>
-            </p:panel> 
+                <h:graphicImage  class="pdLogin" library="image" name="Welcome.png"  height="60%" width="100%"></h:graphicImage>  
+            </p:panel>
+<!--            <div align="right" style="position: fixed; top: 39%; left: 57%;">
+                <p:galleria var="image" value="#{imagesView.images}" panelHeight="270" panelWidth="500">
+                    <p:graphicImage library="image/DashBoard" name="#{image}" alt="Image Description for #{image}" title="#{image}" style="height: 256px; width: 500px;"/>                 
+                </p:galleria>
+            </div>-->
         </h:form>
     </ui:define>
 

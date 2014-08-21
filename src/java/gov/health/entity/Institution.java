@@ -48,7 +48,8 @@ public class Institution implements Serializable, Comparable {
     String retireComments;
     @ManyToOne
     Institution superInstitution;
-
+    @ManyToOne
+    Area district;
     @ManyToOne
     InstitutionType institutionType;
 
@@ -70,6 +71,16 @@ public class Institution implements Serializable, Comparable {
     @ManyToOne
     Institution institution;
 
+    public Area getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(Area district) {
+        this.district = district;
+    }
+
+    
+    
     public boolean isInsMapToPaycentre() {
         return insMapToPaycentre;
     }
@@ -78,8 +89,6 @@ public class Institution implements Serializable, Comparable {
         this.insMapToPaycentre = insMapToPaycentre;
     }
 
-    
-    
     public Institution getInstitution() {
         return institution;
     }
@@ -87,10 +96,7 @@ public class Institution implements Serializable, Comparable {
     public void setInstitution(Institution institution) {
         this.institution = institution;
     }
-    
-    
-    
-    
+
     public boolean isInsmapAddress() {
         return insmapAddress;
     }

@@ -91,10 +91,14 @@
                                     <p:menuitem ajax="false" action="#{notificationFormController.listRegForms()}" value="List All Registered Notifications" ></p:menuitem>
                                 </p:submenu>
                                 <p:submenu label="Reports" rendered="#{sessionController.sysAdmin or sessionController.superUser}">
+
                                     <p:menuitem ajax="false" action="registry_institution" value="Institutional Birth Defects Registry" ></p:menuitem>
                                     <p:menuitem ajax="false" action="registry_district" value="District Birth Defects Registry" ></p:menuitem>
                                     <p:menuitem ajax="false" action="registry_province"  value="Provincial Birth Defects Registry"  ></p:menuitem>
                                     <p:menuitem ajax="false" action="registry_province_by_patients"  value="Provincial Birth Defects Registry By Patients"  ></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{abstractionFormController.listInstitutional()}" value="Institutional Case Ascertainment Forms" ></p:menuitem>
+                                    <p:menuitem ajax="false" action="#{abstractionFormController.listDistrict()}" value="District Case Ascertainment Forms" ></p:menuitem>
+
                                 </p:submenu>
                                 <p:submenu label="Administration"  rendered="#{sessionController.sysAdmin or sessionController.superUser}">
                                     <p:submenu label="Institutions" >
@@ -133,53 +137,27 @@
                 <h:panelGroup rendered="#{sessionController.logged}" >
                     <ui:insert name="content"   >
                     </ui:insert>
-                    
-                    
+
+
                 </h:panelGroup>
                 <h:panelGroup rendered="#{!sessionController.logged}" >
                     <ui:insert name="login"   >
                         <h:form>
-                            <table render="false"  width="400px" class="pdTable" align="center">
-                                <tr>
-                                    <td colspan="2" class="pdTableHighlightRow">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="pdLabel">&nbsp;</td>
-                                </tr>
-
-                                <tr>
-                                    <td align="center" colspan="2">
-
-                                        <span class="pdHeading1">#{labels.logintotheApplication}</span>
-                                    </td>
-                                </tr>                  
-                                <tr>
-                                    <td colspan="2" class="pdLabel">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="pdLabel" align="right" width="40%">#{labels.userName}</td>
-                                    <td align="left" width="60%"><p:inputText value="#{sessionController.userName}" autocomplete="off" required="true" requiredMessage="Please enter the user name"/></td>
-                                </tr>
-                                <tr>
-                                    <td class="pdLabel" align="right">#{labels.password}</td>
-                                    <td align="left"><p:password value="#{sessionController.passord}"  autocomplete="off" required="true" requiredMessage="Please enter the password" /></td>
-                                </tr>
-                                <tr>
-                                    <td align="left"></td>
-                                    <td align="left">
+                            <div align="center" style="position: absolute; top: 40%; left: 25%">
+                                <p:panel style="width: 50%; height: 30%;">
+                                    <p:panelGrid columns="1">
+                                        <h:graphicImage  class="pdLogin" library="image" name="login.png"  height="30%" width="100%"></h:graphicImage>
+                                    </p:panelGrid>
+                                    <p:panelGrid columns="2">
+                                        <p:outputLabel value="Username"></p:outputLabel>
+                                        <p:inputText value="#{sessionController.userName}" autocomplete="off" required="true" requiredMessage="Please enter the user name"/>
+                                        <p:outputLabel value="Password"></p:outputLabel>
+                                        <p:password value="#{sessionController.passord}"  autocomplete="off" required="true" requiredMessage="Please enter the password" />
+                                        <p:outputLabel></p:outputLabel>
                                         <p:commandButton  ajax="false" id="btnLogin" value="#{labels.login}" action="#{sessionController.loginAction}"/>
-                                    </td>
-                                </tr>                  
-                                <tr>
-                                    <td colspan="2" class="pdLabel">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"  class="pdTableHighlightRow">&nbsp;
-                                        <p:messages globalOnly="true" ></p:messages>
-                                    </td>
-                                </tr>
-
-                            </table>
+                                    </p:panelGrid>
+                                </p:panel>
+                            </div>
                         </h:form>
                     </ui:insert>
                 </h:panelGroup>

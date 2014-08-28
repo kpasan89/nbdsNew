@@ -95,7 +95,7 @@ public class AbstractionFormController implements Serializable {
 
             DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
             current.setDysmorphologyExamination(dysmorphologyExamination);
-            
+
             LabTest labTest = new LabTest();
             current.setLabTest(labTest);
 
@@ -196,22 +196,22 @@ public class AbstractionFormController implements Serializable {
             Person hoi = new Person();
             current.setMother(mother);
             current.setInfant(infant);
-            
+
             LabTest labTest = new LabTest();
             current.setLabTest(labTest);
-            
+
             current.getLabTest().setJmo(jmo);
             current.getLabTest().setMo(mo);
             current.getLabTest().setHoi(hoi);
             DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
             current.setDysmorphologyExamination(dysmorphologyExamination);
-           
+
         }
-        if(current.getDysmorphologyExamination() == null){
+        if (current.getDysmorphologyExamination() == null) {
             DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
             current.setDysmorphologyExamination(dysmorphologyExamination);
         }
-        if(current.getLabTest()==null){
+        if (current.getLabTest() == null) {
             Person jmo = new Person();
             Person mo = new Person();
             Person hoi = new Person();
@@ -221,7 +221,7 @@ public class AbstractionFormController implements Serializable {
             current.getLabTest().setMo(mo);
             current.getLabTest().setHoi(hoi);
         }
-        
+
         if (current.getInfant() == null) {
             Person i = new Person();
             current.setInfant(i);
@@ -252,11 +252,11 @@ public class AbstractionFormController implements Serializable {
     public String listAll() {
 
         String jpql;
-        
+
 //        items = getFacade().findAll();
-        
 //        return "view_all_abstraction_form";
-Map m ;m = new HashMap();
+        Map m;
+        m = new HashMap();
         if (getSessionController().getLoggedUser().getRestrictedInstitution() == null) {
             AbstractionForm a = new AbstractionForm();
             jpql = "select a from AbstractionForm a";
@@ -274,6 +274,34 @@ Map m ;m = new HashMap();
         return "view_all_abstraction_form";
     }
 
+    public String listInstitutional() {
+        String jpql;
+        Map m;
+        m = new HashMap();
+        if (institution == null) {
+            institution = getSessionController().getLoggedUser().getRestrictedInstitution();
+        }
+        m.put("h", institution);
+        jpql = "select a from AbstractionForm a Where a.hospital=:h order by a.id";
+        System.out.println("m = " + m);
+        System.out.println("jpql = " + jpql);
+        items = getFacade().findBySQL(jpql, m);
+
+        return "registry_institution_abstraction_forms";
+    }
+
+    public String listDistrict() {
+        String jpql;
+        Map m;
+        m = new HashMap();
+        m.put("h", area);
+        jpql = "select a from AbstractionForm a Where a.hospital.district=:h order by a.id";
+        System.out.println("m = " + m);
+        System.out.println("jpql = " + jpql);
+        items = getFacade().findBySQL(jpql, m);
+        return "registry_district_abstraction_forms";
+    }
+    
     public void setCurrent(AbstractionForm current) {
         this.current = current;
     }

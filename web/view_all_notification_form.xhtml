@@ -45,9 +45,11 @@
                             </p:column>
                             <p:column headerText="Case Ascertainment Form" width="110">
 
-                                <p:commandButton ajax="false" value="Add" action="#{abstractionFormController.addNewAbstractionFormFromNotificationForm}" disabled="#{sessionController.superUser}" >
+                                <p:commandButton ajax="false" value="#{anf.abstractionForm eq null ? 'Add':'Edit'}" action="#{abstractionFormController.addNewAbstractionFormFromNotificationForm}" disabled="#{sessionController.superUser}" >
                                     <f:setPropertyActionListener value="#{anf}" target="#{abstractionFormController.notificationForm}" ></f:setPropertyActionListener>
                                 </p:commandButton>
+                                
+                                
                             </p:column>
                             <p:column headerText="Delete Notification Form" width="100" rendered="#{sessionController.superUser or sessionController.sysAdmin}">
                                 <p:commandButton ajax="false" value="Delete" action="#{notificationFormController.retiredRecord()}" disabled="#{sessionController.superUser}" >

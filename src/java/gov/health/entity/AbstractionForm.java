@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package gov.health.entity;
 
 import gov.health.data.Ethnicity;
@@ -26,20 +25,18 @@ import javax.persistence.Temporal;
  *
  * @author pdhs
  */
-
 @Entity
 public class AbstractionForm implements Serializable {
-    
-    @OneToOne(mappedBy = "abstractionForm",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+
+    @OneToOne(mappedBy = "abstractionForm", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private DysmorphologyExamination dysmorphologyExamination;
-    
-    @OneToOne(mappedBy = "abstractionForm",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+
+    @OneToOne(mappedBy = "abstractionForm", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private LabTest labTest;
-    
-    @OneToOne(mappedBy = "abstractionForm",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+
+    @OneToOne(mappedBy = "abstractionForm", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     NotificationForm notificationForm;
-    
-    
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -106,20 +103,18 @@ public class AbstractionForm implements Serializable {
     Relationship relationship2;
     Relationship relationship3;
     Relationship relationship4;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person perRelationship1;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person perRelationship2;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person perRelationship3;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Person perRelationship4;
 
     public AbstractionForm() {
     }
 
-    
-    
     public LabTest getLabTest() {
         return labTest;
     }
@@ -128,8 +123,6 @@ public class AbstractionForm implements Serializable {
         this.labTest = labTest;
     }
 
-    
-    
     public DysmorphologyExamination getDysmorphologyExamination() {
         return dysmorphologyExamination;
     }
@@ -171,6 +164,9 @@ public class AbstractionForm implements Serializable {
     }
 
     public Person getPerRelationship1() {
+        if (perRelationship1 == null) {
+            perRelationship1 = new Person();
+        }
         return perRelationship1;
     }
 
@@ -179,6 +175,9 @@ public class AbstractionForm implements Serializable {
     }
 
     public Person getPerRelationship2() {
+         if (perRelationship2 == null) {
+            perRelationship2 = new Person();
+        }
         return perRelationship2;
     }
 
@@ -187,21 +186,28 @@ public class AbstractionForm implements Serializable {
     }
 
     public Person getPerRelationship3() {
+         if (perRelationship3 == null) {
+            perRelationship3 = new Person();
+        }
         return perRelationship3;
     }
 
     public void setPerRelationship3(Person perRelationship3) {
+        
         this.perRelationship3 = perRelationship3;
     }
 
     public Person getPerRelationship4() {
+         if (perRelationship4 == null) {
+            perRelationship4 = new Person();
+        }
         return perRelationship4;
     }
 
     public void setPerRelationship4(Person perRelationship4) {
         this.perRelationship4 = perRelationship4;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -314,7 +320,7 @@ public class AbstractionForm implements Serializable {
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
     }
-    
+
     public int getAge() {
         return age;
     }
@@ -402,8 +408,6 @@ public class AbstractionForm implements Serializable {
     public void setIddm(boolean iddm) {
         this.iddm = iddm;
     }
-
-
 
     public boolean getNidm() {
         return nidm;
@@ -557,7 +561,4 @@ public class AbstractionForm implements Serializable {
         this.notificationForm = notificationForm;
     }
 
-   
-    
-    
 }

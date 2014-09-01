@@ -197,21 +197,21 @@
                                                     <f:selectItem itemLabel="Mother" itemValue="mother" />
                                                     <f:selectItem itemLabel="Siblings" itemValue="siblings" />
                                                 </p:selectOneMenu>
-                                                <p:inputText value="#{abstractionFormController.current.perRelationship1}" size="40"></p:inputText>
+                                                <p:inputText value="#{abstractionFormController.current.perRelationship1.name}" size="40"></p:inputText>
                                                 <p:selectOneMenu value="#{abstractionFormController.current.relationship2}" style="width: 225px">
                                                     <f:selectItem itemLabel="Please Select" />
                                                     <f:selectItem itemLabel="Father" itemValue="father" />
                                                     <f:selectItem itemLabel="Mother" itemValue="mother" />
                                                     <f:selectItem itemLabel="Siblings" itemValue="siblings" />
                                                 </p:selectOneMenu>
-                                                <p:inputText value="#{abstractionFormController.current.perRelationship2}" size="40"></p:inputText>
+                                                <p:inputText value="#{abstractionFormController.current.perRelationship2.name}" size="40"></p:inputText>
                                                 <p:selectOneMenu value="#{abstractionFormController.current.relationship3}" style="width: 225px">
                                                     <f:selectItem itemLabel="Please Select" />
                                                     <f:selectItem itemLabel="Father" itemValue="father" />
                                                     <f:selectItem itemLabel="Mother" itemValue="mother" />
                                                     <f:selectItem itemLabel="Siblings" itemValue="siblings" />
                                                 </p:selectOneMenu>
-                                                <p:inputText value="#{abstractionFormController.current.perRelationship3}" size="40"></p:inputText>
+                                                <p:inputText value="#{abstractionFormController.current.perRelationship3.name}" size="40"></p:inputText>
 
                                                 <p:selectOneMenu value="#{abstractionFormController.current.relationship4}" style="width: 225px">
                                                     <f:selectItem itemLabel="Please Select" />
@@ -219,7 +219,7 @@
                                                     <f:selectItem itemLabel="Mother" itemValue="mother" />
                                                     <f:selectItem itemLabel="Siblings" itemValue="siblings" />
                                                 </p:selectOneMenu>
-                                                <p:inputText value="#{abstractionFormController.current.perRelationship4}" size="40"></p:inputText>
+                                                <p:inputText value="#{abstractionFormController.current.perRelationship4.name}" size="40"></p:inputText>
 
 
                                             </p:panelGrid>
@@ -1380,7 +1380,7 @@
                         <f:facet name="footer">
                             <p align="center"><h:outputLabel value="Birth Defects Abstraction Form"></h:outputLabel>
                                 <p:spacer width="10" ></p:spacer>
-                                <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}" id="cmdSv2" disabled="#{sessionController.superUser}"></p:commandButton></p>
+                                <p:commandButton ajax="false" value="Save" action="#{abstractionFormController.saveSelected()}" id="cmdSv2" disabled="#{sessionController.superUser}"></p:commandButton></p>
                             <p:tooltip for="cmdSv2" value="Save Birth Defects Abstraction Form" showEffect="fade" hideEffect="fade" />
                         </f:facet>
                     </p:panel>

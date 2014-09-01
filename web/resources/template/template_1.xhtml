@@ -55,15 +55,23 @@
             <h:panelGrid columns="2" id="header" class="headerblock">
                 <h:panelGroup style="margin: auto">
                     <h:graphicImage class="banner" library="image" name="BDS 2.png"  height="100%" width="100%"></h:graphicImage>
-                    <!--                    <div align="right" style="position: fixed; top: 2.5%; right: 1.5%;">
-                                            <p:imageSwitch effect="fade">
-                                                <p:graphicImage library="image/DashBoard" name="P1.JPG" style="height: 148px; width: 250px;"/>
-                                                <p:graphicImage library="image/DashBoard" name="P2.JPG" style="height: 148px; width: 250px;" />
-                                                <p:graphicImage library="image/DashBoard" name="P3.JPG" style="height: 148px; width: 250px;" /> 
-                                                <p:graphicImage library="image/DashBoard" name="P4.JPG" style="height: 148px; width: 250px;" />
-                                                <p:graphicImage library="image/DashBoard" name="P5.JPG" style="height: 148px; width: 250px;" />
-                                            </p:imageSwitch>
-                                        </div>-->
+                    <div align="right">
+                        <div align="right" style="position: absolute; top: 50%; right: 68%;">
+                            <h:graphicImage  library="image" name="Frame.png"  height="65%" width="150%"></h:graphicImage>
+                        </div>
+                        <div align="right" style="position: absolute; top: 65.5%; right: 75%;">
+                            <p:imageSwitch effect="fade">
+                                <p:graphicImage library="image/DashBoard" name="P1.JPG" height="145%" width="190%" />
+                                <p:graphicImage library="image/DashBoard" name="P2.JPG" height="145%" width="190%" />
+                                <p:graphicImage library="image/DashBoard" name="P3.JPG" height="145%" width="190%" /> 
+                                <p:graphicImage library="image/DashBoard" name="P4.JPG" height="145%" width="190%" />
+                                <p:graphicImage library="image/DashBoard" name="P5.JPG" height="145%" width="190%" />
+                                <p:graphicImage library="image/DashBoard" name="P6.jpg" height="145%" width="190%" />
+                                <p:graphicImage library="image/DashBoard" name="P8.jpg" height="145%" width="190%" />
+                                <p:graphicImage library="image/DashBoard" name="P9.jpg" height="145%" width="190%" />
+                            </p:imageSwitch>
+                        </div>
+                    </div>
                 </h:panelGroup>
             </h:panelGrid>
 
@@ -104,14 +112,9 @@
                                     <p:submenu label="Institutions" >
                                         <p:menuitem  ajax="false"  action="institution_type" value="Institution Type"   ></p:menuitem>
                                         <p:menuitem  ajax="false"  action="institutions" value="Institutions"  ></p:menuitem>
-<!--                                        <p:menuitem  ajax="false"  action="import_institutions" value="Import Official Institutions"  ></p:menuitem>-->
                                     </p:submenu>
                                     <p:menuitem  ajax="false"  action="area" value="Area"  ></p:menuitem>
-<!--                                    <p:submenu label="Designations" >
-                                        <p:menuitem  ajax="false"  action="designation" value="Designations"  ></p:menuitem>
-                                        <p:menuitem  ajax="false"  action="designation_category" value="Designation (Service) Type"  ></p:menuitem>
-                                        <p:menuitem  ajax="false"  action="import_designations" value="Import Official Designations"  ></p:menuitem>
-                                    </p:submenu>-->
+
                                     <p:menuitem  ajax="false"  action="department" value="#{labels.department}"  ></p:menuitem>
                                     <p:menuitem  ajax="false"  action="#{webUserController.newUserAdd}" value="Add Users"  ></p:menuitem>
                                     <p:menuitem  ajax="false"  action="manage_users" value="Manage Users"  ></p:menuitem>

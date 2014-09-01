@@ -19,23 +19,29 @@
                             <p:commandButton ajax="false" value="List All" action="#{abstractionFormController.listAll()}"></p:commandButton>
                         </f:facet>
 
-                        <p:dataTable value="#{abstractionFormController.items}" var="aaf" rowIndexVar="iv">
+                        <p:dataTable 
+                            value="#{abstractionFormController.items}" var="aaf" rowIndexVar="iv"
+                            paginator="true"
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     rowsPerPageTemplate="5,10,15"
+                                     rows="10"
+                            >
                             <p:column headerText="No" width="25">
                                 <h:outputLabel value="#{iv + 1}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Infants Name">
+                            <p:column headerText="Infants Name" sortBy="#{aaf.infant.name}" filterBy="#{aaf.infant.name}">
                                 <h:outputLabel value="#{aaf.infant.name}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Infants Sex">
+                            <p:column headerText="Infants Sex" sortBy="#{aaf.infant.personSex}">
                                 <h:outputLabel value="#{aaf.infant.personSex }"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Diagnosis">
+                            <p:column headerText="Diagnosis" sortBy="#{aaf.diagnosis}">
                                 <h:outputLabel value="#{aaf.diagnosis}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Institution">
+                            <p:column headerText="Institution" sortBy="#{aaf.hospital.name}" filterBy="#{aaf.hospital.name}">
                                 <h:outputLabel value="#{aaf.hospital.name}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Ward">
+                            <p:column headerText="Ward" sortBy="#{aaf.ward.name}">
                                 <h:outputLabel value="#{aaf.ward.name}"></h:outputLabel>
                             </p:column>
                             <p:column headerText="View Abstraction Form">

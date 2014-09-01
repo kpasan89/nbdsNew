@@ -373,7 +373,7 @@ public class NotificationFormController implements Serializable {
 
     public void saveSelected() {
         if (current == null) {
-            JsfUtil.addErrorMessage("Error");
+            JsfUtil.addErrorMessage("Error Current is Null Save Selected in Notification Controller");
             return;
         }
 

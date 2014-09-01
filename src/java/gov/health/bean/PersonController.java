@@ -323,7 +323,7 @@ public  class PersonController implements Serializable {
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
             current = new Person();
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, "Error");
+            JsfUtil.addErrorMessage(e, "Error in Person Controller Saving");
         }
 
     }

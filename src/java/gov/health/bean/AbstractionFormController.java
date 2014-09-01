@@ -301,7 +301,7 @@ public class AbstractionFormController implements Serializable {
         items = getFacade().findBySQL(jpql, m);
         return "registry_district_abstraction_forms";
     }
-    
+
     public void setCurrent(AbstractionForm current) {
         this.current = current;
     }
@@ -313,14 +313,21 @@ public class AbstractionFormController implements Serializable {
 
     public void saveSelected() {
         if (getCurrent() == null) {
-            JsfUtil.addErrorMessage("Error");
+            JsfUtil.addErrorMessage("Error Current is Null");
             return;
         }
+        NotificationForm n = current.getNotificationForm();
+        current.setNotificationForm(null);
+
         if (current.getId() == null || current.getId() == 0) {
             getFacade().create(current);
         } else {
             getFacade().edit(current);
         }
+
+        current.setNotificationForm(n);
+        getFacade().edit(current);
+
         JsfUtil.addSuccessMessage("Saved");
 
     }

@@ -217,7 +217,7 @@ public class WebUserController implements Serializable {
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
             current = new WebUser();
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, "Error");
+            JsfUtil.addErrorMessage(e, "Error in Web User Controller");
         }
 
     }

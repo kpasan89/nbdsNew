@@ -47,7 +47,10 @@
                                 <h:outputText id="lblName" value="Area" ></h:outputText>
                                 <p:inputText id="txtName" value="#{areaController.current.name}"  ></p:inputText>
                                 <h:outputText id="lblType" value="Type" ></h:outputText>
-                                <p:selectOneMenu value="#{areaController.current.areaType}" >
+                                <p:selectOneMenu value="#{areaController.current.areaType}" rendered="#{sessionController.sysAdmin or sessionController.superUser}">
+                                    <f:selectItems value="#{areaController.areaTypes}" ></f:selectItems>
+                                </p:selectOneMenu>
+                                <p:selectOneMenu value="#{areaController.current.areaType}" rendered="#{sessionController.insAdmin}">
                                     <f:selectItems value="#{areaController.userAreaTypes}" ></f:selectItems>
                                 </p:selectOneMenu>
                                 <h:outputText id="lblCatName" value="Parent Area" ></h:outputText>

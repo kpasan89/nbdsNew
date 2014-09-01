@@ -769,17 +769,7 @@ public class InstitutionController implements Serializable {
             current.setCreater(sessionController.getLoggedUser());
             current.setOfficial(true);
             getFacade().create(current);
-
-            if (current.getPayCentre() == true) {
-                InstitutionSet insSet = new InstitutionSet();
-                insSet.setName("Default");
-                insSet.setCreatedAt(Calendar.getInstance().getTime());
-                insSet.setCreater(sessionController.getLoggedUser());
-                insSet.setInstitution(current);
-
-                inSetFacade.create(insSet);
-            }
-
+            
             JsfUtil.addSuccessMessage(new MessageProvider().getValue("savedNewSuccessfully"));
         }
         this.prepareSelect();

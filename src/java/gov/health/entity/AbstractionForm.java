@@ -111,6 +111,36 @@ public class AbstractionForm implements Serializable {
     Person perRelationship3;
     @ManyToOne(cascade = CascadeType.ALL)
     Person perRelationship4;
+    boolean retired;
+    @ManyToOne
+    WebUser retiredUser;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    Date retiredAt;
+
+    public boolean isRetired() {
+        return retired;
+    }
+
+    public void setRetired(boolean retired) {
+        this.retired = retired;
+    }
+
+    public WebUser getRetiredUser() {
+        return retiredUser;
+    }
+
+    public void setRetiredUser(WebUser retiredUser) {
+        this.retiredUser = retiredUser;
+    }
+
+    public Date getRetiredAt() {
+        return retiredAt;
+    }
+
+    public void setRetiredAt(Date retiredAt) {
+        this.retiredAt = retiredAt;
+    }
+    
 
     public AbstractionForm() {
     }

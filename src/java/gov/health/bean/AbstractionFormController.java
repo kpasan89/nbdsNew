@@ -20,6 +20,7 @@ import gov.health.entity.NotificationForm;
 import gov.health.entity.Person;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -332,6 +333,17 @@ public class AbstractionFormController implements Serializable {
 
     }
 
+    public void retiredRecord() {
+        if (current != null) {
+            current.setRetired(true);
+            current.setRetiredAt(Calendar.getInstance().getTime());
+            current.setRetiredUser(getSessionController().getLoggedUser());
+            getFacade().edit(current);
+            JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
+        } else {
+            JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
+        }
+    }
     public Department getDepartment() {
         return department;
     }

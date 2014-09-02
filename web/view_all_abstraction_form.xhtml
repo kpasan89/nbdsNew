@@ -32,21 +32,26 @@
                             <p:column headerText="Infants Name" sortBy="#{aaf.infant.name}" filterBy="#{aaf.infant.name}">
                                 <h:outputLabel value="#{aaf.infant.name}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Infants Sex" sortBy="#{aaf.infant.personSex}">
+                            <p:column headerText="Infants Sex" sortBy="#{aaf.infant.personSex}" width="100">
                                 <h:outputLabel value="#{aaf.infant.personSex }"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Diagnosis" sortBy="#{aaf.diagnosis}">
+                            <p:column headerText="Diagnosis" sortBy="#{aaf.diagnosis}" width="200">
                                 <h:outputLabel value="#{aaf.diagnosis}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Institution" sortBy="#{aaf.hospital.name}" filterBy="#{aaf.hospital.name}">
+                            <p:column headerText="Institution" sortBy="#{aaf.hospital.name}" filterBy="#{aaf.hospital.name}" width="100">
                                 <h:outputLabel value="#{aaf.hospital.name}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Ward" sortBy="#{aaf.ward.name}">
+                            <p:column headerText="Ward" sortBy="#{aaf.ward.name}" width="100">
                                 <h:outputLabel value="#{aaf.ward.name}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="View Abstraction Form">
+                            <p:column headerText="View Abstraction Form" width="100">
                                 <p:commandButton value="View" action="birth_diffect_abstraction_form" ajax="false">
                                     <f:setPropertyActionListener value="#{aaf}" target="#{abstractionFormController.current}" ></f:setPropertyActionListener>
+                                </p:commandButton>
+                            </p:column>
+                            <p:column headerText="Delete Abstraction Form" width="100" rendered="#{sessionController.superUser or sessionController.sysAdmin}">
+                                <p:commandButton ajax="false" value="Delete" action="#{abstractionFormController.retiredRecord()}" disabled="#{sessionController.superUser}" >
+                                    <f:setPropertyActionListener value="#{anf}" target="#{abstractionFormController.current}" ></f:setPropertyActionListener>
                                 </p:commandButton>
                             </p:column>
 

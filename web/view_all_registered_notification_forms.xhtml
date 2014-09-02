@@ -66,13 +66,11 @@
                                     <f:setPropertyActionListener value="#{nf}" target="#{notificationFormController.current}" ></f:setPropertyActionListener>
                                 </p:commandButton>
                             </p:column>
-                            <p:column headerText="Case Ascertainment Form" width="150">
-                                <p:commandButton ajax="false" value="View" disabled="#{notificationFormController.current.abstractionForm eq null}" action="birth_diffect_abstraction_form" >
+                            <p:column headerText="Case Ascertainment Form" width="100">
+                                <p:commandButton ajax="false" value="#{nf.abstractionForm eq null ? 'Add':'Edit'}" action="birth_diffect_abstraction_form" >
                                     <f:setPropertyActionListener value="#{nf}" target="#{abstractionFormController.current}" ></f:setPropertyActionListener>
                                 </p:commandButton>
-                                <p:commandButton ajax="false" value="Add" disabled="#{notificationFormController.current.abstractionForm ne null}" action="#{abstractionFormController.addNewAbstractionFormFromNotificationForm()}" >
-                                    <f:setPropertyActionListener value="#{nf}" target="#{abstractionFormController.notificationForm}" ></f:setPropertyActionListener>
-                                </p:commandButton>
+                                
                             </p:column>
                         </p:dataTable>
                     </p:panel>

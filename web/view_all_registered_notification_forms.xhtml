@@ -46,7 +46,7 @@
                             <p:column headerText="Reg No">
                                 <h:outputLabel value="#{nf.registeredNumber}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Infants Name" sortBy="#{nf.infant.name}" filterBy="#{nf.infant.name}">
+                            <p:column headerText="Infants Name" sortBy="#{nf.infant.name}" filterBy="#{nf.infant.name}" filterMatchMode="contains">
                                 <h:outputLabel value="#{nf.infant.name}"></h:outputLabel>
                             </p:column>
                             <p:column headerText="Infants Sex" sortBy="#{nf.infant.personSex }">

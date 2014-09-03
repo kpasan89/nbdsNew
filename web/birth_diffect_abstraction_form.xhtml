@@ -114,7 +114,8 @@
                                                     </p:autoComplete>
                                                 </p:panelGrid>
 
-                                                <p:outputLabel value="4. Date of Case Identified"></p:outputLabel><p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40" id="txtDCI"></p:calendar>
+                                                <p:outputLabel value="4. Date of Case Identified"></p:outputLabel>
+                                                <p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40" id="txtDCI" pattern="dd-MM-yyyy"></p:calendar>
 
 
                                                 <p:outputLabel value="5. BHT No"></p:outputLabel><p:inputText value="#{abstractionFormController.current.bhtno}" size="40" id="txtBHT"></p:inputText>
@@ -132,7 +133,7 @@
                                                 <p:outputLabel value="8. Name of the mother"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.mother.name}" size="40" id="txtMother"></p:inputText>
                                                 <p:outputLabel value="9. Mother’s Date of Birth"></p:outputLabel>
-                                                <p:calendar value="#{abstractionFormController.current.mother.dob}" size="40" id="txtMDOB"></p:calendar>
+                                                <p:calendar value="#{abstractionFormController.current.mother.dob}" size="40" id="txtMDOB" navigator="true" pattern="dd-MM-yyyy" yearRange="c-44:c+16"></p:calendar>
                                                 <p:outputLabel value="10. Age"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.mother.age}" size="40" id="txtMAge"></p:inputText>
 
@@ -243,7 +244,7 @@
                                                 <p:outputLabel value="Examiner"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.examinar}"></p:inputText>
                                                 <p:outputLabel value="Date"></p:outputLabel>
-                                                <p:calendar value="#{abstractionFormController.current.dysmorphologyExamination.dysDate}"></p:calendar>
+                                                <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.dysmorphologyExamination.dysDate}" ></p:calendar>
                                                 <p:outputLabel value="Facility"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.dysmorphologyExamination.facility}"></p:inputText>
                                             </p:panelGrid>
@@ -1135,7 +1136,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest3}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed3}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed3}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility3}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results3}" size="40"></p:inputText>
                                             <p:outputLabel value="Lab Tests / Procedure"></p:outputLabel>
@@ -1143,7 +1144,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest4}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed4}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed4}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility4}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results4}" size="40"></p:inputText>
                                             <p:outputLabel value="Lab Tests / Procedure"></p:outputLabel>
@@ -1151,7 +1152,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest5}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed5}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed5}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility5}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results5}" size="40"></p:inputText>
                                         </p:panelGrid>
@@ -1165,8 +1166,8 @@
                                             <p:outputLabel value="Gestational Age at Delivery"></p:outputLabel>
                                             <p:outputLabel></p:outputLabel>
                                             <p:outputLabel value="LMP"></p:outputLabel>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.lmpDate}"></p:calendar>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.lmpDelDate}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.lmpDate}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.lmpDelDate}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.lmpAge}" id="gad1"><p:watermark for="gad1" value="Weeks"></p:watermark></p:inputText>
                                             <p:outputLabel></p:outputLabel>
                                             <p:outputLabel value="Ultrasound"></p:outputLabel>
@@ -1175,9 +1176,9 @@
                                             <p:outputLabel value="Estimated Date of Delivery"></p:outputLabel>
                                             <p:outputLabel value="Gestational Age at Delivery"></p:outputLabel>
                                             <p:outputLabel></p:outputLabel>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.ultrasoundDate}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.ultrasoundDate}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.gestationalAgeatUltrasound}" id="gad2"><p:watermark for="gad2" value="Weeks"></p:watermark></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.ultrasoundDelDate}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.ultrasoundDelDate}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.ultrasoundAge}" id="us"><p:watermark for="us" value="Weeks"></p:watermark></p:inputText>
                                             <p:outputLabel value="Pregnancy Outcome"></p:outputLabel>
                                             <p:outputLabel value="APGAR at 1 minute"></p:outputLabel>
@@ -1223,7 +1224,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest6}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed6}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed6}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility6}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results6}" size="40"></p:inputText>
                                             <p:outputLabel value="Lab Tests / Procedure"></p:outputLabel>
@@ -1231,7 +1232,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest7}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed7}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed7}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility7}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results7}" size="40"></p:inputText>
                                             <p:outputLabel value="Lab Tests / Procedure"></p:outputLabel>
@@ -1239,7 +1240,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest8}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed8}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed8}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility8}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results8}" size="40"></p:inputText>
                                             <p:outputLabel value="Lab Tests / Procedure"></p:outputLabel>
@@ -1247,7 +1248,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest9}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed9}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed9}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility9}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results9}" size="40"></p:inputText>
                                             <p:outputLabel value="Lab Tests / Procedure"></p:outputLabel>
@@ -1255,7 +1256,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest10}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed10}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed10}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility10}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results10}" size="40"></p:inputText>
                                         </p:panelGrid>
@@ -1268,7 +1269,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest11}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed11}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed11}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility11}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results11}" size="40"></p:inputText>
                                             <p:outputLabel value="Lab Tests / Procedure"></p:outputLabel>
@@ -1276,7 +1277,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest12}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed12}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed12}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility12}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results12}" size="40"></p:inputText>
                                             <p:outputLabel value="Lab Tests / Procedure"></p:outputLabel>
@@ -1284,7 +1285,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest13}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed13}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed13}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility13}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results13}" size="40"></p:inputText>
                                             <p:outputLabel value="Lab Tests / Procedure"></p:outputLabel>
@@ -1292,7 +1293,7 @@
                                             <p:outputLabel value="Facility"></p:outputLabel>
                                             <p:outputLabel value="Results and Interpretation"></p:outputLabel>
                                             <p:inputText value="#{abstractionFormController.current.labTest.labTest14}"></p:inputText>
-                                            <p:calendar value="#{abstractionFormController.current.labTest.datePreformed14}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" value="#{abstractionFormController.current.labTest.datePreformed14}"></p:calendar>
                                             <p:inputText value="#{abstractionFormController.current.labTest.facility14}"></p:inputText>
                                             <p:inputText value="#{abstractionFormController.current.labTest.results14}" size="40"></p:inputText>
                                         </p:panelGrid>
@@ -1301,7 +1302,7 @@
                                     <p:panel style=" width:80%;height:100%">
                                         <p:panelGrid columns="2" style="column-width: max-content">
                                             <p:outputLabel value="Date of Death"></p:outputLabel>
-                                            <p:calendar size="40" value="#{abstractionFormController.current.infant.dateOfDead}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true" size="40" value="#{abstractionFormController.current.infant.dateOfDead}"></p:calendar>
                                             <p:outputLabel value="Age at Death"></p:outputLabel>
                                             <p:inputText size="40" value="#{abstractionFormController.current.labTest.infantAodYrs}" id="ay"><p:watermark value="Years" for="ay"></p:watermark></p:inputText>
                                             <p:outputLabel></p:outputLabel>
@@ -1366,11 +1367,11 @@
                                             <p:outputLabel value="Designation of the Clinician / Medical Officer"></p:outputLabel>
                                             <p:inputText  size="40" id="txtdes" value="#{abstractionFormController.current.labTest.mo.designation}"></p:inputText>
                                             <p:outputLabel value="Approved Date"></p:outputLabel>
-                                            <p:calendar  size="40" id="txtmoapp" value="#{abstractionFormController.current.labTest.modate}"></p:calendar>
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true"  size="40" id="txtmoapp" value="#{abstractionFormController.current.labTest.modate}"></p:calendar>
                                             <p:outputLabel value="Name of the Head of the Institution"></p:outputLabel>
                                             <p:inputText  size="40" id="txthoi" value="#{abstractionFormController.current.labTest.hoi.name}"></p:inputText>
                                             <p:outputLabel value="Approved Date"></p:outputLabel>
-                                            <p:calendar  size="40" id="txthoiapp" value="#{abstractionFormController.current.labTest.hoidate}"></p:calendar> 
+                                            <p:calendar pattern="dd-MM-yyyy" navigator="true"  size="40" id="txthoiapp" value="#{abstractionFormController.current.labTest.hoidate}"></p:calendar> 
                                         </p:panelGrid>
                                     </p:panel>
                                 </div>

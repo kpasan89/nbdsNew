@@ -29,7 +29,7 @@
                             <p:column headerText="No" width="25">
                                 <h:outputLabel value="#{iv + 1}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Infants Name" sortBy="#{aaf.infant.name}" filterBy="#{aaf.infant.name}">
+                            <p:column headerText="Infants Name" sortBy="#{aaf.infant.name}" filterBy="#{aaf.infant.name}" filterMatchMode="contains">
                                 <h:outputLabel value="#{aaf.infant.name}"></h:outputLabel>
                             </p:column>
                             <p:column headerText="Infants Sex" sortBy="#{aaf.infant.personSex}" width="100">
@@ -38,7 +38,7 @@
                             <p:column headerText="Diagnosis" sortBy="#{aaf.diagnosis}" width="200">
                                 <h:outputLabel value="#{aaf.diagnosis}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Institution" sortBy="#{aaf.hospital.name}" filterBy="#{aaf.hospital.name}" width="100">
+                            <p:column headerText="Institution" sortBy="#{aaf.hospital.name}" filterBy="#{aaf.hospital.name}" filterMatchMode="contains" width="100">
                                 <h:outputLabel value="#{aaf.hospital.name}"></h:outputLabel>
                             </p:column>
                             <p:column headerText="Ward" sortBy="#{aaf.ward.name}" width="100">
@@ -51,7 +51,7 @@
                             </p:column>
                             <p:column headerText="Delete Abstraction Form" width="100" rendered="#{sessionController.superUser or sessionController.sysAdmin}">
                                 <p:commandButton ajax="false" value="Delete" action="#{abstractionFormController.retiredRecord()}" disabled="#{sessionController.superUser}" >
-                                    <f:setPropertyActionListener value="#{anf}" target="#{abstractionFormController.current}" ></f:setPropertyActionListener>
+                                    <f:setPropertyActionListener value="#{aaf}" target="#{abstractionFormController.current}" ></f:setPropertyActionListener>
                                 </p:commandButton>
                             </p:column>
 

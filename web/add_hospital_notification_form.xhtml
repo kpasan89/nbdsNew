@@ -113,7 +113,7 @@
 
 
                                         <p:outputLabel value="4. Date of Case Identified"></p:outputLabel>
-                                        <p:calendar value="#{notificationFormController.current.caseIdentifiedDate}" size="40" id="calIden"></p:calendar>
+                                        <p:calendar value="#{notificationFormController.current.caseIdentifiedDate}" size="40" id="calIden" navigator="true" pattern="dd-MM-yyyy"></p:calendar>
                                         <p:outputLabel value="5. BHT No"></p:outputLabel>
                                         <p:inputText value="#{notificationFormController.current.bhtNo}" size="40" id="txtBHT"></p:inputText>
                                         <p:outputLabel value="6. Pregnancy Registration Number"></p:outputLabel>
@@ -137,7 +137,7 @@
                                         <p:outputLabel value="10. Name of the mother"></p:outputLabel>
                                         <p:inputText value="#{notificationFormController.current.mother.name}" size="40" id="txtMother"></p:inputText>
                                         <p:outputLabel value="11. Mother’s Date of Birth"></p:outputLabel>
-                                        <p:calendar value="#{notificationFormController.current.mother.dob}" size="40" id="txtMDOB"></p:calendar>
+                                        <p:calendar value="#{notificationFormController.current.mother.dob}" size="40" id="txtMDOB" navigator="true" pattern="dd-MM-yyyy" yearRange="c-44:c+16"></p:calendar>
                                         <p:outputLabel value="12. Age"></p:outputLabel>
                                         <p:inputText value="#{notificationFormController.current.mother.age}" size="40" id="txtMAge"></p:inputText>
                                         <p:outputLabel value="13. National Identity Card No"></p:outputLabel>
@@ -158,7 +158,7 @@
                                         <p:tab title="Details of Death" rendered="#{notificationFormController.current.live}">
                                             <p:panelGrid columns="2">
                                                 <p:outputLabel value="Date of Death"></p:outputLabel>
-                                                <p:calendar value="#{notificationFormController.current.infant.dateOfDead}" size="40" id="calDOD"></p:calendar>
+                                                <p:calendar value="#{notificationFormController.current.infant.dateOfDead}" size="40" id="calDOD" navigator="true" pattern="dd-MM-yyyy"></p:calendar>
                                                 <p:outputLabel value="Age at Death"></p:outputLabel>
                                                 <p:panelGrid columns="2">
                                                     <p:outputLabel value="Years"></p:outputLabel>
@@ -191,7 +191,7 @@
                                                 <p:outputLabel value="Name of the Head of the Institution"></p:outputLabel>
                                                 <p:inputText  size="40" id="txthoi" value="#{notificationFormController.current.hoi.name}"></p:inputText>
                                                 <p:outputLabel value="Approved Date"></p:outputLabel>
-                                                <p:calendar  size="40" id="txtapp" value="#{notificationFormController.current.approveDate}"></p:calendar>
+                                                <p:calendar  size="40" id="txtapp" value="#{notificationFormController.current.approveDate}" navigator="true" pattern="dd-MM-yyyy"></p:calendar>
 
                                             </p:panelGrid>
                                         </p:tab>

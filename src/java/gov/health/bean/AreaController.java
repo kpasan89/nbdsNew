@@ -295,6 +295,24 @@ public class AreaController implements Serializable {
         this.prepareSelectControlDisable();
     }
 
+    public void delete() {
+
+        if (current != null) {
+            current.setRetired(true);
+            current.setRetiredAt(Calendar.getInstance().getTime());
+            current.setRetirer(sessionController.getLoggedUser());
+            getFacade().edit(current);
+            JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
+        } else {
+            JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
+        }
+        recreateModel();
+        getItems();
+        selectText = "";
+        current = null;
+        this.prepareSelect();
+    }
+    
     public void saveSelected() {
 
         if (current.getId()!=null && current.getId()!= 0) {
@@ -333,23 +351,7 @@ public class AreaController implements Serializable {
         this.prepareSelect();
     }
 
-    public void delete() {
-
-        if (current != null) {
-            current.setRetired(true);
-            current.setRetiredAt(Calendar.getInstance().getTime());
-            current.setRetirer(sessionController.getLoggedUser());
-            getFacade().edit(current);
-            JsfUtil.addSuccessMessage(new MessageProvider().getValue("deleteSuccessful"));
-        } else {
-            JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
-        }
-        recreateModel();
-        getItems();
-        selectText = "";
-        current = null;
-        this.prepareSelect();
-    }
+    
 
     public boolean isModifyControlDisable() {
         return modifyControlDisable;

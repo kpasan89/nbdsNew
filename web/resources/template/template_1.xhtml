@@ -54,28 +54,11 @@
 
             <h:panelGrid columns="2" id="header" class="headerblock">
                 <h:panelGroup style="margin: auto">
-                    <h:graphicImage class="banner" library="image" name="BDS 2.png"  height="100%" width="100%"></h:graphicImage>                    
+                    <h:graphicImage class="banner" library="image" name="BDS 2.png"  height="100%" width="100%"></h:graphicImage> 
+
                 </h:panelGroup>
             </h:panelGrid>
 
-<!--            <h:panelGroup rendered="#">
-                <div align="right" style="position: absolute; top: 50%; right: 5%">
-                    <h:graphicImage  library="image" name="Frame.png"   height="25%" width="50%"></h:graphicImage>
-                </div>
-                <div align="right" style="position: absolute; top: 64.6%; right: 27%;">
-                    <p:imageSwitch effect="fade">
-                        <p:graphicImage library="image/DashBoard" name="P1.JPG" height="140%" width="180%" />
-                        <p:graphicImage library="image/DashBoard" name="P2.JPG" height="140%" width="180%" />
-                        <p:graphicImage library="image/DashBoard" name="P3.JPG" height="140%" width="180%" /> 
-                        <p:graphicImage library="image/DashBoard" name="P4.JPG" height="140%" width="180%" />
-                        <p:graphicImage library="image/DashBoard" name="P5.JPG" height="140%" width="180%" />
-                        <p:graphicImage library="image/DashBoard" name="P6.jpg" height="140%" width="180%" />
-                        <p:graphicImage library="image/DashBoard" name="P8.jpg" height="140%" width="180%" />
-                        <p:graphicImage library="image/DashBoard" name="P9.jpg" height="140%" width="180%" />
-                    </p:imageSwitch>
-                </div>
-            </h:panelGroup>-->
-            
             <div id="menu" >
                 <h:panelGroup  rendered="#{sessionController.logged}" style="margin: 0px; padding: 0px; border: 0px;" >
 
@@ -146,18 +129,19 @@
                 <h:panelGroup rendered="#{!sessionController.logged}" >
                     <ui:insert name="login"   >
                         <h:form>
-                            <div align="center" style="position: absolute; top: 40%; left: 25%">
-                                <p:panel style="width: 50%; height: 30%;">
-                                    <p:panelGrid columns="1">
-                                        <h:graphicImage  class="pdLogin" library="image" name="login.png"  height="30%" width="100%"></h:graphicImage>
-                                    </p:panelGrid>
+                            <div align="center" style="position: absolute; top: 28%; right: 2.5%">
+                                <p:panel style="width: 100%; height: 100%;">
+                                    
                                     <p:panelGrid columns="2">
                                         <p:outputLabel value="Username"></p:outputLabel>
                                         <p:inputText value="#{sessionController.userName}" autocomplete="off" required="true" requiredMessage="Please enter the user name"/>
                                         <p:outputLabel value="Password"></p:outputLabel>
                                         <p:password value="#{sessionController.passord}"  autocomplete="off" required="true" requiredMessage="Please enter the password" />
                                         <p:outputLabel></p:outputLabel>
-                                        <p:commandButton  ajax="false" id="btnLogin" value="#{labels.login}" action="#{sessionController.loginAction}"/>
+                                        <p:commandLink action="#{sessionController.loginAction}" ajax="false" >
+                                            <h:graphicImage width="100px" height="25px" library="image" name="login.png" />
+                                        </p:commandLink>
+                                        
                                     </p:panelGrid>
                                 </p:panel>
                             </div>
@@ -185,7 +169,9 @@
                     <h:panelGrid columns="3" >
                         <h:outputLabel rendered="#{sessionController.logged}" value="&copy;&nbsp;Ministry of Health, Sri Lanka." ></h:outputLabel>
                         <h:outputLabel rendered="#{sessionController.logged}" value="You are logged as #{sessionController.displayName}." ></h:outputLabel>
-                        <p:commandLink rendered="#{sessionController.logged}" value="Click here to Logout" action="#{sessionController.logout}" ajax="false"></p:commandLink>
+                        <p:commandLink rendered="#{sessionController.logged}" action="#{sessionController.logout}" ajax="false">
+                            <h:graphicImage width="100px" height="25px" library="image" name="logout.png" />
+                        </p:commandLink>
                     </h:panelGrid>
 
                 </h:form>

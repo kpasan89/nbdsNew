@@ -47,9 +47,9 @@
                             <h:outputLabel value="User name (Case Insensitive)" />
                             <p:inputText value="#{sessionController.newUserName}" />
                             <h:outputLabel value="Password (Case sensitive)" />
-                            <h:inputSecret value="#{sessionController.newPassword}" />
+                            <p:password feedback="true" value="#{sessionController.newPassword}" />
                             <h:outputLabel value="Re-enter password" />
-                            <h:inputSecret value="#{sessionController.newPasswordConfirm}" />
+                            <p:password feedback="true" value="#{sessionController.newPasswordConfirm}" />
                             <p:outputLabel></p:outputLabel>
                             <p:commandButton ajax="false" id="btnReg"  type="submit" value="Register" action="#{sessionController.registeUser}" />
                         </p:panelGrid>

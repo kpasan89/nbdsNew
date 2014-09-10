@@ -65,7 +65,7 @@
                     <h:form >  
                         <div>
                             <p:menubar styleClass="nonPrintBlock" style="border: 0px">
-                                <p:menuitem  ajax="false"  action="index" value="Home" icon="ui-icon-home"></p:menuitem>
+                                <p:menuitem  ajax="false"  action="index" value="Home" icon="ui-icon-home"><p:commandLink action="index" ajax="false" ><h:graphicImage width="40px" height="40px" library="image" name="home.png"/></p:commandLink></p:menuitem>
                                 <p:submenu label="Cases"  rendered="#{sessionController.sysAdmin or sessionController.superUser}">
                                     <p:menuitem ajax="false" action="#{notificationFormController.listUnregForms()}" value="Register Notifications" ></p:menuitem>
                                     <p:menuitem ajax="false" action="#{notificationFormController.listRegForms()}" value="List All Registered Notifications" ></p:menuitem>

@@ -13,13 +13,13 @@
 
             <p:growl id="messages" autoUpdate="true"/>
 
-            <p:panel>
-                <f:facet name="header" >
+            <p:panel style="border: #ffffff">
+<!--                <f:facet name="header" >
                     <h:outputLabel value="Dash board" style="alignment-adjust: middle"></h:outputLabel>
-                </f:facet>
+                </f:facet>-->
                 <h:graphicImage  class="pdLogin" library="image" name="Welcome.png"  height="60%" width="100%"></h:graphicImage>  
 
-                <div align="right" style="position: absolute; top: 65%; right: 72%;">
+                <div align="right" style="position: absolute; top: 60%; right: 72%;">
                     <p:galleria value="#{imagesView.images}" var="image" panelWidth="300" panelHeight="150">
                         <p:graphicImage name="image/DashBoard/#{image}" alt="Image Description for #{image}" title="#{image}" height="100%" width="100%"/>
                     </p:galleria>

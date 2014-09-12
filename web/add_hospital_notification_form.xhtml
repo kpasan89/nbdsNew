@@ -25,6 +25,7 @@
                         </f:facet>
 
                         <div align="center">
+
                             <p:panel style=" width:60%;height:100%">
                                 <div align="right" style="position: absolute; top: 45%; left: 4%;">
                                     <p:graphicImage library="image" name="baby3.png" style="height: 120px; width: 120px;"/>
@@ -36,7 +37,8 @@
                         </div>
                         <p:spacer width="10"></p:spacer>
                         <div align="center">
-                            <p:panel style=" width:60%;height:100%">
+                            <p:panel style=" width:60%;height:100%" id="nf">
+
                                 <div align="center">
                                     <p:panelGrid columns="2" style="column-width: max-content">
                                         <p:outputLabel value="1. Infant's name"></p:outputLabel>
@@ -236,6 +238,7 @@
                                                                     <p:tooltip for="txthoi" value="Type Name of the HOI" showEffect="fade" hideEffect="fade" />
                                                                     <p:tooltip for="txtapp" value="Approved Date by HOI" showEffect="fade" hideEffect="fade" />
                                                                 </p:panelGrid>-->
+
                             </p:panel>
                         </div>
                         <f:facet name="footer">
@@ -244,7 +247,6 @@
                                 <p:commandButton ajax="false" value="Save" action="#{notificationFormController.saveSelected()}" id="cmdSv2" disabled="#{sessionController.superUser}"></p:commandButton></p>
                             <p:tooltip for="cmdSv2" value="Save Hospital Notification Form" showEffect="fade" hideEffect="fade" />
                         </f:facet>
-
 
                     </p:panel>
 

@@ -14,7 +14,10 @@
     <ui:define name="content">
         <p:growl autoUpdate="true" />
         <h:outputStylesheet library="css" name="pdhscss1.css"   />
-        <p:panel header="Mange Users" rendered="#{sessionController.sysAdmin or sessionController.insAdmin}" >
+        <p:panel rendered="#{sessionController.sysAdmin or sessionController.insAdmin}" style="border: #ffffff">
+            <f:facet name="header" >
+                <h:outputLabel value="Manage Users" ></h:outputLabel>
+            </f:facet>
             <h:form >
                 <div align="center">
                     <h:panelGrid columns="1">

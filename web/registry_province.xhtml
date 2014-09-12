@@ -12,7 +12,7 @@
 
             <ui:define name="content">
                 <h:form>
-                    <p:panel rendered="#{sessionController.insAdmin or sessionController.sysAdmin or sessionController.superUser}">
+                    <p:panel rendered="#{sessionController.insAdmin or sessionController.sysAdmin or sessionController.superUser}" style="border: #ffffff">
                         <f:facet name="header" >
                             <h:outputLabel value="Province Notification Register" ></h:outputLabel>
                             <p:spacer width="10"></p:spacer>
@@ -44,7 +44,7 @@
                             <p:column headerText="Diagnosis" sortBy="#{anf.diagnosis}">
                                 <h:outputLabel value="#{anf.diagnosis}"></h:outputLabel>
                             </p:column>
-                            <p:column headerText="Institution" width="100" sortBy="#{anf.hospital.name}" filterBy="#{anf.hospital.name}"filterMatchMode="contains">
+                            <p:column headerText="Institution" width="100" sortBy="#{anf.hospital.name}" filterBy="#{anf.hospital.name}" filterMatchMode="contains">
                                 <h:outputLabel value="#{anf.hospital.name}"></h:outputLabel>
                             </p:column>
                             <p:column headerText="Ward" width="100" sortBy="#{anf.ward.name}">

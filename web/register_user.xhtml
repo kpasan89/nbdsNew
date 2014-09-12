@@ -12,7 +12,10 @@
         <p:growl autoUpdate="true"/>
 
         <h:form>
-            <p:panel header="Creating a new user" rendered="#{sessionController.sysAdmin or sessionController.insAdmin}">
+            <p:panel rendered="#{sessionController.sysAdmin or sessionController.insAdmin}" style="border: #ffffff">
+                <f:facet name="header" >
+                    <h:outputLabel value="Creating a new user" ></h:outputLabel>
+                </f:facet>
                 <div align="center">
                     <p:panel style="width: 400px">
                         <p:panelGrid columns="2" >

@@ -57,6 +57,8 @@ public class NotificationForm implements Serializable {
     String bhtNo2;
     boolean live;
     String diagnosis;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date diagnosisDate;
     String motherName;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date motherDoB;
@@ -126,8 +128,17 @@ public class NotificationForm implements Serializable {
     @Enumerated(EnumType.STRING)
     Birth birthType;
     int multiBirths;
-    
 
+    public Date getDiagnosisDate() {
+        return diagnosisDate;
+    }
+
+    public void setDiagnosisDate(Date diagnosisDate) {
+        this.diagnosisDate = diagnosisDate;
+    }
+
+    
+    
     public int getMultiBirths() {
         return multiBirths;
     }

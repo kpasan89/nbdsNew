@@ -42,8 +42,9 @@
 
                                                 <p:outputLabel value="1. Infant's name"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.infant.name}" size="40" id="txtInfantName"></p:inputText>
-
-                                                <p:outputLabel value="2. Sex of infant"></p:outputLabel>
+                                                <p:outputLabel value="2. Date of Birth"></p:outputLabel>
+                                                <p:calendar value="#{abstractionFormController.current.infant.dob}" size="40" id="txtInfantDOB" navigator="true" pattern="dd-MM-yyyy"></p:calendar>
+                                                <p:outputLabel value="3. Sex of infant"></p:outputLabel>
                                                 <p:selectOneRadio value="#{abstractionFormController.current.infant.personSex}" id="Sex">
                                                     <f:selectItem itemValue="MALE" itemLabel="Male"></f:selectItem>
                                                     <f:selectItem itemValue="FEMALE" itemLabel="Female"></f:selectItem>
@@ -51,7 +52,7 @@
                                                 </p:selectOneRadio>
 
                                                 <p:panelGrid columns="2">
-                                                    <p:outputLabel><font color="blue">3. Location where case identified :</font></p:outputLabel>
+                                                    <p:outputLabel><font color="blue">4. Location where case identified :</font></p:outputLabel>
                                                     <p:outputLabel></p:outputLabel>
 
                                                     <p:outputLabel value="Hospital"></p:outputLabel>
@@ -114,52 +115,53 @@
                                                     </p:autoComplete>
                                                 </p:panelGrid>
 
-                                                <p:outputLabel value="4. Date of Case Identified"></p:outputLabel>
+                                                <p:outputLabel value="5. Date of Case Identified"></p:outputLabel>
                                                 <p:calendar value="#{abstractionFormController.current.caseIdentifiedDate}" size="40" id="txtDCI" pattern="dd-MM-yyyy"></p:calendar>
 
 
-                                                <p:outputLabel value="5. BHT No"></p:outputLabel><p:inputText value="#{abstractionFormController.current.bhtno}" size="40" id="txtBHT"></p:inputText>
+                                                <p:outputLabel value="6. BHT No"></p:outputLabel><p:inputText value="#{abstractionFormController.current.bhtno}" size="40" id="txtBHT"></p:inputText>
 
-                                                <p:outputLabel value="6. Whether the baby alive or dead ?"></p:outputLabel>
+                                                <p:outputLabel value="7. Whether the baby alive or dead ?"></p:outputLabel>
                                                 <p:selectOneRadio id="liveOrDead" value="#{abstractionFormController.current.live}">
                                                     <f:selectItem itemValue="False" itemLabel="Live"></f:selectItem>
                                                     <f:selectItem itemValue="True" itemLabel="Dead"></f:selectItem>
                                                     <!--                                                    <f:ajax execute="@this" render="panelDead" ></f:ajax>-->
                                                 </p:selectOneRadio>
 
-                                                <p:outputLabel value="7. Diagnosis / Birth Defect Coding"></p:outputLabel>
+                                                <p:outputLabel value="8. Diagnosis / Birth Defect Coding"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.diagnosis}" size="40" id="txtDiag"></p:inputText>
-
-                                                <p:outputLabel value="8. Name of the mother"></p:outputLabel>
+                                                <p:outputLabel value="9. Date at Diagnosis"></p:outputLabel>
+                                                <p:calendar value="#{abstractionFormController.current.diagnosisDate}" size="40" id="txtDiagDate" navigator="true" pattern="dd-MM-yyyy"></p:calendar>
+                                                <p:outputLabel value="10. Name of the mother"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.mother.name}" size="40" id="txtMother"></p:inputText>
-                                                <p:outputLabel value="9. Mother’s Date of Birth"></p:outputLabel>
+                                                <p:outputLabel value="11. Mother’s Date of Birth"></p:outputLabel>
                                                 <p:calendar value="#{abstractionFormController.current.mother.dob}" size="40" id="txtMDOB" navigator="true" pattern="dd-MM-yyyy" yearRange="c-44:c+16"></p:calendar>
-                                                <p:outputLabel value="10. Age"></p:outputLabel>
+                                                <p:outputLabel value="12. Age"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.mother.age}" size="40" id="txtMAge"></p:inputText>
 
-                                                <p:outputLabel value="11. National Identity Card No"></p:outputLabel>
+                                                <p:outputLabel value="13. National Identity Card No"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.mother.nic}" size="40" id="txtNIC"></p:inputText>
-                                                <p:outputLabel value="12. Ethnicity"></p:outputLabel>
+                                                <p:outputLabel value="14. Ethnicity"></p:outputLabel>
                                                 <p:selectOneMenu value="#{abstractionFormController.current.mother.ethnicity}" id="selEth">
                                                     <f:selectItems value="#{enumController.ethnicities}" ></f:selectItems>
                                                 </p:selectOneMenu>
-                                                <p:outputLabel value="13. Residence Address"></p:outputLabel>
+                                                <p:outputLabel value="15. Residence Address"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.mother.address}" size="40" id="txtAddress"></p:inputText>
-                                                <p:outputLabel value="14. Phone1"></p:outputLabel>
+                                                <p:outputLabel value="16. Phone1"></p:outputLabel>
                                                 <p:inputMask value="#{abstractionFormController.current.tp1}" size="40" id="txtP1" mask="999-9999999"></p:inputMask>
-                                                <p:outputLabel value="15. Phone2"></p:outputLabel>
+                                                <p:outputLabel value="17. Phone2"></p:outputLabel>
                                                 <p:inputMask value="#{abstractionFormController.current.tp2}" size="40" id="txtP2" mask="999-9999999"></p:inputMask>
 
-                                                <p:outputLabel value="16. Total Pregnancies"></p:outputLabel>
+                                                <p:outputLabel value="18. Total Pregnancies"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.totPreg}" size="40" id="txtTP"></p:inputText>
 
-                                                <p:outputLabel value="17. Live Births"></p:outputLabel>
+                                                <p:outputLabel value="19. Live Births"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.liveBirth}" size="40" id="txtLB"></p:inputText>
 
-                                                <p:outputLabel value="18. Spontaneous Fetal Deaths"></p:outputLabel>
+                                                <p:outputLabel value="20. Spontaneous Fetal Deaths"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.sfDeath}" size="40" id="txtSFD"></p:inputText>
 
-                                                <p:outputLabel value="19. Unspecified Fetal Deaths / Pregnancy terminations"></p:outputLabel>
+                                                <p:outputLabel value="21. Unspecified Fetal Deaths / Pregnancy terminations"></p:outputLabel>
                                                 <p:inputText value="#{abstractionFormController.current.ufDeath}" size="40" id="txtUFD"></p:inputText>
 
                                                 <p:outputLabel><i><font size="2.5" color="red">Please select all maternal illnesses, conditions, and complications that apply</font></i></p:outputLabel>

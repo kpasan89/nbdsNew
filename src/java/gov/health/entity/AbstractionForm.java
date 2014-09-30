@@ -62,6 +62,8 @@ public class AbstractionForm implements Serializable {
     String bhtno;
     boolean live;
     String diagnosis;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date diagnosisDate;
     @ManyToOne(cascade = CascadeType.ALL)
     Person mother;
     //String motherName;
@@ -117,6 +119,16 @@ public class AbstractionForm implements Serializable {
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     Date retiredAt;
 
+    public Date getDiagnosisDate() {
+        return diagnosisDate;
+    }
+
+    public void setDiagnosisDate(Date diagnosisDate) {
+        this.diagnosisDate = diagnosisDate;
+    }
+
+   
+    
     public boolean isRetired() {
         return retired;
     }

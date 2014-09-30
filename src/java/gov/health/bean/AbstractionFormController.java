@@ -114,6 +114,7 @@ public class AbstractionFormController implements Serializable {
         current.setCaseIdentifiedDate(notificationForm.getCaseIdentifiedDate());
         current.setBhtno(notificationForm.getBhtNo());
         current.setDiagnosis(notificationForm.getDiagnosis());
+        current.setDiagnosisDate(notificationForm.getDiagnosisDate());
         current.setTp1(notificationForm.getTp1());
         current.setTp2(notificationForm.getTp2());
         current.setLive(notificationForm.getLive());
@@ -344,6 +345,7 @@ public class AbstractionFormController implements Serializable {
             JsfUtil.addErrorMessage(new MessageProvider().getValue("nothingToDelete"));
         }
     }
+
     public Department getDepartment() {
         return department;
     }

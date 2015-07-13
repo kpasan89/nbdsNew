@@ -1,13 +1,6 @@
 package gov.health.bean;
 
-/*
- * MSc(Biomedical Informatics) Project
- * 
- * Development and Implementation of a Web-based Combined Data Repository of 
- Genealogical, Clinical, Laboratory and Genetic Data 
- * and
- * a Set of Related Tools
- */
+
 import gov.health.entity.Area;
 import gov.health.entity.Department;
 import gov.health.facade.NotificationFormFacade;

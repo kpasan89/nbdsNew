@@ -19,7 +19,6 @@ import org.primefaces.model.TreeNode;
 
 import gov.health.facade.InstitutionFacade;
 import gov.health.entity.Institution;
-import gov.health.entity.InstitutionSet;
 import gov.health.entity.InstitutionType;
 import gov.health.entity.PersonInstitution;
 import gov.health.facade.InstitutionSetFacade;

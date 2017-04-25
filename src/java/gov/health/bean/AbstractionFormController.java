@@ -92,6 +92,7 @@ public class AbstractionFormController implements Serializable {
         if (notificationForm.getAbstractionForm() == null) {
             current = new AbstractionForm();
             notificationForm.setAbstractionForm(current);
+            
             current.setNotificationForm(notificationForm);
 
             DysmorphologyExamination dysmorphologyExamination = new DysmorphologyExamination();
